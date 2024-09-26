@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "IT Exploration"
+  name: "Syllabus"
   text: "IT Exploration"
   tagline: My great project tagline
   actions:

@@ -2,8 +2,12 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: "IT Exploration",
-  description: "IT Exploration",
+  base: '/syllabus/',
+  markdown: {
+    lineNumbers: true,
+  },
+  title: "Syllabus",
+  description: "Syllabus | IT Exploration",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
