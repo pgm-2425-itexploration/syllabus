@@ -3,16 +3,25 @@
 layout: home
 
 hero:
-  name: "Syllabus"
-  text: "IT Exploration"
-  tagline: My great project tagline
+  name: "IT Exploration"
+  text: "Syllabus"
+  tagline: Learning by doing!
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Web fundamentals
+      link: /workshops/web-fundamentals
+    - theme: brand
+      text: Front-end Frameworks
+      link: /workshops/front-end-frameworks
+    - theme: brand
+      text: Front-end UI Frameworks
+      link: /workshops/front-end-ui-frameworks
+    - theme: brand
+      text: Back-end Frameworks
+      link: /workshops/back-end-frameworks
+    - theme: brand
+      text: CMS
+      link: /workshops/cms
 
 features:
   - title: Feature A
@@ -21,5 +30,6 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    link: /test
 ---
 

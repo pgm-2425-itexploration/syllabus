@@ -6,27 +6,57 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
-  title: "Syllabus",
+  title: "IT Exploration | Syllabus",
   description: "Syllabus | IT Exploration",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' }
+      { text: 'Workshops', link: '/workshops' },
     ],
-
     sidebar: [
       {
-        text: 'Examples',
+        text: 'Web fundamentals',
+        link: '/workshops/web-fundamentals',
+        collapsed: false,
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
+          { text: 'Open UI', link: '/workshops/web-fundamentals/open-ui' },
+          { text: 'CSS', 
+            items: [
+              { text: 'Nesting', link: '/workshops/web-fundamentals/css/nesting' },
+              { text: 'Houdini', link: '/workshops/web-fundamentals/css/houdini' },
+            ]
+           },
         ]
-      }
+      },
+      {
+        text: 'Front-end Frameworks',
+        link: '/workshops/front-end-frameworks',
+        collapsed: false,
+        items: []
+      },
+      {
+        text: 'Front-end UI Frameworks',
+        link: '/workshops/front-end-ui-frameworks',
+        collapsed: false,
+        items: []
+      },
+      {
+        text: 'Back-end Frameworks',
+        link: '/workshops/back-end-frameworks',
+        collapsed: false,
+        items: []
+      },
+      {
+        text: 'CMS',
+        link: '/workshops/cms',
+        collapsed: false,
+        items: []
+      },
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/pgm-2425-itexploration/syllabus' }
     ]
   }
 })
