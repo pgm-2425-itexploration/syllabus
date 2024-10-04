@@ -1,19 +1,21 @@
 import { defineConfig } from 'vitepress'
 
+const base = '/syllabus'
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/syllabus/',
+  base: '/syllabus',
   markdown: {
     lineNumbers: true,
   },
   title: "PGM | IT Exploration",
   description: "IT Exploration",
   head: [
-    ['link', { rel: "apple-touch-icon", sizes: "180x180", href: "/assets/favicons/apple-touch-icon.png" }],
-    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: "/assets/favicons/favicon-32x32.png" }],
-    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: "/assets/favicons/favicon-16x16.png" }],
-    ['link', { rel: "manifest", href: "/assets/favicons/site.webmanifest" }],
-    ['link', { rel: "mask-icon", href: "/assets/favicons/safari-pinned-tab.svg", color: "#ff1f4f" }],
+    ['link', { rel: "apple-touch-icon", sizes: "180x180", href: `${base}/assets/favicons/apple-touch-icon.png` }],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: `${base}/assets/favicons/favicon-32x32.png` }],
+    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: `${base}/assets/favicons/favicon-16x16.png` }],
+    ['link', { rel: "manifest", href: `${base}/assets/favicons/site.webmanifest` }],
+    ['link', { rel: "mask-icon", href: `${base}/assets/favicons/safari-pinned-tab.svg`, color: "#ff1f4f" }],
     ['meta', { name: "msapplication-TileColor", content: "#ffffff" }],
     ['meta', { name: "theme-color", content: "#ffffff" }],
   ],
