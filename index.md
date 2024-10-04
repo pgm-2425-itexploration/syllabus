@@ -4,8 +4,7 @@ layout: home
 
 hero:
   name: "IT Exploration"
-  text: "Syllabus"
-  tagline: Learning by doing!
+  tagline: Associate Degree in Programming at Artevelde University of Applied Sciences!
   actions:
     - theme: brand
       text: Web fundamentals
@@ -32,4 +31,3 @@ features:
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
     link: /test
 ---
-
