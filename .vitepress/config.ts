@@ -1,58 +1,7 @@
 import path from 'path'
 import { defineConfig, createContentLoader, type SiteConfig, type HeadConfig } from 'vitepress'
-import tutorialsJSON from './dist/api/tutorials.json'
-import posts from './dist/api/posts.json'
 import writeJSONToFile from './functions/writeJSONToFile'
 import { generateSidebar } from 'vitepress-sidebar';
-
-const getTutorialsPages = () => {
-
-  const categories = tutorialsJSON.map(tutorial => tutorial.frontmatter.category)
-  const uniqueCategories = [...new Set(categories)]
-
-  const tutorialsPages = uniqueCategories.map(category => {
-    return {
-      text: category,
-      collapsed: false,
-      items: getTutorialsBasedOnCategory(category).map(tutorial => {
-        return {
-          text: tutorial.frontmatter.title,
-          link: tutorial.url
-        }
-      })
-    }
-  })
-
-  return tutorialsPages
-}
-
-const getTutorialsBasedOnCategory = (category: string) => {
-  return tutorialsJSON.filter(tutorial => tutorial.frontmatter.category === category)
-}
-
-const getPostsPages = () => {
-  const years = posts.map(post => post.frontmatter.date.split('-')[0])
-  const uniqueYears = [...new Set(years)]
-
-  const postsPages = uniqueYears.map(year => {
-    return {
-      text: year,
-      collapsed: false,
-      items: getPostsBasedOnYear(year).map(post => {
-        return {
-          text: post.frontmatter.title,
-          link: post.url
-        }
-      })
-    }
-  })
-
-  return postsPages
-}
-
-const getPostsBasedOnYear = (year: string) => {
-  return posts.filter(post => post.frontmatter.date.split('-')[0] === year)
-}
 
 
 // https://vitepress.dev/reference/site-config
