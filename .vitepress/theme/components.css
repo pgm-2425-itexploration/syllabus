@@ -29,6 +29,7 @@
         @media (width > 768px) {
             gap: 2rem;
             flex-direction: row;
+            align-items: center;
         }
 
         &:hover {
