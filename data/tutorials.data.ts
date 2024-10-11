@@ -13,9 +13,17 @@ export default createContentLoader('tutorials/*.md', {
         excerpt,
         html,
         title: frontmatter.title,
-        description: frontmatter.description,
+        synopsis: frontmatter.synopsis,
         thumbnailUrl: frontmatter.thumbnailUrl,
-        date: formatDate(frontmatter.date)
+        date: formatDate(frontmatter.date),
+        author: {
+          name: frontmatter.author.name,
+          socials: {
+            website: frontmatter.author.socials.website,
+            linkedin: frontmatter.author.socials.linkedin,
+            github: frontmatter.author.socials.github
+          }
+        },
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }

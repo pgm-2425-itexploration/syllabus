@@ -9,5 +9,7 @@ import { data as posts } from '../data/posts.data.ts'
 import Posts from '../components/posts/Posts.vue'
 </script>
 
+<h1>Posts</h1>
+
 <Posts :posts="posts"></Posts>
 

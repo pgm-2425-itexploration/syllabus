@@ -1,6 +1,6 @@
 ---
-title: 'Svelte'
-synopsis: 'Svelte is a modern front-end framework that allows developers to build fast, optimized websites with ease.'
+title: 'Astro'
+synopsis: 'Astro is a modern static site generator that allows developers to build fast, optimized websites with ease.'
 date: 2024-10-10
 author:
   name: 'John Doe'
@@ -18,5 +18,6 @@ head:
     - name: keywords
       content: 'svelte front-end'
 ---
+
 
 # Hallo

@@ -13,11 +13,19 @@ export interface Post {
 export interface Tutorial {
   url: string;
   title: string;
-  description: string;
+  synopsis: string;
   html: string | undefined;
   thumbnailUrl: string;
   date: {
     time: number
     string: string
+  };
+  author: {
+    name: string;
+    socials: {
+      website: string;
+      linkedin: string;
+      github: string;
+    }
   }
 }

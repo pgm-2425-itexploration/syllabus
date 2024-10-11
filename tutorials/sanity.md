@@ -1,6 +1,6 @@
 ---
-title: 'Svelte'
-synopsis: 'Svelte is a modern front-end framework that allows developers to build fast, optimized websites with ease.'
+title: 'Sanity'
+synopsis: 'Sanity is a modern headless CMS that allows developers to build fast, optimized websites with ease.'
 date: 2024-10-10
 author:
   name: 'John Doe'
@@ -9,7 +9,7 @@ author:
     linkedin: 'https://www.linkedin.com/in/john-doe/'
     github: 'https://www.github.com/johndoe/'
 thumbnailUrl: '/assets/1728555601054.jpg'
-category: 'Front-End'
+category: 'CMS'
 head:
   - - meta
     - name: description

@@ -19,7 +19,7 @@ const classes = computed(() => [props.size, `count-${props.tutorials.length}`])
 <template>
   <div class="Tutorials" :class="classes">
     <div class="container">
-      <div v-for="tutorial in tutorials" :key="tutorial.title" class="item">
+      <div v-for="tutorial in tutorials" :key="tutorial.title" class="tutorials-container">
         <TutorialItem :size="size" :tutorial="tutorial" />
       </div>
     </div>

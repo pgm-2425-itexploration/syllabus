@@ -1,6 +1,57 @@
 import path from 'path'
 import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import { defineConfig, createContentLoader, type SiteConfig, type HeadConfig } from 'vitepress'
+import tutorials from './dist/api/tutorials.json'
+import posts from './dist/api/posts.json'
+
+const getTutorialsPages = () => {
+  const categories = tutorials.map(tutorial => tutorial.frontmatter.category)
+  const uniqueCategories = [...new Set(categories)]
+
+ const tutorialsPages = uniqueCategories.map(category => {
+    return {
+      text: category,
+      collapsed: false,
+      items: getTutorialsBasedOnCategory(category).map(tutorial => {
+        return {
+          text: tutorial.frontmatter.title,
+          link: tutorial.url
+        }
+      })
+    }
+  })
+
+  return tutorialsPages
+}
+
+const getTutorialsBasedOnCategory = (category: string) => {
+  return tutorials.filter(tutorial => tutorial.frontmatter.category === category)
+}
+
+const getPostsPages = () => {
+  const years = posts.map(post => post.frontmatter.date.split('-')[0])
+  const uniqueYears = [...new Set(years)]
+
+  const postsPages = uniqueYears.map(year => {
+    return {
+      text: year,
+      collapsed: false,
+      items: getPostsBasedOnYear(year).map(post => {
+        return {
+          text: post.frontmatter.title,
+          link: post.url
+        }
+      })
+    }
+  })
+
+  return postsPages
+}
+
+const getPostsBasedOnYear = (year: string) => {
+  return posts.filter(post => post.frontmatter.date.split('-')[0] === year)
+}
+
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -20,98 +71,24 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Who are we', link: '/who-are-we' },
       { text: 'Tutorials', link: '/tutorials' },
-      { text: 'Blog', link: '/posts' },
+      { text: 'Posts', link: '/posts' },
       { text: 'Contact', link: '/contact' },
     ],
     sidebar: {
       'tutorials': [
-        {
-          text: 'Full Stack',
-          link: '/tutorials/full-stack',
-          collapsed: false,
-          items: [
-            { text: 'Open UI', link: '/tutorials/full-stack/open-ui' },
-            {
-              text: 'CSS',
-              items: [
-                { text: 'Nesting', link: '/tutorials/full-stack/css/nesting' },
-                { text: 'Houdini', link: '/tutorials/full-stack/css/houdini' },
-              ]
-            },
-          ]
-        },
-        {
-          text: 'Front-end',
-          link: '/tutorials/front-end',
-          collapsed: false,
-          items: []
-        },
-        {
-          text: 'Back-end',
-          link: '/tutorials/back-end',
-          collapsed: false,
-          items: []
-        },
-        {
-          text: 'JAMstack',
-          link: '/tutorials/jamstack',
-          collapsed: false,
-          items: []
-        },
-        {
-          text: 'CMS',
-          link: '/tutorials/cms',
-          collapsed: false,
-          items: []
-        },
-        {
-          text: 'Mobile',
-          link: '/tutorials/mobile',
-          collapsed: false,
-          items: []
-        },
+        { text: 'Tutorials', link: '/tutorials/', items: [] },
+        ...getTutorialsPages()
       ],
-      'blog': [
-        {
-          text: '2021',
-          link: '/blog/2021',
-          collapsed: false,
-          items: [
-            { text: 'Week 1', link: '/blog/2021/week-1' },
-            { text: 'Week 2', link: '/blog/2021/week-2' },
-          ]
-        },
-        {
-          text: '2020',
-          link: '/blog/2020',
-          collapsed: false,
-          items: []
-        }
-      ],
+      'posts': [
+        { text: 'Posts', link: '/posts/', items: [] },
+        ...getPostsPages(),
+      ]
     },
 
     socialLinks: [
       { icon: 'github', link: 'https://github.com/pgm-2425-itexploration/syllabus' }
     ]
   },
-  // buildEnd: async (config: SiteConfig) => {
-  //   const posts = await createContentLoader('posts/*.md', {
-  //     excerpt: true,
-  //     render: true
-  //   }).load()
-
-  //   console.log(posts)
-
-  //   writeFileSync(path.join(config.outDir, 'api', 'posts.json'), JSON.stringify(posts))
-  // },
-  // async transformHead({ pageData }) {
-  //   const head: HeadConfig[] = []
-
-  //   head.push(['meta', { property: 'og:title', content: pageData.frontmatter.title }])
-  //   head.push(['meta', { property: 'og:description', content: pageData.frontmatter.description }])
-
-  //   return head
-  // },
   async buildEnd(config: SiteConfig) {
     const posts = await createContentLoader('posts/*.md', {
       excerpt: true,
