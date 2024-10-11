@@ -1,14 +1,15 @@
 import path from 'path'
-import { writeFileSync, existsSync, mkdirSync } from 'fs'
 import { defineConfig, createContentLoader, type SiteConfig, type HeadConfig } from 'vitepress'
-import tutorials from './dist/api/tutorials.json'
+import tutorialsJSON from './dist/api/tutorials.json'
 import posts from './dist/api/posts.json'
+import writeJSONToFile from './functions/writeJSONToFile'
 
 const getTutorialsPages = () => {
-  const categories = tutorials.map(tutorial => tutorial.frontmatter.category)
+
+  const categories = tutorialsJSON.map(tutorial => tutorial.frontmatter.category)
   const uniqueCategories = [...new Set(categories)]
 
- const tutorialsPages = uniqueCategories.map(category => {
+  const tutorialsPages = uniqueCategories.map(category => {
     return {
       text: category,
       collapsed: false,
@@ -25,7 +26,7 @@ const getTutorialsPages = () => {
 }
 
 const getTutorialsBasedOnCategory = (category: string) => {
-  return tutorials.filter(tutorial => tutorial.frontmatter.category === category)
+  return tutorialsJSON.filter(tutorial => tutorial.frontmatter.category === category)
 }
 
 const getPostsPages = () => {
@@ -84,32 +85,28 @@ export default defineConfig({
         ...getPostsPages(),
       ]
     },
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/pgm-2425-itexploration/syllabus' }
     ]
   },
   async buildEnd(config: SiteConfig) {
+    // Load posts and tutorials
     const posts = await createContentLoader('posts/*.md', {
       excerpt: true,
       render: true
     }).load()
-
-    const filteredPosts = posts.filter(post => post.frontmatter.published !== false && post.url !== '/posts/')
-    if (!existsSync(path.join(config.outDir, 'api'))) {
-      mkdirSync(path.join(config.outDir, 'api'), { recursive: true });
-    }
-    writeFileSync(path.join(config.outDir, 'api', 'posts.json'), JSON.stringify(filteredPosts))
 
     const tutorials = await createContentLoader('tutorials/*.md', {
       excerpt: true,
       render: true
     }).load()
 
+    // Filter published posts and tutorials
+    const filteredPosts = posts.filter(post => post.frontmatter.published !== false && post.url !== '/posts/')
     const filteredTutorials = tutorials.filter(tutorial => tutorial.frontmatter.published !== false && tutorial.url !== '/tutorials/')
-    if (!existsSync(path.join(config.outDir, 'api'))) {
-      mkdirSync(path.join(config.outDir, 'api'), { recursive: true });
-    }
-    writeFileSync(path.join(config.outDir, 'api', 'tutorials.json'), JSON.stringify(filteredTutorials))
+
+    // Write JSON files
+    writeJSONToFile(path.join(config.outDir, 'api', 'posts.json'), filteredPosts)
+    writeJSONToFile(path.join(config.outDir, 'api', 'tutorials.json'), filteredTutorials)
   }
 })
