@@ -5,8 +5,9 @@
     "type": "module",
     "scripts": {
         "docs:dev": "vitepress dev",
-        "docs:build": "vitepress build",
+        "docs:build": "tailwind:build && vitepress build",
         "docs:preview": "vitepress preview",
+        "tailwind:build": "npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css",
         "tailwind:watch": "npx nodemon -e vue --exec \"npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css\""
     },
     "devDependencies": {
