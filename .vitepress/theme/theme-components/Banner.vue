@@ -4,7 +4,7 @@ const { page, frontmatter } = useData()
 </script>
 
 <template>
-  <div v-if="frontmatter.thumbnailUrl" class="mb-8 max-w-[848px]">
+  <div v-if="frontmatter.thumbnailUrl" class="mb-8 min-[1280px]:max-w-[76%]">
 
     <img 
       :src="withBase(frontmatter.thumbnailUrl)" 
