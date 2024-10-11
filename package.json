@@ -7,9 +7,11 @@
         "docs:dev": "vitepress dev",
         "docs:build": "vitepress build",
         "docs:preview": "vitepress preview",
-        "docs:start": "npm run docs:build && npm run docs:dev"
+        "tailwind:watch": "npx nodemon -e vue --exec \"npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css\""
     },
     "devDependencies": {
+        "nodemon": "^3.1.7",
+        "tailwind": "^4.0.0",
         "vitepress": "^1.3.4"
     },
     "dependencies": {

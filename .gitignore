@@ -131,3 +131,6 @@ dist
 
 # Vitepress
 .vitepress/cache
+
+# Tailwind
+output.css

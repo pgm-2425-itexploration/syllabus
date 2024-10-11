@@ -2,15 +2,21 @@
 import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import './style.css'
-import './vars.css'
-import './components.css'
+import './styles/style.css'
+import './styles/vars.css'
+import './styles/components.css'
+import './styles/output.css' // Tailwind CSS output
+
+import Banner from './theme-components/Banner.vue'
+import AuthorSection from './theme-components/AuthorSection.vue'
 
 export default {
   extends: DefaultTheme,
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
+      'doc-top': () => h(Banner),
+      'doc-footer-before': () => h(AuthorSection),
     })
   },
   enhanceApp({ app, router, siteData }) {

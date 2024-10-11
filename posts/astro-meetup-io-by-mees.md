@@ -4,11 +4,11 @@ synopsis: 'Hi 👋 and welcome to Fronteers BE.
 We are a community for people with an interest in front-end development and we host casual meetups in Ghent. Occiasionally also in Antwerp and Kortrijk.'
 date: 2024-10-02
 author:
-  - name: 'Philippe De pauw - Waterschoot'
-  - socials:
-    - website: 'https://drdynscript.eu'
-    - linkedin: 'https://www.linkedin.com/in/philippe-de-pauw/'
-    - twitter: 'drdynscript'
+  name: 'Mees Akveld'
+  socials:
+    website: 'https://www.meesakveld.be/'
+    linkedin: 'https://www.linkedin.com/in/meesakveld/'
+    github: 'https://www.github.com/meesakveld/'
 thumbnailUrl: '/assets/1728555601054.jpg'
 head:
   - - meta
@@ -20,4 +20,4 @@ We are a community for people with an interest in front-end development and we h
       content: 'front-end'
 ---
 
-# Hallo
+# Fronteers Meetup - Astro

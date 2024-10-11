@@ -9,7 +9,6 @@ author:
     linkedin: 'https://www.linkedin.com/in/john-doe/'
     github: 'https://www.github.com/johndoe/'
 thumbnailUrl: '/assets/1728555601054.jpg'
-category: 'Front-End'
 head:
   - - meta
     - name: description
@@ -19,4 +18,4 @@ head:
       content: 'svelte front-end'
 ---
 
-# Hallo
+# Svelte
