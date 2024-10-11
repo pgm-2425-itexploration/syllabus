@@ -3,6 +3,7 @@ import { defineConfig, createContentLoader, type SiteConfig, type HeadConfig } f
 import tutorialsJSON from './dist/api/tutorials.json'
 import posts from './dist/api/posts.json'
 import writeJSONToFile from './functions/writeJSONToFile'
+import { generateSidebar } from 'vitepress-sidebar';
 
 const getTutorialsPages = () => {
 
@@ -75,16 +76,22 @@ export default defineConfig({
       { text: 'Posts', link: '/posts' },
       { text: 'Contact', link: '/contact' },
     ],
-    sidebar: {
-      'tutorials': [
-        { text: 'Tutorials', link: '/tutorials/', items: [] },
-        ...getTutorialsPages()
-      ],
-      'posts': [
-        { text: 'Posts', link: '/posts/', items: [] },
-        ...getPostsPages(),
-      ]
-    },
+    sidebar: generateSidebar([
+      {
+        documentRootPath: '/tutorials/',
+        useTitleFromFrontmatter: true,
+        resolvePath: '/tutorials/',
+        sortMenusByFrontmatterDate: true,
+        capitalizeEachWords: true,
+      },
+      {
+        documentRootPath: '/posts/',
+        useTitleFromFrontmatter: true,
+        resolvePath: '/posts/',
+        sortMenusByFrontmatterDate: true,
+        capitalizeFirst: true,
+      },
+    ]),
     socialLinks: [
       { icon: 'github', link: 'https://github.com/pgm-2425-itexploration/syllabus' }
     ]

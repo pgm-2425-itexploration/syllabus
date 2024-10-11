@@ -1,7 +1,7 @@
 import { createContentLoader } from 'vitepress'
 import { Tutorial } from '../types/ahs'
 
-export default createContentLoader('tutorials/*.md', {
+export default createContentLoader('tutorials/**/*.md', {
   excerpt: true,
   render: true,
   transform(raw): Tutorial[] {
