@@ -4,7 +4,7 @@ const { page, frontmatter } = useData()
 </script>
 
 <template>
-  <div class="mt-4 flex flex-wrap gap-y-4 gap-x-8 justify-between rounded-[8px] py-3 px-4 items-center mb-8"
+  <div class="mt-4 flex flex-wrap gap-y-4 gap-x-8 justify-between rounded-[8px] py-3 px-4 items-center mb-6"
     v-if="frontmatter.author" style="border: 1px solid var(--vp-c-divider);">
 
     <div class="max-sm:w-full">
