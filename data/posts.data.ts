@@ -5,7 +5,6 @@ export default createContentLoader('posts/*.md', {
   excerpt: true,
   render: true,
   transform(raw): Post[] {
-    console.log(raw)
     return raw
       .filter((post) => post.frontmatter.published !== false && post.url !== '/posts/')
       .map(({ url, excerpt, html, frontmatter }) => ({
@@ -13,9 +12,17 @@ export default createContentLoader('posts/*.md', {
         excerpt,
         html,
         title: frontmatter.title,
-        description: frontmatter.description,
+        synopsis: frontmatter.synopsis,
         thumbnailUrl: frontmatter.thumbnailUrl,
-        date: formatDate(frontmatter.date)
+        date: formatDate(frontmatter.date),
+        author: {
+          name: frontmatter.author.name,
+          socials: {
+            website: frontmatter.author.socials.website,
+            linkedin: frontmatter.author.socials.linkedin,
+            github: frontmatter.author.socials.github
+          }
+        },
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }

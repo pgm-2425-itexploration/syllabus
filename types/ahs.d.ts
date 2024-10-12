@@ -7,6 +7,14 @@ export interface Post {
   date: {
     time: number;
     string: string;
+  };
+  author: {
+    name: string;
+    socials: {
+      website: string;
+      linkedin: string;
+      github: string;
+    }
   }
 }
 

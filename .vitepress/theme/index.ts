@@ -4,7 +4,6 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './styles/style.css'
 import './styles/vars.css'
-import './styles/components.css'
 import './styles/output.css' // Tailwind CSS output
 
 import Banner from './theme-components/Banner.vue'

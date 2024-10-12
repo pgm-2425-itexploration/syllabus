@@ -5,9 +5,9 @@ description: "Dit is een omschrijving"
 
 <script setup lang="ts">
 import { data as tutorials } from '../data/tutorials.data.ts'
-import Tutorials from '../components/tutorials/Tutorials.vue'
+import Cards from '../components/card/Cards.vue'
 </script>
 
 <h1>Tutorials</h1>
 
-<Tutorials :tutorials="tutorials"></Tutorials>
+<Cards :articles="tutorials"></Cards>

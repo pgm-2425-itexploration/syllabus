@@ -5,7 +5,6 @@ export default createContentLoader('tutorials/**/*.md', {
   excerpt: true,
   render: true,
   transform(raw): Tutorial[] {
-    console.log(raw)
     return raw
       .filter((tutorial) => tutorial.frontmatter.published !== false && tutorial.url !== '/tutorials/')
       .map(({ url, excerpt, html, frontmatter }) => ({
