@@ -1,6 +1,5 @@
 ---
 title: 'Astro'
-type: 'tutorial'
 synopsis: 'Astro is a modern static site generator that allows developers to build fast, optimized websites with ease.'
 date: 2024-10-10
 author:
