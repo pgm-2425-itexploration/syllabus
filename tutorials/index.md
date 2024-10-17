@@ -1,6 +1,5 @@
 ---
-title: "Dit is een titel"
-description: "Dit is een omschrijving"
+title: "Tutorials"
 ---
 
 <script setup lang="ts">
