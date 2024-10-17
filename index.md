@@ -8,19 +8,14 @@ hero:
   actions:
     - theme: brand
       text: Full-Stack
-      link: /tutorials/full-stack
     - theme: brand
       text: Back-end
-      link: /tutorials/back-end
     - theme: brand
       text: Front-end
-      link: /tutorials/front-end
     - theme: brand
       text: CMS
-      link: /tutorials/cms
     - theme: brand
       text: Mobile
-      link: /tutorials/mobile
 
 features:
   - title: Who are we
