@@ -3,6 +3,7 @@ import { defineConfig, createContentLoader, type SiteConfig, type HeadConfig } f
 import writeJSONToFile from './functions/writeJSONToFile'
 import { generateSidebar } from 'vitepress-sidebar';
 
+const base = '/syllabus'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -10,14 +11,24 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
-  title: "IT Exploration",
+  title: "PGM | IT Exploration",
   description: "IT Exploration",
   lang: 'en-US',
   head: [
-    ['link', { rel: 'icon', href: '/favicon.ico' }]
+    ['link', { rel: "apple-touch-icon", sizes: "180x180", href: `${base}/assets/favicons/apple-touch-icon.png` }],
+    ['link', { rel: "icon", type: "image/png", sizes: "32x32", href: `${base}/assets/favicons/favicon-32x32.png` }],
+    ['link', { rel: "icon", type: "image/png", sizes: "16x16", href: `${base}/assets/favicons/favicon-16x16.png` }],
+    ['link', { rel: "manifest", href: `${base}/assets/favicons/site.webmanifest` }],
+    ['link', { rel: "mask-icon", href: `${base}/assets/favicons/safari-pinned-tab.svg`, color: "#ff1f4f" }],
+    ['meta', { name: "msapplication-TileColor", content: "#ffffff" }],
+    ['meta', { name: "theme-color", content: "#ffffff" }],
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: {
+      src: '/assets/pgm-logo.svg',
+      alt: 'PGM Logo',
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Who are we', link: '/who-are-we' },
