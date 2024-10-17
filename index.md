@@ -7,27 +7,29 @@ hero:
   tagline: Associate Degree in Programming at Artevelde University of Applied Sciences!
   actions:
     - theme: brand
-      text: Web fundamentals
-      link: /workshops/web-fundamentals
+      text: Full-Stack
+      link: /tutorials/full-stack
     - theme: brand
-      text: Front-end Frameworks
-      link: /workshops/front-end-frameworks
+      text: Back-end
+      link: /tutorials/back-end
     - theme: brand
-      text: Front-end UI Frameworks
-      link: /workshops/front-end-ui-frameworks
-    - theme: brand
-      text: Back-end Frameworks
-      link: /workshops/back-end-frameworks
+      text: Front-end
+      link: /tutorials/front-end
     - theme: brand
       text: CMS
-      link: /workshops/cms
+      link: /tutorials/cms
+    - theme: brand
+      text: Mobile
+      link: /tutorials/mobile
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-    link: /test
+  - title: Who are we
+    details: A brief introduction of who we are and what we do.
+    link: /who-are-we
+  - title: Tutorials
+    details: A collection of tutorials to help you get started with web development written by students for students.
+    link: /tutorials
+  - title: Posts
+    details: A collection of posts written by our students about their experiences of learning web development, meetups, and more.
+    link: /posts
 ---
