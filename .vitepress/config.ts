@@ -43,6 +43,7 @@ export default defineConfig({
         resolvePath: '/tutorials/',
         sortMenusByFrontmatterDate: true,
         capitalizeEachWords: true,
+        excludeFilesByFrontmatterFieldName: 'exclude',
       },
       {
         documentRootPath: '/posts/',
@@ -50,6 +51,7 @@ export default defineConfig({
         resolvePath: '/posts/',
         sortMenusByFrontmatterDate: true,
         capitalizeFirst: true,
+        excludeFilesByFrontmatterFieldName: 'exclude',
       },
     ]),
     socialLinks: [

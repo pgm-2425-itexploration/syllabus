@@ -6,7 +6,7 @@ export default createContentLoader('posts/*.md', {
   render: true,
   transform(raw): Post[] {
     return raw
-      .filter((post) => post.frontmatter.published !== false && post.url !== '/posts/')
+      .filter((post) => post.frontmatter.published !== false && post.url !== '/posts/' && post.frontmatter?.exclude !== true)
       .map(({ url, excerpt, html, frontmatter }) => ({
         url,
         excerpt,
