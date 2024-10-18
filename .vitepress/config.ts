@@ -30,7 +30,14 @@ export default defineConfig({
       alt: 'PGM Logo',
     },
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        _render(src, env, md) {
+          let html = md.render(src, env)
+          if (env.frontmatter?.search === false) return ''
+          return html
+        }
+      }
     },
     nav: [
       { text: 'Home', link: '/' },
