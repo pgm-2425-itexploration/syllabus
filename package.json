@@ -1,4 +1,5 @@
 {
+    "name": "it-exploration-pgm",
     "engines": {
         "node": ">=20.16.0"
     },
