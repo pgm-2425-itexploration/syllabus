@@ -202,7 +202,7 @@ Astro is a fully featured framework with everything you need to build a modern w
 
    Data actions are a way to interact with data in AstroJS. Interactions like fetching data from an external source, like an API, and then use that data in your AstroJS application.
 
-   #### Get started
+   #### Getting started
 
    Actions are defined in the `src/actions` directory. Each file in this directory is an action that can be called from any AstroJS component.
 
