@@ -29,6 +29,9 @@ export default defineConfig({
       src: '/assets/pgm-logo.svg',
       alt: 'PGM Logo',
     },
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: 'Home', link: '/' },
       { text: 'Who are we', link: '/who-are-we' },
