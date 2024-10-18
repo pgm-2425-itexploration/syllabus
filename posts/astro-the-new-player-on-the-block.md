@@ -9,7 +9,7 @@ author:
     website: 'https://www.meesakveld.be/'
     linkedin: 'https://www.linkedin.com/in/meesakveld/'
     github: 'https://www.github.com/meesakveld/'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/posts/astro-the-new-player-on-the-block_img-1.png'
 head:
   - - meta
     - name: description
