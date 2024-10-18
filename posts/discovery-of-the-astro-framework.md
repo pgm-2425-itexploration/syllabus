@@ -1,16 +1,15 @@
 ---
 title: 'Discovery of the Astro Framework'
-synopsis: 'Hi 👋 and welcome to Fronteers BE.
-We are a community for people with an interest in front-end development and we host casual meetups in Ghent. Occiasionally also in Antwerp and Kortrijk.'
-date: 2024-10-02
+synopsis: 'Astro is a high-performance web framework designed specifically for content-driven websites, prioritizing speed and efficiency to enhance the user experience on content-rich platforms.'
+date: 2024-10-19
 author:
   name: 'Tristan De Ridder'
-  avatarUrl: '/assets/avatars/john-doe.png'
+  avatarUrl: '/assets/avatars/tristan-de-ridder.png'
   socials:
-    website: ''
+    website: 'https://tristanderidder.be/'
     linkedin: 'https://www.linkedin.com/in/tristan-de-ridder/'
-    github: ''
-thumbnailUrl: '/assets/1728555601054.jpg'
+    github: 'https://github.com/TristanDeRidder'
+thumbnailUrl: '/assets/posts/discovery-of-the-astro-framework_img-2.png'
 head:
   - - meta
     - name: description
