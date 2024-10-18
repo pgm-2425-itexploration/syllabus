@@ -1,18 +1,18 @@
 ---
 title: 'Svelte'
 synopsis: 'Svelte is a modern front-end framework that allows developers to build fast, optimized websites with ease.'
-date: 2024-10-10
+date: 2024-10-18
 author:
-  name: 'John Doe'
+  name: 'Amin Akhayad'
   socials:
-    website: 'https://johndoe.eu'
-    linkedin: 'https://www.linkedin.com/in/john-doe/'
-    github: 'https://www.github.com/johndoe/'
+    website: ''
+    linkedin: 'https://www.linkedin.com/in/amin-akhayad-1b60a62b5/'
+    github: 'https://github.com/AminAkhayad'
 thumbnailUrl: '/assets/1728555601054.jpg'
 head:
   - - meta
     - name: description
-      content: '...'
+      content: 'Informatie over Svelte framework'
   - - meta
     - name: keywords
       content: 'svelte front-end'
