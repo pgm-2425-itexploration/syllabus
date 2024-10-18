@@ -1,5 +1,5 @@
 ---
-title: 'October CMS
+title: 'October CMS'
 synopsis: 'Een tutorial voor het October CMS voor Laravel (php framework)'
 date: 2024-10-12
 author:
