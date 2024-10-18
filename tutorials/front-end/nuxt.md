@@ -15,5 +15,5 @@ head:
       content: '...'
   - - meta
     - name: keywords
-      content: 'svelte front-end'
+      content: 'nuxt front-end'
 ---
