@@ -42,6 +42,7 @@ synopsis: 'This is an example tutorial. You can use this file as a template to c
 date: 2024-10-10
 author:
   name: 'John Doe'
+  avatarUrl: '/assets/avatars/john-doe.png' # Add the path to the author's avatar
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: 'https://johndoe.eu'
     linkedin: 'https://www.linkedin.com/in/john-doe/'
