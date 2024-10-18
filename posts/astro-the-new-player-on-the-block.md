@@ -13,7 +13,7 @@ thumbnailUrl: '/assets/posts/astro-the-new-player-on-the-block_img-1.png'
 head:
   - - meta
     - name: description
-      content: 'Hi 👋 and welcome to Fronteers BE. We are a community for people with an interest in front-end development and we host casual meetups in Ghent. Occiasionally also in Antwerp and Kortrijk.'
+      content: "Astro is a fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most."
   - - meta
     - name: keywords
       content: 'front-end'
