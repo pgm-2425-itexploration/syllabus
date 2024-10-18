@@ -1,22 +1,21 @@
 ---
-title: 'Astro'
-synopsis: 'Astro is a modern static site generator that allows developers to build fast, optimized websites with ease.'
-date: 2024-10-10
+title: "Astro"
+synopsis: "Astro is a modern static site generator that allows developers to build fast, optimized websites with ease."
+date: 2024-10-18
 author:
-  name: 'John Doe'
+  name: "Tyson Wilssens"
   socials:
-    website: 'https://johndoe.eu'
-    linkedin: 'https://www.linkedin.com/in/john-doe/'
-    github: 'https://www.github.com/johndoe/'
-thumbnailUrl: '/assets/1728555601054.jpg'
+    website: ""
+    linkedin: "https://www.linkedin.com/in/tyson-wilssens-94394a2b4/"
+    github: "https://github.com/ONIxJUAN"
+thumbnailUrl: "/assets/1728555601054.jpg"
 head:
   - - meta
     - name: description
-      content: '...'
+      content: "..."
   - - meta
     - name: keywords
-      content: 'svelte front-end'
+      content: "astro full-stack"
 ---
-
 
 # Astro
