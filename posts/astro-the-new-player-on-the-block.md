@@ -1,7 +1,7 @@
 ---
 title: 'Astro: The New Player on the Block'
 synopsis: 'Astro is a fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most.'
-date: 2024-10-02
+date: 2024-10-18
 author:
   name: 'Mees Akveld'
   avatarUrl: '/assets/avatars/mees-akveld.png'
