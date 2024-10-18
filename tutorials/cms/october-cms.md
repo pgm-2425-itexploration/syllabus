@@ -1,13 +1,13 @@
 ---
 title: 'October CMS
 synopsis: 'Een tutorial voor het October CMS voor Laravel (php framework)'
-date: 1493-10-12
+date: 2024-10-12
 author:
   name: 'Mardoek Thienpondt'
   socials: # Add social media links -> If you don't have any, place an empty string ''
-    website: 'https://johndoe.eu'
-    linkedin: 'https://www.linkedin.com/in/john-doe/'
-    github: 'https://www.github.com/johndoe/'
+    website: ''
+    linkedin: ''
+    github: ''
 thumbnailUrl: '/assets/1728555601054.jpg'
 head:
   - - meta
