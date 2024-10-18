@@ -21,7 +21,7 @@ head:
 
 # Astro: The New Player on the Block
 
-In the ever-changing technical world of developers, there is a constant search for newer, faster, and more efficient ways to build websites. One newcomer that is gaining more and more attention is AstroJS. A fast web framework for content-driven websites, where is't especially build for content-rich sites where performance matters most.
+In the ever-changing technical world of developers, there is a constant search for newer, faster, and more efficient ways to build websites. One newcomer that is gaining more and more attention is AstroJS. A fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most.
 
 In this article, I will dive deeper into what Astro is, what sets it apart from other frameworks, how to set it up, and share my experience of using AstroJS in a proof of concept.
 
