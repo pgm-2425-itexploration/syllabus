@@ -1,9 +1,13 @@
 import path from 'path'
-import { defineConfig, createContentLoader, type SiteConfig, type HeadConfig } from 'vitepress'
+import { defineConfig, createContentLoader, type SiteConfig } from 'vitepress'
 import writeJSONToFile from './functions/writeJSONToFile'
 import { generateSidebar } from 'vitepress-sidebar';
 
 const base = '/syllabus'
+const url = process.env.NODE_ENV === 'development' ? 'http://localhost:5173' : 'https://pgm-2425-itexploration.github.io'
+
+const title = 'PGM IT Exploration'
+const description = 'IT Exploration'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -11,8 +15,8 @@ export default defineConfig({
   markdown: {
     lineNumbers: true,
   },
-  title: "PGM | IT Exploration",
-  description: "IT Exploration",
+  title: title,
+  description: description,
   lang: 'en-US',
   head: [
     ['link', { rel: "apple-touch-icon", sizes: "180x180", href: `${base}/assets/favicons/apple-touch-icon.png` }],
@@ -87,5 +91,41 @@ export default defineConfig({
     // Write JSON files
     writeJSONToFile(path.join(config.outDir, 'api', 'posts.json'), filteredPosts)
     writeJSONToFile(path.join(config.outDir, 'api', 'tutorials.json'), filteredTutorials)
+  },
+  transformPageData(pageData) {
+    pageData.frontmatter.head ??= []
+
+    // Open Graph
+    pageData.frontmatter.head.push([
+      'meta', { name: 'og:title', content: pageData.frontmatter.layout === 'home' ? title : `${pageData.title} | ${title}`},
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'og:description', content: pageData.frontmatter.head[0][1].content || '' },
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'og:url', content: `${url}${base}/${pageData.filePath.replace(/\.md$/, '')}` },
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'og:type', content: "website" },
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'og:image', content: `${url}${base}${pageData.frontmatter.thumbnailUrl}` },
+    ])
+
+    // Twitter
+    pageData.frontmatter.head.push([
+      'meta', { name: 'twitter:card', content: "website" },
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'twitter:title', content: pageData.frontmatter.layout === 'home' ? title : `${pageData.title} | ${title}` },
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'twitter:description', content: pageData.frontmatter.head[0][1].content || '' },
+    ])
+    pageData.frontmatter.head.push([
+      'meta', { name: 'twitter:image', content: `${url}${base}${pageData.frontmatter.thumbnailUrl}` },
+    ])
+
+    return pageData
   }
 })
