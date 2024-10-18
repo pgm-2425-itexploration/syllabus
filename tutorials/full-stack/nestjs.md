@@ -1,20 +1,21 @@
 ---
-title: 'Tutorial Example'
-synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
-date: 2024-10-10
+title: 'NestJS Tutorial: Building Scalable Server-Side Applications'
+synopsis: 'This tutorial will guide you through the fundamentals of building scalable, efficient server-side applications using NestJS, a progressive Node.js framework.'
+date: 2024-10-17
 author:
-  name: 'John Doe'
-  socials: # Add social media links -> If you don't have any, place an empty string ''
-    website: 'https://johndoe.eu'
-    linkedin: 'https://www.linkedin.com/in/john-doe/'
-    github: 'https://www.github.com/johndoe/'
-thumbnailUrl: '/assets/1728555601054.jpg'
+  name: 'Nyx'  # Updated with your name
+  socials: 
+    website: 'https://nyx-website.com'  # Update with your website or leave empty if not applicable
+    linkedin: 'https://www.linkedin.com/in/nyx/'  # Update with your LinkedIn profile or leave empty
+    github: 'https://www.github.com/nyx/'  # Update with your GitHub profile or leave empty
+thumbnailUrl: '/assets/nestjs-tutorial.jpg'  # Add a path to the thumbnail for this tutorial
 head:
   - - meta
     - name: description
-      content: 'This is an example tutorial. You can use this file as a template to create your own tutorials.' # Add a description of the article
+      content: 'This tutorial introduces NestJS and demonstrates how to create modular, scalable server-side applications using this powerful framework.'  # Updated description
   - - meta
     - name: keywords
-      content: 'front-end development static-site-generator ssg javascript' # Add keywords related to the article
+      content: 'nestjs, server-side development, Node.js, TypeScript, backend development'  # Updated keywords
+
 
 ---
