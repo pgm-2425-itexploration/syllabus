@@ -88,7 +88,7 @@ For each article, you can add a thumbnail image. This image will be displayed on
 
 When the image ready, place it in the correct folder. See [Adding (Thumbnail) Image(s)](#adding-thumbnail-images) for more information.
 
-![Thumbnail Image Example](assets/posts/astro-the-new-player-on-the-block_img-1.png)
+![Thumbnail Image Example](public/assets/posts/astro-the-new-player-on-the-block_img-1.png)
 
 **Tip**! You can use *Figma* to create a frame with the dimensions of the thumbnail image. This way you can easily create the thumbnail image.
 
