@@ -4,7 +4,7 @@ import writeJSONToFile from './functions/writeJSONToFile'
 import { generateSidebar } from 'vitepress-sidebar';
 
 const base = '/syllabus'
-const url = process.env.NODE_ENV === 'development' ? 'http://localhost:5173' : 'https://pgm-2425-itexploration.github.io'
+const url = 'https://pgm-2425-itexploration.github.io'
 
 const title = 'PGM IT Exploration'
 const description = 'IT Exploration'
