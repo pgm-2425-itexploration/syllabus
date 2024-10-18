@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial Django'
+title: 'Django'
 synopsis: 'Django is een hoogwaardig, open-source webframework dat is geschreven in Python.'
 date: 2024-10-10
 author:
