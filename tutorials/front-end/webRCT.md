@@ -8,9 +8,6 @@ author:
     website: ""
     linkedin: ""
     github: ""
-    website: ""
-    linkedin: ""
-    github: ""
 thumbnailUrl: "/assets/1728555601054.jpg"
 head:
   - - meta
