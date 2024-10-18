@@ -35,7 +35,7 @@ Astro also uses the so-called ‘island architecture’. This means that the app
 Other unique features of Astro include the ability to run components without a JavaScript runtime on the client, the default setting where client-side JavaScript is minimised, and the option to combine multiple frameworks in a single project.
 Thanks to these advantages, Astro's popularity is growing rapidly, especially in the United States, and it is also gaining popularity in Europe.
 
-![Chart frameworks](./assets/images/chart-framework.png)
+![Chart frameworks](/assets/posts/discovery-of-the-astro-framework_img-1.png)
 
 ## Setup
 The fastest way to create a new Astro project is through a CLI command, namely 'create Astro'. This will walk you through the steps of setting up an Astro project and allows you to choose from a few different official starter templates.
@@ -47,7 +47,7 @@ The steps are:
 2. Install Astro
 2.1 npm i astro
 2.2 replace the placeholderscripts with:
-```
+```package.json
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -57,15 +57,19 @@ The steps are:
 3.1 create a file named index.astro in the pages folder
 4. Create astro.config.mjs (optional if no configuration is needed)
 5. Add Typescript support through tsconfig.json
-6. Your directory should look like this:
-![directory](./assets/images/directory-astro-setup.png)
-
-:::code-group
-```js [src/test/test.js]
-const test = "Hallo"
+6. Your directory should look like this:  
+```directory
+├── node_modules  
+├── public/  
+│    └── robots.txt  
+├── src/  
+│    └── pages/  
+│         └── index.astro  
+├── astro.config.mjs  
+├── package-lock.json  
+├── package.json  
+├── tsconfig.json  
 ```
-:::
-
 
 Prerequisites for Astro are:
 - Node.js -> v18.17.1 or V20.3.0 (V19 is not supported)
@@ -73,6 +77,29 @@ Prerequisites for Astro are:
 - Terminal -> Astro is accessed through its command-line interface (CLI).
 
 Since Astro is built with Vite almost all browsers can run Astro projects
+
+## Astro Islands
+The idea of component islands was first conceived 2019, and was expanded upon in 2020.
+
+> The general idea of an “Islands” architecture is deceptively simple: render HTML pages on the server, and inject placeholders or slots around highly dynamic regions […] that can then be “hydrated” on the client into small self-contained widgets, reusing their server-rendered initial HTML.
+— Jason Miller, Creator of Preact
+
+Astro is the first framework to use the frontend architecture that are Islands. Thanks to these Islands helping you to avoid monolithic JS patterns and stripping the non-essential JS from the page the frontend performance is increased.
+
+### What is an island
+In Astro, it refers to any interactive UI component on the page. Think of it as an interactive widget floating in around in the static, lightweight, server-rendered HTML.
+
+An island always runs in isolation from eachother on a page, and multiple islands can exist on the same page. Islands can share a state and communicate with each other, even though they run in different component contexts.
+
+This flexibility allows Astro to support multiple UI frameworks. And because they are independent, you can even mix several frameworks on each page.
+
+By default, Astro will automatically render every UI component to just HTML & CSS, stripping out all client-side JavaScript automatically.
+
+```src/pages/index.astro
+<MyReactComponent />
+```
+
+This sounds strict, but this behavior is what keeps Astro websites fast by default and protects developers from sending unnecessary or unwanted JavaScript that might slow down their website.
 
 ## JavaScript in Astro: Only when you need it
 Astro follows the principle of ‘zero JavaScript by default’, meaning that no JavaScript is sent to the browser by default unless needed. This makes Astro very efficient, as the basis of every page consists of pure HTML and CSS. JavaScript is added only when a specific functionality requires it, such as for interactive elements. This keeps load times to a minimum and optimises website performance.
@@ -110,17 +137,7 @@ These integrations can
 - Add new features to projects, for example an automatici sitemap generation
 - Write custom hooks into the build process
 
-## Best Practices in Using Astro
-*Learnings from the meetup on how to best use Astro.*
-- Tips on how to efficiently implement Astro in projects.
-- How to work with dynamic data in an otherwise static environment.
-- Which plugins or extensions for Astro are recommended.
-
-## Comparison with Other Frameworks.
-*Short overview of how Astro compares to other popular frameworks.*
-- Comparisons with frameworks such as Next.js, Nuxt.js, or Gatsby.
-- The strengths of Astro versus the weaknesses of other frameworks.
-- Situations where Astro may be a better choice.
+## 
 
 ## Conclusion
 *Concluding remarks and summary of key learning points from the meetup.*
