@@ -4,6 +4,7 @@ synopsis: "This is an example tutorial. You can use this file as a template to c
 date: 2024-10-18
 author:
   name: "Justin Descan"
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: "https://justindescan.com/"
     linkedin: "https://www.linkedin.com/in/justindescan/"

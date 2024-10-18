@@ -4,6 +4,7 @@ synopsis: 'Shopify is a modern headless CMS that allows developers to build fast
 date: 2024-10-10
 author:
   name: 'Ella Jekale'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: 'https://linkedin.com/in/ella-jekale-27a9b92a7'

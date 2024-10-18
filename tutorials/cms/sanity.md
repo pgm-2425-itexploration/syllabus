@@ -4,6 +4,7 @@ synopsis: 'Sanity is a modern headless CMS that allows developers to build fast,
 date: 2024-10-10
 author:
   name: 'Sebastian Browaeys'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: ''

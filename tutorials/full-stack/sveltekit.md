@@ -4,6 +4,7 @@ synopsis: "SvelteKit is a framework for building web applications of all sizes, 
 date: 2024-10-18
 author:
   name: "Emre Akkus"
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ""
     linkedin: ""

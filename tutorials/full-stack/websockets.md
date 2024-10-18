@@ -4,6 +4,7 @@ synopsis: 'Astro is a modern static site generator that allows developers to bui
 date: 2024-10-10
 author:
   name: 'John Doe'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: 'https://johndoe.eu'
     linkedin: 'https://www.linkedin.com/in/john-doe/'

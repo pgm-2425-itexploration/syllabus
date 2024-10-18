@@ -4,6 +4,7 @@ synopsis: 'Builder.io is a powerful visual CMS that allows developers and non-de
 date: 2024-10-10
 author:
   name: 'Matthias Cecchi'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: '/'
     linkedin: 'https://www.linkedin.com/in/matthias-cecchi-4948482b4//'

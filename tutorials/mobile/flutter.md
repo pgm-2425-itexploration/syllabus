@@ -4,6 +4,7 @@ synopsis: 'Flutter is an open-source UI toolkit by Google that enables developer
 date: 2024-10-18
 author:
   name: 'Keano Marijsse'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: 'https://johndoe.eu'
     linkedin: 'https://www.linkedin.com/in/john-doe/'

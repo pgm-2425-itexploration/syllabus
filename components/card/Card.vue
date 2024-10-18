@@ -35,8 +35,8 @@ withDefaults(defineProps<Props>(), {
         
         <p v-if="data.synopsis" class="!m-0">{{ data.synopsis }}</p>
         
-        <div class="flex flex-wrap gap-y-1 gap-x-4 mt-4" style="color: var(--vp-c-text-2);">
-          <img v-if="data.author?.avatarUrl" :src="withBase(data.author?.avatarUrl)" :alt="data.author.name" class="rounded-full w-8 h-8 items-center" />
+        <div class="flex flex-wrap gap-y-1 gap-x-4 mt-4 items-center" style="color: var(--vp-c-text-2);">
+          <img v-if="data.author?.avatarUrl" :src="withBase(data.author?.avatarUrl)" :alt="data.author.name" class="rounded-full w-8 h-8" />
 
           <p v-if="data.author?.name" class="!m-0">{{ data.author.name }}</p>
         
