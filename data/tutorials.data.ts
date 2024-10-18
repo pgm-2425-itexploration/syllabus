@@ -17,6 +17,7 @@ export default createContentLoader('tutorials/**/*.md', {
         date: formatDate(frontmatter.date),
         author: {
           name: frontmatter.author.name,
+          avatarUrl: frontmatter.author.avatarUrl,
           socials: {
             website: frontmatter.author.socials.website,
             linkedin: frontmatter.author.socials.linkedin,
