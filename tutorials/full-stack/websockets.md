@@ -9,7 +9,7 @@ author:
     website: 'https://johndoe.eu'
     linkedin: 'https://www.linkedin.com/in/john-doe/'
     github: 'https://www.github.com/johndoe/'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

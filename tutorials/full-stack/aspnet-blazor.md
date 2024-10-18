@@ -9,7 +9,7 @@ author:
     website: "https://justindescan.com/"
     linkedin: "https://www.linkedin.com/in/justindescan/"
     github: "https://www.github.com/pgm-justdesc4/"
-thumbnailUrl: "/assets/1728555601054.jpg"
+thumbnailUrl: "/assets/example-image.jpg"
 head:
   - - meta
     - name: description

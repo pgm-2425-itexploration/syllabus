@@ -9,7 +9,7 @@ author:
     website: 'https://witzevds.github.io/portfolio/'
     linkedin: 'https://www.linkedin.com/in/witze-van-der-straeten-705731193/'
     github: 'https://github.com/Witzevds'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

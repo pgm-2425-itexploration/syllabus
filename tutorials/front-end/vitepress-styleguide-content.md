@@ -9,7 +9,7 @@ author:
     website: 'https://www.meesakveld.com'
     linkedin: 'https://www.linkedin.com/in/meesakveld/'
     github: 'https://www.github.com/meesakveld'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

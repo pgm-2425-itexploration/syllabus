@@ -9,7 +9,7 @@ author:
     website: '/'
     linkedin: 'https://www.linkedin.com/in/matthias-cecchi-4948482b4//'
     github: 'https://github.com/PGM-mattcecc'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

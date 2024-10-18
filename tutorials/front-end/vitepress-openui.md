@@ -9,7 +9,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/casverheye/'
     github: ''
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

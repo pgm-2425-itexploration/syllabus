@@ -9,7 +9,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/jarno-leuckx-a1572414a/'
     github: 'https://github.com/JarnoLeuckx'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

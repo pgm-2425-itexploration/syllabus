@@ -9,7 +9,7 @@ author:
     website: ""
     linkedin: "https://www.linkedin.com/in/tyson-wilssens-94394a2b4/"
     github: "https://github.com/ONIxJUAN"
-thumbnailUrl: "/assets/1728555601054.jpg"
+thumbnailUrl: "/assets/example-image.jpg"
 head:
   - - meta
     - name: description

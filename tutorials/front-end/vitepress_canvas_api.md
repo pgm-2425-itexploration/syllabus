@@ -9,7 +9,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/gust-petre/'
     github: 'https://github.com/pgm-Gust'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

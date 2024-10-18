@@ -10,7 +10,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/tristan-de-ridder/'
     github: ''
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

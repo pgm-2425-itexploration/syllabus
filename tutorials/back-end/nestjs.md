@@ -9,7 +9,7 @@ author:
     website: https://www.eliazbm.com/'  # Update with your website or leave empty if not applicable
     linkedin: 'https://www.linkedin.com/in/eliaz-medrano-935a9a292/'  # Update with your LinkedIn profile or leave empty
     github: 'https://github.com/pgm-eliabell'  # Update with your GitHub profile or leave empty
-thumbnailUrl: '/assets/1728555601054.jpg'  # Add a path to the thumbnail for this tutorial
+thumbnailUrl: '/assets/example-image.jpg'  # Add a path to the thumbnail for this tutorial
 head:
   - - meta
     - name: description
