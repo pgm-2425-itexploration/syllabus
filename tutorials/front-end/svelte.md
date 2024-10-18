@@ -8,7 +8,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/amin-akhayad-1b60a62b5/'
     github: 'https://github.com/AminAkhayad'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/svelte_img.png'
 head:
   - - meta
     - name: description
