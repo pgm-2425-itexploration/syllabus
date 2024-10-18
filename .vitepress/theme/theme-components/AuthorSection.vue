@@ -15,7 +15,7 @@ const { page, frontmatter } = useData()
       </div>
     </div>
 
-    <div class="flex flex-col items-end max-sm:w-full" v-if="frontmatter.author.socials.linkedin || frontmatter.author.socials.website || frontmatter.author.socials.github">
+    <div class="flex flex-col gap-1 items-end max-sm:w-full" v-if="frontmatter.author.socials.linkedin || frontmatter.author.socials.website || frontmatter.author.socials.github">
       <p class="leading-5 text-xs font-medium" style="color: var(--vp-c-text-2)">Socials</p>
       <div class="flex space-x-4">
         <a target="_blank" :href="frontmatter.author.socials.linkedin" v-if="frontmatter.author.socials.linkedin"
