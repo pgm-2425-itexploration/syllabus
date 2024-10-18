@@ -4,6 +4,7 @@ synopsis: 'Three.js is een krachtige JavaScript-bibliotheek die het eenvoudig ma
 date: 2024-10-10
 author:
   name: 'Witze Van der Straeten'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: 'https://witzevds.github.io/portfolio/'
     linkedin: 'https://www.linkedin.com/in/witze-van-der-straeten-705731193/'

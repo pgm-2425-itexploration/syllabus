@@ -4,6 +4,7 @@ synopsis: 'Een tutorial voor het October CMS voor Laravel (php framework)'
 date: 1943-10-12
 author:
   name: 'Mardoek Thienpondt'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: ''
     linkedin: ''

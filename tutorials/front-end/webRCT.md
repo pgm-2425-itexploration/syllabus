@@ -4,6 +4,7 @@ synopsis: "WebRTC is a powerful technology that enables peer-to-peer communicati
 date: 2024-10-18
 author:
   name: "Daria"
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ""
     linkedin: ""

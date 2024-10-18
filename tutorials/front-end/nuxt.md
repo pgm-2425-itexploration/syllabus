@@ -4,6 +4,7 @@ synopsis: 'title for Nuxt'
 date: 2024-10-10
 author:
   name: 'Lauren Wille'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: 'www.linkedin.com/in/lauren-🐦-wille-2457141b7'

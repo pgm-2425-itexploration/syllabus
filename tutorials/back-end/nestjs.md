@@ -4,6 +4,7 @@ synopsis: 'This tutorial will guide you through the fundamentals of building sca
 date: 2024-10-17
 author:
   name: 'Eliaz Bello Medrano'  # Updated with your name
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials: 
     website: https://www.eliazbm.com/'  # Update with your website or leave empty if not applicable
     linkedin: 'https://www.linkedin.com/in/eliaz-medrano-935a9a292/'  # Update with your LinkedIn profile or leave empty
@@ -16,6 +17,4 @@ head:
   - - meta
     - name: keywords
       content: 'nestjs, server-side development, Node.js, TypeScript, backend development'  # Updated keywords
-
-
 ---

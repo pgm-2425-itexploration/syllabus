@@ -4,6 +4,7 @@ synopsis: 'Django is een hoogwaardig, open-source webframework dat is geschreven
 date: 2024-10-10
 author:
   name: 'Jordan Bergmans'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: ''
     linkedin: 'https://www.linkedin.com/in/jordan-bergmans-991a51292/'

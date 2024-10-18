@@ -4,6 +4,7 @@ synopsis: 'Learn how to integrate the HTML5 Canvas API into your VitePress-power
 date: 2024-10-10
 author:
   name: 'Gust Pêtre'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: 'https://www.linkedin.com/in/gust-petre/'
