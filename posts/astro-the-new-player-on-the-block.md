@@ -4,6 +4,7 @@ synopsis: ''
 date: 2024-10-02
 author:
   name: 'Mees Akveld'
+  avatarUrl: '/assets/avatars/mees-akveld.png'
   socials:
     website: 'https://www.meesakveld.be/'
     linkedin: 'https://www.linkedin.com/in/meesakveld/'

@@ -5,6 +5,7 @@ We are a community for people with an interest in front-end development and we h
 date: 2024-10-02
 author:
   name: 'Tristan De Ridder'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: 'https://www.linkedin.com/in/tristan-de-ridder/'

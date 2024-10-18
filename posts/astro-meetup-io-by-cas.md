@@ -5,6 +5,7 @@ We are a community for people with an interest in front-end development and we h
 date: 2024-10-02
 author:
   name: 'Cas Verheye'
+  avatarUrl: '/assets/avatars/cas-verheye.png'
   socials:
     website: ''
     linkedin: 'https://www.linkedin.com/in/casverheye/'
