@@ -134,3 +134,6 @@ dist
 
 # Tailwind
 output.css
+
+# Auto generated files
+.DS_Store
