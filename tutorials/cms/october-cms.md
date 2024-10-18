@@ -1,7 +1,7 @@
 ---
 title: 'October CMS'
 synopsis: 'Een tutorial voor het October CMS voor Laravel (php framework)'
-date: 2024-10-12
+date: 1943-10-12
 author:
   name: 'Mardoek Thienpondt'
   socials: # Add social media links -> If you don't have any, place an empty string ''
