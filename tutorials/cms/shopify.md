@@ -5,7 +5,7 @@ date: 2024-10-10
 author:
   name: 'Ella Jekale'
   socials:
-    website: 'https://johndoe.eu'
+    website: ''
     linkedin: 'https://linkedin.com/in/ella-jekale-27a9b92a7'
     github: 'https://github.com/pgm-ella'
 thumbnailUrl: '/assets/1728555601054.jpg'
