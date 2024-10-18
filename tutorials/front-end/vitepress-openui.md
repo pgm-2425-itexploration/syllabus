@@ -1,9 +1,10 @@
 ---
-title: 'VitePress - OpenUI'
+title: 'VitePress & OpenUI'
 synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
 date: 2024-10-10
 author:
   name: 'Cas Verheye'
+  avatarUrl: '/assets/avatars/cas-verheye.png'
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: ''
     linkedin: 'https://www.linkedin.com/in/casverheye/'
