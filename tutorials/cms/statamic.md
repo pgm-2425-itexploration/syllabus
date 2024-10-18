@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial Statamic'
+title: 'Statamic'
 synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
 date: 2024-10-10
 author:
