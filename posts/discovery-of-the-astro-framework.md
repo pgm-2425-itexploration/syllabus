@@ -18,6 +18,15 @@ We are a community for people with an interest in front-end development and we h
   - - meta
     - name: keywords
       content: 'front-end'
+sources:
+  - title: 'Astro'
+    url: 'https://astro.build/'
+  - title: 'Astro Documentation'
+    url: 'https://docs.astro.build/en/concepts/islands/'
+  - title: 'Patterns.dev'
+    url: 'https://www.patterns.dev/vanilla/islands-architecture/'
+  - title: 'Looker Studio'
+    url: 'https://lookerstudio.google.com/u/0/reporting/55bc8fad-44c2-4280-aa0b-5f3f0cd3d2be/page/M6ZPC'
 ---
 
 # Discovery of the Astro Framework
@@ -156,10 +165,3 @@ These integrations can
 
 ## Conclusion
 In summary, Astro is rapidly emerging as a powerful tool for building fast, content-driven websites. With its innovative island architecture and focus on performance, it empowers developers to create lightweight applications without unnecessary JavaScript. Whether you’re a seasoned pro or just starting in front-end development, Astro offers the flexibility to integrate with various frameworks and optimize your workflow. As we continue to explore its capabilities, it’s clear that Astro is a framework to watch in the evolving landscape of web development. We hope this meetup has sparked your interest and encouraged you to dive deeper into Astro’s features and possibilities!
-
-## Resources and Further Reading Tips.
-- Links to official documentation, blog posts, videos or tutorials.
-https://astro.build/
-https://docs.astro.build/en/concepts/islands/
-https://www.patterns.dev/vanilla/islands-architecture/
-https://lookerstudio.google.com/u/0/reporting/55bc8fad-44c2-4280-aa0b-5f3f0cd3d2be/page/M6ZPC

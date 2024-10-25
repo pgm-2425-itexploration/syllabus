@@ -7,7 +7,7 @@ import './styles/vars.css'
 import './styles/output.css' // Tailwind CSS output
 
 import Banner from './theme-components/Banner.vue'
-import AuthorSection from './theme-components/AuthorSection.vue'
+import ArticleFooter from './theme-components/ArticleFooter.vue'
 
 export default {
   extends: DefaultTheme,
@@ -15,7 +15,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       // https://vitepress.dev/guide/extending-default-theme#layout-slots
       'doc-top': () => h(Banner),
-      'doc-footer-before': () => h(AuthorSection),
+      'doc-footer-before': () => h(ArticleFooter),
     })
   },
   enhanceApp({ app, router, siteData }) {

@@ -17,6 +17,11 @@ head:
   - - meta
     - name: keywords
       content: 'front-end development, web development, astrojs, astro, static site generator, ssg, content collections, components, middleware, actions, environment variables, ui integrations, Mees Akveld'
+sources:
+  - title: 'AstroJS Website'
+    url: 'https://astro.build/'
+  - title: 'AstroJS Documentation'
+    url: 'https://docs.astro.build/'
 ---
 
 # Astro: The New Player on the Block

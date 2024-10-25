@@ -24,6 +24,7 @@ export default createContentLoader('tutorials/**/*.md', {
             github: frontmatter.author.socials.github
           }
         },
+        sourses: frontmatter.sourses,
       }))
       .sort((a, b) => b.date.time - a.date.time)
   }

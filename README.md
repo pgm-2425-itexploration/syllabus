@@ -59,6 +59,11 @@ head:
   - - meta
     - name: keywords
       content: 'front-end development static-site-generator ssg javascript' # Add keywords related to the article
+sources: # Add sources that are used in the article. Per source, add a title and a URL. It is an array of objects, so make sure to use the correct syntax.
+  - title: 'Example Source' 
+    url: 'https://example.com'
+  - title: 'Example Source 2'
+    url: 'https://example.com'
 ```
 
 <br>

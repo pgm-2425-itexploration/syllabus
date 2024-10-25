@@ -19,6 +19,11 @@ We are a community for people with an interest in front-end development and we h
   - - meta
     - name: keywords
       content: 'front-end'
+sources:
+  - title: 'Example Source'
+    url: 'https://example.com'
+  - title: 'Example Source 2'
+    url: 'https://example.com'
 ---
 
 # Fronteers Meetup - Astro
