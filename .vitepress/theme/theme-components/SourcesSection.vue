@@ -22,12 +22,12 @@ const openSources = (ev) => {
 
             <div class="flex items-center justify-between cursor-pointer" @click="openSources">
                 <p class="leading-5 text-xs font-medium" style="color: var(--vp-c-text-2)">Sources</p>
-                <img src="../../../public/assets/icons/chevron.backward.svg" alt="chevron-left" class="h-3" />
+                <img src="/assets/icons/chevron.backward.svg" alt="chevron-left" class="h-3" />
             </div>
 
             <div class="hidden gap-4 items-center flex-wrap" ref="sourcesOverview">
                 <div v-for="source in frontmatter.sources" :key="source.title" class="flex items-center gap-2">
-                    <img src="../../../public/assets/icons/link.svg" alt="link" class="h-3" />
+                    <img src="/assets/icons/link.svg" alt="link" class="h-3" />
                     <a :href="source.url" target="_blank" class="text-xs font-medium hover:underline" style="color: var(--vp-c-text-1)">
                         {{ source.title }}
                     </a>
