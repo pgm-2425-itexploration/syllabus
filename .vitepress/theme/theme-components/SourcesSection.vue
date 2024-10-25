@@ -28,7 +28,7 @@ const openSources = (ev) => {
             <div class="hidden gap-4 items-center flex-wrap" ref="sourcesOverview">
                 <div v-for="source in frontmatter.sources" :key="source.title" class="flex items-center gap-2">
                     <img src="../../../public/assets/icons/link.svg" alt="link" class="h-3" />
-                    <a :href="source.url" target="_blank" class="text-xs font-medium" style="color: var(--vp-c-text-1)">
+                    <a :href="source.url" target="_blank" class="text-xs font-medium hover:underline" style="color: var(--vp-c-text-1)">
                         {{ source.title }}
                     </a>
                 </div>
