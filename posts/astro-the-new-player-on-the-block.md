@@ -13,10 +13,10 @@ thumbnailUrl: '/assets/posts/astro-the-new-player-on-the-block_img-1.png'
 head:
   - - meta
     - name: description
-      content: "Astro is a fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most."
+      content: "Astro is a fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most. Written by Mees Akveld."
   - - meta
     - name: keywords
-      content: 'front-end'
+      content: 'front-end development, web development, astrojs, astro, static site generator, ssg, content collections, components, middleware, actions, environment variables, ui integrations, Mees Akveld'
 ---
 
 # Astro: The New Player on the Block
