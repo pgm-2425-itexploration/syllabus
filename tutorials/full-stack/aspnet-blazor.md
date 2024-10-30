@@ -1,6 +1,6 @@
 ---
 title: "ASP.NET + Blazor (C#)"
-synopsis: "This is an example tutorial. You can use this file as a template to create your own tutorials."
+synopsis: "ASP.NET Core is a powerful framework for building modern web apps, while Blazor enables C# to run in the browser via WebAssembly, allowing interactive web applications without JavaScript."
 date: 2024-10-18
 author:
   name: "Justin Descan"
@@ -13,8 +13,8 @@ thumbnailUrl: "/assets/aspnet-blazor-image.jpg"
 head:
   - - meta
     - name: description
-      content: "This is an example tutorial. You can use this file as a template to create your own tutorials." # Add a description of the article
+      content: "ASP.NET Core is a powerful framework for building modern web apps, while Blazor enables C# to run in the browser via WebAssembly, allowing interactive web applications without JavaScript."
   - - meta
     - name: keywords
-      content: "front-end development static-site-generator ssg javascript" # Add keywords related to the article
+      content: "ASP.NET Core Blazor C# WebAssembly front-end interactive web applications single-page application .NET Microsoft client-side development component-based UI tutorial" # Add keywords related to the article
 ---
