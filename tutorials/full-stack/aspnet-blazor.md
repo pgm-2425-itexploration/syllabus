@@ -9,7 +9,7 @@ author:
     website: "https://justindescan.com/"
     linkedin: "https://www.linkedin.com/in/justindescan/"
     github: "https://www.github.com/pgm-justdesc4/"
-thumbnailUrl: "/assets/aspnet-blazor-image.jpg"
+thumbnailUrl: "/assets/tutorials/aspnet-blazor_img-1.jpg"
 head:
   - - meta
     - name: description
