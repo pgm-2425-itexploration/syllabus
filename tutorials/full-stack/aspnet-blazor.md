@@ -1,15 +1,15 @@
 ---
-title: "ASP.NET + Blazor (Full-stack C#)"
+title: "ASP.NET + Blazor (C#)"
 synopsis: "This is an example tutorial. You can use this file as a template to create your own tutorials."
 date: 2024-10-18
 author:
   name: "Justin Descan"
-  avatarUrl: '/assets/avatars/john-doe.png'
+  avatarUrl: "/assets/avatars/justin-descan.png"
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: "https://justindescan.com/"
     linkedin: "https://www.linkedin.com/in/justindescan/"
     github: "https://www.github.com/pgm-justdesc4/"
-thumbnailUrl: "/assets/example-image.jpg"
+thumbnailUrl: "/assets/aspnet-blazor-image.jpg"
 head:
   - - meta
     - name: description
