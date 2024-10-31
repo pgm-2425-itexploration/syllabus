@@ -83,7 +83,7 @@ exclude: true
 
 For each article, you can add a thumbnail image. This image will be displayed on the overview page. This image has specific dimensions and design guidelines. 
 
-- Dymensions: **800x500 pixels**
+- Dimensions: **800x500 pixels**
 - Design Guidelines: The thumbnail consists of 3 depth layers. 
     1. **The background layer**: An image that represents the article. Can be a screenshot, a photo, or an illustration.
     2. **The color layer**: A color that represents the article or the topic of the article (Example: Blue for a tutorial about CSS). With a transparency so that the background layer is still visible.
@@ -105,7 +105,7 @@ When the image ready, place it in the correct folder. See [Adding (Thumbnail) Im
 
 For each article, you can add an avatar image of the author. This image will be displayed on the article page. This image has specific dimensions and design guidelines.
 
-- **Dymensions**: 64x64 pixels
+- **Dimensions**: 64x64 pixels
 
 - **Design Guidelines**: The avatar image should be a photo of the author.
 
