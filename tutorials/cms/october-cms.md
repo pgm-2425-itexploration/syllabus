@@ -1,5 +1,5 @@
 ---
-title: 'OctoberCMS demo tutorial'
+title: 'OctoberCMS'
 synopsis: 'Een tutorial voor het October CMS voor Laravel (php framework)'
 date: 1943-10-12
 author:
