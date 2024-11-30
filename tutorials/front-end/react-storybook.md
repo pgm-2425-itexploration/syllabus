@@ -4,7 +4,7 @@ synopsis: "Storybook is een front-end ontwikkelingstool waar componenten buiten 
 date: 2024-30-11
 author:
     name: "Stijn Walravens"
-    avatarUrl: "/assets/avatars/john-doe.png"
+    avatarUrl: "/assets/avatars/stijn-walravens.png"
     socials:
         website: ""
         linkedin: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
@@ -116,13 +116,27 @@ Door Storybook te gebruiken en addons toe te voegen, kun je je componenten in ee
 
 We gaan nu een herbruikbare button component aanmaken met verschillende variaties van grootte. Het betreft een props validation via PropTypes om zeker te zijn dat onze component het juiste types ontvangt. Onze button heeft ook dynamische styling met onze props, zoals size en backgroundColor.
 
-In onze src/components doen we het volgende:
+In onze src/components maken we een bestand button.js aan:
 
 (als deze er niet staat maak het maar aan)
 
 ### Stap 1 import and setup.
 
 In de component wordt **PropTypes** geïmporteerd voor runtime type-checking van de props. De **Button** component wordt geconfigureerd met dynamische styling gebaseerd op de ontvangen props in deze workshop maken we gebruik van bijvoorbeeld `backgroundColor`, `size`, en `handleClick`.
+
+```
+import PropTypes from "prop-types";
+
+function Button() {
+    return (
+        <div>
+            {label}
+        </div>
+    );
+}
+
+export default Button;
+```
 
 ### Stap 2 Props vaststellen
 
@@ -135,6 +149,15 @@ backgroundColor: het achtergrond kleur van onze knop staat op default “`red`�
 `size`: Door middel van onze padding aan te passen, zal het grote van onze knop worden aangepast naar `“sm”, “md”` en `“lg”` default zal “md” zijn in onze geval.
 
 handleClick: een function dat wordt opgeroepen waaneer onze knop wordt gedrukt.
+
+```
+Button.propTypes = {
+    label: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    size: PropTypes.oneOf(["sm", "md", "lg"]),
+    handleClick: PropTypes.func,
+};
+```
 
 ### Stap 3 Dynamic Styling
 
@@ -151,29 +174,83 @@ Onze style object zal dynamisch the knop appearance aanpasssen aan de hand van o
     -   `"lg"`: Schaalt onze knop groter tot 125% van onze default size..
     -   `"md"`: Gebruikt default scale van `1`.
 
+```jsx
+let scale = 1;
+if (size === "sm") scale = 0.75;
+if (size === "lg") scale = 1.5;
+const style = {
+    backgroundColor,
+    padding: `${scale * 0.5}rem ${scale * 1}rem`,
+    border: "none",
+    borderRadius: `0.5rem`,
+    boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.1)",
+    width: "fit-content",
+    color: "black",
+};
+```
+
 ### 4. **Event Handling**
 
 -   Het `onClick`-event is gekoppeld aan het `<div>`-element. Dit event activeert de functie `handleClick`, die wordt meegegeven als prop, telkens wanneer op de knop wordt geklikt.
 
+```
+    return (
+        <div onClick={handleClick} style={style}>
+            {label}
+        </div>
+    );
+```
+
 ### 5. **Validatie van Props**
 
 -   Het object `propTypes` definieert de types en mogelijke waarden voor elke prop:
+
     -   **`label`**: Moet een string zijn.
     -   **`backgroundColor`**: Moet een string zijn (optioneel).
     -   **`size`**: Moet één van `"sm"`, `"md"` of `"lg"` zijn.
     -   **`handleClick`**: Moet een functie zijn.
 
+    ```
+    function Button({ label, backgroundColor = "red", size = "md", handleClick }) {
+        let scale = 1;
+        if (size === "sm") scale = 0.75;
+        if (size === "lg") scale = 1.5;
+        const style = {
+            backgroundColor,
+            padding: `${scale * 0.5}rem ${scale * 1}rem`,
+            border: "none",
+            borderRadius: `0.5rem`,
+            boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.1)",
+            width: "fit-content",
+            color: "black",
+        };
+        return (
+            <div onClick={handleClick} style={style}>
+                {label}
+            </div>
+        );
+    }
+
+    ```
+
 ### 6. **Standaard Export**
 
 -   De `Button`component wordt geëxporteerd met `export default Button`, waardoor deze beschikbaar is om te importeren in andere bestanden.
 
-scr/stories
+### Nu in onze src/stories maken we een folder Button.stories.js aan.
 
 ---
 
 ### 1. **Component Importeren**
 
 -   De `Button`component wordt geïmporteerd vanuit de `components`map. Dit is de component die je in Storybook wilt tonen en testen.
+
+```
+import Button from "../components/Button";
+
+export default {
+};
+```
 
 ### 2. **Metadata Definitie**
 
@@ -182,6 +259,25 @@ scr/stories
 -   **`argTypes`**: Specificeert welke eigenschappen interactief zijn in Storybook:
     -   `handleClick`: Dit voegt een actie toe die het klikken van de knop logt in de **Actions-tab** van Storybook.
 
+```jsx
+import Button from "../components/Button";
+
+export default {
+    title: "Components/Button",
+    component: Button,
+    argTypes: { handleClick: { action: "handleClick" } },
+};
+
+// Each story now directly exports an object with args in CSF3 syntax
+export const Card = {
+    args: {
+        backgroundColor: "#ffffff",
+        label: "Press Me",
+        size: "md",
+    },
+};
+```
+
 ### Voorbeeld:
 
 -   **Story Naam**: Button is de naam van deze specifieke story.
@@ -189,6 +285,95 @@ scr/stories
     -   **`backgroundColor`**: Stelt de achtergrondkleur in op wit.
     -   **`label`**: Toont de tekst "Press Me" op de knop.
     -   **`size`**: Stelt de grootte van de knop in op medium (**"md"**).
+
+Zo moet je beide folders er nu uit zien
+
+```jsx
+// src/components/Button.js
+
+import PropTypes from "prop-types";
+
+function Button({ label, backgroundColor = "red", size = "md", handleClick }) {
+    let scale = 1;
+    if (size === "sm") scale = 0.75;
+    if (size === "lg") scale = 1.5;
+    const style = {
+        backgroundColor,
+        padding: `${scale * 0.5}rem ${scale * 1}rem`,
+        border: "none",
+        borderRadius: `0.5rem`,
+        boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.1)",
+        width: "fit-content",
+        color: "black",
+    };
+    return (
+        <div onClick={handleClick} style={style}>
+            {label}
+        </div>
+    );
+}
+
+Button.propTypes = {
+    label: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    size: PropTypes.oneOf(["sm", "md", "lg"]),
+    handleClick: PropTypes.func,
+};
+
+export default Button;
+```
+
+```jsx
+// src/stories/Button.stories.js
+
+import Button from "../components/Button";
+
+export default {
+    title: "Components/Button",
+    component: Button,
+    argTypes: { handleClick: { action: "handleClick" } },
+};
+
+export const Card = {
+    args: {
+        backgroundColor: "#ffffff",
+        label: "Press Me",
+        size: "md",
+    },
+};
+
+export const Green = {
+    args: {
+        backgroundColor: "green",
+        label: "Press Me",
+        size: "md",
+    },
+};
+
+export const Small = {
+    args: {
+        backgroundColor: "red",
+        label: "Press Me",
+        size: "sm",
+    },
+};
+
+export const Large = {
+    args: {
+        backgroundColor: "red",
+        label: "Press Me",
+        size: "lg",
+    },
+};
+
+export const LongLabel = {
+    args: {
+        backgroundColor: "red",
+        label: "Press Me adsf asdf asdf asdfasdfasd fasd fasd fasd",
+        size: "md",
+    },
+};
+```
 
 ## Geavanceerde functionaliteiten in Storybook
 
@@ -218,7 +403,30 @@ Om deze addon te installeren, gebruik je de volgende npm-opdracht:
 
 ```bash
 npm i -D @storybook/addon-viewport
+```
 
+```jsx
+// .storybook/main.js
+addons: [
+				"@storybook/preset-create-react-app",
+        "@storybook/addon-onboarding",
+        "@storybook/addon-essentials",
+        "@chromatic-com/storybook",
+        "@storybook/addon-interactions",
+        "@storybook/addon-viewport",   // add this
+    ],
+
+// .storybook/preview.js
+// voeg dit toe boven aan je pagina onder @type
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import path from "path";
+
+const preview ={
+parameters: {
+        viewport: {
+            viewports: INITIAL_VIEWPORTS,
+            defaultViewport: "ipad",        // choose default according to your preference
+        }, }
 ```
 
 ### 2. `@storybook/addon-backgrounds`
@@ -231,7 +439,33 @@ Om deze addon te installeren, voer je het volgende commando uit:
 
 ```bash
 npm i -D @storybook/addon-backgrounds
+```
 
+```jsx
+// .storybook/main.js
+addons: [
+				// previous addons
+				"@storybook/addon-viewport",
+        "@storybook/addon-backgrounds",
+    ],
+
+// .storybook/preview.js
+parameters: {
+        viewport: {
+            viewports: INITIAL_VIEWPORTS,
+            defaultViewport: "ipad",        // choose default according to your preference
+        },
+        backgrounds: {
+            values: [
+                // 👇 Default values
+                { name: "Dark", value: "#333" },
+                { name: "Light", value: "#F7F9F2" },
+                // 👇 Add your own
+                { name: "Maroon", value: "#400" },
+            ],
+            // 👇 Specify which background is shown by default
+            default: "Light",
+        },
 ```
 
 ### 3. `@storybook/addon-storysource`
@@ -244,7 +478,46 @@ Om de addon te installeren, gebruik je de volgende opdracht:
 
 ```bash
 npm i @storybook/addon-storysource --dev
+```
 
+```jsx
+addons: [
+				// previous addons
+				"@storybook/addon-viewport",
+        "@storybook/addon-backgrounds",
+    ],
+
+// .storybook/preview.js
+parameters: {
+
+			//
+
+       controls: {
+            matchers: {
+                color: /(background|color)$/i,    // this is in by default
+                date: /Date$/i,
+            },
+        },
+
+       addons: [
+            {
+                name: "@storybook/addon-storysource",
+                options: {
+                    rule: {
+                        // test: [/\.stories\.jsx?$/], This is default
+                        include: [
+                            path.resolve(
+                                __dirname,
+                                "../src/stories/**/*.stories.js"
+                            ),
+                        ],
+                    },
+                    loaderOptions: {
+                        prettierConfig: { printWidth: 80, singleQuote: false },
+                    },
+                },
+            },
+        ],
 ```
 
 ### 4. `@storybook/addon-actions`
@@ -257,7 +530,6 @@ Om de addon toe te voegen aan je project, voer je het volgende uit:
 
 ```bash
 npm i -D @storybook/addon-actions
-
 ```
 
 ### 5. `@storybook/addon-links`
@@ -270,7 +542,6 @@ De installatie van de **`@storybook/addon-links`** addon gaat als volgt:
 
 ```bash
 npm i -D @storybook/addon-links
-
 ```
 
 ### Samenvatting
@@ -278,6 +549,88 @@ npm i -D @storybook/addon-links
 Door het gebruik van Storybook addons kun je je componenten niet alleen testen op verschillende schermformaten en resoluties, maar kun je ook de broncode documenteren, de interactie met componenten loggen en de visuele elementen aanpassen aan verschillende achtergronden en thema's. Deze krachtige functionaliteiten verbeteren je ontwikkelervaring aanzienlijk en zorgen ervoor dat je componenten consistent en goed gedocumenteerd zijn.
 
 Het installeren van deze addons kan eenvoudig via npm en na installatie kunnen ze direct worden gebruikt in je Storybook-configuratie. Elk van deze addons voegt een nieuwe laag van functionaliteit toe die essentieel kunnen zijn, vooral naarmate je project groter wordt en de behoeften complexer worden.
+
+Momenteel hebben onze main.js:
+
+```
+/** @type { import('@storybook/react-webpack5').StorybookConfig } */
+const config = {
+    stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+    addons: [
+        "@storybook/preset-create-react-app",
+        "@storybook/addon-onboarding",
+        "@storybook/addon-essentials",
+        "@chromatic-com/storybook",
+        "@storybook/addon-interactions",
+        "@storybook/addon-viewport",
+        "@storybook/addon-backgrounds",
+        "@storybook/addon-storysource",
+    ],
+    framework: {
+        name: "@storybook/react-webpack5",
+        options: {},
+    },
+    staticDirs: ["../public"],
+};
+export default config;
+
+```
+
+in onze preview.js
+
+```
+/** @type { import('@storybook/react').Preview } */
+import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
+import path from "path"; // Import the 'path' module
+
+const preview = {
+    parameters: {
+        viewport: {
+            viewports: INITIAL_VIEWPORTS,
+            defaultViewport: "ipad",
+        },
+        backgrounds: {
+            values: [
+                // 👇 Default values
+                { name: "Dark", value: "#333" },
+                { name: "Light", value: "#F7F9F2" },
+                // 👇 Add your own
+                { name: "Maroon", value: "#400" },
+            ],
+            // 👇 Specify which background is shown by default
+            default: "Light",
+        },
+        controls: {
+            matchers: {
+                color: /(background|color)$/i,
+                date: /Date$/i,
+            },
+        },
+        addons: [
+            {
+                name: "@storybook/addon-storysource",
+                options: {
+                    rule: {
+                        // test: [/\.stories\.jsx?$/], This is default
+                        include: [
+                            path.resolve(
+                                __dirname,
+                                "../src/stories/**/*.stories.js"
+                            ),
+                        ],
+                    },
+                    loaderOptions: {
+                        prettierConfig: { printWidth: 80, singleQuote: false },
+                    },
+                },
+            },
+        ],
+    },
+};
+
+export default preview;
+
+```
 
 ## Best Practices
 
