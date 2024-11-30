@@ -726,7 +726,7 @@ StoryBook doc: [https://storybook.js.org/tutorials/intro-to-storybook/react/en/g
 
 Storybook with React (complete tutorial): [https://www.youtube.com/watch?v=dwtmz5PHWDg&t=447s]
 
-Storybook 8: [https://storybook.js.org/blog/future-of-storybook-2024/#:~:text=Our next major release%2C Storybook,performance improvements for every project.&text=We plan to release Storybook,out the full release timeline](https://storybook.js.org/blog/future-of-storybook-2024/#:~:text=Our%20next%20major%20release%2C%20Storybook,performance%20improvements%20for%20every%20project.&text=We%20plan%20to%20release%20Storybook,out%20the%20full%20release%20timeline).
+Storybook 8: [https://storybook.js.org/blog/future-of-storybook-2024/].
 
 Addons:
 
