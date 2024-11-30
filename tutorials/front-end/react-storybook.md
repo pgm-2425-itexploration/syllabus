@@ -7,7 +7,7 @@ author:
     avatarUrl: "/assets/avatars/stijn-walravens.png"
     socials:
         website: ""
-        linkedin: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile"
+        linkedin: "https://www.linkedin.com/stijn-walravens-4263b618b"
         github: "https://github.com/pgm-stijwalr"
 thumbnailUrl: "/assets/tutorials/react-sb-thumb.png"
 head:
@@ -730,9 +730,9 @@ Storybook 8: [https://storybook.js.org/blog/future-of-storybook-2024/#:~:text=Ou
 
 Addons:
 
--   https://github.com/storybookjs/storybook?tab=readme-ov-file#addons
--   https://storybook.js.org/addons
+-   [https://github.com/storybookjs/storybook?tab=readme-ov-file#addons]
+-   [https://storybook.js.org/addons]
 
 ## Github Repo
 
-https://github.com/pgm-stijwalr/storybook-workshop
+[https://github.com/pgm-stijwalr/storybook-workshop]
