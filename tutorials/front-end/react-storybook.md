@@ -72,11 +72,11 @@ npm run storybook
 
 ```
 
-Storybook wordt op een lokale server gedraaid en je kunt het openen in je browser via [http://localhost:6006](http://localhost:6006/).
+Storybook wordt op een lokale server gedraaid en je kunt het openen in je browser via localhost:6006.
 
 ### Storybook UI
 
-Wanneer je Storybook opstart, zal de Storybook UI automatisch openen in je browser. Als dit niet automatisch gebeurt, kun je naar de URL [http://localhost:6006](http://localhost:6006/) gaan om het Storybook-dashboard te openen.
+Wanneer je Storybook opstart, zal de Storybook UI automatisch openen in je browser. Als dit niet automatisch gebeurt, kun je naar de URL ocalhost:6006 gaan om het Storybook-dashboard te openen.
 
 In de Storybook UI zie je verschillende navigatie- en configuratieopties die je helpen je componenten te testen en te visualiseren. Bovenaan de pagina, naast het Storybook-logo, zie je een tandwielpictogram dat toegang biedt tot de instellingen van de UI. Hier kun je de layout aanpassen naar jouw voorkeuren, de weergave-instellingen configureren, en aanvullende functionaliteiten inschakelen.
 
