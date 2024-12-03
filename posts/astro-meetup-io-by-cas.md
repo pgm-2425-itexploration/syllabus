@@ -5,11 +5,12 @@ We are a community for people with an interest in front-end development and we h
 date: 2024-10-02
 author:
   name: 'Cas Verheye'
+  avatarUrl: '/assets/avatars/cas-verheye.png'
   socials:
     website: ''
     linkedin: 'https://www.linkedin.com/in/casverheye/'
     github: ''
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description
@@ -18,6 +19,11 @@ We are a community for people with an interest in front-end development and we h
   - - meta
     - name: keywords
       content: 'front-end'
+sources:
+  - title: 'Example Source'
+    url: 'https://example.com'
+  - title: 'Example Source 2'
+    url: 'https://example.com'
 ---
 
 # Fronteers Meetup - Astro

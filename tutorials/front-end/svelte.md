@@ -4,11 +4,12 @@ synopsis: 'Svelte is a modern front-end framework that allows developers to buil
 date: 2024-10-18
 author:
   name: 'Amin Akhayad'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: 'https://www.linkedin.com/in/amin-akhayad-1b60a62b5/'
     github: 'https://github.com/AminAkhayad'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/tutorials/svelte_img-1.png'
 head:
   - - meta
     - name: description

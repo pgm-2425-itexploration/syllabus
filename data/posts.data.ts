@@ -7,23 +7,28 @@ export default createContentLoader('posts/*.md', {
   transform(raw): Post[] {
     return raw
       .filter((post) => post.frontmatter.published !== false && post.url !== '/posts/' && post.frontmatter?.exclude !== true)
-      .map(({ url, excerpt, html, frontmatter }) => ({
-        url,
-        excerpt,
-        html,
-        title: frontmatter.title,
-        synopsis: frontmatter.synopsis,
-        thumbnailUrl: frontmatter.thumbnailUrl,
-        date: formatDate(frontmatter.date),
-        author: {
-          name: frontmatter.author.name,
-          socials: {
-            website: frontmatter.author.socials.website,
-            linkedin: frontmatter.author.socials.linkedin,
-            github: frontmatter.author.socials.github
-          }
-        },
-      }))
+      .map(({ url, excerpt, html, frontmatter }) => {
+        console.log(frontmatter)
+        return {
+          url,
+          excerpt,
+          html,
+          title: frontmatter.title,
+          synopsis: frontmatter.synopsis,
+          thumbnailUrl: frontmatter.thumbnailUrl,
+          date: formatDate(frontmatter.date),
+          author: {
+            name: frontmatter.author.name,
+            avatarUrl: frontmatter.author.avatarUrl,
+            socials: {
+              website: frontmatter.author.socials.website,
+              linkedin: frontmatter.author.socials.linkedin,
+              github: frontmatter.author.socials.github
+            }
+          },
+          sourses: frontmatter.sourses,
+        }
+      })
       .sort((a, b) => b.date.time - a.date.time)
   }
 })

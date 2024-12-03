@@ -1,14 +1,15 @@
 ---
-title: 'VitePress & Canvas API: Creating Dynamic Graphics for Your Static Site'
-synopsis: 'Learn how to integrate the HTML5 Canvas API into your VitePress-powered site to create dynamic and interactive graphics. This tutorial walks you through setting up a VitePress project, using the Canvas API to draw shapes, and adding interactivity to engage users.'
+title: 'VitePress & Canvas API'
+synopsis: 'Learn how to integrate the HTML5 Canvas API into your VitePress-powered site to create dynamic and interactive graphics.'
 date: 2024-10-10
 author:
   name: 'Gust Pêtre'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: 'https://www.linkedin.com/in/gust-petre/'
     github: 'https://github.com/pgm-Gust'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

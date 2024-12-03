@@ -1,26 +1,32 @@
 ---
 title: 'Astro: The New Player on the Block'
-synopsis: ''
-date: 2024-10-02
+synopsis: 'Astro is a fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most.'
+date: 2024-10-18
 author:
   name: 'Mees Akveld'
+  avatarUrl: '/assets/avatars/mees-akveld.png'
   socials:
     website: 'https://www.meesakveld.be/'
     linkedin: 'https://www.linkedin.com/in/meesakveld/'
     github: 'https://www.github.com/meesakveld/'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/posts/astro-the-new-player-on-the-block_img-1.png'
 head:
   - - meta
     - name: description
-      content: 'Hi 👋 and welcome to Fronteers BE. We are a community for people with an interest in front-end development and we host casual meetups in Ghent. Occiasionally also in Antwerp and Kortrijk.'
+      content: "Astro is a fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most. Written by Mees Akveld."
   - - meta
     - name: keywords
-      content: 'front-end'
+      content: 'front-end development, web development, astrojs, astro, static site generator, ssg, content collections, components, middleware, actions, environment variables, ui integrations, Mees Akveld'
+sources:
+  - title: 'AstroJS Website'
+    url: 'https://astro.build/'
+  - title: 'AstroJS Documentation'
+    url: 'https://docs.astro.build/'
 ---
 
 # Astro: The New Player on the Block
 
-In the ever-changing technical world of developers, there is a constant search for newer, faster, and more efficient ways to build websites. One newcomer that is gaining more and more attention is AstroJS. A fast web framework for content-driven websites, where is't especially build for content-rich sites where performance matters most.
+In the ever-changing technical world of developers, there is a constant search for newer, faster, and more efficient ways to build websites. One newcomer that is gaining more and more attention is AstroJS. A fast web framework for content-driven websites, that is especially build for content-rich sites where performance matters most.
 
 In this article, I will dive deeper into what Astro is, what sets it apart from other frameworks, how to set it up, and share my experience of using AstroJS in a proof of concept.
 
@@ -199,6 +205,113 @@ Astro is a fully featured framework with everything you need to build a modern w
 
 4. ### Actions
 
+   Data actions are a way to interact with data in AstroJS. Interactions like fetching data from an external source, like an API, and then use that data in your AstroJS application.
+
+   #### Getting started
+
+   Actions are defined in the `src/actions` directory. Each file in this directory is an action that can be called from any AstroJS component.
+
+   ::: code-group
+   ```js [src/actions/getData.js]
+    export async function getData() {
+      const response = await fetch('https://api.example.com/data');
+      return response.json();
+    }
+   ```
+
+   ```astro [src/pages/index.astro]
+    ---
+    import { getData } from 'astro:actions';
+    const data = await getData();
+    ---
+    <h1>{data.title}</h1>
+    <p>{data.description}</p>
+   ```
+   :::   
+
+    In the example above, the `getData` action fetches data from an external API and returns it as a JSON object. This data is then used in the `index.astro` component to display the title and description.
+
+    Actions are a powerful way to interact with data in AstroJS, and they can be used to fetch data from APIs, databases, or other sources.
+    
+    Actions can also be used for buttons, forms, and other interactive elements in your AstroJS application.
+
+    In the example below, `getGreeting` action is called when the button is clicked, and the result is shown in a alert.
+
+    ::: code-group
+    ```ts [src/actions/index.ts]
+    import { defineAction } from 'astro:actions';
+    import { z } from 'astro:schema';
+
+    export const server = {
+      getGreeting: defineAction({
+        input: z.object({
+          name: z.string(),
+        }),
+        handler: async (input) => {
+          return `Hello, ${input.name}!`
+        }
+      })
+    };
+    ```
+
+    ```astro [src/pages/index.astro]
+    ---
+    ---
+
+    <button>Get greeting</button>
+
+    <script>
+    import { actions } from 'astro:actions';
+
+    const button = document.querySelector('button');
+    button?.addEventListener('click', async () => {
+      // Show alert pop-up with greeting from action
+      const { data, error } = await actions.getGreeting({ name: "Houston" });
+      if (!error) alert(data);
+    })
+    </script>
+    ```
+    :::
+
+    <br>
+
+    #### Organizing actions
+
+    All actions are stored in the `src/actions` directory. Each file in this directory is an action that can be called from any AstroJS component.
+
+    As a developer you can also organize your actions in subdirectories to keep your codebase clean and organized.
+
+    For example you can create a `src/actions/user.ts` directory to store all actions related to user.
+
+    ::: code-group
+    ```ts [src/actions/user.ts]
+    import { defineAction } from 'astro:actions';
+
+    export const user = {
+      getUser: defineAction(/* ... */),
+      createUser: defineAction(/* ... */),
+    }
+    ```
+    :::
+
+    Then, you can import the actions from the `user.ts` file in your AstroJS `src/actions/index.ts` file.
+
+    ::: code-group
+    ```ts [src/actions/index.ts]
+    import { user } from './user';
+
+    export const server = {
+      user,
+    };
+    ```
+    :::
+
+    Now the `getUser` and `createUser` actions are available in your AstroJS application, and are callable from the `actions.user` object.
+
+    - `actions.user.getUser()`
+    - `actions.user.createUser()`
+
+
 <br>
 
 5. ### Environment Variables
@@ -239,7 +352,7 @@ Astro is a fully featured framework with everything you need to build a modern w
    
       Example: `/assets/` or `https://cdn.example.com/`
    
-    <br>
+   <br>
 
    #### Usage
    Environment variables in AstroJS are accessed with `import.meta.env`.
@@ -258,4 +371,162 @@ Astro is a fully featured framework with everything you need to build a modern w
 
    AstroJS makes it very easy to add additional functionalities and behaviors. 
 
-   Styling frameworks like Tailwind and 
+   Frameworks like TailwindCSS, Partytown, React, Vue, Svelte, Solid and many more are supported out of the box. Also the integration of custom features is very easy, like a automatic site map generator or a RSS adapter.
+
+   <br>
+
+   #### Usage
+
+   To add a new UI integration(s), you can add them by typing the following in the terminal:
+
+   ::: code-group
+   ```bash [npm]
+   npx astro add react
+   ```
+   ```bash [pnpm]
+   pnpm astro add react
+   ```
+   ```bash [yarn]
+   yarn astro add react
+   ```
+   :::
+
+   Also adding multiple UI integrations at once is possible.
+
+   ::: code-group
+   ```bash [npm]
+   npx astro add react tailwind partytown
+   ```
+   ```bash [pnpm]
+   pnpm astro add react tailwind partytown
+   ```
+   ```bash [yarn]
+   yarn astro add react tailwind partytown
+   ```
+   :::
+
+   If you want to remove a UI integration, you can do this by typing the following in the terminal:
+
+    ::: code-group
+    ```bash [npm]
+    npm uninstall @astrojs/react
+    ```
+    ```bash [pnpm]
+    pnpm remove @astrojs/react
+    ```
+    ```bash [yarn]
+    yarn remove @astrojs/react
+    ```
+    :::
+
+    In AstroJS it's also possible to toggle UI integrations on and off with specific parameters.
+
+    ::: code-group
+    ```js [astro.config.mjs]
+    import { defineConfig } from 'astro/config';
+    import sitemap from '@astrojs/sitemap';
+
+    export default defineConfig({
+      // ...
+      integrations: [
+        process.platform !== 'win32' && sitemap()
+      ],
+      // ...
+    });
+    ```
+    :::
+
+
+## Getting Started
+
+Now that you know what AstroJS is and what it can do, let's get started with setting up AstroJS.
+
+### Installation
+
+Let's start by installing AstroJS. You can do this by running the following command in your terminal:
+
+::: code-group
+```bash [npm]
+npm create astro@latest
+```
+
+```bash [pnpm]
+pnpm create astro@latest
+```
+
+```bash [yarn]
+yarn create astro
+```
+:::
+
+Make sure you have Node.js installed on your machine. If you don't have Node.js installed, you can download it from the official website: [https://nodejs.org/](https://nodejs.org/)
+
+After running the command, you will be prompted to enter a name for your new AstroJS project. You can choose any name you like.
+
+In this example, I will use `my-astro-project` as the project name. You can replace `my-astro-project` with the name you want to use for your project.
+
+The options i will choose are:
+```bash
+? Where should we create your new project?: my-astro-project
+? How would you like to start your project?: Empty
+? Do you plan to write TypeScript?: Yes
+? How strict should TypeScript be?: Strict
+? Install dependencies? (recommended): Yes
+? Initialize a new git repository? (optional): No
+```
+
+After the installation is complete, you can navigate to the project directory by running the following command in your terminal:
+
+```bash
+cd my-astro-project
+```
+
+<br>
+
+### Start the development server
+
+After creating a new AstroJS project, you can start the development server by running the following command in your terminal:
+
+::: code-group
+```bash
+npm run dev
+```
+
+```bash
+pnpm dev
+```
+
+```bash
+yarn dev
+```
+:::
+
+After running the command, you will see a message in your terminal that the development server is running. You can now open your browser and navigate to `http://localhost:4321/` to see your AstroJS project in action.
+
+If everything is set up correctly, you should see a welcome message in your browser that says "Astro".
+
+Now you are ready to start building your AstroJS project!
+
+
+## How is AstroJS different?
+
+AstroJS is a modern web framework that is designed to be fast, efficient, and easy to use. It is built with performance in mind, and it is optimized for content-driven websites.
+
+AstroJS is different from other frameworks in several ways:
+
+1. **Performance**: AstroJS is designed to be fast and efficient. It uses server-side rendering to generate static HTML pages, which makes the loading time very fast.
+
+2. **Content Collections**: AstroJS comes with built-in support for content collections, making it very easy to work with organized groups of content.
+
+3. **Optional JavaScript**: AstroJS only sends JavaScript to the client if needed, which reduces the amount of code that needs to be loaded. AstroJS works on a component-by-component basis, which means that only the components that require JavaScript will ship with JavaScript, wich makes the loading time very fast.
+
+4. **SEO friendly**: AstroJS is designed to be SEO friendly. It generates static HTML pages that are optimized for search engines. Because of the server-side rendering, the pages are fully rendered before they are sent to the client, which makes them easier to index by search engines. And with the optional JavaScript, its for search engines very easy to index the pages.
+
+
+## Conclusion
+
+AstroJS may be a new player on the block, but it’s already making a significant impact in the web development world. With its focus on fast, efficient, **Javascript Optional** and **SEO friendly** websites, AstroJS is a great choice for developers who are looking for a modern web framework that is easy to use and optimized for performance. 
+
+With the flexibility of the use of **components**, **middleware**, **actions**, **environment variables** and **UI integrations**, AstroJS can compete with other frameworks like React, NextJS, Gatsby and Svelte. 
+
+If you are looking for a modern framework that is **fast**, **efficient**, and easy to use, AstroJS is definitely worth checking out. 

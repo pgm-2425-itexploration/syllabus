@@ -1,14 +1,15 @@
 ---
-title: 'Tutorial Django'
+title: 'Django'
 synopsis: 'Django is een hoogwaardig, open-source webframework dat is geschreven in Python.'
 date: 2024-10-10
 author:
   name: 'Jordan Bergmans'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials: # Add social media links -> If you don't have any, place an empty string ''
     website: ''
     linkedin: 'https://www.linkedin.com/in/jordan-bergmans-991a51292/'
     github: 'https://github.com/Bergmansjordan'
-thumbnailUrl: '/assets/1728555601054.jpg'
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description

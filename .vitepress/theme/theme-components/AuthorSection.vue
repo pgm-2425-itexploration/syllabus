@@ -1,19 +1,21 @@
 <script setup>
-import { useData } from 'vitepress'
+import { useData, withBase } from 'vitepress'
 const { page, frontmatter } = useData()
 </script>
 
 <template>
-  <div class="mt-4 flex flex-wrap gap-y-4 gap-x-8 justify-between rounded-[8px] py-3 px-4 items-center mb-6"
+  <div class="flex flex-wrap gap-y-4 gap-x-8 justify-between rounded-[8px] py-3 px-4 items-center"
     v-if="frontmatter.author" style="border: 1px solid var(--vp-c-divider);">
 
-    <div class="max-sm:w-full">
+    <div class="max-sm:w-full flex flex-col gap-1">
       <p class="leading-5 text-xs font-medium" style="color: var(--vp-c-text-2)">Written by</p>
-      <p v-if="frontmatter.author.name" class="text-s font-normal" style="color: var(--vp-c-brand-1);">{{
-        frontmatter.author.name }}</p>
+      <div class="flex gap-2 items-center">
+        <img v-if="frontmatter.author.avatarUrl && frontmatter.author.name" :src="withBase(frontmatter.author?.avatarUrl)" :alt="frontmatter.author.name" class="rounded-full w-6 h-6" />
+        <p v-if="frontmatter.author.name" class="text-s font-normal" style="color: var(--vp-c-brand-1);">{{frontmatter.author.name }}</p>
+      </div>
     </div>
 
-    <div class="flex flex-col items-end max-sm:w-full">
+    <div class="flex flex-col gap-1 items-end max-sm:w-full" v-if="frontmatter.author.socials.linkedin || frontmatter.author.socials.website || frontmatter.author.socials.github">
       <p class="leading-5 text-xs font-medium" style="color: var(--vp-c-text-2)">Socials</p>
       <div class="flex space-x-4">
         <a target="_blank" :href="frontmatter.author.socials.linkedin" v-if="frontmatter.author.socials.linkedin"
