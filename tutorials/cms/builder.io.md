@@ -23,7 +23,7 @@ head:
 
 # Builder.io Tutorial
 
----
+
 
 ## Inhoudsopgave
 
@@ -55,7 +55,7 @@ head:
 8. [Toekomstige versies / updates](#8-toekomstige-versies--updates)
 9. [Bronnenvermeldingen en documentatie](#9-bronnenvermeldingen-en-documentatie)
 
----
+
 
 ## 1. Introductie
 
@@ -83,7 +83,11 @@ De keuze voor Builder.io biedt verschillende voordelen:
 
 Met deze krachtige functionaliteit is Builder.io een waardevolle tool voor bedrijven die hun online aanwezigheid willen verbeteren en tegelijkertijd de efficiëntie van hun workflow willen verhogen.
 
----
+![vergelijkings diagram](builder.io_grafiek.png)
+
+*Hier is een grafiek waarin Builder.io wordt vergeleken met andere populaire CMS'en zoals WordPress, Contentful, Webflow en Strapi. De grafiek beoordeelt vijf belangrijke categorieën: gebruiksgemak, flexibiliteit, prestaties, samenwerking en time-to-market. Builder.io scoort hoog in alle categorieën, wat het onderscheidt als een veelzijdige en krachtige keuze.*
+
+
 
 ## 2. Installatie
 
@@ -144,7 +148,7 @@ Builder.init('je-api-sleutel'); // vervang 'je-api-sleutel' door je eigen API-sl
 
 Zorg ervoor dat je deze initialisatie uitvoert voordat je probeert content op te halen of te renderen met Builder.io.
 
----
+
 
 ## 3. Configuratie
 
@@ -204,7 +208,7 @@ getContent();
 
 Hierbij vraag je content op voor een specifieke pagina. Je kunt de URL vervangen door de gewenste route.
 
----
+
 
 ## 4. Basisfunctionaliteit
 
@@ -264,7 +268,7 @@ export default Page;
 
 In dit voorbeeld halen we de paginadata op en tonen we de titel op de pagina. Deze aanpak maakt het eenvoudig om dynamische content te integreren.
 
----
+
 
 ## 5. Geavanceerde functionaliteiten
 
@@ -342,7 +346,7 @@ Builder.registerComponent(SnippetComponent, {
 });
 ```
 
----
+
 
 ## 6. Afbeeldingen, diagrammen en code snippets
 
