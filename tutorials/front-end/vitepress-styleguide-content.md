@@ -47,6 +47,7 @@ In this tutorial, we will take a look at how to create a styleguide and content 
   - [Exploring the config.mts](#exploring-the-configmts)
   - [Changing the color theme](#changing-the-color-theme)
   - [Tailwind CSS](#tailwind-css-1)
+    - [Tailwind installation](#tailwind-installation)
   - [Vue Components](#vue-components-1)
     - [Banner](#banner)
     - [Footer](#footer)
@@ -505,6 +506,7 @@ Go to the vars.css file and locate the `:root` selector after the explanation of
 
 /* ... */
 ```
+:::
 
 These variables are we going to use to change the colors of the website. You can change the colors to any color you like. After you have changed the colors, you can save the `vars.css` file.
 
@@ -581,7 +583,154 @@ When you open your browser and go to `http://localhost:5174/`, you will see that
 ## Tailwind CSS
 
 
-/* To be added */
+While creating a website with Vitepress, it can be a time-consuming task to write custom CSS for every element on your website and in this case for each component that you create. To make this process easier, you can use a styling framework like Tailwind CSS.
+
+Tailwind CSS is a utility-first CSS framework that comes with a lot of utility classes that you can use to style your website. This saves a lot of time because you don't have to write custom CSS for every element on your website. You can use the utility classes that Tailwind CSS provides to style your website.
+
+For each normally when you want to create a title with a specific color, you would write custom CSS like this:
+
+```css
+.title {
+  color: red;
+}
+```
+
+With Tailwind CSS, you can use utility classes to style your title like this:
+
+```html
+<h1 class="text-red-500">This is a title</h1>
+```
+
+In this example, we are using the `text-red-500` utility class to style the title with a red color. In the background, Tailwind CSS generates the custom CSS for you, so you don't have to write it yourself. In the background Tailwind CSS generates the following CSS:
+
+```css
+.text-red-500 {
+  color: #f56565; /* Red color */
+}
+```
+
+### Tailwind installation
+
+To install Tailwind CSS in your Vitepress project, you need to install Tailwind CSS with npm by running the following command in your terminal:
+
+```bash
+npm install tailwindcss
+```
+
+After you have installed Tailwind CSS, you need to create a Tailwind CSS configuration file by running the following command in your terminal:
+
+```bash
+npx tailwindcss init
+```
+
+When you run this command, Tailwind CSS will create a `tailwind.config.js` file in the root of your project. This file is the configuration file for Tailwind CSS, where you can configure the colors, fonts, and other styles of your website.
+
+The `tailwind.config.js` file looks like this:
+
+::: code-group
+``` javascript [./tailwind.config.js]
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+:::
+
+After initializing Tailwind CSS, we need to take a few steps to make it work with Vitepress. 
+
+1. **Create a tailwind.css file**
+
+    To import Tailwind CSS in your Vitepress project, you need to add a tailwind.css file to the `./.vitepress/theme/styles/` folder. This file is not created by default, so you need to create it yourself.
+
+    In the tailwind.css file, you need to import Tailwind CSS by adding the following line of code:
+
+    ::: code-group
+    ```css [./.vitepress/theme/styles/tailwind.css]
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+    ```
+
+    This will import the base, components, and utilities of Tailwind CSS in your project. This way you can use the utility classes of Tailwind CSS to style your website.
+
+2. **Import Tailwind CSS in the index.ts file**
+     
+    After you have created the tailwind.css file, you need to import it in the index.ts file in the `./.vitepress/theme/index.ts` file. The index.ts file is the entry point of your theme, where you can import custom styles, components, and other elements that you want to add to your website.
+
+    ::: code-group
+    ```typescript [./.vitepress/theme/index.ts]
+    // https://vitepress.dev/guide/custom-theme
+    import { h } from 'vue'
+    import type { Theme } from 'vitepress'
+    import DefaultTheme from 'vitepress/theme'
+    import './style.css'
+    import './styles/vars.css'
+    import './styles/output.css' // Imported the added tailwind.css file
+
+    // ... the rest of the code
+    ```
+    :::
+
+    If you've looked at the code above, you can see that we did not import the tailwind.css file itself, but the output.css file. This is because we are going to write the output of the tailwindcss command to the output.css file. This way we can use the utility classes of Tailwind CSS to style our website.
+
+3. **Write a watch script to generate the output.css file**
+    
+    Because Tailwind CSS' watch script doesn't always work an every device, we will use nodemon to watch changes in our files and generate the output.css file. To do this, we need to install nodemon by running the following command in your terminal:
+
+    ```bash
+    npm install nodemon
+    ```
+
+    After you have installed nodemon, you can add a watch script to your package.json file by adding the following line of code:
+
+    ::: code-group
+    ```json [./package.json]
+    // ... other code
+    "scripts": {
+      // ... other scripts
+      "tailwind:watch": "npx nodemon -e vue --exec \"npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css\""
+    }
+    // ... other code
+    ```
+    :::
+    
+    In the script above we are using nodemon to watch for changes in the tailwind.css file. When a change is detected, nodemon will run the tailwindcss command to generate the output.css file. This way you can use the utility classes of Tailwind CSS to style your website.
+   
+  4. **Configure the `tailwind.config.js` file**
+    
+      Currently, if you would run the `tailwind:watch` script, nothing would happen. This is because we need to add the content that Tailwind CSS should watch for changes. This means that Tailwind CSS needs to know which files to monitor for newly added Tailwind classes.
+
+      In this project, we want to monitor the Javascript, Typescript, and Vue files in the folders specified below.
+
+      ::: code-group
+      ```javascript [./tailwind.config.js]
+      /** @type {import('tailwindcss').Config} */
+      module.exports = {
+        mode: 'jit',
+        important: '#app',
+        content: [
+          './.vitepress/theme/theme-components/*.{vue,js,ts}',
+          './components/**/*.{vue,js,ts}',
+        ],
+        theme: {
+          extend: {},
+        },
+        plugins: [],
+      }
+      ```
+      :::
+
+      In the new version of the `tailwind.config.js` file, we have added the `mode` property with the value `jit`. This is the Just-In-Time mode of Tailwind CSS. This mode only generates the CSS that you use in your project, which makes the CSS file smaller and faster to load. It also makes it possible to use custom non prior defined amount of width, height, padding, margin, etc. classes.
+
+      For example, sometimes you want a specific width, height, etc that's not out of the box possible with Tailwind, but you don't want to add it in the config. By adding the `mode: 'jit'` you can use the utility classes like `w-[123%]` or `h-[100vh]` to set a specific width or height. 
+
+      For more information about the Just-In-Time mode of Tailwind CSS, you can take a look at the [official documentation](https://v2.tailwindcss.com/docs/just-in-time-mode).
+
+After you have made these changes, you can save the `tailwind.config.js` file. Now everything is ready for development with Tailwind CSS. Let's try it out in the next section [Vue Components](#vue-components-1).
 
 <br>
 
@@ -597,7 +746,12 @@ Also we are going to add a custom footer to the website. This footer will contai
 
 ### Banner
 
-/* To be added */
+To create a banner we will need to take a couple of steps. First create the Banner Vue Component, which we are going to style with Tailwind css. Than we need to add it to the `index.ts` file located in the theme folder. And then ofcourse test it. Let's get started!
+
+1. **Create the component**
+   
+   
+
 
 <br>
 
