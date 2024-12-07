@@ -9,7 +9,7 @@ author:
     website: ""
     linkedin: "https://www.linkedin.com/in/lauren-🐦-wille-2457141b7"
     github: "https://github.com/Lauren-Wille"
-thumbnailUrl: "/assets/nuxt_img.png"
+thumbnailUrl: "/assets/tutorials/nuxt_img.png"
 head:
   - - meta
     - name: description
