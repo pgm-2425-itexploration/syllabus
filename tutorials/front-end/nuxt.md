@@ -17,7 +17,34 @@ head:
   - - meta
     - name: keywords
       content: "nuxt front-end appliction tutorial"
+sources:
+  - title: 'ZenQuotes API'
+    url: 'https://zenquotes.io/api/random'
+  - title: 'ChatGPt (for more help on tutorial)'
+    url: 'https://chat.openai.com/'
+  - title: 'Nuxt (for documentation)'
+    url: 'https://nuxt.com/'
 ---
+
+## Table of contents
+
+- [Table of contents](#table-of-contents)
+- [What is Nuxt?](#what-is-nuxt)
+- [What are the pros?](#what-are-the-pros)
+- [What are the cons?](#what-are-the-cons)
+- [Make your own quote generator](#make-your-own-quote-generator)
+  - [1. Installation](#1-installation)
+  - [2. Add Tailwind CSS (optional)](#2-add-tailwind-css-optional)
+  - [3. Add environment variables (.env file)](#3-add-environment-variables-env-file)
+  - [4. Add robots.txt (optional)](#4-add-robotstxt-optional)
+  - [5. Add an api file to fetch the random quote](#5-add-an-api-file-to-fetch-the-random-quote)
+  - [6. Add the quote generator component](#6-add-the-quote-generator-component)
+  - [7. Adjust the app.vue file](#7-adjust-the-appvue-file)
+  - [8. Add a copy button](#8-add-a-copy-button)
+  - [9. Add a share button](#9-add-a-share-button)
+- [Best practices](#best-practices)
+- [Future updates and versions](#future-updates-and-versions)
+- [Real life examples](#real-life-examples)
 
 ## What is Nuxt?
 
@@ -32,6 +59,20 @@ Nuxt uses conventions, automation and a directory structure to automate repetiti
 3. If you write Vue components in their respective directories, you can **use them without having to import them**, due to tree-shaking.
 
 What else is good to know about Nuxt? The framework uses the **server engine Nitro**. This is useful because in production this engine builds the output in 1 directory and the application minimized. A Nuxt application **can also be deployed to a Node server**, rendered to be hosted in static environments or deployed to serverless and edge providers. Finally, you can extend Nuxt with custom features and integrations with **third-party services**.
+
+## What are the pros?
+1. Nuxt provides an out-of-the-box solution for **server-side rendering (SSR) and static site generation (SSG)**.
+2. SSR and SSG **improve SEO** by ensuring that search engine crawlers can easily index content, especially important for dynamic content.
+3. **File-based routing** eliminates the need for manual route configuration. Each .vue file in the pages directory automatically becomes a route.
+4. Nuxt has an **active community and detailed documentation**, making it easier to learn and troubleshoot.
+5. Offers robust **support for TypeScript and the Vue 3 Composition API**, making it future-ready and developer-friendly.
+
+## What are the cons?
+1. While Nuxt simplifies SSR, its **additional abstractions and configuration options can be overwhelming** for developers new to SSR or Vue.
+2. For smaller or purely client-side projects, **the SSR/SSG capabilities can introduce unnecessary complexity** and overhead.
+3. The framework's conventions can **sometimes feel restrictive**, especially for developers looking for a fully custom setup.
+4. For large applications, **static site generation can result in long build times**, especially if there are numerous pages or complex data-fetching requirements.
+5. Errors in SSR can be **harder to debug** compared to client-side rendering, as they occur on the server side and often require more specialized knowledge.
 
 ## Make your own quote generator
 
@@ -284,8 +325,9 @@ What is it best you remember during the making of a Nuxt project?
 2. You can use the developer tools at the bottom of the page. This dashboard shows which version you're using, you're components, the routes you have made and more. Don't want to use them? You can turn them off in the nuxt.config.ts file. 
 ![Nuxt devtools](/public/assets/tutorials/nuxt-devtool.png)
 
-1. Use folders to make the routing in your project.
-2. Add an .env file for more security.
+3. Use folders to make the routing in your project.
+4. Add an .env file for more security. Below you can see the ENV file example of the tutorial.
+![Example of an ENV file](/public/assets/tutorials/env-file-example.png)
 
 ## Future updates and versions
 At the moment, Nuxt uses version 3. When a new version is released, you can update your application by running the upgrade command in the terminal.
@@ -326,9 +368,8 @@ export default defineNuxtConfig({
 })
 ```
 
-## Sources
-[ZenQuotes API](https://zenquotes.io/api/random) as API
-
-[ChatGPT](https://chat.openai.com/) as help while making the tutorial
-
-[Nuxt](https://nuxt.com/) for documentation on Nuxt
+## Real life examples
+Many sites use the Nuxt framework. Some examples are:
+- [Ecosia](https://www.ecosia.org/)
+- [Buy me a coffee](https://buymeacoffee.com/)
+- [Icons8](https://icons8.com/icons)
