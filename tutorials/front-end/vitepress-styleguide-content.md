@@ -1,7 +1,7 @@
 ---
 title: 'VitePress - Styleguide & Content'
-synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
-date: 2024-10-10
+synopsis: 'In this tutorial, we will take a look at how to create a vitepress website with a custom styleguide and content.'
+date: 2024-12-08
 author:
   name: 'Mees Akveld'
   avatarUrl: "/assets/avatars/mees-akveld.png"
@@ -9,11 +9,11 @@ author:
     website: 'https://www.meesakveld.com'
     linkedin: 'https://www.linkedin.com/in/meesakveld/'
     github: 'https://www.github.com/meesakveld'
-thumbnailUrl: '/assets/example-image.jpg'
+thumbnailUrl: '/assets/tutorials/vitepress-styleguide-content_img-4.png'
 head:
   - - meta
     - name: description
-      content: 'This is an example tutorial. You can use this file as a template to create your own tutorials.' # Add a description of the article
+      content: 'In this tutorial, we will take a look at how to create a vitepress website with a custom styleguide and content.' # Add a description of the article
   - - meta
     - name: keywords
       content: 'front-end development static-site-generator ssg javascript' # Add keywords related to the article
