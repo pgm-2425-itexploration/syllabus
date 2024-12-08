@@ -50,10 +50,8 @@ In this tutorial, we will take a look at how to create a styleguide and content 
     - [Tailwind installation](#tailwind-installation)
   - [Vue Components](#vue-components-1)
     - [Banner](#banner)
-    - [Footer](#footer)
   - [Adding content](#adding-content)
-    - [Oh! The sidebar is not dynamic](#oh-the-sidebar-is-not-dynamic)
-  - [Finished product](#finished-product)
+    - [Oh! The sidebar and navigation is not dynamic](#oh-the-sidebar-and-navigation-is-not-dynamic)
   - [Final thoughts](#final-thoughts)
 
 
@@ -266,7 +264,7 @@ When running this command, Vitepress will ask you a few questions about your pro
 ┌  Welcome to VitePress!
 │
 ◇  Where should VitePress initialize the config?
-│  ./docs
+│  ./
 │
 ◇  Site title:
 │  My Awesome Project
@@ -290,15 +288,15 @@ If everything went well you currently have file structure like this:
 
 ```bash
 .
-├─ docs
-│  ├─ .vitepress
-│  │  ├─ theme
-│  │  │  ├─ index.ts
-│  │  │  ├─ style.css
-│  │  └─ config.mts
-│  ├─ api-examples.md
-│  └─ index.md
-│  ├─ markdown-examples.md
+├─ .vitepress
+│  ├─ theme
+│  │  ├─ index.ts
+│  │  ├─ style.css
+│  ├─ config.mts
+├─ api-examples.md
+├─ index.md
+├─ markdown-examples.md
+├─ package-lock.json
 └─ package.json
 ```
 
@@ -577,6 +575,7 @@ After you have made these changes, you can save the `vars.css` file.
 
 When you open your browser and go to `http://localhost:5174/`, you will see that the colors of your website have changed. You will also see that the gradient has been added to the title of your website.
 
+![Vitepress website with custom colors](/assets/tutorials/vitepress-styleguide-content_img-3.png)
 
 <br>
 
@@ -614,7 +613,7 @@ In this example, we are using the `text-red-500` utility class to style the titl
 To install Tailwind CSS in your Vitepress project, you need to install Tailwind CSS with npm by running the following command in your terminal:
 
 ```bash
-npm install tailwindcss
+npm install tailwindcss --save-dev
 ```
 
 After you have installed Tailwind CSS, you need to create a Tailwind CSS configuration file by running the following command in your terminal:
@@ -682,25 +681,28 @@ After initializing Tailwind CSS, we need to take a few steps to make it work wit
     Because Tailwind CSS' watch script doesn't always work an every device, we will use nodemon to watch changes in our files and generate the output.css file. To do this, we need to install nodemon by running the following command in your terminal:
 
     ```bash
-    npm install nodemon
+    npm install nodemon --save-dev
     ```
 
-    After you have installed nodemon, you can add a watch script to your package.json file by adding the following line of code:
+    After you have installed nodemon, you can add a watch script to your package. Also add a build script to generate the output.css file. Replace the scripts in the package.json file with the following code:
 
     ::: code-group
     ```json [./package.json]
     // ... other code
     "scripts": {
-      // ... other scripts
-      "tailwind:watch": "npx nodemon -e vue --exec \"npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css\""
-    }
+        "docs:dev": "npm run tailwind:build && vitepress dev",
+        "docs:build": "npm run tailwind:build && vitepress build",
+        "docs:preview": "vitepress preview",
+        "tailwind:build": "npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css",
+        "tailwind:watch": "npx nodemon -e vue --exec \"npx tailwindcss -i ./.vitepress/theme/styles/tailwind.css -o ./.vitepress/theme/styles/output.css\""
+    },
     // ... other code
     ```
     :::
     
     In the script above we are using nodemon to watch for changes in the tailwind.css file. When a change is detected, nodemon will run the tailwindcss command to generate the output.css file. This way you can use the utility classes of Tailwind CSS to style your website.
    
-  4. **Configure the `tailwind.config.js` file**
+  1. **Configure the `tailwind.config.js` file**
     
       Currently, if you would run the `tailwind:watch` script, nothing would happen. This is because we need to add the content that Tailwind CSS should watch for changes. This means that Tailwind CSS needs to know which files to monitor for newly added Tailwind classes.
 
@@ -750,50 +752,232 @@ To create a banner we will need to take a couple of steps. First create the Bann
 
 1. **Create the component**
    
+    Create a new file called `Banner.vue` in the `./.vitepress/theme/theme-components/` folder. This is the folder where you can add custom Vue components for your website. At the moment this folder is not created, so you need to create it yourself.
+
+    In vue components we have access to JavaScript code using the `<script setup>` tag. This tag allows us to write JavaScript code in the Vue component. 
+
+    In the Banner.vue file, we are going to use the thumbnailUrl from the front matter of the page to show an image in the banner. This means that we need to import the `useData` and `withBase` functions from Vitepress to get the data from the front matter of the page.
+
+    ::: code-group
+    ```vue [./.vitepress/theme/theme-components/Banner.vue]
+    <script setup>
+      import { useData, withBase } from 'vitepress'
+      const { page, frontmatter } = useData()
+    </script>
+
+    <template>
+      <div v-if="frontmatter.thumbnailUrl" class="mb-8 min-[1280px]:max-w-[76%]">
+
+        <img 
+          :src="withBase(frontmatter.thumbnailUrl)" 
+          :alt="frontmatter.title" 
+          class="w-full h-72 object-cover rounded-[12px]" 
+        />
+
+      </div>
+    </template>
+    ```
+    :::
+
+    In the code above, we are creating a Vue component that shows an image if the front matter contains a thumbnailUrl. The image is displayed with the title of the page as the alt text. The banner will only appear when the front matter contains a thumbnailUrl. This is possible by using the `v-if` directive to only show the image when the front matter contains a thumbnailUrl.
+
+    If you look closely, you can see that there are `:` in front of the `src` and `alt` attributes. This is because in Vue all dynamic data needs to have a `:` in front of the attribute. This is because Vue needs to know that the value is dynamic and should be updated when the data changes. So by the class attribute, the `:` is not needed because it is a static value.
+
+    The `withBase` function is used to get the base URL of the website. This is needed because the image is located in the assets folder of the website. The `withBase` function adds the base URL of the website to the image URL, so that the image can be displayed on the website.
+
+2. **Add the component to the index.ts file**
+
+    After you have created the Banner component, we will need to configure it that it will be displayed on the website when there is a thumbnailUrl in the front matter of the page. 
+
+    To do this, you need to import the Banner component in the index.ts file in the `./.vitepress/theme/index.ts` file. We also need to specify where the Banner component should be displayed on the website. In this case, we want to display the Banner component at the top of the page, before the content of the page in the docs layout. This is possible by using the `doc-top` slot.
+
+    ::: code-group
+    ```typescript [./.vitepress/theme/index.ts]
+    // https://vitepress.dev/guide/custom-theme
+    import { h } from 'vue'
+    import type { Theme } from 'vitepress'
+    import DefaultTheme from 'vitepress/theme'
+    import './style.css'
+    import './styles/vars.css'
+    import './styles/output.css'
+
+    import Banner from './theme-components/Banner.vue' // Imported the Banner component
+
+    export default {
+      extends: DefaultTheme,
+      Layout: () => {
+        return h(DefaultTheme.Layout, null, {
+          // https://vitepress.dev/guide/extending-default-theme#layout-slots
+          'doc-top': () => h(Banner), // Added the Banner component to the doc-top slot
+        })
+      },
+      enhanceApp({ app, router, siteData }) {
+        // ...
+      }
+    } satisfies Theme
+    ```
+    :::
+
+    In the code above, we are importing the Banner component and adding it to the layout of the website. The Banner component will be shown at the top of the page, before the content of the page, because we are using the `doc-top` slot. This way the Banner component will only be shown when the front matter of the page contains a thumbnailUrl.
+
+3. **Test the component**
    
+   Now that we have created the Banner component and added it to the index.ts file, we can test it by adding a thumbnailUrl to the front matter of the page. To do this, we first need to add a thumbnail image to the assets folder of the website. 
 
+   The image should be added to the `./public/assets/` folder. Name the image `example-image.{jpg, png, etc}`. After you have added the image to the assets folder, you can add the thumbnailUrl to the front matter of the page. 
+
+   For me, the image is located in the `./public/assets/` folder with the name `example-image.jpg`. I will add the thumbnailUrl to the front matter of the `markdown-examples.md` like this:
+
+    ::: code-group
+    ```markdown [./markdown-examples.md]
+    ---
+    thumbnailUrl: /assets/example-image.jpg
+    ---
+
+    // The content of the page
+    ```
+    :::
+
+    In the code above, we are adding a thumbnailUrl to the front matter of the `markdown-examples.md` page. The thumbnailUrl is the URL of the image that is located in the assets folder of the website. The image will be displayed in the Banner component at the top of the page, before the content of the page.
+
+    ::: info
+    It is possible that when you already have the development server running, you need to restart the server to see the changes with styling and components. While building, the Tailwind CSS output file is generated. 
+
+    Another option I recommend is to run the `tailwind:watch` script. This script will watch for changes in the tailwind.css file and generate the output.css file when a change is detected. This way you can see the changes in the Tailwind CSS output file in real-time.
+    :::
+
+    If everything went well, you should see the image in the Banner component at the top of the page, before the content of the page. The image will only be shown when the front matter of the page contains a thumbnailUrl.
+
+    ![Banner component](/assets/tutorials/vitepress-styleguide-content_img-1.png)
+
+Now that we have created the Banner component and know the workflow of creating a Vue component, you can create more Vue components for your website. 
 
 <br>
 
-### Footer
-
-/* To be added */
-
-<br>
 
 ## Adding content
 
-/* To be added */
+Now that we have set up the website and added custom styles and components to the website, we can start adding content to the website. 
+
+First let's create a new folder where our blog posts will be located. Create a new folder called `blogs` in the root of the project.
+
+After you have created the `blogs` folder, you can add 5 new markdown files to the `blogs` folder. Name the markdown files `blog-1.md`, `blog-2.md`, `blog-3.md`, `blog-4.md`, and `blog-5.md`.
+
+In each markdown file, you can add content for the blog post. Remember to add the front matter to the markdown file with for each blog the `thumbnailUrl` and a `title`.
+
+For example, the content of the `blog-1.md` file could look like this:
+
+::: code-group
+```markdown [./blogs/blog-1.md]
+---
+thumbnailUrl: /assets/blog-1.jpg
+title: Blog 1
+---
+
+# Blog 1
+
+This is the content of blog 1.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.
+
+Ex occaecat consequat aute quis consequat ut dolor in. Amet sint labore sit anim consequat irure ad et qui sunt cupidatat est duis exercitation. Eu qui Lorem magna voluptate incididunt ad sunt duis nulla ad incididunt id eiusmod. Id nisi et veniam dolor proident sint veniam sunt consectetur elit ex incididunt aliquip aliquip. Ad ad eiusmod laborum enim deserunt cillum exercitation exercitation dolor cillum.
+
+Voluptate id Lorem cupidatat ea. Aliqua laborum duis consequat do elit pariatur. Excepteur consectetur ea velit nisi. Sunt culpa Lorem cupidatat adipisicing commodo dolore. Consectetur sint officia esse voluptate tempor incididunt ipsum nostrud culpa commodo elit eiusmod.
+
+Mollit ex duis esse ea non labore minim nisi laboris laboris. Ut excepteur qui et elit quis tempor aliquip exercitation enim voluptate occaecat mollit consectetur. Amet exercitation aute commodo magna quis sit duis. Commodo enim ea ullamco aliqua aliquip in consectetur ullamco sit veniam anim.
+```
+:::
+
+Add content to the other blog posts in the same way. After you have added content to the blog posts, you can open your browser and go to `http://localhost:5174/blogs/blog-1` to see the content of the blog post.
+
+Currently, the blog is not visible in the navigation of the website. This can be possible by adding the blog posts to the navigation of the website. To do this, you need to add the blog posts to the nav array in the `config.mts` file.
+
+::: code-group
+```typescript [./docs/.vitepress/config.mts]
+    // ... the rest of the config
+
+    themeConfig: {
+      // ... the rest of the theme config
+
+      nav: [
+        { text: 'Home', link: '/' },
+        { text: 'Examples', link: '/markdown-examples' },
+        { text: 'Blogs', link: '/blogs' } // Added the blog post to the nav array
+      ],
+
+      // ... the rest of the theme config
+    }
+```
+
+Now when you open your browser and go to `http://localhost:5174/`, you will see that the blog posts are added to the navigation of the website. You can click on the blog item in the navigation, vitepress returns a 404 error. This is because we need to create a blog index page.
+
+To create a blog index page, you need to create a new markdown file called `index.md` in the `blogs` folder. In the `index.md` file, you can add a title and description for the blog index page.
+
+When you have created the `index.md` file and added content to the file, you can now open your browser and go to `http://localhost:5174/blogs` to see the blog index page.
+
+What you may notice is that the sidebar is not dynamic and more importantly, the blog posts are not shown in the sidebar. In the next section, we will take a look at how to make the sidebar dynamic, have different sidebar items for different navigation pages, and show the blog posts in the sidebar.
 
 <br>
 
-### Oh! The sidebar is not dynamic
+### Oh! The sidebar and navigation is not dynamic
 
-/* To be added — Explain how to make the sidebar dynamic */
+When you have added content to the website, you may notice that the sidebar and navigation are not dynamic. This means that the sidebar and navigation are not updated when you add new content to the website. This is because the sidebar is static and does not change when you add new content to the website.
 
-<br>
+But ofcourse there is a solution for this. Therefor we need to install a dependency called `vitepress-sidebar` by running the following command in your terminal:
 
-1. **Option 1**
+```bash
+npm install vitepress-sidebar
+```
 
-    /* To be added */
+After you have installed the `vitepress-sidebar` dependency, we can configure the sidebar to be dynamic. To do this, you need to add the `vitepress-sidebar` plugin to the `config.mts` file.
 
-<br>
+::: code-group
+```typescript [./.vitepress/config.mts]
+import { generateSidebar } from 'vitepress-sidebar';
+// ... the rest of the config
+
+// https://vitepress.dev/reference/site-config
+export default defineConfig({
+  // ... the rest of the config
+
+  themeConfig: {
+    // ... the rest of the theme config
   
-2. **Option 2**
-  
-      /* To be added */
+    sidebar: generateSidebar([
+      {
+        documentRootPath: '/blogs/',
+        useTitleFromFrontmatter: true,
+        capitalizeFirst: true,
+        resolvePath: '/blogs/',
+      },
+      {
+        documentRootPath: '/',
+        useTitleFromFrontmatter: true,
+        capitalizeFirst: true,
+        resolvePath: '/',
+      }
+    ])
+  }
+})
+```
+:::
 
-<br>
+::: info
+It's possible that you need to restart the development server to see the changes in the sidebar and navigation.
+:::
 
-## Finished product
+When you have done everything correctly, you should see that the sidebar and navigation are now dynamic. So that when you visit `http://localhost:5174/blogs/` you will see the blog posts in the sidebar like this:
 
-/* To be added */
+![Dynamic sidebar](/assets/tutorials/vitepress-styleguide-content_img-2.png)
+
+To conclude, we have created a dynamic sidebar and navigation for the website. This way you can add new content to the website and the sidebar and navigation will be updated automatically. This makes it easier to add new content to the website and keep the sidebar and navigation up to date.
 
 <br>
 
 ## Final thoughts
 
-/* To be added */
+In this tutorial, we have created a Vitepress website with custom styles and components. We have created a dynamic sidebar and updated the navigation of the website. We have also added blog posts to the website and created a blog index page. 
 
+In this tutorial, we have seen how easly it is to create a website with Vitepress. And how dynamic vitepress is with the use of plugins and custom components. Vitepress is a great tool to use as a base and to build upon with custom styles and components.
 
-
+I hope this tutorial has helped you to get started with Vitepress and to create your own website.
