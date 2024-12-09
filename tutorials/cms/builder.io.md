@@ -298,7 +298,7 @@ Builder.io biedt krachtige tools voor A/B-testen en personalisatie. Hiermee kun 
 
 **Afbeelding 2: A/B Testing in Builder.io**
 
-![A/B Testing Interface](/assets/tutorials/builder.io_a:b_testing.png)
+![A/B Testing Interface](/assets/tutorials/builder.io_a-b_testing.png)
 
 *Beschrijving: Een screenshot van de A/B-testinterface in Builder.io, waar verschillende versies van een pagina worden weergegeven.*
 
