@@ -1,121 +1,174 @@
 ---
-title: 'Accessibility in React'
-synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
+title: "Accessibility in React"
+synopsis: "This is an example tutorial. You can use this file as a template to create your own tutorials."
 date: 2024-10-10
 author:
-  name: 'Jarno Leuckx'
-  avatarUrl: '/assets/avatars/jarno-leuckx'
+  name: "Jarno Leuckx"
+  avatarUrl: "/assets/avatars/jarno-leuckx.png"
   socials: # Add social media links -> If you don't have any, place an empty string ''
-    website: ''
-    linkedin: 'https://www.linkedin.com/in/jarno-leuckx-a1572414a/'
-    github: 'https://github.com/JarnoLeuckx'
-thumbnailUrl: '/assets/example-image.jpg'
+    website: ""
+    linkedin: "https://www.linkedin.com/in/jarno-leuckx-a1572414a/"
+    github: "https://github.com/JarnoLeuckx"
+thumbnailUrl: "/assets/example-image.jpg"
 head:
   - - meta
     - name: description
-      content: 'This is an example tutorial. You can use this file as a template to create your own tutorials.' # Add a description of the article
+      content: "This is an example tutorial. You can use this file as a template to create your own tutorials." # Add a description of the article
   - - meta
     - name: keywords
-      content: 'Accessibility React' # Add keywords related to the article
+      content: "Accessibility React" # Add keywords related to the article
 ---
 
-#  Building an Accessibility-Focused Project in React
+# Accessibility in React: How to Build Inclusive Applications
 
-## Introduction
-In this tutorial, we’ll build a React project focused on accessibility by using semantic HTML and ensuring good practices. This approach will help us create components that are more accessible to all users, including those using screen readers.
+Accessibility, often referred to as **a11y**, is a crucial aspect of modern web development. It enables us to create applications that are usable by everyone, including individuals with visual, motor, cognitive, or other impairments. Implementing accessibility in a React application requires a combination of good coding practices, tools, and intentional design choices.
 
-### Setting Up the Project
+In this article, we will explore what accessibility means in the context of React, how to set up and configure a project, and how to extend it with basic and advanced functionalities. We’ll also discuss best practices, future expectations, and relevant resources.
 
-Follow these steps to create a new React project:
+---
 
-1 Create a new React project
+## Table of Contents
+
+- [Accessibility in React: How to Build Inclusive Applications](#accessibility-in-react-how-to-build-inclusive-applications)
+  - [Table of Contents](#table-of-contents)
+  - [1. Introduction](#1-introduction)
+  - [2. The Importance of Accessibility in React](#2-the-importance-of-accessibility-in-react)
+  - [3. Setup and Installation](#3-setup-and-installation)
+    - [Starting a React Application](#starting-a-react-application)
+  - [4 Accessibility Configuration](#4-accessibility-configuration)
+    - [Automated Testing with axe-core](#automated-testing-with-axe-core)
+  - [5. Basic Principles of Accessibility](#5-basic-principles-of-accessibility)
+  - [Advanced Techniques and Features](#advanced-techniques-and-features)
+    - [Keyboard Navigation](#keyboard-navigation)
+  - [7. Visualizations and Examples](#7-visualizations-and-examples)
+    - [Diagrams](#diagrams)
+  - [8. Best Practices](#8-best-practices)
+  - [9. Future Updates and Developments](#9-future-updates-and-developments)
+  - [10. Resources and References](#10-resources-and-references)
+
+---
+
+## 1. Introduction
+
+Accessibility focuses on designing and developing products that cater to a wide range of users, regardless of their physical, motor, or cognitive abilities. For developers, this means ensuring our digital products comply with accessibility standards, such as the **Web Content Accessibility Guidelines (WCAG)**.
+
+React is a popular JavaScript library for building complex user interfaces. While React doesn’t integrate accessibility by default, it provides powerful tools and a flexible structure for developers to design inclusive applications.
+
+---
+
+## 2. The Importance of Accessibility in React
+
+Accessibility offers moral, practical, and legal benefits:
+
+1. **Inclusion and Equality:** Ensures people with disabilities have equal access to information and services.
+2. **Improved User Experience:** An accessible application often provides a better experience for everyone, not just users with disabilities.
+3. **Legal Compliance:** Many countries, such as the United States (ADA) and the European Union (EN 301 549), have laws requiring digital products to be accessible.
+
+Failing to follow accessibility guidelines can lead to lawsuits, as seen in cases involving major companies.
+
+---
+
+## 3. Setup and Installation
+
+### Starting a React Application
+
+To set up a new React project, you can use **Create React App**. This provides a starter template you can quickly build upon.
+
+Steps:
+
+1. Open a terminal and run the following command:
+
+   ```bash
+   npx create-react-app my-react-app
+   cd my-react-app
+   npm start
+   ```
+
+## 4 Accessibility Configuration
+
+Linting for Accessibility
+To detect accessibility issues early, add the eslint-plugin-jsx-a11y to your project. This linting tool warns you about poor accessibility practices.
+
 ```bash
-npx create-react-app accessibility-project
+
+  "plugins": ["jsx-a11y"],
+  "extends": ["plugin:jsx-a11y/recommended"]
+
 ```
-2 Navigate to the project directory
+
+### Automated Testing with axe-core
+
+To automate accessibility testing, you can use axe-core. This tool scans your application for accessibility issues and
+provides a report on the findings.
+
 ```bash
-cd accessible-react-app
+npm install @axe-core/react --save-dev
 ```
-3 start the app 
+
+Add this to your application to catch accessibility issues in development:
+
 ```bash
-npm start
+import React from "react";
+import ReactDOM from "react-dom";
+import { axe, toHaveNoViolations } from "@axe-core/react";
+
+if (process.env.NODE_ENV !== "production") {
+  axe(React, ReactDOM, 1000);
+}
 ```
-4 Open your browser and navigate to `http://localhost:3000`
 
-5 Create a components folder: Inside src, create a new folder named components for reusable components.
+## 5. Basic Principles of Accessibility
 
-### Accessible Modal Component
-Create a new file called `AccessibleModal.jsx` inside the components folder.
-copy this code:
+**Use Semantic HTML**
+Semantic HTML tags like **header,** **main**, **article**, and **button** have built-in accessibility benefits. React fully supports this.
+
+## Advanced Techniques and Features
+
+ARIA Attributes
+ARIA (Accessible Rich Internet Applications) adds extra semantics to elements that are not accessible by default.
+
+Example of an accessible tab system:
+
 ```bash
-import React from 'react';
+<div role="tablist" aria-label="Chapters">
+  <button role="tab" aria-selected="true">Chapter 1</button>
+  <button role="tab">Chapter 2</button>
+</div>
+```
 
-const AccessibleModal = ({ isOpen, onClose }) => {
-  if (!isOpen) return null;
+### Keyboard Navigation
 
-  return (
-    <div style={{ padding: '20px', backgroundColor: 'white', position: 'fixed', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}>
-      <h2>Modal Title</h2>
-      <p>This is a simple modal.</p>
-      <button onClick={onClose}>Close</button>
-    </div>
-  );
+Supporting keyboard navigation is essential. Use the **onKeyDown** handler to manage navigation:
+
+```bash
+const handleKeyDown = (event) => {
+  if (event.key === "ArrowRight") {
+    focusNextTab();
+  }
 };
-
-export default AccessibleModal;
 ```
-### Accessible Form Component
-Create a new file called `AccessibleForm.jsx` inside the components folder.
-copy this code:
-```bash
-import React, { useState } from 'react';
 
-const AccessibleForm = () => {
-  const [formData, setFormData] = useState({ name: '', email: '' });
+## 7. Visualizations and Examples
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+### Diagrams
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Form submitted:', formData);
-  };
+* **React Accessibility Workflow:** A visual representation of how accessibility fits into a React project.
+* **Contrast Check:** Illustrations of color palettes meeting WCAG standards.
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="name">Name:</label>
-      <input id="name" name="name" onChange={handleChange} required />
-      <label htmlFor="email">Email:</label>
-      <input id="email" name="email" type="email" onChange={handleChange} required />
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
+## 8. Best Practices
 
-export default AccessibleForm;
-```
-### Portfolio Component
-Finally, let’s bring everything together in a `Portfolio.jsx` component to display each accessible feature.
-```bash 
-import React, { useState } from 'react';
-import AccessibleButton from './AccessibleButton';
-import AccessibleModal from './AccessibleModal';
-import AccessibleForm from './AccessibleForm';
+1. **Test Early and Often:** Use tools like axe-core or Lighthouse to continuously check accessibility.
+2. **Make Everything Keyboard Accessible:** Ensure all interactive elements are reachable via the keyboard.
+3. **Ensure Good Color Contrast:** Use tools like Contrast Checker to verify text readability.
+4. **Provide Clear Error Messages:** Assist users by offering specific error messages for invalid inputs.
 
-const Portfolio = () => {
-  const [isModalOpen, setModalOpen] = useState(false);
 
-  return (
-    <div>
-      <h1>Accessibility in React Portfolio</h1>
-      <AccessibleButton label="Open Modal" onClick={() => setModalOpen(true)} />
-      <AccessibleModal isOpen={isModalOpen} onClose={() => setModalOpen(false)} />
-      <AccessibleForm />
-    </div>
-  );
-};
+## 9. Future Updates and Developments
+React continues to evolve, and accessibility features are regularly improved. Notable developments include:
+* **React 18:** Includes improved accessibility features, such as better support for ARIA attributes.
+* **Concurrent Rendering:** Offers smoother user experiences and better support for screen readers.
+* **React Server Components:** Improves loading times and enhances accessibility.
 
-export default Portfolio;
-```
-#### Conclusion
-
-You now have a solid foundation for an accessibility-focused React project using semantic HTML and good practices! You’ve learned how to create accessible buttons, modals, and forms without relying on ARIA attributes. This approach ensures a better user experience for all, particularly for users with assistive technologies.
+## 10. Resources and References
+- [React Accessibility Documentation](https://reactnative.dev/docs/accessibility)
+- [Making the Web work](https://www.w3.org/WAI/standards-guidelines/wcag/)
