@@ -361,13 +361,13 @@ meteor run
 
 - **Wat gebeurt er?**
   - Meteor zal je project bouwen en een ontwikkelingsserver starten.
-  - De standaardpoort is 3000, wat betekent dat je app toegankelijk zal zijn via **http://localhost:3000**.
+  - De standaardpoort is 3000, wat betekent dat je app toegankelijk zal zijn via **localhost:3000**.
 
 **4\. Open je browser en controleer de applicatie**
 
 1. **Ga naar de volgende URL in je browser:**
     - Open een browser zoals Chrome, Edge, of Firefox.
-    - Typ in de adresbalk: **http://localhost:3000** en druk op **Enter**.
+    - Typ in de adresbalk: **localhost:3000** en druk op **Enter**.
 2. **Hoe ziet de pagina eruit?**
     - Als alles correct is geconfigureerd, zou je het startscherm moeten zien dat je eerder in **App.jsx** hebt ingesteld.
 3. **Wat te doen als het niet werkt?**
@@ -804,7 +804,7 @@ Meteor.publish('userById', function (userId) {
 
 **1\. Zorg ervoor dat de applicatie draait**
 
-- Controleer of je app nog steeds actief is in je browser door naar **http://localhost:3000** te gaan.
+- Controleer of je app nog steeds actief is in je browser door naar **localhost:3000** te gaan.
 - **Indien de app niet draait:**
     1. Open de terminal (gebruik PowerShell, geen Bash!).
     2. Navigeer naar de root van je project, waar het bestand meteor zich bevindt.
