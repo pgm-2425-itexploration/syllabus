@@ -68,7 +68,6 @@ In Umbraco V14 is de Content Delivery API geoptimaliseerd voor betere prestaties
 
 ### codevoorbeeld
 ```csharp
-```
  Install the Umbraco.Headless.Client nuget package to get started
 using Umbraco.Headless.Client.Net;
  
@@ -87,7 +86,6 @@ public class ContentApiExample
 };
 
 ```
-```
 
 Deze code laat zien hoe je de Content Delivery API kunt gebruiken om content op te halen op basis van een unieke ID. Dit is een eenvoudige manier om inhoud dynamisch te laden, wat vooral nuttig is voor projecten die content via meerdere kanalen moeten verspreiden.
 
@@ -104,7 +102,7 @@ Een andere belangrijke update in Umbraco V14 is de volledige ondersteuning voor 
 ### codevoorbeeld
 
 ```csharp
-``` 
+ 
 using Microsoft.AspNetCore.Mvc;
 using Umbraco.Cms.Web.Common.Controllers;
  
@@ -120,7 +118,7 @@ namespace MyProject.Controllers
         }
     }
 }
-```
+
 ```
 
 Dit voorbeeld toont een basiscontroller die gebruikmaakt van de nieuwe mogelijkheden van Umbraco V14 binnen het .NET 6-ecosysteem. Het laat zien hoe eenvoudig het is om RESTful API-endpoints te creëren die kunnen communiceren met de frontend van de applicatie. Hierdoor kunnen ontwikkelaars krachtige applicaties bouwen die gebruikmaken van de nieuwste technologieën en best practices.

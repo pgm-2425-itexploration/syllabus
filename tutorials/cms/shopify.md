@@ -1,5 +1,5 @@
 ---
-title: 'Building a Headless CMS with Ruby on Rails
+title: 'Building a Headless CMS with Ruby on Rails'
 synopsis: 'In this tutorial, we will build a headless CMS using Ruby on Rails and Shopify.'
 date: 2024-10-10
 author:
