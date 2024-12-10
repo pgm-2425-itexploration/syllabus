@@ -21,10 +21,10 @@ head:
     - name: keywords
       content: 'front-end'
 sources:
-  - title: 'Example Source'
-    url: 'https://example.com'
-  - title: 'Example Source 2'
-    url: 'https://example.com'
+  - title: 'AstroJS Website'
+    url: 'https://astro.build/'
+  - title: 'AstroJS Documentation'
+    url: 'https://docs.astro.build/'
 ---
 
 
