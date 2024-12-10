@@ -12,7 +12,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/casverheye/'
     github: ''
-thumbnailUrl: '/assets/example-image.jpg'
+thumbnailUrl: '/assets/posts/astros-ship-less-approach_img_3.png'
 head:
   - - meta
     - name: description
