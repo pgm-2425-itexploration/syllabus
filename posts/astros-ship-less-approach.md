@@ -47,7 +47,7 @@ Astro is flexible and can easily integrate with popular UI frameworks such as Re
 ### <em>Astro Islands:</em>
 Astro's Islands architecture optimizes your website in ways no other web framework can.
 
-![title](images/astros-ship-less-approach_img_1.png)
+![title](/assets/posts/astros-ship-less-approach_img_1.png)
 *Image I*
 
 <br>
@@ -55,7 +55,7 @@ Astro's Islands architecture optimizes your website in ways no other web framewo
 ### <em>Astro Themes:</em>
 Kickstart your project with a pre-made Astro theme and tailor the design and functionality to suit your specific needs.
 
-![title](images/astros-ship-less-approach_img_2.png)
+![title](/assets/posts/astros-ship-less-approach_img_2.png)
 *Image II*
 
 <br>
@@ -128,7 +128,7 @@ The same blog rebuilt in Gatsby, with the React runtime and minimal JavaScript d
 ### Astro vs Gatsby Conclusion.
 Astro's architecture allows it to load pages 2-3 times faster than Gatsby on content-heavy sites with minimal interactivity.
 
-![title](images/astros-ship-less-approach_img_1.png)
+![title](/assets/posts/astros-ship-less-approach_img_1.png)
 *Image I*
 
 <br>
