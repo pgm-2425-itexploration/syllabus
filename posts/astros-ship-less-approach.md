@@ -90,7 +90,7 @@ Astro introduces a approach called partial hydration, where only the interactive
 Unlike many other frameworks (React, Vue) that hydrate the entire page, Astro limits this process to specific components, leaving the rest of the page as static HTML. This reduces the amount of JavaScript that gets loaded on the client-side, making the website faster and more efficient.
 
 This selective loading is what Astro refers to as "Astro Islands." Here’s an example of how this works in Astro:
-```
+```astro
 ---
 import ReactComponent from '../components/ReactComponent.astro';
 ---
