@@ -28,7 +28,7 @@ sources:
     url: "https://code.visualstudio.com/"
 ---
 
-# **ASP.NET + Blazor (C#)**
+# ASP.NET + Blazor (C#)
 
 ASP.NET is a powerful framework for building modern web applications. It is one of the most widely adopted frameworks in the development community, ASP.NET offers a rich ecosystem for creating a wide range of applications from lightweight APIs to complex enterprise systems. With the advent of Blazor, a feature of ASP.NET, allowing to create interactive web applications with C# instead of JavaScript. This is made possible through WebAssembly this allows C# to run directly in the browser. Blazor's approach reduces the need to rely on JavaScript frameworks, streamlining the development process and making the application more maintainable and scalable.
 
@@ -36,7 +36,7 @@ In this tutorial, we will walk through the steps of building a simple yet powerf
 
 The goal of this tutorial is not only to build a To-Do app but also to gain experience in the core concepts of full-stack development using C# and Blazor.
 
-## **1. Table of contents**
+## 1. Table of contents
 
 - [ASP.NET + Blazor (C#)](#asp-net-blazor-c)
   - [Table of contents](#_1-table-of-contents)
@@ -73,7 +73,13 @@ The goal of this tutorial is not only to build a To-Do app but also to gain expe
       - [3. Rich ecosystem](#_3-rich-ecosystem)
       - [4. Future-proof](#_4-future-proof)
       - [5. Seamless component model](#5-seamless-component-model)
-  - [References](#_7-references)
+  - [7. Future updates](#_7-future-updates)
+    - [7.1: Enhanced WebAssembly integration](#_7-1-enhanced-webassembly-integration)
+    - [7.2: Expanded framework support](#_7-2-expanded-framework-support)
+    - [7.3: Developer productivity tools](#_7-3-developer-productivity-tools)
+    - [7.4: Ecosystem growth](#_7-4-ecosystem-growth)
+    - [7.5: Accessibility and inclusivity](#_7-5-accessibility-and-inclusivity)
+    - [7.6: Community contributions](#_7-6-community-contributions)
 
 ---
 
@@ -81,11 +87,11 @@ Blazor is rapidly becoming a go-to framework for building modern web application
 
 Let’s get started with building the application!
 
-## **2. Installation & Setup**
+## 2. Installation & Setup
 
 Before diving into building the app, you need to set up the required tools and initialize the project environment.
 
-### **Step 1: Install required tools**
+### Step 1: Install required tools
 
 To begin, ensure you have the following tools installed:
 
@@ -106,7 +112,7 @@ To begin, ensure you have the following tools installed:
 
 ---
 
-### **Step 2: Create a new Blazor project using the command line**
+### Step 2: Create a new Blazor project using the command line
 
 Blazor projects can be created using the .NET CLI or Visual Studio Code terminal. This tutorial uses the command line in Visual Studio Code for simplicity.
 
@@ -140,7 +146,7 @@ Blazor projects can be created using the .NET CLI or Visual Studio Code terminal
 
 ---
 
-### **Troubleshooting tips**
+### Troubleshooting tips
 
 - If you encounter issues running the app:
   - Ensure the correct version of the .NET SDK is installed by running:
@@ -150,11 +156,11 @@ Blazor projects can be created using the .NET CLI or Visual Studio Code terminal
   - Check for conflicting processes using the same ports and terminate them if necessary.
   - Consider experimenting with the default components to understand their functionality before proceeding.
 
-## **3. Configuration**
+## 3. Configuration
 
 Before adding custom logic or modifying the app, it's crucial to understand the project structure and make necessary configurations to align with the application requirements.
 
-### **Overview of project structure**
+### Overview of project structure
 
 Blazor projects come with a predefined structure. Understanding the key files and folders is essential for efficient development:
 
@@ -178,7 +184,7 @@ Blazor projects come with a predefined structure. Understanding the key files an
 
 ---
 
-### **Cleaning up the default template**
+### Cleaning up the default template
 
 The default template contains sample components (`Counter.razor`, `Weather.razor` etc.) that may not be relevant for your project.
 
@@ -207,13 +213,13 @@ You now have a clean project to build the To-Do application.
 
 ---
 
-## **4. Building the application**
+## 4. Building the application
 
 This section covers building the core functionality of the To-Do application. We will progressively enhance the app with features like database integration and custom styling.
 
 ---
 
-### **Step 1: Create a new Razor component**
+### Step 1: Create a new Razor component
 
 To start, we’ll create a dedicated Razor component for the To-Do app.
 
@@ -238,7 +244,7 @@ To start, we’ll create a dedicated Razor component for the To-Do app.
 
 ---
 
-### **Step 2: Set up basic To-Do page UI and logic**
+### Step 2: Set up basic To-Do page UI and logic
 
 Now, implement the core To-Do list functionality using Blazor's binding and event handling capabilities.
 
@@ -294,7 +300,7 @@ Now, implement the core To-Do list functionality using Blazor's binding and even
 
 ---
 
-### **Step 3: Data in Memory (Optional)**
+### Step 3: Data in Memory (Optional)
 
 Before integrating a database, you can persist data in memory for testing.
 
@@ -315,13 +321,13 @@ This is a temporary solution, the tasks will reset when the app restarts.
 The current state of the application should look like this now:
 ![Blazor app - Image 1](/assets/tutorials/aspnet-blazor_img-2.png)
 
-### **Step 4: Integrate a database**
+### Step 4: Integrate a database
 
 To make the To-Do application persistent, we’ll integrate a database using Entity Framework Core (EF Core). EF Core is an object relational mapper (ORM) that simplifies database interactions by allowing you to work with data in the form of objects, abstracting away much of the boilerplate SQL code. This enables us to store and retrieve tasks from a database rather than keeping them only in memory and ensuring data persists even when the application is restarted.
 
 ---
 
-#### **4.1: Install required packages**
+#### 4.1: Install required packages
 
 Entity Framework Core is used to interact with the database. To set it up, we need to install the necessary packages.
 
@@ -344,7 +350,7 @@ Entity Framework Core is used to interact with the database. To set it up, we ne
 
 ---
 
-#### **4.2: Define the Task Model**
+#### 4.2: Define the Task Model
 
 The model represents the structure of our data in the database. By defining a model, we specify the schema of our `TaskItem` table.
 
@@ -378,7 +384,7 @@ The model represents the structure of our data in the database. By defining a mo
 
 ---
 
-#### **4.3: Create the database context**
+#### 4.3: Create the database context
 
 The database context acts as a bridge between the application and the database. It is responsible for querying and saving data.
 
@@ -406,7 +412,7 @@ The database context acts as a bridge between the application and the database. 
 
 ---
 
-#### **4.4: Configure the database context**
+#### 4.4: Configure the database context
 
 To use the `AppDbContext`, we need to register it with the application dependency injection (DI) container and configure it to use SQLite as the database provider.
 
@@ -442,7 +448,7 @@ To use the `AppDbContext`, we need to register it with the application dependenc
 
 ---
 
-#### **4.5: Initialize the database**
+#### 4.5: Initialize the database
 
 Now that the database is configured, we need to create the initial schema using migrations.
 
@@ -463,13 +469,13 @@ Now that the database is configured, we need to create the initial schema using 
 
 ---
 
-### **Step 5: Connect the database to the application**
+### Step 5: Connect the database to the application
 
 Now that the database is set up, we’ll update the `Todo.razor` component to fetch tasks from the database and persist changes. This ensures that task data is stored and retrieved from the database and enabling full CRUD functionality.
 
 ---
 
-#### **5.1: Update `Todo.razor`**
+#### 5.1: Update `Todo.razor`
 
 Replace the content of `Todo.razor` with the following:
 
@@ -547,7 +553,7 @@ Replace the content of `Todo.razor` with the following:
 
 ---
 
-#### **5.2: Test the application**
+#### 5.2: Test the application
 
 1. Run the application:
    ```bash
@@ -560,13 +566,13 @@ By completing this step, the To-Do application now fully integrates with a persi
 
 ---
 
-### **Step 6: Custom styling**
+### Step 6: Custom styling
 
 Enhancing the appearance of the application with custom styling improves user experience and adds a professional touch to the application. This section walks you through adding styles to make your app more visually appealing.
 
 ---
 
-#### **6.1: Add a CSS file**
+#### 6.1: Add a CSS file
 
 1. Open your project and navigate to the `wwwroot` folder.
 2. Create a new file named `styles.css`.
@@ -652,7 +658,7 @@ Enhancing the appearance of the application with custom styling improves user ex
 
 ---
 
-#### **6.2: Link the CSS file**
+#### 6.2: Link the CSS file
 
 1. Open the `App.razor` file.
 2. Add the following `<link>` tag to include the `styles.css` file:
@@ -663,7 +669,7 @@ Enhancing the appearance of the application with custom styling improves user ex
 
 ---
 
-#### **6.3: Update the `Todo.razor` component**
+#### 6.3: Update the `Todo.razor` component
 
 Ensure your HTML in `Todo.razor` aligns with the class names in `styles.css`. Here’s an updated version of the component with added `class` attributes for better styling:
 
@@ -733,9 +739,15 @@ Ensure your HTML in `Todo.razor` aligns with the class names in `styles.css`. He
 }
 ```
 
-## **5. Best practices**
+<br />
 
-### **5.1: Reusable components**
+Here we are! We have now created a basic functional To-Do application with custom styling and database integration. The app should look like this now:
+
+![ASP.NET Blazor - Image 3](/assets/tutorials/aspnet-blazor_img-3.png)
+
+## 5. Best practices
+
+### 5.1: Reusable components
 
 Break down your UI into smaller, reusable components. For example, create a `Task.razor` for individual tasks:
 
@@ -781,7 +793,7 @@ Use this component in `Todo.razor`:
 </ul>
 ```
 
-### **5.2: State Management**
+### 5.2: State Management
 
 As applications grow in complexity, managing state effectively becomes critical to ensure maintainability and performance. Centralizing application state allows for better synchronization across components and reduces the issue of inconsistent or redundant data.
 
@@ -801,7 +813,7 @@ Define a service class to manage tasks, then inject it into components. This ens
 
 ---
 
-### **5.3: Accessibility**
+### 5.3: Accessibility
 
 Building an accessible application ensures that users with disabilities can navigate and interact with the app effectively. It also broadens the audience for the application and aligns with web standards.
 
@@ -823,7 +835,7 @@ For the "Add Task" button:
 
 ---
 
-### **5.4: Scalability**
+### 5.4: Scalability
 
 Scalability is essential when transitioning from a small application to a larger, production system. Proper architecture and design patterns play a significant role in ensuring the app remains performant and maintainable.
 
@@ -865,30 +877,69 @@ public class TaskService
 
 By incorporating these practices, the application will be better equipped to handle growing requirements while remaining maintainable and efficient.
 
-## **6. Conclusion**
+## 6. Conclusion
 
-### **Why are developers choosing ASP.NET and Blazor?**
+### Why are developers choosing ASP.NET and Blazor?
 
 ASP.NET has long been a go-to framework for building web applications, and Blazor is rapidly becoming one of its most exciting features. It allows developers to write modern web applications using C# instead of JavaScript, making it an attractive choice for those who are already familiar with the C# language and the .NET ecosystem. There are several reasons why ASP.NET and Blazor are gaining traction among web developers:
 
-#### **1. Single language development**
+#### 1. Single language development
 
 One of the key advantages of using ASP.NET and Blazor is the ability to write both the client-side and server-side code in C#. Traditionally, web development required developers to use JavaScript for the client-side and another language (like C# or PHP) for the server-side. This often led to switching between languages which could slow down development. By using C# across the entire stack developers can maintain consistency and focus on mastering a single language.
 
-#### **2. WebAssembly support**
+#### 2. WebAssembly support
 
 Blazor leverages WebAssembly (Wasm), this is a low-level bytecode format that runs directly in the browser to run C# code. This means that you can run C# code on the client-side just like JavaScript but with the added benefit of WebAssembly's near-native performance. The Blazor WebAssembly model eliminates the need for server circuition to run client-side logic which results in faster and more responsive applications that run directly in the browser.
 
-#### **3. Rich ecosystem**
+#### 3. Rich ecosystem
 
 ASP.NET and Blazor are backed by Microsoft which provides a wealth of tools, libraries and frameworks for developers. Visual Studio and Visual Studio Code, one of the most powerful integrated development environments (IDEs) available offers robust support for building and debugging both ASP.NET and Blazor applications.
 
-#### **4. Future-proof**
+#### 4. Future-proof
 
 Blazor is built with modern web development in mind and is rapidly evolving as a platform. By choosing Blazor, developers are investing in a technology that aligns with the future of web development. The .NET team at Microsoft is committed to continuously improving Blazor, adding new features and making it even more powerful for building web applications in C#. As the web continues to evolve, Blazor is poised to be an integral part of the ecosystem.
 
-#### **5. Seamless component Model**
+#### 5. Seamless component Model
 
 Blazor is built around a component-based architecture which is a popular design pattern in modern web frameworks. Each component in Blazor is a self-contained unit of functionality, including its UI, logic and state. Components can be reused across the application, making it easy to break down complex user interfaces into smaller and manageable parts. This modular approach leads to cleaner, more maintainable code and allows for easy testing and debugging.
 
 Moreover, Blazor components can interact with each other, share state and can even be composed into larger applications with minimal effort. This makes Blazor a powerful framework for creating scalable web applications that can grow with the needs of your business.
+
+## 7. Future updates
+
+What can you expect in 2025 and beyond?
+
+As we look to the future, the world of ASP.NET and Blazor development is poised for exciting advancements. The roadmap for 2025 focuses on expanding capabilities, enhancing developer experiences and addressing emerging trends in web development. Here’s a sneakpeak of what’s coming next:
+
+---
+
+#### 7.1: Enhanced WebAssembly integration
+
+Blazor WebAssembly is already transforming client-side development with its ability to run C# code directly in the browser. In 2025, expect improvements in performance, debugging tools and interop capabilities between Blazor and JavaScript. Microsoft is also exploring advanced WebAssembly features like multi-threading and reduced download sizes to further optimize user experiences.
+
+#### 7.2: Expanded framework support
+
+Blazor’s popularity continues to grow across diverse development ecosystems. Future updates are expected to improve support for integrating Blazor with popular frontend frameworks like Angular and Vue.js. This will enable hybrid applications that combine the strengths of Blazor and existing JavaScript ecosystems, making it easier to adopt Blazor incrementally in complex projects.
+
+#### 7.3: Developer productivity tools
+
+2025 will bring more powerful tools for Blazor developers, including:
+
+- **Live debugging and diagnostics:** Enhanced capabilities to debug Blazor applications in real-time, both on the client and server.
+- **AI-assisted code generation:** Tools like Copilot will integrate more deeply into Blazor development, offering context-aware suggestions to speed up component creation and state management.
+
+#### 7.4: Ecosystem growth
+
+The community around ASP.NET and Blazor continues to expand, contributing new libraries, patterns and best practices. Microsoft has plans to provide better templates and starter projects for common use cases such as e-commerce, dashboards and progressive web apps (PWAs). These resources will empower developers to hit the ground running with Blazor.
+
+#### 7.5: Accessibility and inclusivity
+
+Accessibility is becoming an essential focus for all web technologies. Blazor updates will emphasize better tools and standards to create inclusive applications such as improved ARIA support, automated testing for accessibility compliance and streamlined workflows for creating accessible components.
+
+#### 7.6: Community contributions
+
+The Blazor and ASP.NET ecosystems thrive on contributions from developers around the world. Microsoft will continue to foster this vibrant community by providing new opportunities for collaboration, including hackathons, open-source projects and feature-request feedback loops. Developers are encouraged to contribute ideas and innovations through GitHub and other community channels.
+
+## 8. Github repository
+
+[https://github.com/pgm-justdesc4/blazor-dotnet-tutorial]
