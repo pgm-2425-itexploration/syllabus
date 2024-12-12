@@ -1,3 +1,27 @@
+---
+title: 'Umbraco'
+synopsis: 'Umbraco is a highly customizable content management system (CMS) that empowers developers and businesses to create tailored digital experiences.'
+date: 2024-10-17
+author:
+  name: 'Conner De Vreese'
+  avatarUrl: ''
+  socials:
+    linkedin: ''
+    github: ''
+thumbnailUrl: '/assets/example-image.jpg'
+head:
+  - - meta
+    - name: description
+  - - meta
+    - name: keywords
+      content: 'front-end framework'
+sources:
+   - title: 'Various information'
+     url: 'https://umbraco.com/knowledge-base/umbraco/'
+   - title: 'Table of umbraco compared to other CMS'
+     url: 'https://www.chatgpt.com/'
+---
+
 # Umbraco
 
 ## What is Umbraco?
@@ -157,8 +181,3 @@ Umbraco offers a unique balance of power, flexibility, and usability. For develo
 - **.NET Developers**: If you already work in the .NET ecosystem, Umbraco is a natural fit.
 - **Custom Needs**: For projects requiring complete flexibility and custom designs.
 - **Enterprise Scale**: Handles large, complex websites more efficiently than WordPress.
-
-source reference:
-
-for various information: https://umbraco.com/knowledge-base/umbraco/
-table of umbraco compared to other CMS: chatgpt
