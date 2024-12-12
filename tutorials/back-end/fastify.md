@@ -378,7 +378,7 @@ The welkom.js script ensures that only authenticated users can access the page. 
 1.	Retrieving the Token:
 The localStorage.getItem('token') retrieves the authentication token that was saved when the user logged in. If no token is found, it alerts the user and redirects them to the login page to ensure only authenticated users proceed.
 2.	Sending the Request:
-An asynchronous fetch call is made to the server's /user/welcome endpoint. The token is included in the Authorization header in the format Bearer <token> to validate the user's identity.
+An asynchronous fetch call is made to the server's /user/welcome endpoint. The token is included in the Authorization header in the format Bearer `<token>` to validate the user's identity.
 3.	Handling the Response:
 o	If the response is successful (response.ok), the server's welcome message is extracted and displayed on the page.
 o	If the response fails, an error message is shown, the invalid token is removed from localStorage, and the user is redirected to the login page.
@@ -394,7 +394,7 @@ The route applies fastify.authenticate as a pre-handler. This ensures that the u
 2.	Extracting User Information:
 The request.user object, populated during authentication, contains user details. Here, the username is extracted to personalize the welcome message.
 3.	Sending the Response:
-A JSON response with a personalized message (Welcome, <username>!) is sent back to the client. This message is later displayed on the welcome page.
+A JSON response with a personalized message (Welcome, `<username>`!) is sent back to the client. This message is later displayed on the welcome page.
 
 How the Pieces Work Together
 1.	Authentication and Validation:
@@ -454,7 +454,7 @@ The bookDetail.ejs file will contain the layout and design for the book details 
 1.	Dynamic Data Rendering:
 o	The book title, author, and description are rendered dynamically using <%= book.title %>, <%= book.author %>, and <%= book.description %>. These placeholders will be replaced with actual data when the template is rendered by Fastify.
 2.	Navigation:
-o	There is a link at the bottom of the page (<a href="/books">Back to All Books</a>) that allows users to easily navigate back to the list of books. This is important for usability and navigation within the application.
+o	There is a link at the bottom of the page (`<a href="/books">Back to All Books</a>`) that allows users to easily navigate back to the list of books. This is important for usability and navigation within the application.
 
 ## Setting Up the GET Route for the Book Detail Page
 
@@ -499,71 +499,3 @@ Now that you have the foundation in place, it’s time to test everything to ens
 •	After logging in, ensure the user is redirected to the welcome page with a personalized message.
 Feel free to modify the code, enhance the design and code,. This is your opportunity to experiment and refine the application.
 Enjoy testing your app, and good luck with your development!
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
