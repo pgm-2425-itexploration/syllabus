@@ -1,6 +1,6 @@
 ---
 title: "WordPress with Bedrock"
-synopsis: "This is an example tutorial. You can use this file as a template to create your own tutorials."
+synopsis: "This tutorial provides a comprehensive guide to using WordPress with Bedrock, a modern development boilerplate by Roots. From installation to project structure and plugin management, you’ll learn how Bedrock enhances security, organization, and efficiency for WordPress projects."
 date: 2024-10-10
 author:
   name: "Tristan De Ridder"
@@ -13,10 +13,19 @@ thumbnailUrl: "/assets/tutorials/wordpress-with-bedrock.png"
 head:
   - - meta
     - name: description
-      content: "This is an example tutorial. You can use this file as a template to create your own tutorials." # Add a description of the article
+      content: "Learn how to set up a WordPress website with the Bedrock boilerplate, a modern tool that enhances your project’s organization by providing a cleaner and more structured folder layout."
   - - meta
     - name: keywords
-      content: "front-end development static-site-generator ssg javascript" # Add keywords related to the article
+      content: "CMS", "Tutorial", "WordPress", "Bedrock", "Boilerplate", "folder structure", "composer"
+sources:
+   - title: "Bedrock Docs"
+    url: "https://roots.io/bedrock/docs/installation/"
+   - title: "Bedrock tutorial"
+    url: "https://youtu.be/wNSaP-O5wrk?si=gG7Qsi5KgWoe_wbv"
+   - title: "Flywheel"
+    url: "https://localwp.com/"
+   - title: 'Composer Docs' 
+    url: 'https://getcomposer.org/doc/00-intro.md'
 ---
 
 # Introduction to WordPress with Bedrock
