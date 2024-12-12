@@ -83,6 +83,8 @@ Before starting, you will need to install the following:
    Local Sites
    ├── bedrock
      ├── app
+        ├── bedrock
+        ├── public
      ├── conf
      ├── logs
    ```
@@ -92,13 +94,15 @@ Before starting, you will need to install the following:
 5. **Configure Bedrock in Local**
 
    - In VS Code, navigate to `config` and then `nginx`.
-   - Open the `config` file and search for the line that sets the `root` directory.
+   - Open the `site.config.hbs` file and search for the line that sets the `root` directory.
+     > **Note:** This should be at the beginning of the server object
      ```nginx
      # Default root directory example
      root: {{root}}
      ```
    - Change the `root` variable to point to the `web` folder within your Bedrock directory.
      > **Note:** The route need to be the complete route you find in Finder or in File Explorer
+     > **Example (for mac):** /Users/Testing/Local Sites/bedrock/app/bedrock/web
    - Before proceeding, stop the site in Local.
 
 6. **Update the `.env` File**
@@ -115,7 +119,8 @@ Before starting, you will need to install the following:
      > **Note:** Optionally, you can define DATABASE_URL for using a DSN instead of using the variables above
 
    - Set the WP_ENV to development if this is not the case
-   - Change `WP_HOME='http://example.com'` to the variable site domain which was given when you named your project
+   - Change `WP_HOME='http://example.com'` to the variable site domain which was given when you named your project. For example: `WP_HOME='http://bedrock.local'`
+   > **Note:** Keep the `/wp` in the url
    - Change `WP_SITEURL="${WP_HOME}/wp"` to `http://yoursitedomain/wp`
 
 
@@ -149,7 +154,7 @@ Understanding Bedrock’s folder structure is essential for navigating and organ
 Below is a breakdown of the main folders inside of a Bedrock project:  
 ```directory
    Local Sites
-   ├── bedrock
+   ├── Bedrock
    app
     ├── bedrock
         └── config
@@ -192,7 +197,7 @@ This structure might feel different at first, but it allows for more control and
 With Bedrock, managing themes and plugins is different from the traditional WordPress approach. Bedrock uses Composer to manage WordPress core files, plugins, and even themes, providing a version-controlled and organized way to handle dependencies.
 
 ### Installing Themes
-Installing a theme with bedrock can be done in two different ways:
+Installing a theme with bedrock can be done in three different ways:
 
 1. **Adding a Theme with Composer**:
    - To install a theme via Composer, run the following command from your project root:
@@ -215,6 +220,10 @@ In custom theme folders, you should start with a:
 - `index.php`: main template file
 - `functions.php`: theme functions
 - **optional**: other template files such as `header.php`, `footer.php`, ...
+
+1. **Installing a Theme from the WordPress library**
+   Navigate to **Appearance > Themes**. Here you will see the default Twenty Twenty-Five theme. To install a new theme click the Add New Theme button. From here you can select any theme from the library
+   
 
 ### Installing Plugins
 
@@ -265,9 +274,9 @@ Using Composer to manage themes and plugins may take some getting used to, but i
 
 ## Building a Simple WordPress Site
 
-When you first open your site in a browser, you'll see a default theme. In this section, we will customize the theme using the WordPress admin panel.
+When you first open your site in a browser, you'll see a default theme.
 
-### 1. Setting Up a Starter Theme
+### 1. Setting Up the Theme
 
 1. **Choose a Theme**:
    - Navigate to **Appearance > Themes** to customize your chosen theme or add a new one.
@@ -301,7 +310,7 @@ When you first open your site in a browser, you'll see a default theme. In this 
      ```
    - Manage and activate installed plugins from **Plugins > Installed Plugins**. 
    
-   For this tutorial, we will install **WPForms Lite** (a contact form plugin) and **Elementor**.
+   For this tutorial, we will install **WPForms Lite** (a contact form plugin), **Elementor** and **Yoast SEO**.
    > **Note**: All plugins are installed but not activated. Click **Activate** to use them.  
    > **Note**: When activating Elementor, it may prompt you to create an account. You can skip this and the subsequent steps until you can choose between a black canvas and a template.
 
