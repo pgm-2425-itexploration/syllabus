@@ -56,7 +56,7 @@ Umbraco is a versatile platform that serves various use cases:
    - Add the Umbraco CMS NuGet Package
    - Run the project
 
-2. Open the setup wizard in your browser at http://localhost:5000 and follow the steps to configure your site.
+2. Open the setup wizard in your browser at `http://localhost:5000` and follow the steps to configure your site.
 
 3. For a faster start, you can deploy directly to Umbraco Cloud, which includes hosting, version control, and collaboration tools.
 

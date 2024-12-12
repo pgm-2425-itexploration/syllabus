@@ -171,7 +171,7 @@ To serve the registration page, you need a GET route that renders the `register.
 
 ![](/assets/tutorials/fastify-15.png)
 
-With this setup, you can access the register page by navigating to http://localhost:3000/register
+With this setup, you can access the register page by navigating to `http://localhost:3000/register`
 
 ## Create the Front-End Logic for Handling the Registration
 
