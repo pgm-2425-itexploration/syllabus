@@ -63,8 +63,8 @@ Before starting, you will need to install the following:
      > **Note:** You will need to create an account in order to use Local  
      > **Note:** Using Local’s built-in terminal may place you inside the `public` folder, so navigate up to the `app` folder if needed.
 
-     ![Bedrock setup environment](/assets/tutorials/bedrock-setup-environment.png)
-     ![Bedrock setup wordpress](/assets/tutorials/bedrock-setup-wordpress.png)
+     ![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-environment.png)
+     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
 
 3. **Install Bedrock**
 
@@ -140,7 +140,7 @@ If all steps were followed correctly, you should now see your Bedrock-powered Wo
 
 In Local by Flywheel, locate your site in the list and click the WP Admin button on the right. This will open the login page for your WordPress site in your default browser. To access your WordPress dashboard, you’ll need to enter the username and password you chose during the initial site setup in Local. 
 
-![Bedrock setup environment](/assets/tutorials/bedrock-setup-wordpress.png)
+![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
 
 Once logged in, you’ll be taken directly to the WordPress dashboard, where you can begin managing and customizing your site.
 
@@ -289,7 +289,7 @@ When you first open your site in a browser, you'll see a default theme.
    - Alternatively, for a custom theme, create a new folder in `web/app/themes` with your theme name (e.g., `my-theme`), then add the required files like `style.css` and `index.php`.
 
    For this tutorial, we will be using **Oigny Lite**.
-   ![theme](/assets/tutorials/bedrock-setup-theme.png)
+   ![theme](/assets/tutorials/wordpress-with-bedrock-setup-theme.png)
 
 2. **Activate the Theme**:
    - Go to **Appearance > Themes** in the WordPress dashboard.
@@ -328,25 +328,26 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
    - Go to the WPForms panel and select **Add New**. Enter your form name and choose a template. 
    - Submissions will go to the default email address set during your WordPress account creation. If you need to change it, do so here.
    - You can also add a subject, name, and sender email. To send a confirmation to the submitter, add a **Reply-To** field and a message.
-   ![WPForms setup](/assets/tutorials/bedrock-setup-wpforms.png)
+   ![WPForms setup](/assets/tutorials/wordpress-with-bedrock-setup-wpforms.png)
 
 2. **Set Up Essential Pages**:
    - Go to **Pages > Add New** and create the following pages:
      - **Home**: This will be your main page.
        > **Note**: The homepage you see when visiting your domain is not an existing page from the Pages menu; it's a default homepage that comes with every theme. You can edit it by going to **Appearance > Customize**.
        - When creating a new page with Elementor, you'll see a layout labeled **Elementor #(number)**. Change the layout by clicking the settings button at the top of the page, next to the device icons. You can select the desired page layout at the bottom.
-       ![Elementor layout settings](/assets/tutorials/bedrock-setup-elementor.png)
+       ![Elementor layout settings](/assets/tutorials/wordpress-with-bedrock-setup-elementor.png)
      - **Contact**: A page where visitors can reach you (add a contact form using WPForms).
        - In Elementor, click **Add Element** on the top left, find WPForms under **Basic**, drag it onto the page, and adjust as needed.
 
-3. **Set a Static Homepage**:
+3. **Optional: Set a Static Homepage**:
    - Go to **Settings > Reading**.
    - Under **Your homepage displays**, select **A static page** and set the homepage to the **Home** page you created.
    > **Note**: This option allows you to select a page other than the default homepage of the theme.
-   ![Static page settings](/assets/tutorials/bedrock-setup-static.png)
+   ![Static page settings](/assets/tutorials/wordpress-with-bedrock-setup-static.png)
 
 4. **Add Menu Navigation**:
-   - Go to **Appearance > Menus**.
+   - Go to **Appearance > Themes**.
+   - Click on the customize button of your chosen theme
    - Create a new menu and add your pages (Home, About, Contact).
    - Assign the menu to the primary location to enable site navigation.
 
