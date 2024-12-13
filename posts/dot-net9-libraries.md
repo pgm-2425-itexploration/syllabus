@@ -5,9 +5,9 @@ date: 2024-12-13
 author:
   name: 'Klaas Cornette'
   avatarUrl: '/assets/avatars/klaas-cornette.png'
-  socials:
-    linkedin: 'https://www.linkedin.com/in/klaas-cornette/'
-    github: 'https://github.com/KlaasCornette'
+  socials: # Voeg links naar sociale media toe -> Als je er geen hebt, laat een lege string ''
+    linkedin: 'https://www.linkedin.com/in/klaas-cornette-a0b188293/'
+    github: 'https://github.com/Klaas-Cornette'
 thumbnailUrl: '/assets/posts/discovery-of-dotnet9-libraries_img.png'
 head:
   - - meta
@@ -21,10 +21,8 @@ sources:
     url: 'https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9'
   - title: '.NET GitHub Repository'
     url: 'https://github.com/dotnet/'
-  - title: 'Entity Framework Core'
-    url: 'https://learn.microsoft.com/en-us/ef/core/what-is-new/ef-core-9'
   - title: 'Base64Url Encoding in .NET'
-    url: 'https://learn.microsoft.com/en-us/dotnet/standard/base64url'
+    url: 'https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.commands.attestation.models.base64url?view=az-ps-latest'
 ---
 
 # Nieuwe bibliotheken in .NET 9
