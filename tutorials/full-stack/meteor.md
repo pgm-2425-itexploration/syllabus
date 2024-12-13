@@ -19,7 +19,6 @@ head:
       content: "Meteor React JavaScript real-time webapps full-stack ontwikkeling MongoDB Tailwind CSS chatapplicatie publish/subscribe systeem component-gebaseerde UI tutorial"
 ---
 
-
 # Tutorial: Een Chatsysteem Bouwen met Meteor
 
 ## Inleiding
