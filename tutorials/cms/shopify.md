@@ -9,7 +9,7 @@ author:
     website: ''
     linkedin: 'https://linkedin.com/in/ella-jekale-27a9b92a7'
     github: 'https://github.com/pgm-ella'
-thumbnailUrl: '/assets/example-image.jpg'
+thumbnailUrl: '/assets/shopify-1.jpg'
 head:
   - - meta
     - name: description
