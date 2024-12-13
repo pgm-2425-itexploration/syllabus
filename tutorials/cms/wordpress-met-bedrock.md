@@ -1,6 +1,6 @@
 ---
 title: "WordPress with Bedrock"
-synopsis: "This is an example tutorial. You can use this file as a template to create your own tutorials."
+synopsis: "This tutorial provides a comprehensive guide to using WordPress with Bedrock, a modern development boilerplate by Roots. From installation to project structure and plugin management, you’ll learn how Bedrock enhances security, organization, and efficiency for WordPress projects."
 date: 2024-10-10
 author:
   name: "Tristan De Ridder"
@@ -13,10 +13,19 @@ thumbnailUrl: "/assets/tutorials/wordpress-with-bedrock.png"
 head:
   - - meta
     - name: description
-      content: "This is an example tutorial. You can use this file as a template to create your own tutorials." # Add a description of the article
+      content: "Learn how to set up a WordPress website with the Bedrock boilerplate, a modern tool that enhances your project’s organization by providing a cleaner and more structured folder layout."
   - - meta
     - name: keywords
-      content: "front-end development static-site-generator ssg javascript" # Add keywords related to the article
+      content: "CMS", "Tutorial", "WordPress", "Bedrock", "Boilerplate", "folder structure", "composer"
+sources:
+   - title: "Bedrock Docs"
+    url: "https://roots.io/bedrock/docs/installation/"
+   - title: "Bedrock tutorial"
+    url: "https://youtu.be/wNSaP-O5wrk?si=gG7Qsi5KgWoe_wbv"
+   - title: "Flywheel"
+    url: "https://localwp.com/"
+   - title: 'Composer Docs' 
+    url: 'https://getcomposer.org/doc/00-intro.md'
 ---
 
 # Introduction to WordPress with Bedrock
@@ -63,8 +72,8 @@ Before starting, you will need to install the following:
      > **Note:** You will need to create an account in order to use Local  
      > **Note:** Using Local’s built-in terminal may place you inside the `public` folder, so navigate up to the `app` folder if needed.
 
-     ![Bedrock setup environment](/assets/tutorials/bedrock-setup-environment.png)
-     ![Bedrock setup wordpress](/assets/tutorials/bedrock-setup-wordpress.png)
+     ![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-environment.png)
+     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
 
 3. **Install Bedrock**
 
@@ -83,6 +92,8 @@ Before starting, you will need to install the following:
    Local Sites
    ├── bedrock
      ├── app
+        ├── bedrock
+        ├── public
      ├── conf
      ├── logs
    ```
@@ -92,13 +103,15 @@ Before starting, you will need to install the following:
 5. **Configure Bedrock in Local**
 
    - In VS Code, navigate to `config` and then `nginx`.
-   - Open the `config` file and search for the line that sets the `root` directory.
+   - Open the `site.config.hbs` file and search for the line that sets the `root` directory.
+     > **Note:** This should be at the beginning of the server object
      ```nginx
      # Default root directory example
      root: {{root}}
      ```
    - Change the `root` variable to point to the `web` folder within your Bedrock directory.
      > **Note:** The route need to be the complete route you find in Finder or in File Explorer
+     > **Example (for mac):** /Users/Testing/Local Sites/bedrock/app/bedrock/web
    - Before proceeding, stop the site in Local.
 
 6. **Update the `.env` File**
@@ -115,7 +128,8 @@ Before starting, you will need to install the following:
      > **Note:** Optionally, you can define DATABASE_URL for using a DSN instead of using the variables above
 
    - Set the WP_ENV to development if this is not the case
-   - Change `WP_HOME='http://example.com'` to the variable site domain which was given when you named your project
+   - Change `WP_HOME='http://example.com'` to the variable site domain which was given when you named your project. For example: `WP_HOME='http://bedrock.local'`
+   > **Note:** Keep the `/wp` in the url
    - Change `WP_SITEURL="${WP_HOME}/wp"` to `http://yoursitedomain/wp`
 
 
@@ -135,7 +149,7 @@ If all steps were followed correctly, you should now see your Bedrock-powered Wo
 
 In Local by Flywheel, locate your site in the list and click the WP Admin button on the right. This will open the login page for your WordPress site in your default browser. To access your WordPress dashboard, you’ll need to enter the username and password you chose during the initial site setup in Local. 
 
-![Bedrock setup environment](/assets/tutorials/bedrock-setup-wordpress.png)
+![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
 
 Once logged in, you’ll be taken directly to the WordPress dashboard, where you can begin managing and customizing your site.
 
@@ -149,7 +163,7 @@ Understanding Bedrock’s folder structure is essential for navigating and organ
 Below is a breakdown of the main folders inside of a Bedrock project:  
 ```directory
    Local Sites
-   ├── bedrock
+   ├── Bedrock
    app
     ├── bedrock
         └── config
@@ -192,7 +206,7 @@ This structure might feel different at first, but it allows for more control and
 With Bedrock, managing themes and plugins is different from the traditional WordPress approach. Bedrock uses Composer to manage WordPress core files, plugins, and even themes, providing a version-controlled and organized way to handle dependencies.
 
 ### Installing Themes
-Installing a theme with bedrock can be done in two different ways:
+Installing a theme with bedrock can be done in three different ways:
 
 1. **Adding a Theme with Composer**:
    - To install a theme via Composer, run the following command from your project root:
@@ -215,6 +229,10 @@ In custom theme folders, you should start with a:
 - `index.php`: main template file
 - `functions.php`: theme functions
 - **optional**: other template files such as `header.php`, `footer.php`, ...
+
+1. **Installing a Theme from the WordPress library**
+   Navigate to **Appearance > Themes**. Here you will see the default Twenty Twenty-Five theme. To install a new theme click the Add New Theme button. From here you can select any theme from the library
+   
 
 ### Installing Plugins
 
@@ -265,9 +283,9 @@ Using Composer to manage themes and plugins may take some getting used to, but i
 
 ## Building a Simple WordPress Site
 
-When you first open your site in a browser, you'll see a default theme. In this section, we will customize the theme using the WordPress admin panel.
+When you first open your site in a browser, you'll see a default theme.
 
-### 1. Setting Up a Starter Theme
+### 1. Setting Up the Theme
 
 1. **Choose a Theme**:
    - Navigate to **Appearance > Themes** to customize your chosen theme or add a new one.
@@ -280,7 +298,7 @@ When you first open your site in a browser, you'll see a default theme. In this 
    - Alternatively, for a custom theme, create a new folder in `web/app/themes` with your theme name (e.g., `my-theme`), then add the required files like `style.css` and `index.php`.
 
    For this tutorial, we will be using **Oigny Lite**.
-   ![theme](/assets/tutorials/bedrock-setup-theme.png)
+   ![theme](/assets/tutorials/wordpress-with-bedrock-setup-theme.png)
 
 2. **Activate the Theme**:
    - Go to **Appearance > Themes** in the WordPress dashboard.
@@ -301,7 +319,7 @@ When you first open your site in a browser, you'll see a default theme. In this 
      ```
    - Manage and activate installed plugins from **Plugins > Installed Plugins**. 
    
-   For this tutorial, we will install **WPForms Lite** (a contact form plugin) and **Elementor**.
+   For this tutorial, we will install **WPForms Lite** (a contact form plugin), **Elementor** and **Yoast SEO**.
    > **Note**: All plugins are installed but not activated. Click **Activate** to use them.  
    > **Note**: When activating Elementor, it may prompt you to create an account. You can skip this and the subsequent steps until you can choose between a black canvas and a template.
 
@@ -319,25 +337,26 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
    - Go to the WPForms panel and select **Add New**. Enter your form name and choose a template. 
    - Submissions will go to the default email address set during your WordPress account creation. If you need to change it, do so here.
    - You can also add a subject, name, and sender email. To send a confirmation to the submitter, add a **Reply-To** field and a message.
-   ![WPForms setup](/assets/tutorials/bedrock-setup-wpforms.png)
+   ![WPForms setup](/assets/tutorials/wordpress-with-bedrock-setup-wpforms.png)
 
 2. **Set Up Essential Pages**:
    - Go to **Pages > Add New** and create the following pages:
      - **Home**: This will be your main page.
        > **Note**: The homepage you see when visiting your domain is not an existing page from the Pages menu; it's a default homepage that comes with every theme. You can edit it by going to **Appearance > Customize**.
        - When creating a new page with Elementor, you'll see a layout labeled **Elementor #(number)**. Change the layout by clicking the settings button at the top of the page, next to the device icons. You can select the desired page layout at the bottom.
-       ![Elementor layout settings](/assets/tutorials/bedrock-setup-elementor.png)
+       ![Elementor layout settings](/assets/tutorials/wordpress-with-bedrock-setup-elementor.png)
      - **Contact**: A page where visitors can reach you (add a contact form using WPForms).
        - In Elementor, click **Add Element** on the top left, find WPForms under **Basic**, drag it onto the page, and adjust as needed.
 
-3. **Set a Static Homepage**:
+3. **Optional: Set a Static Homepage**:
    - Go to **Settings > Reading**.
    - Under **Your homepage displays**, select **A static page** and set the homepage to the **Home** page you created.
    > **Note**: This option allows you to select a page other than the default homepage of the theme.
-   ![Static page settings](/assets/tutorials/bedrock-setup-static.png)
+   ![Static page settings](/assets/tutorials/wordpress-with-bedrock-setup-static.png)
 
 4. **Add Menu Navigation**:
-   - Go to **Appearance > Menus**.
+   - Go to **Appearance > Themes**.
+   - Click on the customize button of your chosen theme
    - Create a new menu and add your pages (Home, About, Contact).
    - Assign the menu to the primary location to enable site navigation.
 

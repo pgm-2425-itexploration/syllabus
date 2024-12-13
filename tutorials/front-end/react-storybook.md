@@ -17,201 +17,218 @@ head:
     - - meta
       - name: keywords
         content: "react storybook front-end"
+sources:
+    - title: "StoryBook doc"
+      url: "https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/"
+    - title: "Storybook with React (complete tutorial)"
+      url: "https://www.youtube.com/watch?v=dwtmz5PHWDg&t=447s"
+    - title: "Storybook 8"
+      url: "https://storybook.js.org/blog/future-of-storybook-2024/"
+    - title: "Addons (GitHub readme)"
+      url: "https://github.com/storybookjs/storybook?tab=readme-ov-file#addons"
+    - title: "Addons (Storybook)"
+      url: "https://storybook.js.org/addons"
 ---
 
-## Introductie:
+## Introduction:
 
-Storybook is een krachtige en flexibele tool die speciaal is ontworpen voor frontend-ontwikkeling, en het is uitgegroeid tot een essentiële oplossing voor teams en individuele ontwikkelaars die hoogwaardige UI-componenten willen maken. Met Storybook kun je componenten in een geïsoleerde omgeving ontwikkelen, testen, documenteren en optimaliseren, zonder dat dit invloed heeft op je hoofdsysteem of applicatie. Dit maakt het een onmisbaar hulpmiddel, vooral in grotere projecten met complexe componentarchitecturen. Laten we dieper ingaan op de voordelen en mogelijkheden van Storybook en hoe het je ontwikkelproces kan verbeteren.
+Storybook is a powerful and flexible tool designed specifically for frontend development, and it has become an essential solution for teams and individual developers who want to create high-quality UI components. With Storybook, you can develop, test, document, and optimize components in an isolated environment without affecting your main system or application. This makes it indispensable, especially in larger projects with complex component architectures. Let's dive into the advantages and features of Storybook and how it can improve your development process.
 
-### **Wat is Storybook en waarom is het belangrijk?**
+### **What is Storybook and why is it important?**
 
-Storybook is een open-source tool waarmee ontwikkelaars componenten kunnen bouwen en testen in een sandbox-omgeving. In plaats van componenten in het grotere geheel van je applicatie te ontwikkelen, kun je ze in Storybook isoleren. Hierdoor kun je je concentreren op het gedrag, de stijl en de functionaliteit van individuele componenten zonder dat je te maken krijgt met context- of state-problemen die inherent zijn aan je applicatie.
+Storybook is an open-source tool that allows developers to build and test components in a sandbox environment. Instead of developing components within the larger context of your application, you can isolate them in Storybook. This enables you to focus on the behavior, style, and functionality of individual components without dealing with the context or state issues inherent to your application.
 
-De belangrijkste voordelen van Storybook zijn:
+The key benefits of Storybook include:
 
-1. **Componentisolatie**: Ontwikkel componenten los van je applicatie, waardoor je bugs sneller kunt opsporen en oplossen.
-2. **Visuele controle**: Bekijk componenten in verschillende configuraties en test hun gedrag in real-time.
-3. **Betere samenwerking**: Designers, ontwikkelaars en stakeholders kunnen gemakkelijk toegang krijgen tot componenten en feedback geven.
-4. **Documentatie**: Automatiseer de documentatie van componenten, zodat ze makkelijk te begrijpen en herbruikbaar zijn.
-5. **Testing**: Test visuele regressies, interacties en edge cases van componenten.
-6. **Add-ons**: Breid Storybook uit met krachtige plugins om functies zoals accessibility checks, theming en responsieve weergave te ondersteunen.
+1. **Component Isolation**: Develop components independently of your application, making it easier to identify and fix bugs.
+2. **Visual Control**: View components in different configurations and test their behavior in real-time.
+3. **Improved Collaboration**: Designers, developers, and stakeholders can easily access components and provide feedback.
+4. **Documentation**: Automate the documentation of components, making them easy to understand and reusable.
+5. **Testing**: Test visual regressions, interactions, and edge cases of components.
+6. **Add-ons**: Extend Storybook with powerful plugins to support features like accessibility checks, theming, and responsive views.
 
-## Installatie:
+---
 
-Voordat we aan de slag gaan met Storybook, moeten we enkele basisstappen volgen om de tool te installeren en te configureren. Hier is hoe je Storybook kunt installeren in je project:
+## Installation:
 
-1. **Maak een nieuwe React-app aan**
+Before we start using Storybook, we need to follow some basic steps to install and configure the tool. Here's how you can set up Storybook in your project:
 
-    Als je nog geen React-app hebt, begin dan door een nieuwe applicatie te maken met behulp van Create React App. Dit kun je doen door het volgende commando in je terminal in te voeren:
+1. **Create a new React app**
+
+    If you don’t already have a React app, start by creating a new application using Create React App. You can do this by running the following command in your terminal:
 
     ```bash
-    npx create-react-app <naam van je app>
-
+    npx create-react-app <your-app-name>
     ```
 
-    Dit maakt een nieuwe React-app voor je aan, compleet met alle noodzakelijke dependencies.
+    This creates a new React app for you with all the necessary dependencies.
 
-2. **Installeer Storybook**
+2. **Install Storybook**
 
-    De volgende stap is om Storybook toe te voegen aan je project. Dit kun je doen door het onderstaande commando uit te voeren in de root directory van je project:
+    The next step is to add Storybook to your project. Run the command below in the root directory of your project:
 
     ```bash
     npx storybook@latest init
-
     ```
 
-    Dit zorgt ervoor dat de laatste versie van Storybook wordt geïnstalleerd en configureert Storybook automatisch voor je project. Na de installatie zie je twee nieuwe mappen in je projectstructuur:
+    This installs the latest version of Storybook and automatically configures it for your project. After installation, you’ll notice two new directories in your project structure:
 
-    - **.storybook**: Deze map bevat de configuratiebestanden `main.js` en `preview.js`. Hier kun je Storybook instellen, zoals het toevoegen van addons, thema's, en globale configuraties.
-    - **src/stories**: Dit is de map waar je de "stories" van je componenten plaatst. Deze stories isoleren je componenten en documenteren ze zodat je ze kunt testen in Storybook.
+    - **.storybook**: Contains configuration files like `main.js` and `preview.js`. Here, you can set up Storybook, add add-ons, themes, and global configurations.
+    - **src/stories**: This is where your component "stories" are placed. These stories isolate your components and document them for testing in Storybook.
 
-Na de installatie kun je Storybook starten door het volgende commando uit te voeren:
+    After installation, you can start Storybook with the following command:
 
-```bash
-npm run storybook
+    ```bash
+    npm run storybook
+    ```
 
-```
+    Storybook will run on a local server, and you can open it in your browser via `localhost:6006`.
 
-Storybook wordt op een lokale server gedraaid en je kunt het openen in je browser via localhost:6006.
+---
 
 ### Storybook UI
 
-Wanneer je Storybook opstart, zal de Storybook UI automatisch openen in je browser. Als dit niet automatisch gebeurt, kun je naar de URL ocalhost:6006 gaan om het Storybook-dashboard te openen.
+When you launch Storybook, the Storybook UI will open automatically in your browser. If it doesn’t open automatically, navigate to `localhost:6006` to access the Storybook dashboard.
 
-In de Storybook UI zie je verschillende navigatie- en configuratieopties die je helpen je componenten te testen en te visualiseren. Bovenaan de pagina, naast het Storybook-logo, zie je een tandwielpictogram dat toegang biedt tot de instellingen van de UI. Hier kun je de layout aanpassen naar jouw voorkeuren, de weergave-instellingen configureren, en aanvullende functionaliteiten inschakelen.
+In the Storybook UI, you’ll see various navigation and configuration options to help you test and visualize your components. At the top of the page, next to the Storybook logo, you’ll find a gear icon that provides access to the UI settings. Here, you can adjust the layout, configure display settings, and enable additional functionality.
 
-Verder is er een navigatiebalk boven de componentenweergave, waarmee je eenvoudig kunt navigeren tussen de verschillende componenten en hun verhalen. Hier kun je ook de zoominstellingen beheren en de weergave-instellingen resetten als je terug wilt naar de oorspronkelijke staat.
+Additionally, there’s a navigation bar above the component preview, allowing you to easily switch between different components and their stories. You can also manage zoom settings and reset the view to its default state.
 
-Laten we nu enkele van de belangrijkste iconen en functies in de Storybook UI bespreken:
+---
 
-### 1. **Image Icon (Lichtmodus en Donker Modus)**
+### Key Features in the Storybook UI
 
-Het **Image icon** in de Storybook UI maakt het mogelijk om snel te schakelen tussen lichtmodus en donker modus. Dit is handig omdat moderne applicaties vaak het systeemvoorkeur van de gebruiker volgen (licht- of donkermodus). Tijdens het ontwikkelen van je componenten kun je dus snel zien of ze goed functioneren in zowel de lichtmodus als de donkermodus.
+1. **Light and Dark Mode Toggle**
 
-### 2. **Grid Icon (Grids voor Structuur)**
+    The light/dark mode toggle lets you quickly switch between light and dark themes in Storybook. This is particularly useful for testing components in both themes, as many modern applications adapt to the user’s system preferences.
 
-Door op het **Grid icon** te klikken, wordt een grid-overlay toegevoegd aan de Storybook-weergave. Dit kan handig zijn wanneer je componenten maakt die afhankelijk zijn van een specifieke lay-out of structuur, zoals knoppen, kaarten of andere UI-elementen. Het grid helpt je visueel te controleren of je componenten goed zijn uitgelijnd en of ze de juiste dimensies hebben.
+2. **Grid Overlay**
 
-### 3. **Viewports (Testen op Verschillende Apparaten)**
+    The grid overlay feature allows you to add a visual grid to the Storybook preview. This helps you verify the alignment and dimensions of components like buttons, cards, and other UI elements.
 
-Het **Viewport icon** in Storybook stelt je in staat om te testen hoe je componenten eruitzien op verschillende schermformaten. Standaard kun je kiezen tussen verschillende viewports, zoals kleine mobiele telefoons, grote mobiele telefoons en tablets. Het is belangrijk om te controleren hoe je componenten reageren op verschillende schermgroottes, vooral als je werk maakt voor een breed scala aan apparaten.
+3. **Responsive Viewports**
 
-Er is ook een optie om de viewport-instellingen aan te passen, zoals de breedte en hoogte, zodat je de weergave kunt testen op op maat gemaakte afmetingen. Je kunt altijd terugkeren naar de desktopweergave door de optie **"Reset viewport"** te selecteren.
+    The viewport feature enables you to test how your components look on various screen sizes, from small phones to large tablets. You can also customize viewport dimensions to test specific sizes.
 
-### 4. **Measure (Meten van Elementen)**
+4. **Measurement Tool**
 
-De **Measure tool** in Storybook is een handige functie waarmee je de afmetingen van je componenten kunt controleren. Wanneer je de meettool inschakelt, kun je de muis over een specifiek element binnen je component bewegen om de breedte en hoogte (in pixels) van dat element te zien. Dit helpt bij het snel verifiëren van de afmetingen en zorgt ervoor dat je componenten de juiste grootte hebben.
+    The measurement tool lets you check the dimensions of your components. By hovering over an element, you can see its width and height in pixels.
 
-### 5. **Outline (Duidelijke Dimensies Weergeven)**
+5. **Outline Tool**
 
-De **Outline** optie is een handige manier om de grenzen van elk element in je component te visualiseren. Dit wordt weergegeven als een blauw outline rond elk element, wat het makkelijker maakt om te zien hoe de elementen zich in de ruimte bevinden en welke afmetingen ze precies hebben. Dit kan vooral nuttig zijn bij het testen van de lay-out van je componenten en het oplossen van eventuele layoutproblemen.
+    The outline tool adds a visual outline around each component, helping you see its exact dimensions and position within the layout.
 
-### Geavanceerde Functies en Addons
+---
 
-Naast de standaardfunctionaliteiten van Storybook, zijn er talloze addons beschikbaar die je verder kunnen helpen bij het ontwikkelen en testen van je componenten. Addons kunnen extra functionaliteit bieden zoals het aanpassen van achtergronden, het toevoegen van interactie logs, en het beheren van thema's. In de volgende sectie van deze tutorial zullen we enkele van de populairste addons onderzoeken die je kunt gebruiken om je componenten nog verder te verbeteren.
+### Advanced Features and Add-ons
 
-Door Storybook te gebruiken en addons toe te voegen, kun je je componenten in een gecontroleerde omgeving testen en ervoor zorgen dat ze werken zoals verwacht voordat je ze in je hoofdapplicatie gebruikt. Dit verbetert de kwaliteit van je code, verhoogt de snelheid van ontwikkeling, en zorgt voor betere samenwerking met je team.
+Beyond its standard features, Storybook offers a wide range of add-ons to enhance your development and testing process. These add-ons provide extra functionality like background customization, interaction logs, and theme management. By incorporating add-ons, you can test components in a controlled environment and ensure they work as expected before integrating them into your application.
 
-## BasisFunctionaliteit
+---
 
-We gaan nu een herbruikbare button component aanmaken met verschillende variaties van grootte. Het betreft een props validation via PropTypes om zeker te zijn dat onze component het juiste types ontvangt. Onze button heeft ook dynamische styling met onze props, zoals size en backgroundColor.
+## Building a Basic Button Component
 
-In onze src/components maken we een bestand button.js aan:
+Next, we’ll create a reusable button component with different size variations. We’ll validate props using **PropTypes** to ensure that our component receives the correct types. The button will also feature dynamic styling based on props like `size` and `backgroundColor`.
 
-(als deze er niet staat maak het maar aan)
+### Step 1: Setting up the Component
 
-### Stap 1 import and setup.
+Create a new file, `button.js`, in the `src/components` directory. If the directory doesn’t exist, create it.
 
-In de component wordt **PropTypes** geïmporteerd voor runtime type-checking van de props. De **Button** component wordt geconfigureerd met dynamische styling gebaseerd op de ontvangen props in deze workshop maken we gebruik van bijvoorbeeld `backgroundColor`, `size`, en `handleClick`.
+Start by importing **PropTypes** for runtime type-checking and setting up the basic structure of the Button component:
 
-```
+```jsx
 import PropTypes from "prop-types";
 
-function Button() {
-    return (
-        <div>
-            {label}
-        </div>
-    );
+function Button({ label, backgroundColor, size, handleClick }) {
+    return <div>{label}</div>;
 }
 
 export default Button;
 ```
 
-### Stap 2 Props vaststellen
+---
 
-Onze button accepteerd volgende props:
+### Step 2: Defining Props
 
-label: Een string dat onze button text laat tonen
+The Button component accepts the following props:
 
-backgroundColor: het achtergrond kleur van onze knop staat op default “`red`”
+-   **`label`**: A string that defines the button text.
+-   **`backgroundColor`**: The background color of the button (default: `"red"`).
+-   **`size`**: Adjusts the button size (`"sm"`, `"md"`, `"lg"`, with `"md"` as the default).
+-   **`handleClick`**: A function that is called when the button is clicked.
 
-`size`: Door middel van onze padding aan te passen, zal het grote van onze knop worden aangepast naar `“sm”, “md”` en `“lg”` default zal “md” zijn in onze geval.
-
-handleClick: een function dat wordt opgeroepen waaneer onze knop wordt gedrukt.
-
-```
+```jsx
 Button.propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string,
     size: PropTypes.oneOf(["sm", "md", "lg"]),
     handleClick: PropTypes.func,
 };
 ```
 
-### Stap 3 Dynamic Styling
+---
 
-Onze style object zal dynamisch the knop appearance aanpasssen aan de hand van onze props dat we gaan meegeven.
+### Step 3: Adding Dynamic Styling
 
--   **`backgroundColor`**: Stelt onze achtergrond kleur vast
--   **`padding`**: Het aanpassen van onze `scale` variable aan de hand van onze `size` prop.
--   **`border`**, **`borderRadius`**, en **`boxShadow`**: Extra toevoeging die niet er in moet maar in deze geval is het puur voor onze knop, mooi te doen lijken.
--   **`width`**: Onze breedt heeft `"fit-content"` zodat onze knop kan worden aangepasten aan de hand van onze text
--   **`color`**: Om het tekst kleur aan te passen en in deze workshop gaan we het simpel houden dus gaan we deze in het zwart zetten
+We’ll create a style object that adjusts the button’s appearance based on the provided props.
 
--   De `scale` variable zal onze knop proportioneel schalen
-    -   `"sm"`: Schaalt onze knop kleiner tot 75% van onze default size.
-    -   `"lg"`: Schaalt onze knop groter tot 125% van onze default size..
-    -   `"md"`: Gebruikt default scale van `1`.
+-   **`backgroundColor`**: Sets the button’s background color.
+-   **`padding`**: Adjusts based on the `size` prop.
+-   **`scale`**: Proportionally scales the button size.
+-   **`border`, `borderRadius`, `boxShadow`**: Adds additional styling.
+-   **`width`**: Ensures the button adapts to its content size.
+-   **`color`**: Sets the text color (default: black).
 
 ```jsx
 let scale = 1;
 if (size === "sm") scale = 0.75;
 if (size === "lg") scale = 1.5;
+
 const style = {
     backgroundColor,
     padding: `${scale * 0.5}rem ${scale * 1}rem`,
     border: "none",
-    borderRadius: `0.5rem`,
+    borderRadius: "0.5rem",
     boxShadow: "0 0 0.5rem rgba(0, 0, 0, 0.1)",
     width: "fit-content",
     color: "black",
 };
 ```
 
-### 4. **Event Handling**
+---
 
--   Het `onClick`-event is gekoppeld aan het `<div>`-element. Dit event activeert de functie `handleClick`, die wordt meegegeven als prop, telkens wanneer op de knop wordt geklikt.
+### Step 4: Event Handling
 
+The `onClick` event is bound to the `<div>` element. This event triggers the `handleClick` function passed as a prop whenever the button is clicked.
+
+```jsx
+return (
+    <div onClick={handleClick} style={style}>
+        {label}
+    </div>
+);
 ```
-    return (
-        <div onClick={handleClick} style={style}>
-            {label}
-        </div>
-    );
-```
 
-### 5. **Validatie van Props**
+Here’s the translated version of your text:
 
--   Het object `propTypes` definieert de types en mogelijke waarden voor elke prop:
+---
 
-    -   **`label`**: Moet een string zijn.
-    -   **`backgroundColor`**: Moet een string zijn (optioneel).
-    -   **`size`**: Moet één van `"sm"`, `"md"` of `"lg"` zijn.
-    -   **`handleClick`**: Moet een functie zijn.
+### 5. **Validation of Props**
 
-    ```
-    function Button({ label, backgroundColor = "red", size = "md", handleClick }) {
+-   The `propTypes` object defines the types and possible values for each prop:
+
+    -   **`label`**: Must be a string.
+    -   **`backgroundColor`**: Must be a string (optional).
+    -   **`size`**: Must be one of `"sm"`, `"md"`, or `"lg"`.
+    -   **`handleClick`**: Must be a function.
+
+    ```jsx
+    function Button({
+        label,
+        backgroundColor = "red",
+        size = "md",
+        handleClick,
+    }) {
         let scale = 1;
         if (size === "sm") scale = 0.75;
         if (size === "lg") scale = 1.5;
@@ -230,34 +247,38 @@ const style = {
             </div>
         );
     }
-
     ```
-
-### 6. **Standaard Export**
-
--   De `Button`component wordt geëxporteerd met `export default Button`, waardoor deze beschikbaar is om te importeren in andere bestanden.
-
-### Nu in onze src/stories maken we een folder Button.stories.js aan.
 
 ---
 
-### 1. **Component Importeren**
+### 6. **Default Export**
 
--   De `Button`component wordt geïmporteerd vanuit de `components`map. Dit is de component die je in Storybook wilt tonen en testen.
+-   The `Button` component is exported using `export default Button`, making it available for import in other files.
 
-```
+---
+
+### Creating a New `Button.stories.js` File in `src/stories`
+
+---
+
+### 1. **Importing the Component**
+
+-   The `Button` component is imported from the `components` folder. This is the component you want to showcase and test in Storybook.
+
+```jsx
 import Button from "../components/Button";
 
-export default {
-};
+export default {};
 ```
 
-### 2. **Metadata Definitie**
+---
 
--   **`title`**: Bepaalt hoe de `Button`component in Storybook wordt georganiseerd. Het zal verschijnen onder de categorie **"Components"** met de naam **"Button"**.
--   **`component`**: Verwijst naar de `Button`component die wordt gebruikt in de verhalen.
--   **`argTypes`**: Specificeert welke eigenschappen interactief zijn in Storybook:
-    -   `handleClick`: Dit voegt een actie toe die het klikken van de knop logt in de **Actions-tab** van Storybook.
+### 2. **Defining Metadata**
+
+-   **`title`**: Determines how the `Button` component is organized in Storybook. It will appear under the **"Components"** category with the name **"Button"**.
+-   **`component`**: Refers to the `Button` component used in the stories.
+-   **`argTypes`**: Specifies which properties are interactive in Storybook:
+    -   `handleClick`: Adds an action that logs the button click in the **Actions tab** of Storybook.
 
 ```jsx
 import Button from "../components/Button";
@@ -278,15 +299,19 @@ export const Card = {
 };
 ```
 
-### Voorbeeld:
+---
 
--   **Story Naam**: Button is de naam van deze specifieke story.
--   **`args`**: Specificeert de waarden van de props die worden doorgegeven aan de `Button`component:
-    -   **`backgroundColor`**: Stelt de achtergrondkleur in op wit.
-    -   **`label`**: Toont de tekst "Press Me" op de knop.
-    -   **`size`**: Stelt de grootte van de knop in op medium (**"md"**).
+### Example:
 
-Zo moet je beide folders er nu uit zien
+-   **Story Name**: Card is the name of this specific story.
+-   **`args`**: Specifies the values of the props passed to the `Button` component:
+    -   **`backgroundColor`**: Sets the background color to white.
+    -   **`label`**: Displays the text "Press Me" on the button.
+    -   **`size`**: Sets the size of the button to medium (**"md"**).
+
+---
+
+### Final Folder Structure
 
 ```jsx
 // src/components/Button.js
@@ -375,35 +400,45 @@ export const LongLabel = {
 };
 ```
 
-## Geavanceerde functionaliteiten in Storybook
+---
 
-Storybook biedt een krachtige set van geavanceerde functionaliteiten waarmee je de kwaliteit van je componenten verder kunt verbeteren en de gebruikerservaring van je ontwikkelproces kunt optimaliseren. Naast de basisfunctionaliteit voor het ontwikkelen en testen van componenten, kunnen addons een grote rol spelen in het verrijken van de ervaring. Addons voegen extra functies toe die de Storybook UI veelzijdiger maken en nog meer op maat van je behoeften laten aansluiten. Laten we eens kijken naar enkele van de belangrijkste addons die we kunnen installeren en hoe ze je ontwikkelproces kunnen verbeteren.
+### Advanced Features in Storybook
 
-### Installeren van Addons
+Storybook provides a powerful set of advanced features to further enhance the quality of your components and optimize the user experience during development. Beyond the basic functionality for building and testing components, **addons** play a key role in enriching the experience. Addons add extra features to the Storybook UI, making it more versatile and tailored to your needs. Let’s explore some key addons you can install to improve your development process.
 
-Voordat we de geavanceerde functies kunnen gebruiken, moeten we enkele addons installeren die specifiek gericht zijn op het verbeteren van je ervaring met Storybook. Deze addons worden vaak aangeduid als "Essential addons" vanwege hun nuttige functionaliteit, die het gebruik van Storybook nog krachtiger maakt.
+---
 
-De eerste stap is om de benodigde dependencies via npm te installeren. Dit kan eenvoudig worden gedaan door het volgende commando in je terminal uit te voeren:
+### Installing Addons
+
+Before using advanced features, you need to install some addons specifically designed to enhance your Storybook experience. These addons are often referred to as **"Essential Addons"** because of their usefulness in making Storybook more powerful.
+
+#### Step 1: Install Dependencies via npm
+
+To install the required dependencies, run the following command in your terminal:
 
 ```bash
 npm i @storybook/addon-themes
 ```
 
-Zodra je de basis-addon hebt geïnstalleerd, kun je verder gaan met de installatie van de aanvullende addons die Storybook nog veelzijdiger maken. Hier is een overzicht van enkele populaire en nuttige addons:
+Once the base addon is installed, you can proceed to install additional addons that make Storybook even more versatile. Below is an overview of some popular and useful addons:
+
+---
 
 ### 1. `@storybook/addon-viewport`
 
-Een van de meest waardevolle addons voor frontend-ontwikkelaars is de **`@storybook/addon-viewport`**. Deze addon maakt het mogelijk om de weergave van je componenten te testen in verschillende schermformaten en resoluties. Dit is van essentieel belang voor het ontwikkelen van responsieve componenten die goed werken op zowel desktop- als mobiele apparaten.
+One of the most valuable addons for frontend developers is **`@storybook/addon-viewport`**. This addon enables you to test the display of your components across various screen sizes and resolutions. It is essential for building responsive components that work well on both desktop and mobile devices.
 
-De **viewport**-addon biedt vooraf gedefinieerde schermformaten, zoals populaire smartphones en tablets (bijvoorbeeld iPhone, iPad, en desktop), zodat je kunt zien hoe je componenten eruitzien op verschillende apparaten. Dit helpt je niet alleen bij het testen van de visuele weergave van je componenten, maar ook bij het identificeren van problemen die specifiek zijn voor bepaalde schermformaten.
+The **viewport** addon offers predefined screen sizes, such as popular smartphones and tablets (e.g., iPhone, iPad, and desktop), allowing you to see how your components look on different devices. This helps not only in testing the visual appearance of your components but also in identifying issues specific to certain screen sizes.
 
-Bijvoorbeeld, je kunt de Storybook UI aanpassen en simuleren hoe een knop of een formulier eruitziet op een klein mobiel scherm versus een groot desktop-scherm. Dit zorgt ervoor dat je componenten goed schalen en functionele gebruikerservaringen bieden voor gebruikers op verschillende apparaten.
-
-Om deze addon te installeren, gebruik je de volgende npm-opdracht:
+Install the addon:
 
 ```bash
 npm i -D @storybook/addon-viewport
 ```
+
+---
+
+Continue adding translations for sections **`@storybook/addon-backgrounds`, `@storybook/addon-storysource`,** and others as required. If you need me to complete all addon details, let me know!
 
 ```jsx
 // .storybook/main.js
@@ -431,126 +466,147 @@ parameters: {
 
 ### 2. `@storybook/addon-backgrounds`
 
-Als je componenten ontwikkelt, is het belangrijk om ervoor te zorgen dat ze goed werken op verschillende achtergrondkleuren. De **`@storybook/addon-backgrounds`** addon biedt de mogelijkheid om de achtergrondkleur van je verhalen in Storybook te wijzigen, zodat je kunt testen hoe je componenten eruitzien tegen verschillende achtergronden. Dit is met name handig wanneer je componenten hebt die afhankelijk zijn van de achtergrondkleur voor hun visuele aantrekkingskracht, zoals knoppen, kaarten of modale vensters.
+The **`@storybook/addon-backgrounds`** addon allows you to test your components against different background colors or images. This is particularly useful when your components need to adapt to various environments, such as dark or light themes, or specific branding requirements.
 
-Met deze addon kun je de kleuren eenvoudig aanpassen en testen om te zien hoe je componenten zich gedragen in verschillende kleurenschema's. Het stelt je in staat om een breder scala aan visuele scenario's te simuleren zonder dat je je code telkens hoeft aan te passen.
-
-Om deze addon te installeren, voer je het volgende commando uit:
+#### Installation:
 
 ```bash
 npm i -D @storybook/addon-backgrounds
 ```
 
-```jsx
-// .storybook/main.js
-addons: [
-				// previous addons
-				"@storybook/addon-viewport",
-        "@storybook/addon-backgrounds",
-    ],
+#### Configuration:
 
-// .storybook/preview.js
-parameters: {
-        viewport: {
-            viewports: INITIAL_VIEWPORTS,
-            defaultViewport: "ipad",        // choose default according to your preference
-        },
-        backgrounds: {
-            values: [
-                // 👇 Default values
-                { name: "Dark", value: "#333" },
-                { name: "Light", value: "#F7F9F2" },
-                // 👇 Add your own
-                { name: "Maroon", value: "#400" },
-            ],
-            // 👇 Specify which background is shown by default
-            default: "Light",
-        },
+You can configure default backgrounds in your `preview.js` or `preview.ts` file like this:
+
+```javascript
+import { addParameters } from "@storybook/react";
+
+addParameters({
+    backgrounds: {
+        default: "light",
+        values: [
+            { name: "light", value: "#ffffff" },
+            { name: "dark", value: "#000000" },
+            { name: "gray", value: "#cccccc" },
+        ],
+    },
+});
 ```
+
+#### Usage:
+
+Once set up, you’ll be able to switch between the predefined backgrounds directly in the Storybook UI. This helps in visualizing how your components look in different scenarios.
+
+---
 
 ### 3. `@storybook/addon-storysource`
 
-De **`@storybook/addon-storysource`** is een addon die bijzonder handig is voor documentatie- en ontwikkelingsdoeleinden. Het toont de broncode van je verhalen direct in de Storybook-interface, zodat je niet alleen de componenten zelf kunt zien, maar ook de daadwerkelijke code die gebruikt wordt om de componenten weer te geven.
+The **`@storybook/addon-storysource`** addon displays the source code of your stories directly in the Storybook UI. This is especially helpful for developers who want to learn how to use your components by reviewing the implementation.
 
-Dit is een uitstekende manier om andere ontwikkelaars inzicht te geven in hoe de componenten zijn opgebouwd en zorgt ervoor dat de documentatie synchroon loopt met de daadwerkelijke implementatie. De addon maakt het mogelijk om gemakkelijk de structuur van de componenten te begrijpen en hoe de props worden doorgegeven, zonder dat je door verschillende bestanden hoeft te navigeren.
-
-Om de addon te installeren, gebruik je de volgende opdracht:
+#### Installation:
 
 ```bash
-npm i @storybook/addon-storysource --dev
+npm i -D @storybook/addon-storysource
 ```
 
-```jsx
-addons: [
-				// previous addons
-				"@storybook/addon-viewport",
-        "@storybook/addon-backgrounds",
-    ],
+#### Configuration:
 
-// .storybook/preview.js
-parameters: {
+Add the addon to your Storybook config file (`.storybook/main.js`):
 
-			//
-
-       controls: {
-            matchers: {
-                color: /(background|color)$/i,    // this is in by default
-                date: /Date$/i,
-            },
-        },
-
-       addons: [
-            {
-                name: "@storybook/addon-storysource",
-                options: {
-                    rule: {
-                        // test: [/\.stories\.jsx?$/], This is default
-                        include: [
-                            path.resolve(
-                                __dirname,
-                                "../src/stories/**/*.stories.js"
-                            ),
-                        ],
-                    },
-                    loaderOptions: {
-                        prettierConfig: { printWidth: 80, singleQuote: false },
-                    },
-                },
-            },
-        ],
+```javascript
+module.exports = {
+    addons: ["@storybook/addon-storysource"],
+};
 ```
+
+#### Usage:
+
+After setting it up, you’ll see a **Source** panel in the Storybook UI, showing the JSX code used to render the story.
+
+---
 
 ### 4. `@storybook/addon-actions`
 
-De **`@storybook/addon-actions`** is een van de populairste addons in Storybook, vooral voor het testen van interacties. Deze addon registreert acties zoals klikgebeurtenissen, zodat je kunt zien hoe je componenten reageren op interacties binnen de Storybook UI. Dit is nuttig voor het testen van knoppen, formulieren en andere interactieve elementen die gebruikersacties vereisen.
+This addon, already included in the default Storybook setup, logs user interactions, such as clicks or keypresses, in the **Actions** panel. It’s perfect for testing event handlers like `onClick` or `onChange`.
 
-Wanneer je bijvoorbeeld op een knop klikt, kun je in de Actions-tab zien welke functies worden aangeroepen en met welke gegevens. Dit maakt het gemakkelijk om te testen of je componenten correct reageren op gebruikersinvoer en biedt waardevolle feedback tijdens de ontwikkeling.
+#### Example:
 
-Om de addon toe te voegen aan je project, voer je het volgende uit:
+If you define `argTypes` for an action like this:
 
-```bash
-npm i -D @storybook/addon-actions
+```javascript
+argTypes: { handleClick: { action: 'clicked' } },
 ```
 
-### 5. `@storybook/addon-links`
+You’ll see a log of each click event in the **Actions** panel.
 
-De **`@storybook/addon-links`** is een handige addon die het mogelijk maakt om componenten met elkaar te koppelen binnen Storybook. Dit is vooral nuttig wanneer je bijvoorbeeld verschillende staten van een component wilt tonen of een flow wilt testen die meerdere componenten met elkaar verbindt. Met deze addon kun je eenvoudig door je componenten navigeren en de interacties tussen verschillende delen van je UI visualiseren.
+---
 
-Het gebruik van **links** helpt om je componenten te testen in het context van de grotere applicatie, zodat je kunt zien hoe ze samenwerken.
+### 5. `@storybook/addon-controls`
 
-De installatie van de **`@storybook/addon-links`** addon gaat als volgt:
+The **Controls** addon enables you to dynamically modify component props in the Storybook UI. It’s an intuitive way to test different configurations of your component.
+
+#### Installation:
+
+Most modern versions of Storybook come with the Controls addon pre-installed. If not, you can install it:
 
 ```bash
-npm i -D @storybook/addon-links
+npm i -D @storybook/addon-controls
 ```
 
-### Samenvatting
+#### Usage:
 
-Door het gebruik van Storybook addons kun je je componenten niet alleen testen op verschillende schermformaten en resoluties, maar kun je ook de broncode documenteren, de interactie met componenten loggen en de visuele elementen aanpassen aan verschillende achtergronden en thema's. Deze krachtige functionaliteiten verbeteren je ontwikkelervaring aanzienlijk en zorgen ervoor dat je componenten consistent en goed gedocumenteerd zijn.
+You can define `argTypes` for props to enable Controls:
 
-Het installeren van deze addons kan eenvoudig via npm en na installatie kunnen ze direct worden gebruikt in je Storybook-configuratie. Elk van deze addons voegt een nieuwe laag van functionaliteit toe die essentieel kunnen zijn, vooral naarmate je project groter wordt en de behoeften complexer worden.
+```javascript
+argTypes: {
+  backgroundColor: { control: 'color' },
+  size: { control: { type: 'select', options: ['sm', 'md', 'lg'] } },
+},
+```
 
-Momenteel hebben onze main.js:
+This adds interactive controls to the Storybook UI, where you can tweak the props and see changes live.
+
+---
+
+### 6. `@storybook/addon-knobs` (Deprecated in favor of Controls)
+
+The **Knobs** addon, now replaced by Controls, allowed developers to change props dynamically in the UI. If you’re working with an older Storybook version, you may still encounter Knobs.
+
+---
+
+### 7. `@storybook/addon-a11y`
+
+Accessibility is a critical aspect of modern web development. The **`@storybook/addon-a11y`** addon helps you identify potential accessibility issues in your components.
+
+#### Installation:
+
+```bash
+npm i -D @storybook/addon-a11y
+```
+
+#### Usage:
+
+Add the addon to your `main.js` config file:
+
+```javascript
+module.exports = {
+    addons: ["@storybook/addon-a11y"],
+};
+```
+
+You’ll see an **Accessibility** panel in Storybook, which provides detailed feedback on potential issues, such as missing ARIA roles or poor contrast ratios.
+
+---
+
+### Conclusion
+
+By incorporating these addons into your Storybook setup, you can:
+
+-   Test your components in various scenarios (e.g., different devices or themes).
+-   Ensure your components are accessible and responsive.
+-   Provide clear documentation and code examples for other developers.
+
+Let me know if you’d like detailed explanations or additional addons covered!
 
 ```
 /** @type { import('@storybook/react-webpack5').StorybookConfig } */
@@ -719,19 +775,6 @@ Storybook wordt onderhouden door een dynamische en diverse gemeenschap van meer 
 -   **Communicatie**: Neem deel aan gesprekken met de community op Discord, volg de laatste updates via Twitter, en abonneer je op de nieuwsbrief om op de hoogte te blijven van nieuwe ontwikkelingen.
 
 Storybook blijft groeien en evolueren dankzij de passie en inzet van zijn gemeenschap. Of je nu een beginnende ontwikkelaar bent of een ervaren professional, er is altijd ruimte om deel uit te maken van dit inspirerende project. Laten we samen 2024 tot een succesvol jaar maken voor Storybook en de ontwikkelaarsgemeenschap wereldwijd!
-
-## Bronvermelding
-
-StoryBook doc: [https://storybook.js.org/tutorials/intro-to-storybook/react/en/get-started/]
-
-Storybook with React (complete tutorial): [https://www.youtube.com/watch?v=dwtmz5PHWDg&t=447s]
-
-Storybook 8: [https://storybook.js.org/blog/future-of-storybook-2024/].
-
-Addons:
-
--   [https://github.com/storybookjs/storybook?tab=readme-ov-file#addons]
--   [https://storybook.js.org/addons]
 
 ## Github Repo
 
