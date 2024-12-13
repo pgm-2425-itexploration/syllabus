@@ -16,15 +16,15 @@ head:
       content: "Learn how to set up a WordPress website with the Bedrock boilerplate, a modern tool that enhances your project’s organization by providing a cleaner and more structured folder layout."
   - - meta
     - name: keywords
-      content: "CMS", "Tutorial", "WordPress", "Bedrock", "Boilerplate", "folder structure", "composer"
+      content: "CMS, Tutorial, WordPress, Bedrock, Boilerplate, folder structure, composer"
 sources:
-   - title: "Bedrock Docs"
+  - title: "Bedrock Docs"
     url: "https://roots.io/bedrock/docs/installation/"
-   - title: "Bedrock tutorial"
+  - title: "Bedrock tutorial"
     url: "https://youtu.be/wNSaP-O5wrk?si=gG7Qsi5KgWoe_wbv"
-   - title: "Flywheel"
+  - title: "Flywheel"
     url: "https://localwp.com/"
-   - title: 'Composer Docs' 
+  - title: 'Composer Docs' 
     url: 'https://getcomposer.org/doc/00-intro.md'
 ---
 

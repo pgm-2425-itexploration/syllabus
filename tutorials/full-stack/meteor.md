@@ -1,11 +1,11 @@
 ---
 title: "Meteor + React"
-synopsis: "Meteor is een krachtig framework voor het bouwen van moderne real-time webapps, en React maakt het mogelijk om interactieve en dynamische gebruikersinterfaces te creëren."
+synopsis: "Meteor is a powerful framework for building modern real-time web apps, and React enables the creation of interactive and dynamic user interfaces."
 date: 2024-12-10
 author:
   name: "Klaas Cornette"
   avatarUrl: "/assets/avatars/klaas-cornette.png"
-  socials: # Voeg links naar sociale media toe -> Als je er geen hebt, laat een lege string ''
+  socials: # Add social media links -> If you don't have any, place an empty string ''
     website: ""
     linkedin: "https://www.linkedin.com/in/klaas-cornette-a0b188293/"
     github: "https://github.com/klaas-cornette"
@@ -13,10 +13,10 @@ thumbnailUrl: "/assets/tutorials/MeteorJS.jpg"
 head:
   - - meta
     - name: description
-      content: "Meteor is een krachtig framework voor het bouwen van moderne real-time webapps, en React maakt het mogelijk om interactieve en dynamische gebruikersinterfaces te creëren. Samen bieden ze een efficiënte stack voor full-stack ontwikkeling."
+      content: "Meteor is a powerful framework for building modern real-time web apps, and React enables the creation of interactive and dynamic user interfaces. Together, they provide an efficient stack for full-stack development."
   - - meta
     - name: keywords
-      content: "Meteor React JavaScript real-time webapps full-stack ontwikkeling MongoDB Tailwind CSS chatapplicatie publish/subscribe systeem component-gebaseerde UI tutorial"
+      content: "Meteor React JavaScript real-time web apps full-stack development MongoDB Tailwind CSS chat application publish/subscribe system component-based UI tutorial"
 ---
 
 # Tutorial: Een Chatsysteem Bouwen met Meteor
