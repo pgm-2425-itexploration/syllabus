@@ -109,7 +109,7 @@ Controleer de installatie met:
 
 ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.008.png)
 
-Open je browser en navigeer naar [http://localhost:4200](http://localhost:4200/).
+Open je browser en navigeer naar localhost:4200/.
 
 # **Deel 2: De Structuur van een Angular Project**
 

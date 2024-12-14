@@ -376,7 +376,7 @@ Run the following command to preview your project locally:
 ```bash
 npm run dev
 ```
-Visit <a href="http://localhost:5173" target="_blank" rel="noreferrer">http://localhost:5173</a> in your browser to see the Canvas component in action!
+Visit <a href="" target="_blank" rel="noreferrer">localhost:5173</a> in your browser to see the Canvas component in action!
 
 ## Conclusion
 By following these steps, you’ve successfully integrated the Canvas API into your VitePress project. You can now create dynamic and interactive documentation with live examples, visualizations, or even animations. This integration enhances your documentation by making it more engaging and educational.
