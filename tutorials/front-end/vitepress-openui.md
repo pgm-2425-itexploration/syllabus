@@ -1,6 +1,6 @@
 ---
 title: 'VitePress & OpenUI'
-synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
+synopsis: 'In this tutorial you will learn how to build a site with VitePress.'
 date: 2024-10-10
 author:
   name: 'Cas Verheye'
