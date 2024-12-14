@@ -1,6 +1,6 @@
 ---
 title: 'Angular'
-synopsis: >
+synopsis: |
   Angular is een krachtig, open-source front-end webapplicatieframework ontwikkeld door Google. Het is ontworpen om dynamische single-page applicaties (SPA's) te bouwen met de nadruk op modulariteit, schaalbaarheid en onderhoudbaarheid. Angular maakt gebruik van TypeScript en biedt ingebouwde tools voor routing, formulierverwerking, HTTP-verzoeken en dependency injection. De component-gebaseerde architectuur maakt herbruikbare en modulaire code mogelijk, wat het beheer van complexe applicaties vergemakkelijkt. Angular wordt veel gebruikt voor het bouwen van high-performance webapps en heeft een sterk ecosysteem en gemeenschapssteun.
 date: '2024-12-14'
 author:
