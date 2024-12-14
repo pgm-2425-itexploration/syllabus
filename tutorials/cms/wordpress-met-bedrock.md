@@ -1,7 +1,7 @@
 ---
 title: "WordPress with Bedrock"
 synopsis: "This tutorial provides a comprehensive guide to using WordPress with Bedrock, a modern development boilerplate by Roots. From installation to project structure and plugin management, you’ll learn how Bedrock enhances security, organization, and efficiency for WordPress projects."
-date: 2024-10-10
+date: 2024-12-14
 author:
   name: "Tristan De Ridder"
   avatarUrl: "/assets/avatars/tristan-de-ridder.png"
@@ -16,19 +16,47 @@ head:
       content: "Learn how to set up a WordPress website with the Bedrock boilerplate, a modern tool that enhances your project’s organization by providing a cleaner and more structured folder layout."
   - - meta
     - name: keywords
-      content: "CMS", "Tutorial", "WordPress", "Bedrock", "Boilerplate", "folder structure", "composer"
+      content: "CMS, Tutorial, WordPress, Bedrock, Boilerplate, folder structure, composer"
 sources:
-   - title: "Bedrock Docs"
+  - title: "Bedrock Docs"
     url: "https://roots.io/bedrock/docs/installation/"
-   - title: "Bedrock tutorial"
+  - title: "Bedrock tutorial"
     url: "https://youtu.be/wNSaP-O5wrk?si=gG7Qsi5KgWoe_wbv"
-   - title: "Flywheel"
+  - title: "Flywheel"
     url: "https://localwp.com/"
-   - title: 'Composer Docs' 
+  - title: 'Composer Docs' 
     url: 'https://getcomposer.org/doc/00-intro.md'
 ---
 
-# Introduction to WordPress with Bedrock
+# WordPress with Bedrock
+
+In this tutorial, we’ll explore Bedrock, a powerful boilerplate designed to enhance WordPress development by introducing modern tools and best practices. Bedrock reimagines how WordPress projects are structured, offering developers a cleaner, more professional environment for building websites.
+
+## Table of contents
+
+- [WordPress with Bedrock](#wordpress-with-bedrock)
+  - [Table of contents](#table-of-contents)
+  - [Introduction to WordPress with Bedrock](#introduction-to-wordpress-with-bedrock)
+  - [Prerequisites](#prerequisites)
+  - [Steps](#steps)
+  - [Project Structure Overview](#project-structure-overview)
+    - [Folder Structure](#folder-structure)
+    - [Folder Details](#folder-details)
+    - [Benefits of This Structure](#benefits-of-this-structure)
+  - [Wordpress](#wordpress)
+  - [Creating and Managing Themes and Plugins](#creating-and-managing-themes-and-plugins)
+    - [Installing Themes](#installing-themes)
+    - [Installing Plugins](#installing-plugins)
+    - [Managing Dependencies with Composer](#managing-dependencies-with-composer)
+      - [Updating Themes and Plugins](#updating-themes-and-plugins)
+    - [4. File Permissions Issues](#4-file-permissions-issues)
+    - [5. Plugins Not Appearing or Loading](#5-plugins-not-appearing-or-loading)
+    - [6. Permalink Issues](#6-permalink-issues)
+    - [7. HTTPS or SSL Issues](#7-https-or-ssl-issues)
+  - [Conclusion](#conclusion)
+
+
+## Introduction to WordPress with Bedrock
 
 Bedrock is a WordPress boilerplate developed by Roots that provides a modern approach to structuring Wordpress projects. Using Bedrock allows developers to create a WordPress website with a more organized structure, leveraging tools that improve development efficiency and security.
 
@@ -47,10 +75,10 @@ However a few requirements are present in order to use Bedrock:
 - PHP -> 8.0 or higher
 - [Composer](https://getcomposer.org/download/)
   
-But these will be brought up when going through the installation
+But these will be brought up when going through the installation later on
 
 ## Prerequisites
-Before starting, you will need to install the following:
+Before starting, you will have to install the following apps or dependency or your device:
 
 - [Composer](https://getcomposer.org/download/)
 - [Local by Flywheel](https://localwp.com/)
@@ -66,18 +94,23 @@ Before starting, you will need to install the following:
 
 2. **Set Up a New Site in Local**
 
-   - Open Local by Flywheel and set up a new site.
+   - Open Local by Flywheel and set up a new site by following the on screen steps:
+     - Choose the **create a new site** option. The blueprint option allows you to start a site by utilizing pre-saved site settings such as themes and plugins.
+     - Next choose your site name
+     - Then you can choose your environment. Make sure you at least have the **PHP: 8.2.23**, **Web server: nginx 1.26.1** and **Database: MySQL 8.0.16** versions. These are the ones used in this tutorial. If you any other versions that selected by the preferred, choose the custom option and insert select the right versions
+     - Lastly set you WordPress panel login and email. Make sure you remember these, otherwise you will not be able to enter the WordPress dashboard 
    - Once the site is created, open the terminal and navigate to the `app` folder.
 
      > **Note:** You will need to create an account in order to use Local  
      > **Note:** Using Local’s built-in terminal may place you inside the `public` folder, so navigate up to the `app` folder if needed.
 
+     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-name.png)
+     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-create.png)
      ![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-environment.png)
-     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
 
 3. **Install Bedrock**
 
-   - Inside the `app` folder, run the following command to create a new project:
+   - Inside the `app` folder, run the following composer command to create a new Bedrock project:
      ```terminal
      composer create-project roots/bedrock
      ```
@@ -86,8 +119,8 @@ Before starting, you will need to install the following:
 4. **Remove the `public` Folder**
 
    - Delete the `public` folder to avoid conflicts with Bedrock's structure.  
-   This should be the resulting directory
-
+   This should be the resulting directory .
+   Before the deletion:
    ```directory
    Local Sites
    ├── bedrock
@@ -97,12 +130,22 @@ Before starting, you will need to install the following:
      ├── conf
      ├── logs
    ```
+
+   After the deletion:
+   ```directory
+   Local Sites
+   ├── bedrock
+     ├── app
+        ├── bedrock
+     ├── conf
+     ├── logs
+   ```
    - Move up one directory, and then open Bedrock in Visual Studio Code.
 
 
 5. **Configure Bedrock in Local**
 
-   - In VS Code, navigate to `config` and then `nginx`.
+   - In VS Code, navigate to `config`, in the bedrock folder **not** on the app folder and then `nginx`.
    - Open the `site.config.hbs` file and search for the line that sets the `root` directory.
      > **Note:** This should be at the beginning of the server object
      ```nginx
@@ -111,7 +154,11 @@ Before starting, you will need to install the following:
      ```
    - Change the `root` variable to point to the `web` folder within your Bedrock directory.
      > **Note:** The route need to be the complete route you find in Finder or in File Explorer
-     > **Example (for mac):** /Users/Testing/Local Sites/bedrock/app/bedrock/web
+     This change should result in somthing like this:
+     ```nginx
+     # Default root directory example
+    root   "/Users/{{name}}/Local Sites/bedrock/app/bedrock/web";
+     ```
    - Before proceeding, stop the site in Local.
 
 6. **Update the `.env` File**
@@ -134,8 +181,8 @@ Before starting, you will need to install the following:
 
 
 7. **Run Your Site**
-   - Start your site in Local.
-   - Open your browser and enter your site’s domain. If prompted, give permission to access the site.
+   - Start your site again in Local.
+   - Open your browser and enter your site’s domain or click the open site button in Local. If prompted, give permission to access the site.
 
 
 8. **Optional: Multisite**  
@@ -143,16 +190,7 @@ Before starting, you will need to install the following:
    Bedrock is multisite network compatible. So if you plan to build a website with bedrock that has subdomains you will need the roots/multisite-url-fixer mu-plugin to make sure admin URLs function properly. This plugin is not needed on subdirectory installs but will work well with them. From your Bedrock directory use this command:
    `composer require roots/multisite-url-fixer`
 
-If all steps were followed correctly, you should now see your Bedrock-powered WordPress site up and running in Local.
-
-## Wordpress
-
-In Local by Flywheel, locate your site in the list and click the WP Admin button on the right. This will open the login page for your WordPress site in your default browser. To access your WordPress dashboard, you’ll need to enter the username and password you chose during the initial site setup in Local. 
-
-![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
-
-Once logged in, you’ll be taken directly to the WordPress dashboard, where you can begin managing and customizing your site.
-
+If all steps were followed correctly, you should now see your Bedrock-powered WordPress site up and running in your browser.
 
 ## Project Structure Overview
 
@@ -199,6 +237,15 @@ By structuring WordPress in this way, Bedrock provides:
 - **Scalability and Maintenance**: Clear separation and configuration make scaling and updating easier, especially in multi-environment setups.
 
 This structure might feel different at first, but it allows for more control and modularity, giving developers the flexibility needed for advanced WordPress development.
+
+
+## Wordpress
+
+In Local by Flywheel, locate your site in the list and click the WP Admin button on the right. This will open the login page for your WordPress site in your default browser. To access your WordPress dashboard, you’ll need to enter the username and password you chose during the initial site setup in Local. 
+
+![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
+
+Once logged in, you’ll be taken directly to the WordPress dashboard, where you can begin managing and customizing your site.
 
 
 ## Creating and Managing Themes and Plugins
@@ -283,7 +330,7 @@ Using Composer to manage themes and plugins may take some getting used to, but i
 
 ## Building a Simple WordPress Site
 
-When you first open your site in a browser, you'll see a default theme.
+When you first open your site in a browser, you will see a default theme.
 
 ### 1. Setting Up the Theme
 
@@ -324,10 +371,8 @@ When you first open your site in a browser, you'll see a default theme.
    > **Note**: When activating Elementor, it may prompt you to create an account. You can skip this and the subsequent steps until you can choose between a black canvas and a template.
 
 2. **Activate and Configure Plugins**:
-   - Once plugins are installed, activate them from the dashboard.
-   - Configure each plugin's settings to suit your site's needs. For example:
-     - For **Contact Form 7**, create a new form under **Contact > Add New**.
-     - For **Yoast SEO**, go to **SEO > General** and follow the setup wizard.
+      After you install a plugin, you still need to activate them. This can be done by navigating to the installed plugins page. Once there, search for the plugin you installed and click on activate.
+      > **Note:** It is possible that you need to do a configuration. This will be the case for the **Yoast Seo**
 
 ### 3. Creating Basic Pages and Content
 
@@ -342,11 +387,15 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
 2. **Set Up Essential Pages**:
    - Go to **Pages > Add New** and create the following pages:
      - **Home**: This will be your main page.
-       > **Note**: The homepage you see when visiting your domain is not an existing page from the Pages menu; it's a default homepage that comes with every theme. You can edit it by going to **Appearance > Customize**.
-       - When creating a new page with Elementor, you'll see a layout labeled **Elementor #(number)**. Change the layout by clicking the settings button at the top of the page, next to the device icons. You can select the desired page layout at the bottom.
-       ![Elementor layout settings](/assets/tutorials/wordpress-with-bedrock-setup-elementor.png)
+       > **Note**: The homepage you see when visiting your domain is not an existing page from the Pages menu; it is a default homepage that comes with every theme. You can edit it by going to **Appearance > Customize**.
      - **Contact**: A page where visitors can reach you (add a contact form using WPForms).
        - In Elementor, click **Add Element** on the top left, find WPForms under **Basic**, drag it onto the page, and adjust as needed.
+     - **About**: A page with some general about info.
+       - Using Elementor is almost the same as using standard WordPress elements. The main difference is that you can drag and drop your elements, style them and if used with an pro account even use AI to create content and style it
+       - When creating a new page with Elementor, you will see a layout labeled **Elementor #(number)**. Change the layout by clicking the settings button at the top of the page, in between the device icons and the page name. You can select the desired page layout at the bottom.
+       ![Elementor layout settings](/assets/tutorials/wordpress-with-bedrock-setup-elementor.png)
+       > **Note:** Some of the functionality of Elementor is locked behind a paywal. But you can use the most of the elements, only pro elements such as a search are locked. However these can be bypassed by using other plugins
+
 
 3. **Optional: Set a Static Homepage**:
    - Go to **Settings > Reading**.
@@ -355,7 +404,7 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
    ![Static page settings](/assets/tutorials/wordpress-with-bedrock-setup-static.png)
 
 4. **Add Menu Navigation**:
-   - Go to **Appearance > Themes**.
+   - Go to **Appearance > Themes** page.
    - Click on the customize button of your chosen theme
    - Create a new menu and add your pages (Home, About, Contact).
    - Assign the menu to the primary location to enable site navigation.
@@ -376,7 +425,7 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
 
 ### Summary
 
-By following these steps, you've set up a simple WordPress site with a functional theme, essential plugins, and key pages. From here, you can further customize your site by modifying theme templates, adding more plugins, and expanding your content.
+By following these steps, you have set up a simple WordPress site with a functional theme, essential plugins, and key pages. From here, you can further customize your site by modifying theme templates, adding more plugins, and expanding your content.
 
 
 ## Common Issues and Troubleshooting Tips
@@ -446,4 +495,4 @@ Most common issues with Bedrock can be resolved by double-checking configuration
 
 
 ## Conclusion
-WordPress with Bedrock provides developers with a robust foundation for building modern, secure, and scalable websites. By utilizing Bedrock's organized folder structure, Composer-based dependency management, and enhanced configuration options, you can streamline your development process and maintain better control over your projects. While it may require some adjustments compared to traditional WordPress workflows, the long-term benefits in terms of efficiency, security, and maintainability make it a worthwhile choice for developers aiming to elevate their WordPress development. Whether you're building a small site or a complex, multi-environment project, Bedrock equips you with the tools to succeed.
+WordPress with Bedrock provides developers with a robust foundation for building modern, secure, and scalable websites. By utilizing Bedrock's organized folder structure, Composer-based dependency management, and enhanced configuration options, you can streamline your development process and maintain better control over your projects. While it may require some adjustments compared to traditional WordPress workflows, the long-term benefits in terms of efficiency, security, and maintainability make it a worthwhile choice for developers aiming to elevate their WordPress development. Whether you are building a small site or a complex, multi-environment project, Bedrock equips you with the tools to succeed.
