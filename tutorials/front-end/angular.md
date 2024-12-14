@@ -1,29 +1,28 @@
 ---
-title: 'Angular'
+title: "Angular"
 synopsis: |
   Angular is een krachtig, open-source front-end webapplicatieframework ontwikkeld door Google. Het is ontworpen om dynamische single-page applicaties (SPA's) te bouwen met de nadruk op modulariteit, schaalbaarheid en onderhoudbaarheid. Angular maakt gebruik van TypeScript en biedt ingebouwde tools voor routing, formulierverwerking, HTTP-verzoeken en dependency injection. De component-gebaseerde architectuur maakt herbruikbare en modulaire code mogelijk, wat het beheer van complexe applicaties vergemakkelijkt. Angular wordt veel gebruikt voor het bouwen van high-performance webapps en heeft een sterk ecosysteem en gemeenschapssteun.
-date: '2024-12-14'
+date: "2024-12-14"
 author:
-  name: 'Kevin Dworschak'
-  avatarUrl: '/assets/avatars/kevin-dworschak.png'
-  socials: 
-    website: ''
-    linkedin: 'https://www.linkedin.com/in/kevindworschak/'
-    github: 'https://github.com/kefmaister'
-thumbnailUrl: '/assets/tutorials/angular/angular_logo.png'
+  name: "Kevin Dworschak"
+  avatarUrl: "/assets/avatars/kevin-dworschak.png"
+  socials:
+    website: ""
+    linkedin: "https://www.linkedin.com/in/kevindworschak/"
+    github: "https://github.com/kefmaister"
+thumbnailUrl: "/assets/tutorials/angular/angular_logo.png"
 head:
   - - meta
     - name: description
-      content: 'This is a tutorial for building a web application using Angular. It covers the fundamentals of Angular, from setting up the development environment to building scalable components.'
+      content: "This is a tutorial for building a web application using Angular. It covers the fundamentals of Angular, from setting up the development environment to building scalable components."
   - - meta
     - name: keywords
-      content: 'Angular tutorial web application front-end TypeScript components routing services'
+      content: "Angular tutorial web application front-end TypeScript components routing services"
 ---
 
 ## Table of Contents
-- [**Deel 1: Het Opzetten van de Ontwikkelomgeving**](#deel-1-het-opzetten-van-de-ontwikkelomgeving)
-      - [Vereisten\*\*:\*\*](#vereisten)
-      - [Installatie\*\*:\*\*](#installatie)
+
+- [**Deel 1: Het Opzetten van de Ontwikkelomgeving**](#deel-1-het-opzetten-van-de-ontwikkelomgeving) - [Vereisten\*\*:\*\*](#vereisten) - [Installatie\*\*:\*\*](#installatie)
 - [**Deel 2: De Structuur van een Angular Project**](#deel-2-de-structuur-van-een-angular-project)
 - [**Deel 3: testing**](#deel-3-testing)
 - [**Deel 4: De HomeComponent maken**](#deel-4-de-homecomponent-maken)
@@ -34,8 +33,6 @@ head:
 - [**Deel 8: services**](#deel-8-services)
 - [**Deel 9: Routing en details**](#deel-9-routing-en-details)
 - [**Deel 10: Creeren van de detail pagina**](#deel-10-creeren-van-de-detail-pagina)
-
-
 
 ## **Introductie: Je Eerste Angular-app - Een Platform voor Huizenverhuur**
 
@@ -157,7 +154,7 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.014.png)
 
-1. Laten we nu HTML toevoegen aan onze template. Vergeet de backtics niet ``.
+1. Laten we nu HTML toevoegen aan onze template. Vergeet de backticks niet.
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.015.png)
 
@@ -234,9 +231,9 @@ Laten we onze eigen interface starten.
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.028.png)
 
-11. Ga terug naar de housing-location.component.ts en vervang de bestaande template met het volgende.
+1. Ga terug naar de housing-location.component.ts en vervang de bestaande template met het volgende.
 
-   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.029.png)
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.029.png)
 
 1. Als alles goed is zie je nu je eerste home card verschijnen.
 
