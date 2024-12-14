@@ -98,8 +98,6 @@ Voordat je begint, zorg ervoor dat je het volgende hebt:
 
 1. **Installeer Angular CLI**: Gebruik npm om de Angular CLI te installeren:
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.005.png)
-
 Controleer de installatie met:
 
 ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.006.png)
