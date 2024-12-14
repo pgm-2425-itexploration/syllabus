@@ -1037,3 +1037,6 @@ contextBridge.exposeInMainWorld("electronAPI", {
 These updates will significantly enhance the **usability**, **customization**, and **cross-platform compatibility** of the application, making it more versatile for end users and increasing its marketability.
 
 
+# Sources
+
+**URL**: [https://www.electronjs.org/](https://www.electronjs.org/)
