@@ -183,7 +183,7 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.020.png)
 
-1. Hierboven zien we ook dat de template is aangepast met de tag <app-housing-location>
+1. Hierboven zien we ook dat de template is aangepast met de tag `<app-housing-location>`
 
 1. Laten we wat css magie toevoegen.
    In housing-location.component.css
