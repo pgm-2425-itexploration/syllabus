@@ -20,44 +20,24 @@ head:
       content: 'Angular tutorial web application front-end TypeScript components routing services'
 ---
 
-[Introductie: Je Eerste Angular-app - Een Platform voor Huizenverhuur 3](#_toc1037356404)
-
-[Waarom Angular? 4](#_toc377524426)
-
-[Toepassingen van Angular door Vooraanstaande Bedrijven 5](#_toc1172066338)
-
-[Industrieadoptie van Webframeworks 6](#_toc1333272733)
-
-[Voorwaarden 7](#_toc1967859036)
-
-[Deel 1: Het Opzetten van de Ontwikkelomgeving 7](#_toc2111250401)
-
-[Vereisten: 8](#_toc766128596)
-
-[Installatie: 8](#_toc483526418)
-
-[Deel 2: De Structuur van een Angular Project 9](#_toc1384330111)
-
-[Deel 3: testing 10](#_toc1204149242)
-
-[Deel 4: De HomeComponent maken 11](#_toc1370062685)
-
-[Deel 5: De HousingLocation toevoegen 14](#_toc317023276)
-
-[Deel 6: Interfaces 17](#_toc2108025158)
-
-[Wat zijn interfaces 18](#_toc238478377)
-
-[Deel 7: input decorators en property bindings 20](#_toc707106708)
-
-[Deel 8: services 24](#_toc2019521769)
-
-[Deel 9: Routing en details 26](#_toc171397199)
-
-[Deel 10: Creeren van de detail pagina 28](#_toc200118082)
+## Table of Contents
+- [**Deel 1: Het Opzetten van de Ontwikkelomgeving**](#deel-1-het-opzetten-van-de-ontwikkelomgeving)
+      - [Vereisten\*\*:\*\*](#vereisten)
+      - [Installatie\*\*:\*\*](#installatie)
+- [**Deel 2: De Structuur van een Angular Project**](#deel-2-de-structuur-van-een-angular-project)
+- [**Deel 3: testing**](#deel-3-testing)
+- [**Deel 4: De HomeComponent maken**](#deel-4-de-homecomponent-maken)
+- [**Deel 5: De HousingLocation toevoegen**](#deel-5-de-housinglocation-toevoegen)
+- [**Deel 6: Interfaces**](#deel-6-interfaces)
+  - [**Wat zijn interfaces**](#wat-zijn-interfaces)
+- [**Deel 7: input decorators en property bindings**](#deel-7-input-decorators-en-property-bindings)
+- [**Deel 8: services**](#deel-8-services)
+- [**Deel 9: Routing en details**](#deel-9-routing-en-details)
+- [**Deel 10: Creeren van de detail pagina**](#deel-10-creeren-van-de-detail-pagina)
 
 
-# <a name="_toc1037356404"></a>**Introductie: Je Eerste Angular-app - Een Platform voor Huizenverhuur**
+
+## **Introductie: Je Eerste Angular-app - Een Platform voor Huizenverhuur**
 
 Welkom bij deze Angular-tutorial, speciaal ontworpen voor developers die een van de krachtigste front-end frameworks willen leren gebruiken. Of je nu nieuw bent met Angular of je kennis wilt verdiepen, deze stapsgewijze handleiding helpt je bij het bouwen van een praktische toepassing: een platform voor het weergeven van huizen te huur.
 
@@ -71,13 +51,13 @@ In deze tutorial bouwen we een Angular-app die een lijst toont van beschikbare h
 
 Aan het einde van deze tutorial heb je niet alleen een volledig functionele app, maar ook een goed begrip van hoe je Angular-concepten kunt toepassen om schaalbare en onderhoudbare webapplicaties te bouwen.
 
-## <a name="_toc377524426"></a>**Waarom Angular?**
+## **Waarom Angular?**
 
 Angular, ontwikkeld door Google, is een robuust framework voor het bouwen van dynamische single-page applicaties (SPA’s). Het biedt een gestructureerde aanpak met ingebouwde tools voor routing, state management en dependency injection. Met een groot ecosysteem en sterke community-ondersteuning is Angular een uitstekende keuze voor developers die complexe, high-performance applicaties willen maken. Hieronder zie je een mooie weergave van de meest gebruikte frameworks
 
 ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.002.png)[^1]
 
-<a name="_toc1172066338"></a>**Toepassingen van Angular door Vooraanstaande Bedrijven**
+**Toepassingen van Angular door Vooraanstaande Bedrijven**
 
 Angular wordt ingezet door diverse toonaangevende bedrijven in verschillende sectoren:
 
@@ -87,7 +67,7 @@ Angular wordt ingezet door diverse toonaangevende bedrijven in verschillende sec
 - **PayPal:** Deze wereldwijde online betaaldienst gebruikt Angular voor zowel de website als de mobiele apps, wat resulteert in efficiënte verwerking van realtime transacties.
 - **Forbes:** Het gerenommeerde zakenmagazine heeft zijn website gebouwd met Angular, wat zorgt voor een professionele en responsieve gebruikersinterface.
 
-<a name="_toc1333272733"></a>**Industrieadoptie van Webframeworks![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.003.png)**
+**Industrieadoptie van Webframeworks![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.003.png)**
 
 Webframeworks spelen een cruciale rol in moderne softwareontwikkeling, waarbij verschillende tools inspelen op uiteenlopende behoeften in de industrie. **Laravel**, een PHP-framework, wordt veel gebruikt in de **technologiesector**, met name voor web- en softwareontwikkeling, en is ook populair in **digitale marketing**, **e-commerce** en **media**. **Vue.js**, een progressief JavaScript-framework, blinkt uit in **e-commerce** en **media** en heeft een sterke aanwezigheid in de **technologiesector** dankzij de eenvoud en flexibiliteit.
 
@@ -95,7 +75,7 @@ Webframeworks spelen een cruciale rol in moderne softwareontwikkeling, waarbij v
 
 Elk framework brengt unieke sterke punten met zich mee, wat hun adoptie in verschillende sectoren vormgeeft en de dynamische wereld van webontwikkeling benadrukt.
 
-## <a name="_toc1967859036"></a>**Voorwaarden**
+## **Voorwaarden**
 
 Voordat je begint, zorg ervoor dat je het volgende hebt:
 
@@ -103,14 +83,14 @@ Voordat je begint, zorg ervoor dat je het volgende hebt:
 - **Node.js en npm geïnstalleerd:** Angular vereist Node.js om de ontwikkelserver te draaien en afhankelijkheden te beheren.
 - **Een code-editor (bijv. VS Code):** Een efficiënte editor met Angular-extensies versnelt je ontwikkelproces.
 
-# <a name="_toc2111250401"></a>**Deel 1: Het Opzetten van de Ontwikkelomgeving**
+# **Deel 1: Het Opzetten van de Ontwikkelomgeving**
 
-#### <a name="_toc766128596"></a>Vereisten**:**
+#### **Vereisten**
 
 1. **Node.js**: Angular vereist Node.js voor het uitvoeren van de ontwikkelserver en het beheren van pakketten.
 1. **Angular CLI**: De command-line interface (CLI) maakt het eenvoudig om nieuwe Angular-projecten te maken en te beheren.
 
-#### <a name="_toc483526418"></a>Installatie**:**
+#### **Installatie**
 
 1. **Installeer Node.js**: Download en installeer Node.js vanaf [nodejs.org](https://nodejs.org/). Controleer de installatie met:
 
@@ -136,7 +116,7 @@ Controleer de installatie met:
 
 Open je browser en navigeer naar [http://localhost:4200](http://localhost:4200/).
 
-# <a name="_toc1384330111"></a>**Deel 2: De Structuur van een Angular Project**
+# **Deel 2: De Structuur van een Angular Project**
 
 Een nieuw Angular-project bevat de volgende mappen en bestanden:
 
@@ -147,7 +127,7 @@ Een nieuw Angular-project bevat de volgende mappen en bestanden:
 
 Angular volgt een component-gebaseerde structuur waarbij elke functie van je app in een eigen component is ondergebracht.
 
-# <a name="_toc1204149242"></a>**Deel 3: testing**
+# **Deel 3: testing**
 
 1. Open rental-app/src/index.html
 1. In de index.html verander de <title> tag met deze code om de titel van de app up te daten.
@@ -164,7 +144,7 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
 1. Sla de veranderingen op en bekijk het resultaat.
 
-# <a name="_toc1370062685"></a>**Deel 4: De HomeComponent maken**
+# **Deel 4: De HomeComponent maken**
 
 1. Zorg dat je via de terminal in de juiste directory zit van rental-app. Gebruik de volgende commando om een component te maken.
 
@@ -193,7 +173,7 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
 1. Controleer of alles werkt en vergeet niet op te slaan.
 
-# <a name="_toc317023276"></a>**Deel 5: De HousingLocation toevoegen**
+# **Deel 5: De HousingLocation toevoegen**
 
 1. Laten we nog eens herhalen hoe je een component maar dan voor housingLocation.
 
@@ -215,9 +195,9 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
    ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.021.png)
 
-# <a name="_toc2108025158"></a>**Deel 6: Interfaces**
+# **Deel 6: Interfaces**
 
-## <a name="_toc238478377"></a>**Wat zijn interfaces**
+## **Wat zijn interfaces**
 
 Een interface is een TypeScript-functie waarmee je de structuur van een object kunt definiëren. Het bepaalt welke eigenschappen en typen een object moet hebben. Denk aan een interface als een contract waaraan objecten moeten voldoen.
 
@@ -242,7 +222,7 @@ Laten we onze eigen interface starten.
 
    ![browser frame of homes-app displaying logo, filter text input box and search button and the message 'housing-location works!'](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.025.png)
 
-# <a name="_toc707106708"></a>**Deel 7: input decorators en property bindings**
+# **Deel 7: input decorators en property bindings**
 
 1. Ga naar housing-location.component.ts en update de imports met Inputs en HousingLocation.
 
@@ -270,7 +250,7 @@ Laten we onze eigen interface starten.
 
    ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.031.png)
 
-# <a name="_toc2019521769"></a>**Deel 8: services**
+# **Deel 8: services**
 
 1. In de hoofd directory gebruik de volgende commando in je terminal
 
@@ -291,7 +271,7 @@ Laten we onze eigen interface starten.
 
 1. Je ziet hier ook dat er een constructor is toegevoegd. Dat is de eerste functie die start wanneer het component wordt aangemaakt.
 
-# <a name="_toc171397199"></a>**Deel 9: Routing en details**
+# **Deel 9: Routing en details**
 
 1. Terminal time
 
@@ -321,7 +301,7 @@ Laten we onze eigen interface starten.
 
 1. Vergeet niet alles op te slaan
 
-# <a name="_toc200118082"></a>**Deel 10: Creeren van de detail pagina**
+# **Deel 10: Creeren van de detail pagina**
 
 1. In housing-location.component.ts voeg een anchor tag toe met routerLink.
 
