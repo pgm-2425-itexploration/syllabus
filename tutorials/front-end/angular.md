@@ -55,7 +55,7 @@ Aan het einde van deze tutorial heb je niet alleen een volledig functionele app,
 
 Angular, ontwikkeld door Google, is een robuust framework voor het bouwen van dynamische single-page applicaties (SPA’s). Het biedt een gestructureerde aanpak met ingebouwde tools voor routing, state management en dependency injection. Met een groot ecosysteem en sterke community-ondersteuning is Angular een uitstekende keuze voor developers die complexe, high-performance applicaties willen maken. Hieronder zie je een mooie weergave van de meest gebruikte frameworks
 
-![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.002.png)[^1]
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.002.png)
 
 **Toepassingen van Angular door Vooraanstaande Bedrijven**
 
@@ -67,7 +67,7 @@ Angular wordt ingezet door diverse toonaangevende bedrijven in verschillende sec
 - **PayPal:** Deze wereldwijde online betaaldienst gebruikt Angular voor zowel de website als de mobiele apps, wat resulteert in efficiënte verwerking van realtime transacties.
 - **Forbes:** Het gerenommeerde zakenmagazine heeft zijn website gebouwd met Angular, wat zorgt voor een professionele en responsieve gebruikersinterface.
 
-**Industrieadoptie van Webframeworks!**[test]](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.003.png)
+**Industrieadoptie van Webframeworks!**![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.003.png)
 
 Webframeworks spelen een cruciale rol in moderne softwareontwikkeling, waarbij verschillende tools inspelen op uiteenlopende behoeften in de industrie. **Laravel**, een PHP-framework, wordt veel gebruikt in de **technologiesector**, met name voor web- en softwareontwikkeling, en is ook populair in **digitale marketing**, **e-commerce** en **media**. **Vue.js**, een progressief JavaScript-framework, blinkt uit in **e-commerce** en **media** en heeft een sterke aanwezigheid in de **technologiesector** dankzij de eenvoud en flexibiliteit.
 
