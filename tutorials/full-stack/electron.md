@@ -818,7 +818,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **3onContextMenuSelection(callback)**
+## **onContextMenuSelection(callback)**
 
 ### **Purpose**
 - **To handle the user's selection** from the context menu and act on it.  
