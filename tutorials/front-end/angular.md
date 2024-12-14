@@ -55,7 +55,7 @@ Aan het einde van deze tutorial heb je niet alleen een volledig functionele app,
 
 Angular, ontwikkeld door Google, is een robuust framework voor het bouwen van dynamische single-page applicaties (SPA’s). Het biedt een gestructureerde aanpak met ingebouwde tools voor routing, state management en dependency injection. Met een groot ecosysteem en sterke community-ondersteuning is Angular een uitstekende keuze voor developers die complexe, high-performance applicaties willen maken. Hieronder zie je een mooie weergave van de meest gebruikte frameworks
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.002.png)[^1]
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.002.png)
 
 **Toepassingen van Angular door Vooraanstaande Bedrijven**
 
@@ -67,7 +67,7 @@ Angular wordt ingezet door diverse toonaangevende bedrijven in verschillende sec
 - **PayPal:** Deze wereldwijde online betaaldienst gebruikt Angular voor zowel de website als de mobiele apps, wat resulteert in efficiënte verwerking van realtime transacties.
 - **Forbes:** Het gerenommeerde zakenmagazine heeft zijn website gebouwd met Angular, wat zorgt voor een professionele en responsieve gebruikersinterface.
 
-**Industrieadoptie van Webframeworks![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.003.png)**
+**Industrieadoptie van Webframeworks!**![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.003.png)
 
 Webframeworks spelen een cruciale rol in moderne softwareontwikkeling, waarbij verschillende tools inspelen op uiteenlopende behoeften in de industrie. **Laravel**, een PHP-framework, wordt veel gebruikt in de **technologiesector**, met name voor web- en softwareontwikkeling, en is ook populair in **digitale marketing**, **e-commerce** en **media**. **Vue.js**, een progressief JavaScript-framework, blinkt uit in **e-commerce** en **media** en heeft een sterke aanwezigheid in de **technologiesector** dankzij de eenvoud en flexibiliteit.
 
@@ -94,23 +94,23 @@ Voordat je begint, zorg ervoor dat je het volgende hebt:
 
 1. **Installeer Node.js**: Download en installeer Node.js vanaf [nodejs.org](https://nodejs.org/). Controleer de installatie met:
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.004.png)
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.004.png)
 
 1. **Installeer Angular CLI**: Gebruik npm om de Angular CLI te installeren:
 
 Controleer de installatie met:
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.006.png)
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.006.png)
 
 1. **Creëer een Nieuw Angular Project**: Maak een nieuw project genaamd rental-app:
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.007.png)
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.007.png)
 
 1. Kies **Yes** voor Angular Routing.
 1. Selecteer **SCSS** als stylesheet-indeling.
 1. **Start de Ontwikkelserver**: Ga naar de projectmap en start de server:
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.008.png)
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.008.png)
 
 Open je browser en navigeer naar [http://localhost:4200](http://localhost:4200/).
 
@@ -128,17 +128,17 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 # **Deel 3: testing**
 
 1. Open rental-app/src/index.html
-1. In de index.html verander de <title> tag met deze code om de titel van de app up te daten.
+1. In de index.html verander de `<title>` tag met deze code om de titel van de app up te daten.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.009.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.009.png)
 
 1. Vervolgens open rental-app/src/app/app.component.ts en verander de template binnen de @component met volgende code.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.010.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.010.png)
 
 1. Binnen hetzelfde bestand pas de AppComponent class aan. Verander de titel
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.011.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.011.png)
 
 1. Sla de veranderingen op en bekijk het resultaat.
 
@@ -146,28 +146,28 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
 1. Zorg dat je via de terminal in de juiste directory zit van rental-app. Gebruik de volgende commando om een component te maken.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.012.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.012.png)
 
 1. Controleer of er geen fouten zijn en alles zichtbaar is. Normaal mag er niks veranderd zijn.
 1. In app.component.ts importeer de HomeComponent door middle van:
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.013.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.013.png)
 
 1. Nog steeds in hetzelfde bestand in @Component verbeter de imports array en voeg de HomeComponent toe.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.014.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.014.png)
 
 1. Laten we nu HTML toevoegen aan onze template. Vergeet de backtics niet ``.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.015.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.015.png)
 
 1. Sla alles op. Laten we nu features toevoegen. Weet je nog de HomeComponent? Open dit bestand. We gaan de template updaten.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.016.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.016.png)
 
 1. Laten we wat styling geven aan onze home component. Open home.component.css en voeg de volgende code toe. Je mag altijd custom css schrijven.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.017.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.017.png)
 
 1. Controleer of alles werkt en vergeet niet op te slaan.
 
@@ -175,23 +175,23 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 
 1. Laten we nog eens herhalen hoe je een component maar dan voor housingLocation.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.018.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.018.png)
 
 1. Indien de server niet meer aan staat. Gebruik **ng serve**.
 1. Open home.component.ts en importeer de HousingLocationComponent.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.019.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.019.png)
 
 1. Laten we de metadata aanpassen van de @component in het home.component.ts bestand. Hier zien we de volledige component.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.020.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.020.png)
 
 1. Hierboven zien we ook dat de template is aangepast met de tag <app-housing-location>
 
 1. Laten we wat css magie toevoegen.
    In housing-location.component.css
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.021.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.021.png)
 
 # **Deel 6: Interfaces**
 
@@ -205,16 +205,16 @@ Laten we onze eigen interface starten.
 
 1. Zoals gewoonlijk gaan we onze commando geven om de interface te genereren.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.022.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.022.png)
 
 1. Laten we properties toevoegen. Open de housingLocation.ts en verander de default met volgende code.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.023.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.023.png)
 
 1. Laten we eens een test doen. We hebben een interface maar gebruiken deze nog niet. Importeer de HousingLocation in de homeComponent.
 1. Verander de lege export class Homecomponent met volgende code
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.024.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.024.png)
 
 1. Wanneer je alles goed gedaan hebt dan zou je het volgende moeten zien.
 
@@ -224,48 +224,48 @@ Laten we onze eigen interface starten.
 
 1. Ga naar housing-location.component.ts en update de imports met Inputs en HousingLocation.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.026.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.026.png)
 
 1. In hetzelfde bestand voeg volgende property toe aan de export class van housingLocationComponent.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.027.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.027.png)
 
 1. Ga naar de home.component.ts in de template van @component
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.028.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.028.png)
 
-1. Ga terug naar de housing-location.component.ts en vervang de bestaande template met het volgende.
+11. Ga terug naar de housing-location.component.ts en vervang de bestaande template met het volgende.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.029.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.029.png)
 
 1. Als alles goed is zie je nu je eerste home card verschijnen.
 
 1. We gaan nu de Home.component.ts updaten zodat deze housingLocationList property heeft. Merk op dat er in de template nu \*ngFor staat. Dit zorgt voor een dynamische herhaling van de data.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.030.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.030.png)
 
 1. Maak nu in dezelfde component een lijst met nieuwe huizen. Je kan jezelf baseren op de volgende code.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.031.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.031.png)
 
 # **Deel 8: services**
 
 1. In de hoofd directory gebruik de volgende commando in je terminal
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.032.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.032.png)
 
 1. Laten we nu statische data toevoegen aan de service. Kopieer de housingLocationList van Home.component.ts naar housing.service.ts
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.033.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.033.png)
 
 1. Voeg nu de volgende functies toe
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.034.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.034.png)
 
 1. In home.component.ts importeer inject bij @angular/core. Importeer ook HousingService in hetzelfde component.
 1. Verwijder HousingLocationList array en geef het de value van een lege array.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.035.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.035.png)
 
 1. Je ziet hier ook dat er een constructor is toegevoegd. Dat is de eerste functie die start wanneer het component wordt aangemaakt.
 
@@ -273,7 +273,7 @@ Laten we onze eigen interface starten.
 
 1. Terminal time
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.036.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.036.png)
 
 1. In de src/app directory maak een nieuw bestand genaamd routes.ts hier gaan we onze routes aanmaken.
 
@@ -282,20 +282,20 @@ Laten we onze eigen interface starten.
    1. Importeer provideRouter van @angular/router alsook routeConfig van ./app/routes
    1. Update de bootstrapApplication
 
-      ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.037.png)
+      ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.037.png)
 
 1. Laten we nu routing toevoegen aan de app.component.ts. Eerst importeer RouterModule van @angular/router. Voeg deze module ook toe aan de imports van @component.
 1. Nu gaan we de templates updaten
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.038.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.038.png)
 
 1. Voeg de volgende imports toe aan Routes.ts
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.039.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.039.png)
 
 1. Voeg een nieuwe variabele toe met de naam routeConfig.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.040.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.040.png)
 
 1. Vergeet niet alles op te slaan
 
@@ -303,24 +303,24 @@ Laten we onze eigen interface starten.
 
 1. In housing-location.component.ts voeg een anchor tag toe met routerLink.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.041.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.041.png)
 
 1. Open details.component.ts en update de imports.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.042.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.042.png)
 
 1. Update de template
 
-![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.043.png)
+![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.043.png)
 
 1. Als laatste gaan we de body van de detailsComponent aanpassen
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.044.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.044.png)
 
 1. Op de volgende pagina vindt je een voorbeeld van de css voor detail.component.css
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.045.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.045.png)
 
 1. Het laatste wat er nu nog moet gebeuren is is in Appcomponent de template aanpassen.
 
-   ![](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.046.png)
+   ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.046.png)
