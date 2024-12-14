@@ -114,7 +114,7 @@ To ensure a smooth setup process, follow these step-by-step instructions. Each s
 
 You should have the following project structure
 
-## File Descriptions
+### File Descriptions
 
 - **`index.html`**: This file defines the layout and structure of the application's user interface. You can add HTML elements like buttons, text fields, and containers here.
 
@@ -233,7 +233,7 @@ app.on("window-all-closed", () => {
 // You can include additional app-specific logic or imports below.
 ```
 
-## **preload.js**
+### **preload.js**
 
 The **preload.js** file acts as a secure and controlled environment to expose specific functionalities from the main process to the renderer (web pages) while maintaining security.
 
@@ -277,11 +277,11 @@ The **preload.js** file acts as a secure and controlled environment to expose sp
 If you open the preload.js file, you may find it empty, as the content is usually added later in development.
 In the upcoming sections of the tutorial, you will add specific logic for exposing APIs, inter-process communication, and custom features for your app.
 
-## index.html and index.css
+### index.html and index.css
 
 These are just pure for UI purposes. The only thing we need to worry about is that name the classes of our html elements correctly so we can reference these correctly in our renderer.js.
 
-## **renderer.js**
+### **renderer.js**
 
 The **renderer.js** file is executed in the **renderer process** of an Electron application. Similar to how **Google Chrome** separates browser tabs into distinct processes, Electron separates its windows and web pages into individual **renderer processes**.
 
@@ -762,7 +762,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 
 
-## **Modules Imported**
+### **Modules Imported**
 
 ### **contextBridge**
 - **Purpose**: Allows the exposure of safe APIs in the global window object for the renderer process.  
@@ -774,7 +774,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **Context Bridge**
+### **Context Bridge**
 
 - The script exposes a secure object called **electronAPI** in the global scope of the renderer via `contextBridge.exposeInMainWorld("electronAPI", { ... });`.  
 - This object provides access to specific functions that the renderer can safely call without exposing sensitive Electron or Node.js APIs.  
@@ -786,7 +786,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **getSources()**
+### **getSources()**
 
 ### **Purpose**
 - **To get a list of available sources** (like open windows, tabs, or screens) that can be used for **screen recording** or **screen sharing**.
@@ -802,7 +802,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **showContextMenu(menuItems)**
+### **showContextMenu(menuItems)**
 
 ### **Purpose**
 - **To display a context menu** that allows users to make a selection from a list of options.  
@@ -818,7 +818,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **onContextMenuSelection(callback)**
+### **onContextMenuSelection(callback)**
 
 ### **Purpose**
 - **To handle the user's selection** from the context menu and act on it.  
@@ -838,7 +838,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **1. Screen & Window Selection**
+### **1. Screen & Window Selection**
 
 ### **Select Screen/Window Source**
 - **Options Available**:
@@ -851,7 +851,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **2. Live Video Preview**
+### **2. Live Video Preview**
 
 ### **Live Preview of Selected Source**
 - **What It Does**:
@@ -862,7 +862,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **3. Audio & Video Recording**
+### **3. Audio & Video Recording**
 
 ### **Record Screen Video**
 - Captures video from the selected screen, window, or tab using **Electron's desktopCapturer**.
@@ -880,7 +880,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **4. Recording Controls**
+### **4. Recording Controls**
 
 ### **Start Recording**
 - **Action**: Clicking the Start button begins the recording.
@@ -900,7 +900,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **5. Automatic File Download**
+### **5. Automatic File Download**
 
 ### **Download MP4 File**
 - **How It Works**:
@@ -912,7 +912,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **6. Context Menu for Source Selection**
+### **6. Context Menu for Source Selection**
 
 ### **Custom Context Menu**
 - **How It Works**:
@@ -923,7 +923,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **7. User Notifications**
+### **7. User Notifications**
 
 ### **Recording Message**
 - **What It Does**:
@@ -936,7 +936,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **8. App Lifecycle Management**
+### **8. App Lifecycle Management**
 
 ### **Multi-Platform Support**
 - **Supported Platforms**: 
@@ -952,7 +952,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **9. Secure IPC Communication**
+### **9. Secure IPC Communication**
 
 ### **Context Isolation**
 - **What It Does**:
@@ -967,7 +967,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **10. Security Features**
+### **10. Security Features**
 
 ### **Context Isolation**
 - **Best Practices**:
@@ -986,14 +986,14 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **1. Cross-Platform Compatibility**
+### **1. Cross-Platform Compatibility**
 - **Purpose**: Ensure that the application runs smoothly on **Windows**, **macOS**, and **Linux**.  
 - **Benefit**: Expanding cross-platform compatibility increases the user base and allows a broader audience to use the tool.  
 - **Impact**: Improves user reach and usability on all major desktop platforms, enhancing the app's utility and accessibility.  
 
 ---
 
-## **2. Improved UI/UX**
+### **2. Improved UI/UX**
 - **Purpose**: Enhance the user interface (UI) and user experience (UX) to make the application more intuitive and visually appealing.  
 - **Benefit**: 
   - Results in a **better user experience**, reducing learning curves for new users.  
@@ -1005,7 +1005,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **3. Export Options (e.g., Export in Different Formats)**
+### **3. Export Options (e.g., Export in Different Formats)**
 - **Purpose**: Provide users with the ability to export recordings in multiple file formats.  
 - **Possible Formats**:  
   - **MP4** (default)  
@@ -1021,7 +1021,7 @@ contextBridge.exposeInMainWorld("electronAPI", {
 
 ---
 
-## **4. Audio Control (Select Input Audio Sources)**
+### **4. Audio Control (Select Input Audio Sources)**
 - **Purpose**: Allow users to select and manage input audio sources, such as **internal system audio** and **external microphones**.  
 - **Benefit**:  
   - **Customization**: Users can choose whether to record internal audio, microphone audio, or both.  
