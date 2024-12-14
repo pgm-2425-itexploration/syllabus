@@ -104,7 +104,7 @@ After this you can navigate to the project folder and start the project with
 npm run dev
 ```
 
-This will start the project on [`localhost:5173`](http://localhost:5173).
+This will start the project on `http://localhost:5173`.
 
 You should be able to see a non styled remix contacts page like this:
 ![Remix Contacts Page](/public/assets/tutorials/remix/Remix_contacts.webp)
@@ -1087,7 +1087,7 @@ export default function Index() {
 }
 ```
 
-Now when you go to the index url http://localhost:5173/ you will see the index page:
+Now when you go to the index url `http://localhost:5173/` you will see the index page:
 ![Remix index page](/public/assets/tutorials/remix/Remix_index_page.jpg)
 
 ## Cancel
