@@ -128,7 +128,7 @@ Angular volgt een component-gebaseerde structuur waarbij elke functie van je app
 # **Deel 3: testing**
 
 1. Open rental-app/src/index.html
-1. In de index.html verander de <title> tag met deze code om de titel van de app up te daten.
+1. In de index.html verander de `<title>` tag met deze code om de titel van de app up te daten.
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.009.png)
 
