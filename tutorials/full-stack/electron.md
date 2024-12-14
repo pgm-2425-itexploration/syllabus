@@ -84,3 +84,23 @@ You will also need the following tools installed on your system:
 
 With these prerequisites in place, you will be ready to start building your screen recording application with Electron.
 
+# Installation
+
+To ensure a smooth setup process, follow these step-by-step instructions. Each step is accompanied by explanations to make the process more user-friendly.
+
+---
+
+## Step 1: **Set up a New Project Directory**
+1. **Create a new project directory** and give it a descriptive name.  
+2. **Open this directory** in your preferred code editor (like **Visual Studio Code**).  
+
+---
+
+## Step 2: **Create a New Electron App**
+1. **Open the terminal** (inside your code editor or your system terminal).  
+2. Run the following command:  
+   ```bash
+   npx create-electron-app@latest my-app
+   ```
+3. This will create a new folder called my-app with some basic files and a pre-configured project structure inside the app folder, giving you a head start on your Electron development journey.
+Once these steps are complete, you’ll have a functional Electron project ready for customization and further development.
