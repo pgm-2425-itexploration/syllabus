@@ -55,7 +55,6 @@ head:
 
 [Deel 10: Creeren van de detail pagina 28](#_toc200118082)
 
-##
 
 # <a name="_toc1037356404"></a>**Introductie: Je Eerste Angular-app - Een Platform voor Huizenverhuur**
 
