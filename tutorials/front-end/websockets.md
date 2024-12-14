@@ -1,6 +1,6 @@
 ---
 title: 'Websockets'
-synopsis: 'This is an example tutorial. You can use this file as a template to create your own tutorials.'
+synopsis: 'WebSockets is a protocol that enables full-duplex, bidirectional communication between a client and a server over a single, persistent connection. Unlike traditional HTTP, which relies on request-response cycles, WebSockets allow both the client and server to send data at any time, making them ideal for real-time applications like chat systems, online gaming, and collaborative tools.'
 date: 2024-10-10
 author:
   name: 'Nicolas Ghyselincks'
@@ -16,37 +16,67 @@ head:
       content: '...'
   - - meta
     - name: keywords
-      content: 'svelte front-end'
+      content: 'websockets front-end'
 ---
 
 # Websockets & Socket.IO
 
-WebSocket is a protocol that enables two-way communication between a client and a server over a single connection. Unlike traditional HTTP requests, which are initiated by the client, WebSocket allows both client and server to send data to each other at any time, making it ideal for real-time applications like chat apps, live notifications, and multiplayer games.
+WebSocket is a protocol that enables full-duplex, bidirectional communication between a client (such as a browser or application) and a server over a single, persistent connection. Unlike traditional HTTP requests, which follow a request-response model initiated by the client, WebSockets allow both the client and server to send data to each other at any time. This feature makes WebSockets particularly well-suited for real-time applications like chat apps, live notifications, multiplayer games, and collaborative tools.
 
-Socket.IO, on the other hand, is a powerful library built on top of WebSocket. It simplifies the implementation of real-time communication by providing additional features like automatic reconnections, fallback support for older browsers, and an intuitive API for handling events. This makes it an excellent choice for developers who want to create reliable and scalable real-time systems without dealing with the complexity of WebSocket directly.
+## How WebSockets work
 
-In this tutorial, we will take a look at how we can make a chat application using websockets. 
+When a WebSocket connection is initiated, it begins with a standard HTTP request known as a handshake. The client sends this HTTP request to the server, including a specific header (Upgrade: websocket) signaling its intention to establish a WebSocket connection. Once the server accepts this request and sends back an acknowledgment, the connection upgrades to the WebSocket protocol, enabling direct two-way communication over a single, long-lived TCP connection.
+
+This persistent connection eliminates the need for repeated HTTP requests, reducing latency and increasing efficiency. After the handshake, messages are exchanged as lightweight frames, avoiding the overhead of headers typically associated with HTTP communication.
+
+## Why Use Websockets?
+WebSockets are highly valuable for scenarios that demand low latency, real-time updates, or interactive communication. Common use cases include:
+
+1. **Live Chat Applications**: WebSockets support instant message exchange, ensuring seamless and real-time interaction between users.
+2. **Online Gaming**: Real-time gameplay requires near-instant communication between clients and servers for events, actions, and updates, which WebSockets enable with minimal delay.
+3. **Collaborative Tools**: Tools like shared document editors or online whiteboards rely on WebSockets to provide real-time updates as users interact simultaneously.
+4. **Financial Dashboards**: Applications such as stock tickers or cryptocurrency trackers benefit from real-time data streaming provided by WebSockets.
+5. **IoT and Sensor Data Streaming**: WebSockets enable continuous communication between IoT devices and central servers, making them ideal for transmitting sensor data.
+
+## Benefits of WebSockets
+
+- **Real-Time Communication**: WebSockets enable instantaneous data transfer, crucial for time-sensitive applications.
+- **Persistent Connection**: Eliminates the need to repeatedly open and close connections, reducing latency and resource overhead.
+- **Efficiency**: Utilizes a single TCP connection, exchanging data as lightweight packets rather than full HTTP requests, conserving bandwidth.
+- **Bidirectional Communication**: Allows both client and server to send messages independently, unlike HTTP’s client-initiated request model.
+- **Reduced Server Load**: Avoiding repeated HTTP connections significantly reduces server workload, especially in high-frequency communication scenarios.
 
 
-## What are Websockets?
 
-WebSockets are a communication protocol that provides full-duplex, real-time interaction between a client and a server. Unlike traditional HTTP, which follows a request-response model, WebSockets establish a persistent connection that remains open for continuous data exchange. This means both the client and the server can send and receive messages independently, without the need to repeatedly establish new connections.
-
-WebSockets are particularly useful for applications where real-time updates are essential, such as live chat systems, online gaming, financial dashboards, and collaborative tools. They are designed to work efficiently with minimal overhead, enabling fast and responsive user experiences.
-
-When a WebSocket connection is established, it begins with a standard HTTP request known as the handshake. Once the handshake is completed, the protocol upgrades to WebSocket, allowing seamless two-way communication over the same connection.
 
 ### Sockets.IO
 
-Socket.IO is a JavaScript library that simplifies the process of working with WebSockets. While WebSockets provide the foundation for real-time communication, implementing them from scratch can be complex and requires handling low-level details, like reconnection logic, browser compatibility, and fallback mechanisms for environments where WebSocket is not supported.
+Socket.IO is a widely-used JavaScript library that builds upon the WebSocket protocol, simplifying its implementation and extending its capabilities. While WebSockets provide the foundation for real-time communication, implementing them directly can be complex. Socket.IO addresses this by offering a high-level abstraction and additional features such as:
+1. Automatic Reconnection: Socket.IO handles reconnection in case of network interruptions, ensuring seamless communication.
+2. Fallback Mechanisms: If WebSockets are unsupported (e.g., in older browsers or restrictive network environments), Socket.IO gracefully falls back to alternative methods like HTTP long polling.
+3. Cross-Browser Compatibility: Ensures consistent behavior across different browsers by abstracting away compatibility issues.
+4. Room and Namespace Support: Provides structured ways to segment communication into rooms or namespaces for better management.
+5. Event-Based Communication: Uses an event-driven model, allowing developers to easily define and handle custom events between clients and servers.
+
+### How Socket.IO Works
+
+Socket.IO consists of two primary components:
+- **Client Library**: A JavaScript library that runs in browsers or Node.js client applications.
+- **Server Library**: A Node.js library that manages WebSocket connections and provides APIs for handling events, rooms, and namespaces.
+
+When a client connects to a Socket.IO server, it first attempts to establish a WebSocket connection. If this fails, it falls back to alternative protocols like HTTP long polling. Once the connection is established, communication occurs using an event-based system, where developers can emit and listen for events.
+
+You can use Socket.IO to simplify development and to use enhanced features.
+
+## Building a Real-Time Project with WebSockets
+
+Now that you understand how WebSockets work and their role in enabling real-time communication, it’s time to put that knowledge into practice. In this section, we’ll create a real-time chat application where multiple users can connect and chat with each other seamlessly.
 
 ## Setup 
 
-To get started with Websockets, you need to install the necessary libraries or dependencies depending on your project requirements and setup.
-
-In this tutorial we will use Node.js so make sure Node.js is installed on your machine. You can download it from the official Node.js website. Node.js will also include npm (Node Package Manager), which you’ll use to install libraries.
-
 This chat application will contain a front-end made in React, and a Nodejs back-end. First we will start with the backend. 
+
+Make a folder for the backend and give initialize a Node.js project. Run these commands in the root of your project:
 
 ``` bash
 mkdir server
@@ -54,38 +84,66 @@ cd server
 npm init
 ```
 
-Make a server.js file and paste this in:
+make a file called `server.js`, this file will contain all the back-end code you will need for a real-time chat application.
+
+First, install the required libraries:
+
+```bash
+npm install express socket.io
+```
+
+Now u can import the libraries in your server:
 
 ``` js
 const express = require("express");
 const http = require("http");
 const { Server } = require("socket.io");
+```
 
+Now make a server by initializing a express instance. We then use the http.createServer function to create an HTTP server and pass in the Express app. This allows Socket.IO to use the server for WebSocket communication.
+
+
+``` js
 const app = express();
 const server = http.createServer(app);
+
+```
+
+We can now use Socket.io as a server by using `io`. io is an instance of the Socket.IO server, created by passing the HTTP server to it. 
+
+With this code you can initialize the Websocket server: 
+
+``` js
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "*", // Allows cross-origin requests from any domain
     credentials: true,
   },
 });
 
+// Handle WebSocket connections here
 io.on("connection", (socket) => {
   console.log("A new user has connected", socket.id);
 
+  // Listen for incoming messages from clients
   socket.on("message", (message) => {
+    // Broadcast the message to all connected clients
     io.emit("message", message);
   });
 
+  // Handle disconnections
   socket.on("disconnect", () => {
-    console.log(socket.id, " disconnected");
+    console.log(socket.id, "disconnected");
   });
 });
+```
 
+The last step for the backend is to allocate a port to run the server on: 
+
+``` js
 server.listen(5000, () => {
   console.log("Server is running on port 5000");
 });
-
 ```
 
 Run your server with:
@@ -94,36 +152,38 @@ Run your server with:
 node server.js
 ```
 
-The first step is done, now we will create the front-end of the application. In the root of the application make a React app:
+The first step is done, now we will create the front-end of the application. We will do this with React. 
+
+In the root of your project you can create a new React application called client. You can do this by runnning this command:
 
 ```bash
 npx create-react-app client
 ```
 
-In the App.js paste the following code: 
+In your src folder, create a new folder called **components**. In this folder create a new File called "Chat.jsx". This will contain all our Chat functionalities.
 
-``` js
-import logo from './logo.svg';
-import Chat from "./components/Chat";
-import './App.css';
+Install the package for the websockets:
 
-function App() {
-  return (
-    <Chat />     
-  );
-}
-
-export default App;
+``` bash
+npm install socket.io-client
 ```
 
-Now it's time to create the Chat component. Paste the following code in Chat.jsx:
+In your Chat.jsx import the necessary packages:
 
-``` jsx
+``` js
 import { useState, useEffect } from "react";
 import io from "socket.io-client";
+```
 
-const socket = io("http://localhost:5000"); // Replace with your server address
+Now intialize a Websocket with the following line:
 
+``` js
+const socket = io("http://localhost:5000");
+```
+
+Now we can create the component function:
+
+``` js
 function Chat() {
   const [messages, setMessages] = useState([]);
   const [messageInput, setMessageInput] = useState("");
@@ -195,5 +255,46 @@ function Chat() {
 export default Chat;
 ```
 
+Last but not least, paste the following code in your App.jsx so that we use the Chat component: 
+
+``` js
+import logo from './logo.svg';
+import Chat from "./components/Chat";
+import './App.css';
+
+function App() {
+  return (
+    <Chat />     
+  );
+}
+
+export default App;
+```
+
+## Final Conclusion
+
+In this tutorial, we’ve explored how to implement real-time communication in web applications using WebSockets and Socket.IO. By creating a simple chat application with React and Node.js, we’ve learned how WebSockets enable full-duplex communication between the client and the server, providing the foundation for real-time, bidirectional data exchange.
+
+Socket.IO simplifies the use of WebSockets by offering additional features such as automatic reconnection, fallback mechanisms, and support for events, rooms, and namespaces. These features allow us to build robust, scalable real-time applications with minimal effort.
+
+In the backend, we set up a Node.js server with Express and Socket.IO to handle WebSocket connections. On the frontend, we used React to build a simple user interface that communicates with the server through WebSockets.
+
+With this knowledge, you can further enhance your application by adding features like user authentication, private messaging, or even integrating it with databases to persist chat history. The possibilities are endless, and real-time communication is a powerful tool to bring your web applications to life.
 
 
+## Next Steps
+
+### 1. User Authentication and Usernames
+
+- Implement User Authentication: Add user authentication to your app so users can log in before sending messages. You can use JWT (JSON Web Tokens) for a stateless authentication system or integrate with popular authentication services like Firebase or OAuth.
+- Allow Custom Usernames: Let users set a unique username when they log in. You can store these usernames on the server-side and display them with each message in the chat.
+
+### 2. Private Messaging
+
+- Create Private Chat Rooms: Extend your app to support private messaging between users. You can create private chat rooms where only two users can communicate. Use the concept of "rooms" in Socket.IO to manage which users are allowed to send and receive messages within specific rooms.
+- Direct Message Functionality: Provide a UI for users to search for and initiate direct messages with other users. This feature is useful for users who may want to have one-on-one conversations rather than group chats.
+
+### 3. Message Persistence and Database Integration
+
+- Store Chat History in a Database: Currently, your chat messages are only stored in memory, meaning they’ll be lost when the server restarts. To address this, you can integrate a database like MongoDB or PostgreSQL to persist chat messages. This way, users can see their message history even after disconnecting and reconnecting.
+- Integrate with a Backend Framework: Expand your backend by integrating a more sophisticated framework like Express or NestJS, which will allow for better scalability, middleware management, and routing for features like user authentication or message storage.
