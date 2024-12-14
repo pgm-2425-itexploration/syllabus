@@ -9,7 +9,7 @@ author:
     website: ""
     linkedin: ""
     github: ""
-thumbnailUrl: "/assets/example-image.jpg"
+thumbnailUrl: "/assets/posts/WebRCT_Comparison.png"
 head:
   - - meta
     - name: description
