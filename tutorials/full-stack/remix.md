@@ -1932,3 +1932,10 @@ What we can take away from this is that Remix has a superior way of handling dat
 Remix routing is very good in my opinion but it can become very cluttered and hard to read. This is because you have to create a new file for every route. I much prefer the way Next.js handles routing. But this is just a personal preference.
 
 Hopefully this tutorial has helped you understand Remix a bit better and how to create a simple application with it.
+
+## Used resources
+- [Remix documentation](https://remix.run/docs/en/v1)
+- [Remix Auth](https://remix.run/resources/remix-auth)
+- [ChatGPT](https://www.chatgpt.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [bcrypt.js](https://www.npmjs.com/package/bcryptjs)
