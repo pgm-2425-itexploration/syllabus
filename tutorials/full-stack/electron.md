@@ -104,3 +104,124 @@ To ensure a smooth setup process, follow these step-by-step instructions. Each s
    ```
 3. This will create a new folder called my-app with some basic files and a pre-configured project structure inside the app folder, giving you a head start on your Electron development journey.
 Once these steps are complete, you’ll have a functional Electron project ready for customization and further development.
+
+## Configuration
+
+### Project structure
+
+You should have the following project structure
+
+## File Descriptions
+
+- **`index.html`**: This file defines the layout and structure of the application's user interface. You can add HTML elements like buttons, text fields, and containers here.
+
+- **`index.js`**: This is the main process file. It controls the life cycle of the Electron app, manages windows, and handles system events.
+
+- **`preload.js`**: This script runs in a special context that bridges the main process and the renderer process. It allows secure communication between them.
+
+- **`styles.css`**: This file is used to style the application's UI, including fonts, colors, and layouts.
+
+- **`package.json`**: This file holds the project's metadata, dependencies, and scripts. It allows you to run commands like `npm run start` and defines the entry points for the app.
+
+This structure serves as the foundation for building and managing your Electron application.
+
+If we navigate to the “my-app" folder and type in the terminal “npm run start”, we can start our application. 
+
+### Import problem
+
+When running the application we get an error message. This is due to the index.js file using imports at the top level. 
+
+```bash
+   import { app, BrowserWindow} from 'electron';
+   import path from 'node:path';
+   import started from 'electron-squirrel-startup';
+```
+We need to replace these imports with
+
+```bash
+   const { app, BrowserWindow } = require('electron');
+   const path = require('node:path');
+   const started = require('electron-squirrel-startup');
+```
+
+If we try and run the application again with “npm run start”, we can see an electron screen popup with Hello world and the devtools open.
+
+## Basic setup
+
+### **index.js**
+
+The **index.js** file is the entry point for your Electron application. It controls the main process, handles the app lifecycle, and creates the main browser window.
+
+---
+
+### **Key Concepts of index.js**
+
+1. **Import Statements**
+   - **BrowserWindow**: Used to create a new browser window. You can set the window's size, position, and load preferences.  
+   - **path**: Used to join paths to ensure cross-platform compatibility.  
+   - **app**: Manages the app lifecycle, events, and platform-specific behaviors.  
+   - **electron-squirrel-startup**: Handles Windows-specific logic for creating/removing shortcuts on install/uninstall.  
+
+2. **Browser Window**
+   - The **BrowserWindow** object is responsible for creating a new window.  
+   - We define its width, height, and webPreferences.  
+   - The **webPreferences** specify the path to the **preload.js** file to bridge communication between the main and renderer processes.  
+
+3. **Loading HTML File**
+   - The `mainWindow.loadFile(path.join(__dirname, 'index.html'))` tells the app to load the **index.html** file when the app starts.  
+
+4. **DevTools**
+   - The **mainWindow.webContents.openDevTools()** command automatically opens DevTools when the app starts, which is useful for debugging.  
+
+---
+
+### **index.js Code Breakdown**
+
+```javascript
+const { app, BrowserWindow } = require('electron');
+const path = require('node:path');
+const started = require('electron-squirrel-startup');
+
+// Handle creating/removing shortcuts on Windows when installing/uninstalling.
+if (started) {
+  app.quit();
+}
+
+const createWindow = () => {
+  // Create the browser window.
+  const mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
+    },
+  });
+
+  // Load the index.html file.
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+
+  // Open the DevTools.
+  mainWindow.webContents.openDevTools();
+};
+
+// Create the browser window when the app is ready.
+app.whenReady().then(() => {
+  createWindow();
+
+  // On macOS, recreate a window if the app is activated and there are no other windows open.
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow();
+    }
+  });
+});
+
+// Quit the app when all windows are closed (except on macOS).
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+  }
+});
+
+// You can include additional app-specific logic or imports below.
+```
