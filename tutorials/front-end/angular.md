@@ -234,7 +234,7 @@ Laten we onze eigen interface starten.
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.028.png)
 
-1. Ga terug naar de housing-location.component.ts en vervang de bestaande template met het volgende.
+11. Ga terug naar de housing-location.component.ts en vervang de bestaande template met het volgende.
 
    ![test](/assets/tutorials/angular/Aspose.Words.7dac8eeb-3ea3-4917-91de-d284d340c3aa.029.png)
 
