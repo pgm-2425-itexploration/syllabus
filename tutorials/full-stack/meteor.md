@@ -1,23 +1,24 @@
----
-title: "Meteor + React"
-synopsis: "Meteor is a powerful framework for building modern real-time web apps, and React enables the creation of interactive and dynamic user interfaces."
-date: 2024-12-10
-author:
-  name: "Klaas Cornette"
-  avatarUrl: "/assets/avatars/klaas-cornette.png"
-  socials: # Add social media links -> If you don't have any, place an empty string ''
-    website: ""
-    linkedin: "https://www.linkedin.com/in/klaas-cornette-a0b188293/"
-    github: "https://github.com/klaas-cornette"
-thumbnailUrl: "/assets/tutorials/MeteorJS.jpg"
-head:
-  - - meta
-    - name: description
-      content: "Meteor is a powerful framework for building modern real-time web apps, and React enables the creation of interactive and dynamic user interfaces. Together, they provide an efficient stack for full-stack development."
-  - - meta
-    - name: keywords
-      content: "Meteor React JavaScript real-time web apps full-stack development MongoDB Tailwind CSS chat application publish/subscribe system component-based UI tutorial"
----
+---  
+title: "Meteor + React"  
+synopsis: "Meteor is een krachtig framework voor het bouwen van moderne real-time webapplicaties, en React maakt het mogelijk interactieve en dynamische gebruikersinterfaces te creëren."  
+date: 2024-12-10  
+author:  
+  name: "Klaas Cornette"  
+  avatarUrl: "/assets/avatars/klaas-cornette.png"  
+  socials:  
+    website: ""  
+    linkedin: "https://www.linkedin.com/in/klaas-cornette-a0b188293/"  
+    github: "https://github.com/klaas-cornette"  
+thumbnailUrl: "/assets/tutorials/MeteorJS.jpg"  
+head:  
+  - - meta  
+    - name: description  
+      content: "Meteor is een krachtig framework voor het bouwen van moderne real-time webapplicaties, en React maakt het mogelijk interactieve en dynamische gebruikersinterfaces te creëren. Samen bieden ze een efficiënte stack voor full-stack ontwikkeling."  
+  - - meta  
+    - name: keywords  
+      content: "Meteor React JavaScript real-time webapplicaties full-stack ontwikkeling MongoDB Tailwind CSS chatapplicatie publish/subscribe-systeem component-gebaseerde UI tutorial"  
+---  
+
 
 # Tutorial: Een Chatsysteem Bouwen met Meteor
 
