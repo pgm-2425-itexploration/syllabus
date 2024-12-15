@@ -8,7 +8,6 @@ export default createContentLoader('posts/*.md', {
     return raw
       .filter((post) => post.frontmatter.published !== false && post.url !== '/posts/' && post.frontmatter?.exclude !== true)
       .map(({ url, excerpt, html, frontmatter }) => {
-        console.log(frontmatter)
         return {
           url,
           excerpt,
