@@ -9,7 +9,7 @@ author:
     website: "https://justindescan.com/"
     linkedin: "https://www.linkedin.com/in/justindescan/"
     github: "https://www.github.com/pgm-justdesc4/"
-thumbnailUrl: "/assets/tutorials/aspnet-blazor_img-1.png"
+thumbnailUrl: "/assets/tutorials/aspnet-blazor/aspnet-blazor_img-1.png"
 head:
   - - meta
     - name: description
@@ -38,48 +38,52 @@ The goal of this tutorial is not only to build a To-Do app but also to gain expe
 
 ## 1. Table of contents
 
-- [ASP.NET + Blazor (C#)](#asp-net-blazor-c)
-  - [Table of contents](#_1-table-of-contents)
-  - [Installation & Setup](#_2-installation-setup)
-  - [Configuration](#_3-configuration)
+- [ASP.NET + Blazor (C#)](#aspnet--blazor-c)
+  - [1. Table of contents](#1-table-of-contents)
+  - [2. Installation \& Setup](#2-installation--setup)
+    - [Step 1: Install required tools](#step-1-install-required-tools)
+    - [Step 2: Create a new Blazor project using the command line](#step-2-create-a-new-blazor-project-using-the-command-line)
+    - [Troubleshooting tips](#troubleshooting-tips)
+  - [3. Configuration](#3-configuration)
     - [Overview of project structure](#overview-of-project-structure)
     - [Cleaning up the default template](#cleaning-up-the-default-template)
-  - [Building the Application](#_4-building-the-application)
+  - [4. Building the application](#4-building-the-application)
     - [Step 1: Create a new Razor component](#step-1-create-a-new-razor-component)
     - [Step 2: Set up basic To-Do page UI and logic](#step-2-set-up-basic-to-do-page-ui-and-logic)
     - [Step 3: Data in Memory (Optional)](#step-3-data-in-memory-optional)
     - [Step 4: Integrate a database](#step-4-integrate-a-database)
-      - [4.1: Install required packages](#_4-1-install-required-packages)
-      - [4.2: Define the Task Model](#_4-2-define-the-task-model)
-      - [4.3: Create the database context](#_4-3-create-the-database-context)
-      - [4.4: Configure the database context](#_4-4-configure-the-database-context)
-      - [4.5: Initialize the database](#_4-5-initialize-the-database)
+      - [4.1: Install required packages](#41-install-required-packages)
+      - [4.2: Define the Task Model](#42-define-the-task-model)
+      - [4.3: Create the database context](#43-create-the-database-context)
+      - [4.4: Configure the database context](#44-configure-the-database-context)
+      - [4.5: Initialize the database](#45-initialize-the-database)
     - [Step 5: Connect the database to the application](#step-5-connect-the-database-to-the-application)
-      - [5.1: Update Todo.razor](#_5-1-update-todo-razor)
-      - [5.2: Test the application](#_5-2-test-the-application)
+      - [5.1: Update `Todo.razor`](#51-update-todorazor)
+      - [5.2: Test the application](#52-test-the-application)
     - [Step 6: Custom styling](#step-6-custom-styling)
-      - [6.1: Add a CSS file](#_6-1-add-a-css-file)
-      - [6.2: Link the CSS file](#_6-2-link-the-css-file)
-      - [6.3: Update the Todo.razor component](#_6-3-update-the-todo-razor-component)
-  - [Best Practices](#_5-best-practices)
-    - [5.1: Reusable components](#_5-1-reusable-components)
-    - [5.2: State Management](#_5-2-state-management)
-    - [5.3: Accessibility](#_5-3-accessibility)
-    - [5.4: Scalability](#_5-4-scalability)
-  - [Conclusion](#_6-conclusion)
-    - [Why are developers choosing ASP.NET and Blazor?](#why-are-developers-choosing-asp-net-and-blazor)
-      - [1. Single language development](#_1-single-language-development)
-      - [2. WebAssembly support](#_2-webassembly-support)
-      - [3. Rich ecosystem](#_3-rich-ecosystem)
-      - [4. Future-proof](#_4-future-proof)
-      - [5. Seamless component model](#5-seamless-component-model)
-  - [7. Future updates](#_7-future-updates)
-    - [7.1: Enhanced WebAssembly integration](#_7-1-enhanced-webassembly-integration)
-    - [7.2: Expanded framework support](#_7-2-expanded-framework-support)
-    - [7.3: Developer productivity tools](#_7-3-developer-productivity-tools)
-    - [7.4: Ecosystem growth](#_7-4-ecosystem-growth)
-    - [7.5: Accessibility and inclusivity](#_7-5-accessibility-and-inclusivity)
-    - [7.6: Community contributions](#_7-6-community-contributions)
+      - [6.1: Add a CSS file](#61-add-a-css-file)
+      - [6.2: Link the CSS file](#62-link-the-css-file)
+      - [6.3: Update the `Todo.razor` component](#63-update-the-todorazor-component)
+  - [5. Best practices](#5-best-practices)
+    - [5.1: Reusable components](#51-reusable-components)
+    - [5.2: State Management](#52-state-management)
+    - [5.3: Accessibility](#53-accessibility)
+    - [5.4: Scalability](#54-scalability)
+  - [6. Conclusion](#6-conclusion)
+    - [Why are developers choosing ASP.NET and Blazor?](#why-are-developers-choosing-aspnet-and-blazor)
+      - [1. Single language development](#1-single-language-development)
+      - [2. WebAssembly support](#2-webassembly-support)
+      - [3. Rich ecosystem](#3-rich-ecosystem)
+      - [4. Future-proof](#4-future-proof)
+      - [5. Seamless component Model](#5-seamless-component-model)
+  - [7. Future updates](#7-future-updates)
+      - [7.1: Enhanced WebAssembly integration](#71-enhanced-webassembly-integration)
+      - [7.2: Expanded framework support](#72-expanded-framework-support)
+      - [7.3: Developer productivity tools](#73-developer-productivity-tools)
+      - [7.4: Ecosystem growth](#74-ecosystem-growth)
+      - [7.5: Accessibility and inclusivity](#75-accessibility-and-inclusivity)
+      - [7.6: Community contributions](#76-community-contributions)
+  - [8. Github repository](#8-github-repository)
 
 ---
 
@@ -319,7 +323,7 @@ Before integrating a database, you can persist data in memory for testing.
 This is a temporary solution, the tasks will reset when the app restarts.
 
 The current state of the application should look like this now:
-![Blazor app - Image 1](/assets/tutorials/aspnet-blazor_img-2.png)
+![Blazor app - Image 1](/assets/tutorials/aspnet-blazor/aspnet-blazor_img-2.png)
 
 ### Step 4: Integrate a database
 
@@ -743,7 +747,7 @@ Ensure your HTML in `Todo.razor` aligns with the class names in `styles.css`. He
 
 Here we are! We have now created a basic functional To-Do application with custom styling and database integration. The app should look like this now:
 
-![ASP.NET Blazor - Image 3](/assets/tutorials/aspnet-blazor_img-3.png)
+![ASP.NET Blazor - Image 3](/assets/tutorials/aspnet-blazor/aspnet-blazor_img-3.png)
 
 ## 5. Best practices
 

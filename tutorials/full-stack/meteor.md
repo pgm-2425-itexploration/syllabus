@@ -9,7 +9,7 @@ author:
     website: ""  
     linkedin: "https://www.linkedin.com/in/klaas-cornette-a0b188293/"  
     github: "https://github.com/klaas-cornette"  
-thumbnailUrl: "/assets/tutorials/MeteorJS.jpg"  
+thumbnailUrl: "/assets/tutorials/meteor/MeteorJS.jpg"  
 head:  
   - - meta  
     - name: description  

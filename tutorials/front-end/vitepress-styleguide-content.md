@@ -9,7 +9,7 @@ author:
     website: 'https://www.meesakveld.com'
     linkedin: 'https://www.linkedin.com/in/meesakveld/'
     github: 'https://www.github.com/meesakveld'
-thumbnailUrl: '/assets/tutorials/vitepress-styleguide-content_img-4.png'
+thumbnailUrl: '/assets/tutorials/vitepress-styleguide-content/vitepress-styleguide-content_img-4.png'
 head:
   - - meta
     - name: description
@@ -575,7 +575,7 @@ After you have made these changes, you can save the `vars.css` file.
 
 When you open your browser and go to `http://localhost:5174/`, you will see that the colors of your website have changed. You will also see that the gradient has been added to the title of your website.
 
-![Vitepress website with custom colors](/assets/tutorials/vitepress-styleguide-content_img-3.png)
+![Vitepress website with custom colors](/assets/tutorials/vitepress-styleguide-content/vitepress-styleguide-content_img-3.png)
 
 <br>
 
@@ -848,7 +848,7 @@ To create a banner we will need to take a couple of steps. First create the Bann
 
     If everything went well, you should see the image in the Banner component at the top of the page, before the content of the page. The image will only be shown when the front matter of the page contains a thumbnailUrl.
 
-    ![Banner component](/assets/tutorials/vitepress-styleguide-content_img-1.png)
+    ![Banner component](/assets/tutorials/vitepress-styleguide-content/vitepress-styleguide-content_img-1.png)
 
 Now that we have created the Banner component and know the workflow of creating a Vue component, you can create more Vue components for your website. 
 
@@ -968,7 +968,7 @@ It's possible that you need to restart the development server to see the changes
 
 When you have done everything correctly, you should see that the sidebar and navigation are now dynamic. So that when you visit `http://localhost:5174/blogs/` you will see the blog posts in the sidebar like this:
 
-![Dynamic sidebar](/assets/tutorials/vitepress-styleguide-content_img-2.png)
+![Dynamic sidebar](/assets/tutorials/vitepress-styleguide-content/vitepress-styleguide-content_img-2.png)
 
 To conclude, we have created a dynamic sidebar and navigation for the website. This way you can add new content to the website and the sidebar and navigation will be updated automatically. This makes it easier to add new content to the website and keep the sidebar and navigation up to date.
 

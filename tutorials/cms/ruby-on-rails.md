@@ -1,5 +1,5 @@
 ---
-title: 'A tutorial on how to built a headless CMS with Ruby on Rails'
+title: 'Ruby on Rails'
 synopsis: 'Learn how to build a headless CMS using Ruby on Rails in this step-by-step tutorial. From installation and configuration to advanced features like pagination, SEO, and API design, this guide equips developers with the tools and best practices to create scalable, API-first CMS solutions. Perfect for professionals exploring modern web development trends and headless architecture.'
 date: 2024-10-10
 author:
@@ -9,14 +9,14 @@ author:
     website: ''
     linkedin: 'https://linkedin.com/in/ella-jekale-27a9b92a7'
     github: 'https://github.com/pgm-ella'
-thumbnailUrl: '/assets/shopify/shopify-1.jpg'
+thumbnailUrl: '/assets/tutorials/ruby-on-rails/ruby-on-rails-1.jpg'
 head:
   - - meta
     - name: description
       content: hello
   - - meta
     - name: 'keywords'
-      content: 'shopify headless-cms e-commerce'
+      content: 'ruby-on-rails headless-cms e-commerce'
 ---
 
 # A tutorial on how to built a headless CMS with Ruby on Rails

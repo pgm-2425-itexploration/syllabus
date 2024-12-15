@@ -4,6 +4,7 @@ synopsis: "Electron JS is a cross-platform web application framework"
 date: 2024-12-14
 author:
   name: "Colin Willems"
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ""
     linkedin: "https://www.linkedin.com/in/colin-willems-2bb071292"

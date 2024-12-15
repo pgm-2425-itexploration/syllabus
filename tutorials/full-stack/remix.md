@@ -4,6 +4,7 @@ synopsis: "Remix is a full stack web framework that lets you focus on the user i
 date: 2024-12-14
 author:
   name: "Arno Boenders"
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ""
     linkedin: "https://www.linkedin.com/in/arno-boenders-816117228/"

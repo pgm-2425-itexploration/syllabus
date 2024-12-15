@@ -9,7 +9,7 @@ author:
     website: 'https://github.com/pgm-2425-itexploration/trends-en-innovaties-1-Bergmansjordan/tree/main'
     linkedin: 'https://www.linkedin.com/in/jordan-bergmans-991a51292/'
     github: 'https://github.com/Bergmansjordan'
-thumbnailUrl: '/assets/tutorials/Django.png'
+thumbnailUrl: '/assets/tutorials/django/Django.png'
 head:
   - - meta
     - name: description

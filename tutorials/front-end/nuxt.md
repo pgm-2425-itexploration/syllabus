@@ -9,7 +9,7 @@ author:
     website: ""
     linkedin: "https://www.linkedin.com/in/lauren-🐦-wille-2457141b7"
     github: "https://github.com/Lauren-Wille"
-thumbnailUrl: "/assets/tutorials/nuxt_img.png"
+thumbnailUrl: "/assets/tutorials/nuxt/nuxt_img.png"
 head:
   - - meta
     - name: description
@@ -323,11 +323,11 @@ function shareOnTwitter() {
 What is it best you remember during the making of a Nuxt project?
 1. That you work in components, adding them to a 'components'-folder and using CamelCase for the name. 
 2. You can use the developer tools at the bottom of the page. This dashboard shows which version you're using, you're components, the routes you have made and more. Don't want to use them? You can turn them off in the nuxt.config.ts file. 
-![Nuxt devtools](/public/assets/tutorials/nuxt-devtool.png)
+![Nuxt devtools](/assets/tutorials/nuxt/nuxt-devtool.png)
 
 3. Use folders to make the routing in your project.
 4. Add an .env file for more security. Below you can see the ENV file example of the tutorial.
-![Example of an ENV file](/public/assets/tutorials/env-file-example.png)
+![Example of an ENV file](/assets/tutorials/nuxt/nuxt_env-file-example.png)
 
 ## Future updates and versions
 At the moment, Nuxt uses version 3. When a new version is released, you can update your application by running the upgrade command in the terminal.

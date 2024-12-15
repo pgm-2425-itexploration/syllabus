@@ -9,7 +9,7 @@ author:
     website: ''
     linkedin: 'https://www.linkedin.com/in/casverheye/'
     github: ''
-thumbnailUrl: '/assets/tutorials/vitepress-openui_img_0.png'
+thumbnailUrl: '/assets/tutorials/vitepress-openui-content/vitepress-openui_img_0.png'
 head:
   - - meta
     - name: description
@@ -52,7 +52,7 @@ npm init -y
 ```
 This will create a `package.json` file in your project folder.
 
-![](/assets/tutorials/vitepress-openui-content_img-2.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-2.png)
 
 Now, let’s install VitePress as a dev dependency. A dev dependency is a package that’s only needed during development. To install VitePress, run:
 ```bash
@@ -60,11 +60,11 @@ npm add -D vitepress
 ```
 This will install VitePress and adds it to the `devDependencies` in your `package.json` file.
 
-![](/assets/tutorials/vitepress-openui-content_img-3.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-3.png)
 
 You will also see that a `node_modules` folder and a `package-lock.json` file have been created in your project folder. Dont give these files much thought, they are just files necessary for VitePress to run.
 
-![](/assets/tutorials/vitepress-openui-content_img-4.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-4.png)
 
 Next we will use the VitePress wizard to create a new project. Run the following command in your terminal:
 ```bash
@@ -72,7 +72,7 @@ npx vitepress init
 ```
 You will be asked a few questions, such as the name of your project and the directory where you want to save it. You can use the default values by just pressing Enter.
 
-![](/assets/tutorials/vitepress-openui-content_img-5.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-5.png)
 
 Once the wizard has finished you can start your VitePress project by running the following command in your terminal:
 ```bash
@@ -80,11 +80,11 @@ npm run docs:dev
 ```
 This will start a local development server you can view your site by opening your browser and navigating to `http://localhost:5173/`.
 
-![](/assets/tutorials/vitepress-openui-content_img-6.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-6.png)
 
 You should now see your VitePress site up and running!
 
-![](/assets/tutorials/vitepress-openui-content_img-7.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-7.png)
 
 > **Note**: If at any point your site is not working as expected, you can stop the development server by pressing `Ctrl + C` in your terminal and then restart it by running `npm run docs:dev` again.
 
@@ -99,7 +99,7 @@ Now let's dive deeper and see how we can customize our site!
 ### Customizing the Homepage
 You can customize the homepage by editing the `index.md` file. This file is written in Markdown (learn more about Markdown [here](https://www.markdownguide.org/getting-started/)).
 
-![](/assets/tutorials/vitepress-openui-content_img-8.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-8.png)
 
 In the `index.md` file you should see the following content:
 ```markdown
@@ -140,7 +140,7 @@ hero:
 
 After you have made the changes, save the file (you can do this by pressing `Ctrl + S` on your keyboard) and refresh your browser. You should see the changes on your site!
 
-![](/assets/tutorials/vitepress-openui-content_img-9.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-9.png)
 
 You can also add an image to the hero section. To do this, you need to add an `image` key to the `hero` section. The `image` key should have a `src` key with the path to the image and an `alt` key with the alt text for the image. For example:
 
@@ -158,7 +158,7 @@ Make sure you have the correct path to the image and the correct file format (in
 
 After you have made the changes, save the file and refresh your browser. You should see the image on your site!
 
-![](/assets/tutorials/vitepress-openui-content_img-10.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-10.png)
 
 As shown in the image above there are also actions in the hero section. These are buttons that can be used to navigate to different parts of your site. These require a bit more advanced setup so we will cover them in the next section.
 
@@ -228,7 +228,7 @@ Welcome to the getting started page!
 
 You should be able to see the new page by clicking the `Get Started` button on your site!
 
-![](/assets/tutorials/vitepress-openui-content_img-11.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-11.png)
 
 As you can see in the image above, there are links on the left side of the site, this is the navigation bar for our pages. 
 >Note that the **Getting Started** link is not included by default.
@@ -237,7 +237,7 @@ To customize the navigation bar, we will need to edit the `config.mjs` file loca
 
 First open the `.vitepress` folder you should see this:
 
-![](/assets/tutorials/vitepress-openui-content_img-12.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-12.png)
 
 Next open the `config.mjs` file. 
 > **Note**: When making changes in the `config.mjs` file, make sure to restart the development server by pressing `Ctrl + C` in your terminal and then running `npm run docs:dev` again.
@@ -298,7 +298,7 @@ Make sure you have the correct `text` and `link` values. After you have made the
 
 Our site also has a header with a title and a navigation bar. 
 
-![](/assets/tutorials/vitepress-openui-content_img-13.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-13.png)
 
 You can customize the title by changing the value on line 5 in the `config.mjs` file. For example:
 ```javascript
@@ -320,7 +320,7 @@ nav: [
 ```
 Remember to make sure you have the correct `text` and `link` values and added a comma at the end of the previous item. After you have made the changes, save the file restart your server by pressing `Ctrl + C` in your terminal and then running `npm run docs:dev`. Now navigate to your site and you should see the new title and link in the navigation bar!
 
-![](/assets/tutorials/vitepress-openui-content_img-14.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-14.png)
 
 ## Conclusion
 Now that you have seen how to customize the homepage, the navigation bar and how to add pages. You should be able to create a site with VitePress that fully fits your needs. 
@@ -331,12 +331,12 @@ Now that you have seen how to customize the homepage, the navigation bar and how
 
 Lets first delete the `api-examples.md` file and the `markdown-examples.md` file as we wont be needing them. You can do this by deleting the files in your project folder.
 
-![](/assets/tutorials/vitepress-openui-content_img-1.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-1.png)
 
 You can optionally also delete the `getting-started.md` file as we wont really be needing it either, but make sure to keep the `index.md` file. 
 
 
-![](/assets/tutorials/vitepress-openui-content_img-8.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-8.png)
 
 > **Note**: Dont delete the `index.md` file as it is the homepage of your site.
 
@@ -417,7 +417,7 @@ hero:
 
 After you have made the changes, save the file and refresh your browser. You should see the changes on your site!
 
-![](/assets/tutorials/vitepress-openui-content_img-15.png)
+![](/assets/tutorials/vitepress-openui-content/vitepress-openui-content_img-15.png)
 
 Remember when we added an image to the hero section? You can now add an image of yourself or your logo to the hero section.
 ```markdown

@@ -9,7 +9,7 @@ author:
     website: 'https://benoitbiraguma.be/'
     linkedin: 'https://www.linkedin.com/in/beno%C3%AEt-biraguma-48422a194/'
     github: 'https://github.com/pgm-benobira'
-thumbnailUrl: '/assets/tutorials/statamic.png'
+thumbnailUrl: '/assets/tutorials/statamic/statamic.png'
 head:
   - - meta
     - name: description

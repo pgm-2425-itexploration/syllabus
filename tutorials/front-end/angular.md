@@ -5,7 +5,7 @@ synopsis: |
 date: "2024-12-14"
 author:
   name: "Kevin Dworschak"
-  avatarUrl: "/assets/avatars/kevin-dworschak.png"
+  avatarUrl: "/assets/avatars/kevin-dworschak.jpeg"
   socials:
     website: ""
     linkedin: "https://www.linkedin.com/in/kevindworschak/"

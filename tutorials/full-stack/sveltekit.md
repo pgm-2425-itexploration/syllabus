@@ -9,7 +9,7 @@ author:
     website: ""
     linkedin: "https://www.linkedin.com/in/emre-akkus-118363251/"
     github: "https://github.com/emreakkus03"
-thumbnailUrl: "/assets/tutorials/sveltekit.png"
+thumbnailUrl: "/assets/tutorials/sveltekit/sveltekit.png"
 head:
   - - meta
     - name: description
@@ -96,14 +96,14 @@ If you added Vitest when you set up your project, your unit tests will live in t
 ## 3: Testing if it Works
 
 When you have created a SvelteKit project, the first thing that you should do is to install an extension called “Svelte for VS Code” in VS Code:
-![Svelte-extension](/assets/tutorials/svelte_extension.jpg)
+![Svelte-extension](/assets/tutorials/sveltekit/sveltekit_extension.jpg)
 
 If you have installed the extension, run the project in the browser:
 - Type `npm run dev` in the terminal and press enter (if you are using Yarn or something else, replace npm).
 Now in the terminal, you see a link to your project in the browser:
-![Svelte-extension](/assets/tutorials/sveltekit_terminal.jpg)
+![Svelte-extension](/assets/tutorials/sveltekit/sveltekit_terminal.jpg)
 Open the link in your browser and you will see the following page:
-![Svelte-extension](/assets/tutorials/sveltekit_home.jpg)
+![Svelte-extension](/assets/tutorials/sveltekit/sveltekit_home.jpg)
 
 The text that you see at this moment in the browser is located in the `src/routes/+page.svelte` file.  
 If that’s the case, you’re doing well at the moment.
@@ -123,6 +123,6 @@ Now let’s make a portfolio site about Belgium. First of all, add navigation to
 </nav>
 ```
 And in the browser it looks  like this: 
-![Svelte-extension](/assets/tutorials/sveltekit_home2.jpg)
+![Svelte-extension](/assets/tutorials/sveltekit/sveltekit_home2.jpg)
 
 Now  fill the home page with html texts. In this case it’s going to be interesting things about Belgium.

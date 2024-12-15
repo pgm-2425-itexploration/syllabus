@@ -4,6 +4,7 @@ synopsis: 'Fastify is cool'
 date: 2024-10-10
 author:
   name: 'Connor De Vreese'
+  avatarUrl: '/assets/avatars/john-doe.png'
   socials:
     website: ''
     linkedin: ''
@@ -56,7 +57,7 @@ Before we start with the installation, we will set up the folder structure (feel
 
 Your end result should look something like this:
 
-![](/assets/tutorials/fastify-1.png)
+![](/assets/tutorials/fastify/fastify-1.png)
 
 The other documents like the package.json will be added in the installation
 
@@ -64,25 +65,25 @@ The other documents like the package.json will be added in the installation
 
 Before we start with installing fastify itself, we will begin with checking if u are on the newest version of node.js, because the version of node.js must be 12 or higher. You can check this by running this command in your terminal:
 
-![](/assets/tutorials/fastify-2.png)
+![](/assets/tutorials/fastify/fastify-2.png)
 
 
 You should also check if you are running on the latest version of npm, check your version by typing this in your terminal:
 
-![](/assets/tutorials/fastify-3.png)
+![](/assets/tutorials/fastify/fastify-3.png)
 
 ## Installation of fastify
 
 With the previous steps followed correctly, we can now install fastify’s latest version, Run this command:
 
-![](/assets/tutorials/fastify-4.png)
+![](/assets/tutorials/fastify/fastify-4.png)
 
 The installation might take a while.
 
 When the download is done you will see a confirmation message stating fastify and its dependencies have been added to your project, if this is not the case, check previous steps.
 The next step is to initialize npm, you do this by running this command:
 
-![](/assets/tutorials/fastify-5.png)
+![](/assets/tutorials/fastify/fastify-5.png)
 
 
 This should add a package.json  to your project.
@@ -95,27 +96,27 @@ With fastify installed, you can now continue by going to the ‘server.js’, in
 
 The first thing you need to do is require fastify, and  start up the server like this: 
 
-![](/assets/tutorials/fastify-6.png)
-![](/assets/tutorials/fastify-7.png)
+![](/assets/tutorials/fastify/fastify-6.png)
+![](/assets/tutorials/fastify/fastify-7.png)
 
 # home page
 
 First thing we need to do is install @fastify/view ejs we will use this to display the page, after the installation require it at the top of the screen like this:
 
-![](/assets/tutorials/fastify-8.png)
+![](/assets/tutorials/fastify/fastify-8.png)
 
 To make the home and other pages accessible via the browser, you need a GET route in the server-side code. Instead of rendering static EJS files from the public folder, you are now using EJS templates to dynamically generate the page.
 In Fastify, this is done by registering the @fastify/view plugin. This plugin allows the server to render EJS templates stored in the views folder.
 
-![](/assets/tutorials/fastify-9.png)
+![](/assets/tutorials/fastify/fastify-9.png)
 
 Also you will need The fastify-static plugin it makes files in the public folder accessible to the browser:
 
-![](/assets/tutorials/fastify-10.png)
+![](/assets/tutorials/fastify/fastify-10.png)
 
 Note that i choose to require instead of import, here is an example of ho wit would look with importing fastify/static:
 
-![](/assets/tutorials/fastify-11.png)
+![](/assets/tutorials/fastify/fastify-11.png)
 
 ### Explanation of Static File Setup
 
@@ -133,7 +134,7 @@ The home page will allow users to either login or register by clicking on the li
 
 views/index.ejs
 
-![](/assets/tutorials/fastify-12.png)
+![](/assets/tutorials/fastify/fastify-12.png)
 
 # Set Up the GET Route for the Home Page
 
@@ -146,7 +147,7 @@ To serve the home page, you need a GET route that renders the `index.ejs` file. 
 
 ## Code Implementation
 
-![](/assets/tutorials/fastify-13.png)
+![](/assets/tutorials/fastify/fastify-13.png)
 
 # Register page
 
@@ -156,7 +157,7 @@ The registration page will allow the user to input details like username and pas
 
 views/register.ejs
 
-![](/assets/tutorials/fastify-14.png)
+![](/assets/tutorials/fastify/fastify-14.png)
 
 # Set Up the GET Route for the Registration Page
 
@@ -169,7 +170,7 @@ To serve the registration page, you need a GET route that renders the `register.
 
 ## Code Implementation:
 
-![](/assets/tutorials/fastify-15.png)
+![](/assets/tutorials/fastify/fastify-15.png)
 
 With this setup, you can access the register page by navigating to `http://localhost:3000/register`
 
@@ -177,7 +178,7 @@ With this setup, you can access the register page by navigating to `http://local
 
 Next, create a register.js file to add the front-end logic. This script handles form submissions and sends the data to the back-end. Here’s a basic example:
 
-![](/assets/tutorials/fastify-16.png)
+![](/assets/tutorials/fastify/fastify-16.png)
 
 # How it Works
 
@@ -208,8 +209,8 @@ The POST route for user registration is defined to:
 
 Your implementation uses Fastify's built-in schema validation and a `Map` to store users. Here's a breakdown of the provided code:
 
-![](/assets/tutorials/fastify-17.png)
-![](/assets/tutorials/fastify-18.png)
+![](/assets/tutorials/fastify/fastify-17.png)
+![](/assets/tutorials/fastify/fastify-18.png)
 
 Data Storage Using a Map:
 User data is temporarily stored in a Map, with the username as the key and an object (e.g., { password }) as the value. This is suitable for testing but should be replaced with a database for production.
@@ -232,20 +233,20 @@ For instance:
 - **If validation fails**, provide specific error messages such as:  
   "Password must be at least 8 characters long."
 
-  ![](/assets/tutorials/fastify-19.png)
+  ![](/assets/tutorials/fastify/fastify-19.png)
 
 This happens in the same function where the register and login will be
 
 To make sure the register page uses these function you can add this to the server.js:
 
-  ![](/assets/tutorials/fastify-20.png)
+  ![](/assets/tutorials/fastify/fastify-20.png)
 
 ### Integrate Plugins for Handling Form Data
 the @fastify/formbody plugin, enabling Fastify to parse URL-encoded form data, Fastify requires the @fastify/formbody plugin. Install and register it as follows:
 -	.
 It should look something like this:
 
-  ![](/assets/tutorials/fastify-21.png)
+  ![](/assets/tutorials/fastify/fastify-21.png)
 
 # Final Steps
 
@@ -273,7 +274,7 @@ The form will typically include:
 
 It should look something like this:
 
-![](/assets/tutorials/fastify-22.png)
+![](/assets/tutorials/fastify/fastify-22.png)
 
 # Set Up the GET Route for the Registration Page
 
@@ -286,13 +287,13 @@ To serve the login page, you also need a GET route that renders the `login.ejs` 
 
 ## Code Implementation:
 
-![](/assets/tutorials/fastify-23.png)
+![](/assets/tutorials/fastify/fastify-23.png)
 
 # Front-end javascript
 
 After this step you make a login.js where you set the add logic for the front-end, this is similar tot he register form, but with the addition of putting a token in the localstorage so it knows the user is authenticated to login, and move on tot he welcome page:
 
-![](/assets/tutorials/fastify-24.png)
+![](/assets/tutorials/fastify/fastify-24.png)
 
 # Set Up the Authentication Logic in the auth.js File
 
@@ -305,16 +306,16 @@ In the back-end, create a POST route to handle login requests. This route will v
 
 The result should be something like this:
 
-![](/assets/tutorials/fastify-25.png)
+![](/assets/tutorials/fastify/fastify-25.png)
 
 The checking if the user exist etc should look like this:
 
-![](/assets/tutorials/fastify-26.png)
+![](/assets/tutorials/fastify/fastify-26.png)
 
 -	the @fastify/jwt plugin with Fastify, enabling JWT-based authentication. 
 It should look something like this:
 
-![](/assets/tutorials/fastify-27.png)
+![](/assets/tutorials/fastify/fastify-27.png)
 
 The `.decorate()` method is used by Fastify to add new properties or functions to the Fastify instance. Here, we’re decorating Fastify with a new method called `authenticate`.
 
@@ -334,7 +335,7 @@ This setup ensures secure and efficient user authentication while providing a se
 
 The first step is to create a simple EJS structure for the welcome page. This will serve as the foundation for the user interface. The page will contain elements for displaying a welcome message and a logout button. The layout ensures that the user sees a personalized greeting and has a clear way to log out of their account.
 
-![](/assets/tutorials/fastify-28.png)
+![](/assets/tutorials/fastify/fastify-28.png)
 
 # Here, the `<h1>` tag with the `id="welcome-message"` will dynamically display the user's name, and the `id="logout-button"` will trigger the logout functionality. 
 
@@ -357,7 +358,7 @@ The logout functionality is implemented in the welkom.js script. This script lis
 
 Here’s the code for the logout functionality:
 
-![](/assets/tutorials/fastify-29.png)
+![](/assets/tutorials/fastify/fastify-29.png)
 
 ## Explanation of the Code:
 
@@ -371,7 +372,7 @@ The logic for displaying the welcome message dynamically involves a combination 
 
 The welkom.js script ensures that only authenticated users can access the page. It retrieves the authentication token stored in the browser and uses it to request the welcome message from the server.
 
-![](/assets/tutorials/fastify-30.png)
+![](/assets/tutorials/fastify/fastify-30.png)
 
 ## Explanation of the Code:
 
@@ -386,7 +387,7 @@ o	If the response fails, an error message is shown, the invalid token is removed
 Server-Side Logic in user.js
 The user.js module defines the server-side route for delivering the personalized welcome message. It ensures that only authenticated users can access this route by applying a pre-handler for authentication.
 
-![](/assets/tutorials/fastify-31.png)
+![](/assets/tutorials/fastify/fastify-31.png)
 
 ## Explanation of the Code:
 1.	Authentication Pre-Handler:
@@ -415,7 +416,7 @@ to simulate a database, create a mock array of books in a file called books.js. 
 - description: A brief description of the book.
 books.js Example:
 
-![](/assets/tutorials/fastify-32.png)
+![](/assets/tutorials/fastify/fastify-32.png)
 
 # Create the Basic EJS File for the books Page
 
@@ -423,7 +424,7 @@ The books page will dynamically display the list of books using the mock data. T
 
 Create views/books.ejs:
 
-![](/assets/tutorials/fastify-33.png)
+![](/assets/tutorials/fastify/fastify-33.png)
 
 This EJS structure provides the foundation for the books page interface.
 
@@ -435,11 +436,11 @@ Set Up the GET Route for the books Page
 In your Fastify application, you'll add the books Page route (with the book list). This will be a GET route that will fetch the list of books and pass it to the EJS template.
 First we require the books data:
 
-![](/assets/tutorials/fastify-34.png)
+![](/assets/tutorials/fastify/fastify-34.png)
 
 The u must add the books route like this:
 
-![](/assets/tutorials/fastify-35.png)
+![](/assets/tutorials/fastify/fastify-35.png)
 
 # Detail book page
 the bookDetail.ejs file is the page that will display detailed information about a selected book. When a user clicks on a book title in the main list of books, they should be directed to this page where they can see additional information about the book, such as its title, author, description, and possibly other details.
@@ -448,7 +449,7 @@ the bookDetail.ejs file is the page that will display detailed information about
 
 The bookDetail.ejs file will contain the layout and design for the book details page. It will display the title, author, description, and a link to navigate back to the main books list.
 
-![](/assets/tutorials/fastify-36.png)
+![](/assets/tutorials/fastify/fastify-36.png)
 
 ## Explanation of the bookDetail.ejs Template:
 1.	Dynamic Data Rendering:
@@ -462,7 +463,7 @@ Next, we need to set up a route in Fastify that will serve this page when a user
 The GET route will be defined with a parameter :id that represents the book's unique identifier. When a user navigates to a URL like /books/1, Fastify will capture 1 as the book’s ID and use it to retrieve the book from the data array.
 Here’s how to set it up in server.js:
 
-![](/assets/tutorials/fastify-37.png)
+![](/assets/tutorials/fastify/fastify-37.png)
 
 ## Explanation of the GET Route for /books/:id:
 
@@ -481,7 +482,7 @@ Once the routes are set up and the templates are created, you can start your Fas
 Start the Server:
 Open your terminal and run the following command:
 
-![](/assets/tutorials/fastify-38.png)
+![](/assets/tutorials/fastify/fastify-38.png)
 
 # Conclusion: Testing and Next Steps
 

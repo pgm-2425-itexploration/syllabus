@@ -1,7 +1,7 @@
 ---
 title: "React Storybook"
 synopsis: "Storybook is een front-end ontwikkelingstool waar componenten buiten je development omgeving kan lopen en testen"
-date: 2024-30-11
+date: 2024-11-30
 author:
     name: "Stijn Walravens"
     avatarUrl: "/assets/avatars/stijn-walravens.png"
@@ -9,7 +9,7 @@ author:
         website: ""
         linkedin: "https://www.linkedin.com/stijn-walravens-4263b618b"
         github: "https://github.com/pgm-stijwalr"
-thumbnailUrl: "/assets/tutorials/react-sb-thumb.png"
+thumbnailUrl: "/assets/tutorials/react-story-book/react-sb-thumb.png"
 head:
     - - meta
       - name: description

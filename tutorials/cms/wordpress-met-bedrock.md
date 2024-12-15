@@ -9,7 +9,7 @@ author:
     website: "https://tristanderidder.be/"
     linkedin: "https://www.linkedin.com/in/tristan-de-ridder/"
     github: "https://github.com/TristanDeRidder"
-thumbnailUrl: "/assets/tutorials/wordpress-with-bedrock.png"
+thumbnailUrl: "/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock.png"
 head:
   - - meta
     - name: description
@@ -104,9 +104,9 @@ Before starting, you will have to install the following apps or dependency or yo
      > **Note:** You will need to create an account in order to use Local  
      > **Note:** Using Local’s built-in terminal may place you inside the `public` folder, so navigate up to the `app` folder if needed.
 
-     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-name.png)
-     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock-setup-create.png)
-     ![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-environment.png)
+     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-name.png)
+     ![Bedrock setup wordpress](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-create.png)
+     ![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-environment.png)
 
 3. **Install Bedrock**
 
@@ -243,7 +243,7 @@ This structure might feel different at first, but it allows for more control and
 
 In Local by Flywheel, locate your site in the list and click the WP Admin button on the right. This will open the login page for your WordPress site in your default browser. To access your WordPress dashboard, you’ll need to enter the username and password you chose during the initial site setup in Local. 
 
-![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock-setup-wordpress.png)
+![Bedrock setup environment](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-wordpress.png)
 
 Once logged in, you’ll be taken directly to the WordPress dashboard, where you can begin managing and customizing your site.
 
@@ -345,7 +345,7 @@ When you first open your site in a browser, you will see a default theme.
    - Alternatively, for a custom theme, create a new folder in `web/app/themes` with your theme name (e.g., `my-theme`), then add the required files like `style.css` and `index.php`.
 
    For this tutorial, we will be using **Oigny Lite**.
-   ![theme](/assets/tutorials/wordpress-with-bedrock-setup-theme.png)
+   ![theme](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-theme.png)
 
 2. **Activate the Theme**:
    - Go to **Appearance > Themes** in the WordPress dashboard.
@@ -382,7 +382,7 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
    - Go to the WPForms panel and select **Add New**. Enter your form name and choose a template. 
    - Submissions will go to the default email address set during your WordPress account creation. If you need to change it, do so here.
    - You can also add a subject, name, and sender email. To send a confirmation to the submitter, add a **Reply-To** field and a message.
-   ![WPForms setup](/assets/tutorials/wordpress-with-bedrock-setup-wpforms.png)
+   ![WPForms setup](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-wpforms.png)
 
 2. **Set Up Essential Pages**:
    - Go to **Pages > Add New** and create the following pages:
@@ -393,7 +393,7 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
      - **About**: A page with some general about info.
        - Using Elementor is almost the same as using standard WordPress elements. The main difference is that you can drag and drop your elements, style them and if used with an pro account even use AI to create content and style it
        - When creating a new page with Elementor, you will see a layout labeled **Elementor #(number)**. Change the layout by clicking the settings button at the top of the page, in between the device icons and the page name. You can select the desired page layout at the bottom.
-       ![Elementor layout settings](/assets/tutorials/wordpress-with-bedrock-setup-elementor.png)
+       ![Elementor layout settings](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-elementor.png)
        > **Note:** Some of the functionality of Elementor is locked behind a paywal. But you can use the most of the elements, only pro elements such as a search are locked. However these can be bypassed by using other plugins
 
 
@@ -401,7 +401,7 @@ In this tutorial, we will create a website for Bedrock itself using Elementor an
    - Go to **Settings > Reading**.
    - Under **Your homepage displays**, select **A static page** and set the homepage to the **Home** page you created.
    > **Note**: This option allows you to select a page other than the default homepage of the theme.
-   ![Static page settings](/assets/tutorials/wordpress-with-bedrock-setup-static.png)
+   ![Static page settings](/assets/tutorials/wordpress-with-bedrock/wordpress-with-bedrock-setup-static.png)
 
 4. **Add Menu Navigation**:
    - Go to **Appearance > Themes** page.

@@ -6,10 +6,10 @@ author:
   name: 'Matthias Cecchi'
   avatarUrl: '/assets/avatars/john-doe.png'
   socials:
-    website: '/'
+    website: ''
     linkedin: 'https://www.linkedin.com/in/matthias-cecchi-4948482b4//'
     github: 'https://github.com/PGM-mattcecc'
-thumbnailUrl: '/assets/tutorials/builder.io_thumbnail.png'
+thumbnailUrl: '/assets/tutorials/builder-io/builder.io_thumbnail.png'
 head:
   - - meta
     - name: description
@@ -93,7 +93,7 @@ De keuze voor Builder.io biedt verschillende voordelen:
 
 Met deze krachtige functionaliteit is Builder.io een waardevolle tool voor bedrijven die hun online aanwezigheid willen verbeteren en tegelijkertijd de efficiëntie van hun workflow willen verhogen.
 
-![vergelijkings diagram](/assets/tutorials/builder.io_grafiek.png)
+![vergelijkings diagram](/assets/tutorials/builder-io/builder.io_grafiek.png)
 
 *Hier is een grafiek waarin Builder.io wordt vergeleken met andere populaire CMS'en zoals WordPress, Contentful, Webflow en Strapi. De grafiek beoordeelt vijf belangrijke categorieën: gebruiksgemak, flexibiliteit, prestaties, samenwerking en time-to-market. Builder.io scoort hoog in alle categorieën, wat het onderscheidt als een veelzijdige en krachtige keuze.*
 
@@ -234,7 +234,7 @@ De drag-and-drop interface van Builder.io is een van de meest krachtige functies
 
 
 <video width="600" autoplay controls muted>
-  <source src="/assets/tutorials/builder.io_drag_and_drop.mp4" type="video/mp4">
+  <source src="/assets/tutorials/builder-io/builder.io_drag_and_drop.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -298,7 +298,7 @@ Builder.io biedt krachtige tools voor A/B-testen en personalisatie. Hiermee kun 
 
 **Afbeelding 2: A/B Testing in Builder.io**
 
-![A/B Testing Interface](/assets/tutorials/builder.io_a-b_testing.png)
+![A/B Testing Interface](/assets/tutorials/builder-io/builder.io_a-b_testing.png)
 
 *Beschrijving: Een screenshot van de A/B-testinterface in Builder.io, waar verschillende versies van een pagina worden weergegeven.*
 
