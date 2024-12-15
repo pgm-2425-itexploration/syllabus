@@ -1,6 +1,6 @@
 ---
-title: 'Meetup verslag: verkenning van Umbraco v14 en Codecabin met Numble'
-synopsis: 'De Numble-meetup belichtte de nieuwste ontwikkelingen in Umbraco, met inspirerende sessies over versie 14, CodeCabin en de kracht van community en samenwerking.'
+title: 'Meetup verslag: verkenning van Umbraco v14'
+synopsis: 'Backoffice-verbeteringen in Umbraco v14: Een gids voor ontwikkelaars'
 date: 2024-10-17
 author:
   name: 'Bergmans Jordan'
@@ -8,7 +8,7 @@ author:
   socials:
     linkedin: 'https://www.linkedin.com/in/jordan-bergmans-991a51292/'
     github: 'https://github.com/Bergmansjordan'
-thumbnailUrl: '/assets/posts/umbraco.png'
+thumbnailUrl: '/assets/posts/umbraco-Logo.png'
 head:
   - - meta
     - name: description
