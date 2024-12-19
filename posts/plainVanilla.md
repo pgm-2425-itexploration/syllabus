@@ -98,6 +98,8 @@ Het gebruik van Web Components en de Plain Vanilla Web-methode is de afgelopen j
 
 De toename in adoptie en de voordelen op het gebied van prestaties en modulariteit maken Web Components en de Plain Vanilla Web-methode aantrekkelijke opties voor moderne webontwikkeling.
 
+![Groei van Web Components](/assets/posts/groei-web-components.png)
+
 _Afbeelding_: Grafiek met de groei van Web Components in populaire projecten.
 
 ---
@@ -113,6 +115,8 @@ Web Components zijn een set van web-API's die het mogelijk maken om herbruikbare
 Door deze technologieën te combineren, kunnen ontwikkelaars componenten maken die eenvoudig te integreren zijn in verschillende projecten zonder dat er externe afhankelijkheden nodig zijn.
 
 **Toevoeging:** Een vergelijking met traditionele frameworks zoals React of Angular benadrukt dat Web Components geen runtime nodig hebben en direct in elke browser werken die moderne standaarden ondersteunt.
+
+![Diagram van Web Components](/assets/posts/web-components-diagram.png)
 
 _Afbeelding_: Diagram van Web Components (Custom Elements, Shadow DOM en Templates).
 
@@ -140,6 +144,8 @@ Uit een vergelijking tussen de Plain Vanilla Web-methode en frameworks zoals Rea
 
 Door te kiezen voor de Plain Vanilla Web-methode kunnen ontwikkelaars profiteren van deze voordelen, wat resulteert in efficiëntere, snellere en beter onderhoudbare webprojecten.
 
+![Tabel met voordelen Plain Vanilla Web vs. frameworks](/assets/posts/voordelen-plain-vanilla-web.png)
+
 _Afbeelding_: Tabel met voordelen Plain Vanilla Web vs. frameworks.
 
 ---
@@ -165,6 +171,7 @@ Om het maximale uit de Plain Vanilla Web-methode te halen en hoogwaardige, onder
 Door deze best practices te implementeren, leg je een solide basis voor succesvolle projecten met de Plain Vanilla Web-methode, wat resulteert in efficiënte, toegankelijke en duurzame webapplicaties.
 
 _Afbeelding_: Screenshot van een Web Component met ARIA-attributen in browsertools.
+![Screenshot van een Web Component met ARIA-attributen in browsertools](/assets/posts/web-component-aria.png)
 
 ---
 
@@ -181,7 +188,35 @@ Begin met het creëren van een duidelijke en logische mapstructuur. Een mogelijk
 
 Deze structuur helpt bij het organiseren van de code en maakt het project schaalbaar.
 
-_Afbeelding_: Voorbeeld van een projectstructuur met een directoryboom.
+```css
+project-root/
+├── public/
+│   ├── images/
+│   │   ├── logo.png
+│   │   └── background.jpg
+│   ├── fonts/
+│   │   └── custom-font.woff2
+│   └── favicon.ico
+├── components/
+│   ├── MyButton.js
+│   ├── AccessibleCard.js
+│   └── Header.js
+├── styles/
+│   ├── main.css
+│   ├── reset.css
+│   └── theme.css
+├── pages/
+│   ├── index.html
+│   ├── about.html
+│   └── contact.html
+├── scripts/
+│   ├── app.js
+│   └── utils.js
+└── README.md
+
+```
+
+_Bovenstaande code_: Voorbeeld van een projectstructuur met een directoryboom.
 
 2. **Web Components Ontwikkelen**
 
@@ -203,8 +238,6 @@ customElements.define("my-button", MyButton);
 ```
 
 **Uitleg:** Dit script definieert een knop die een tekstlabel accepteert via een HTML-attribuut genaamd `label`. Door gebruik te maken van Shadow DOM blijven de stijlen en de structuur van de knop geïsoleerd van de rest van de pagina.
-
-_Afbeelding_: Screenshot van een werkend Web Component in de browser met developer tools.
 
 3. **Styling Toepassen**
 
@@ -285,8 +318,6 @@ Het testen van een website die volgens de Plain Vanilla Web-methode is gebouwd, 
 - **Responsiveness Testing**: Zorg ervoor dat je website op verschillende schermformaten goed functioneert. Test op mobiele apparaten, tablets en desktops.
 - **Cross-browser Testing**: Controleer of je website werkt in meerdere browsers, zoals Chrome, Firefox, Safari en Edge.
 
-_Afbeelding_: Screenshot van browser developer tools waarin een custom element wordt weergegeven.
-
 ---
 
 **Hosting en Deployment**
@@ -296,6 +327,8 @@ Een project dat volgens de Plain Vanilla Web-methode is gebouwd, is eenvoudig te
 - **GitHub Pages**: Upload je project naar een GitHub-repository en activeer GitHub Pages in de repository-instellingen. Dit is ideaal voor kleine projecten.
 - **Netlify**: Een gratis en gebruiksvriendelijke hostingoptie die automatische builds ondersteunt vanuit Git-repositories.
 - **Vercel**: Een andere uitstekende keuze, met eenvoudige configuratie en ondersteuning voor statische en dynamische content.
+
+![Vergelijking van hostingopties: GitHub Pages, Netlify, en Vercel](/assets/posts/hosting-opties-vergelijking.png)
 
 _Afbeelding_: Tabel met vergelijking van hostingopties: GitHub Pages, Netlify, en Vercel.
 
