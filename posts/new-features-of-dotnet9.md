@@ -279,10 +279,3 @@ MapStaticAssets outperforms IIS gzip by pre-compressing assets during the build 
 The introduction of MapStaticAssets in .NET 9 is a testament to Microsoft’s commitment to enhancing developer productivity and application performance. By automating and optimizing static file delivery, this feature addresses key pain points in modern web development.
 
 Attending the meetup at **Inetum** in Ghent, led by **Nico Vermeir**, gave me valuable insights into this feature and its real-world applications. I’m excited to implement it in future projects, especially for scenarios where performance and scalability are critical.
-
----
-
-**References**
-
-1. .NET 9 Documentation: [.NET 9 Documentation](https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9)
-2. Meetup notes: .NET 9 features
