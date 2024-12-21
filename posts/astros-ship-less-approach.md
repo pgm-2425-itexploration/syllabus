@@ -27,6 +27,33 @@ sources:
     url: 'https://docs.astro.build/'
 ---
 
+## Table of Contents
+
+1. [Astro’s Ship Less Approach](#astros-ship-less-approach)
+2. [Why Astro? Ship Less JavaScript, Build Faster Sites](#why-astro-ship-less-javascript-build-faster-sites)
+3. [Astro's Key Features](#astros-key-features)
+   - [Astro Islands](#astro-islands)
+   - [Astro Themes](#astro-themes)
+4. [How Astro Works: A Deeper Look](#how-astro-works-a-deeper-look)
+   - [Static by Default](#static-by-default)
+   - [JavaScript Only When Needed](#javascript-only-when-needed)
+5. [Astro vs Traditional JavaScript Frameworks (Gatsby)](#astro-vs-traditional-javascript-frameworks-gatsby)
+   - [JavaScript Payload, Astro vs Gatsby](#javascript-payload-astro-vs-gatsby)
+   - [Real-World Comparison](#real-world-comparison)
+   - [Astro vs Gatsby Conclusion](#astro-vs-gatsby-conclusion)
+6. [Practical Use Cases for Astro](#practical-use-cases-for-astro)
+   - [Blogs and Personal Sites](#blogs-and-personal-sites)
+   - [Documentation Sites](#documentation-sites)
+   - [E-Commerce Websites](#e-commerce-websites)
+   - [Marketing and Landing Pages](#marketing-and-landing-pages)
+7. [Performance Benefits of Astro](#performance-benefits-of-astro)
+   - [Faster Load Times](#faster-load-times)
+   - [Improved SEO](#improved-seo)
+   - [Reduced Hosting Costs](#reduced-hosting-costs)
+8. [Future of Astro](#future-of-astro)
+9. [Conclusion](#conclusion)
+
+<br>
 
 # Astro’s Ship Less Approach.
 Astro is an **<u>all-in-one web framework</u>** for building content-focused websites such as blogs, e-commerce platforms and so on. Astro is designed around the core idea of reducing the amount of JavaScript sent to the browser.
@@ -48,7 +75,6 @@ Astro is flexible and can easily integrate with popular UI frameworks such as Re
 Astro's Islands architecture optimizes your website in ways no other web framework can.
 
 ![title](/assets/posts/astros-ship-less-approach_img_1.png)
-*Image I*
 
 <br>
 
@@ -56,7 +82,6 @@ Astro's Islands architecture optimizes your website in ways no other web framewo
 Kickstart your project with a pre-made Astro theme and tailor the design and functionality to suit your specific needs.
 
 ![title](/assets/posts/astros-ship-less-approach_img_2.png)
-*Image II*
 
 <br>
 
@@ -129,8 +154,55 @@ The same blog rebuilt in Gatsby, with the React runtime and minimal JavaScript d
 Astro's architecture allows it to load pages 2-3 times faster than Gatsby on content-heavy sites with minimal interactivity.
 
 ![title](/assets/posts/astros-ship-less-approach_img_1.png)
-*Image I*
 
 <br>
 
-## Step-by-Step Guide to Building with Astro.
+## Practical Use Cases for Astro
+
+Astro excels in building content-focused websites that prioritize performance and user experience. Here are some common scenarios where Astro shines:
+
+### Blogs and Personal Sites
+
+Astro’s Markdown support makes it an excellent choice for blogs and personal sites. Its ability to generate lightweight, static HTML ensures fast page loads and improved SEO rankings.
+
+### Documentation Sites
+
+Astro is perfect for creating documentation sites. Its static nature, combined with Markdown support and built-in navigation tools, makes it easy to create clear and structured content.
+
+### E-Commerce Websites
+
+With Astro, you can build fast-loading e-commerce sites by combining static pages with dynamic, partially hydrated components for features like shopping carts or product filters.
+
+### Marketing and Landing Pages
+
+Astro’s ability to produce lightweight, static pages ensures that marketing and landing pages load quickly, improving conversion rates.
+
+## Performance Benefits of Astro
+
+Astro’s approach to reducing JavaScript has tangible benefits for website performance:
+
+### Faster Load Times
+
+By limiting the amount of JavaScript sent to the browser, Astro ensures that pages load quickly, even on slower networks. This improves the overall user experience.
+
+### Improved SEO
+
+Search engines prioritize fast-loading sites. Astro’s static HTML output ensures that your content is fully indexed, boosting your search rankings.
+
+### Reduced Hosting Costs
+
+Smaller JavaScript payloads and static HTML files mean that Astro-powered sites are lighter on server resources, leading to lower hosting costs.
+
+## Future of Astro
+
+Astro continues to grow with new features and improvements. The roadmap includes:
+
+- **Enhanced SSR Support**: Expanding server-side rendering capabilities.
+- **New Integrations**: Adding support for more CMSs and tools.
+- **Improved Developer Experience**: Streamlining workflows and adding more debugging tools.
+
+Astro’s commitment to innovation ensures it will remain a top choice for developers building fast, content-focused websites.
+
+## Conclusion
+
+Astro’s innovative approach to web development—emphasizing static HTML and minimal JavaScript—makes it a standout framework for creating high-performance websites. Whether you’re building a blog, an e-commerce platform, or a documentation site, Astro offers the tools and flexibility you need to succeed. With its growing ecosystem and active community, Astro is poised to shape the future of web development.
