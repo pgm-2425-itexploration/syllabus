@@ -22,7 +22,7 @@ sources:
   - title: '.NET 9'
     url: 'https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9'
   - title: 'Official .NET Github repository'
-    url: 'https://learn.microsoft.com/en-us/dotnet/core/whats-new/dotnet-9'
+    url: 'https://github.com/dotnet/'
 ---
 
 
