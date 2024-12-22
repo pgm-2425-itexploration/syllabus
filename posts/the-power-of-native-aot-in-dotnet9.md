@@ -9,7 +9,7 @@ author:
     website: ''
     linkedin: ''
     github: ''
-thumbnailUrl: ''
+thumbnailUrl: '/assets/example-image.jpg'
 head:
   - - meta
     - name: description
