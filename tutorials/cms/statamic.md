@@ -9,7 +9,7 @@ author:
     website: 'https://benoitbiraguma.be/'
     linkedin: 'https://www.linkedin.com/in/beno%C3%AEt-biraguma-48422a194/'
     github: 'https://github.com/pgm-benobira'
-thumbnailUrl: '/assets/tutorials/statamic/statamic.png'
+thumbnailUrl: '/assets/tutorials/statamic/statamic_img.png'
 head:
   - - meta
     - name: description
@@ -29,14 +29,6 @@ sources: # Add sources that are used in the article. Per source, add a title and
 # Rebuilding My Portfolio with Statamic
 
 In this tutorial, I’ll walk you through how to a portfolio using Statamic CMS. We’ll cover the setup process, key features, and best practices.
-
-## Table of Contents
-- [Introduction](#introduction)
-- [Installation](#installation)
-- [Step by Step Tutorial](#step-by-step-tutorial)
-- [Statamic Addons](#statamic-addons)
-- [Future Versions and Updates](#future-versions-and-updates)
-- [Conclusion and Thoughts](#conclusion-and-thoughts)
 
 ## Introduction
 
@@ -84,7 +76,7 @@ To get started, you'll need to install Statamic and its assets. Here's how:
 5. **Using Laravel Herd (Optional):**
    You can use Laravel Herd, which combines Composer, PHP, and NPM in one easy-to-use tool. This is particularly beneficial for managing dependencies and running your local server seamlessly.
    
-   ![Here’s a picture of Laravel Herd](/assets/tutorials/statamic/statamic-1-laravel-herd.jpg)
+   ![Here’s a picture of Laravel Herd](/assets/tutorials/statamic/statamic_img-1.jpg)
 
 6. **Explore the folder structure:**
    Familiarize yourself with the folder structure. Key folders include `content`, `resources`, and `config`. Each serves a specific purpose in managing your website's content and configurations.
@@ -110,7 +102,7 @@ To access the Statamic control panel, you need to create a super user account. T
    php please make:user
    ```
 
-   ![Screenshot of terminal showing the command execution](/assets/tutorials/statamic/statamic-2-terminal.jpg)
+   ![Screenshot of terminal showing the command execution](/assets/tutorials/statamic/statamic_img-2.jpg)
 
 2. **Access the Control Panel:**
 
@@ -122,7 +114,7 @@ To access the Statamic control panel, you need to create a super user account. T
 
    While the control panel is more user-friendly than working directly in code editors like Visual Studio Code, both options are available, allowing flexibility depending on your workflow.
 
-   ![Screenshot of terminal showing the command execution](/assets/tutorials/statamic/statamic-3-cp.jpg)
+   ![Screenshot of terminal showing the command execution](/assets/tutorials/statamic/statamic_img-3.jpg)
 
 
 ### STEP 2: Make a Home Page
@@ -136,28 +128,28 @@ In my portfolio, you'll notice several pages: Home, About, Web Dev Projects, and
    - **Author:** The person responsible for the content, useful for multi-author setups.
    - **Template:** The template file associated with this entry, determining how the content is displayed.
 
-   ![Screenshot of the Home entry](/assets/tutorials/statamic/statamic-4-home.jpg)
+   ![Screenshot of the Home entry](/assets/tutorials/statamic/statamic_img-4.jpg)
 
    This is a good start, but it’s not quite what we want for our portfolio.
 
 2. **Create a New Entry:**
    If we were to create an entry right now, we would only have the standard options available. However, we need more flexibility for our page. Let's head to **Blueprints** under **Fields** and select the **Page Blueprint**.
 
-   ![Screenshot of where to find the blueprint](/assets/tutorials/statamic/statamic-5-blueprints.jpg)
+   ![Screenshot of where to find the blueprint](/assets/tutorials/statamic/statamic_img-5.jpg)
 
    Here, you have the option to add some fields. For the hero section on [benoitbiraguma.be](https://benoitbiraguma.be), we need the following fields:
    - **Hero Title (Text):** The title for the hero section.
    - **Hero Image (Asset):** The image for the hero section.
    - **Hero SVG (Asset):** The floating SVG icon for the hero section.
    
-   ![Screenshot of the page collection blueprint](/assets/tutorials/statamic/statamic-6-pages.jpg)
+   ![Screenshot of the page collection blueprint](/assets/tutorials/statamic/statamic_img-6.jpg)
 
    We don’t actually need the content field anymore, so let's delete it to keep the blueprint clean.
 
 3. **Edit the Home Page:**
    Now, let's edit the Home page. Type the same title as on my portfolio, add the [hero image](https://eu-central-1-shared-euc1-02.graphassets.com/cm08fb0cq0rt707uve8jz391a/cm4g3yzhrbouc07usorrhg364), and include the [floating icon](https://eu-central-1-shared-euc1-02.graphassets.com/cm08fb0cq0rt707uve8jz391a/cm4g3yzi2bouh07us3c1vwvvz).
 
-   ![Screenshot of the Home entry](/assets/tutorials/statamic/statamic-7-home-entry.jpg)
+   ![Screenshot of the Home entry](/assets/tutorials/statamic/statamic_img-7.jpg)
 
    After you've added these, click **Save & Publish**. Note that the entry is using the **home** template (visible in the template field). Now that we have some content, let's reveal it in the browser.
 
@@ -200,7 +192,7 @@ In my portfolio, you'll notice several pages: Home, About, Web Dev Projects, and
 5. **View Your Changes:**
    Refresh the site in your browser, and you should see your content displayed beautifully. Each of those double curly tags  represents a variable. When you navigate to a URL that matches an entry's route rule, all of that entry's field data is automatically available in the defined template.
 
-   ![Screenshot of the results](/assets/tutorials/statamic/statamic-8-home-result.jpg)
+   ![Screenshot of the results](/assets/tutorials/statamic/statamic_img-8.jpg)
 
 ### STEP 3: Customize the Layout
 
@@ -247,7 +239,7 @@ You probably noticed that there is some styling going on. That's coming from the
 
    Go back to the Control Panel and click on the **Collections** link in the sidebar. Then, click the blue **Create Collection** button and name your new collection **Projects**.
    
-   ![Screenshot of creating a new collection](/assets/tutorials/statamic/statamic-9-new-collection.jpg)
+   ![Screenshot of creating a new collection](/assets/tutorials/statamic/statamic_img-9.jpg)
 
 ### STEP 4: Scaffold Your Views
 
@@ -256,7 +248,7 @@ To save some time, we’ll use Statamic’s built-in tool to generate the index 
 1. **Scaffold the Views:**
    Head to the **Scaffold Views** option in the control panel.
    
-   ![Screenshot of Scaffold Views](/assets/tutorials/statamic/statamic-10-scaffold-views.jpg)
+   ![Screenshot of Scaffold Views](/assets/tutorials/statamic/statamic_img-10.jpg)
 
 2. **Generate the Views:**
    Click the **Create Views** button. The default options are perfect, so no further configuration is needed.
@@ -274,7 +266,7 @@ To set up our collection correctly, let’s go through some essential settings.
 1. **Access the Collection Settings:**
    Start by navigating to the settings for your **Projects** collection.
    
-   ![Screenshot of where to click](/assets/tutorials/statamic/statamic-11-configure-collection.jpg)
+   ![Screenshot of where to click](/assets/tutorials/statamic/statamic_img-11.jpg)
 
 2. **Key Settings to Update:**
    We’ll review some important settings, but we only need to adjust three to configure our portfolio correctly:
@@ -338,15 +330,15 @@ To set up our projects with the right fields, let’s add additional fields to t
    - **Recording Link (Link Type):** A link to any recording of the project in action.
    - **Thumbnail (Asset):** An image thumbnail for the project.
    
-   ![Screenshot of all the fields](/assets/tutorials/statamic/statamic-12-fields.jpg)
+   ![Screenshot of all the fields](/assets/tutorials/statamic/statamic_img-12.jpg)
 
 4. **Create Your First Entry:**
    Go back to your **Projects Collection** screen and click **Create Entry** to start adding your project content.
    Here is an example but it can be your own project:
 
-   ![Screenshot of data for the first project part 1](/assets/tutorials/statamic/statamic-13-content.jpg)
+   ![Screenshot of data for the first project part 1](/assets/tutorials/statamic/statamic_img-13.jpg)
    
-   ![Screenshot of data for the first project part 2](/assets/tutorials/statamic/statamic-14-content.jpg)
+   ![Screenshot of data for the first project part 2](/assets/tutorials/statamic/statamic_img-14.jpg)
 
 5. **Add Additional Entries:**
    Let’s create a few more projects to showcase in the portfolio so we have some content to work with. Get some variations, add some projects with or without the following: live link (to view the hosted project), repo link (github repository) and link to a YouTube recording of a project of yours (if not hosted or public repo).
@@ -364,7 +356,7 @@ Now that we’ve created entries for our projects, the question is, where will w
    - Select the **projects/index** template.
    - Ensure the **slug** for the page is set to **projects**.
 
-   ![Screenshot of data for the projects page](/assets/tutorials/statamic/statamic-15-projects-page.jpg)
+   ![Screenshot of data for the projects page](/assets/tutorials/statamic/statamic_img-15.jpg)
 
 2. **Test the Projects Page:**
    Now, when you click on the Dev Projects button on the Home page, you won’t get a 404 error. Instead, you’ll see a dark blank page, meaning the URL exists.
@@ -408,7 +400,7 @@ Now that we’ve created entries for our projects, the question is, where will w
 4. **View the Projects Overview Page:**
    You should now have a page with a nicely designed title and a looping GIF on the side.
 
-   ![Screenshot of the page with the title and looping GIF](/assets/tutorials/statamic/statamic-16-projects-overview.png.jpg)
+   ![Screenshot of the page with the title and looping GIF](/assets/tutorials/statamic/statamic_img-16.jpg)
 
 
 ### STEP 8: Get All the Projects on The "Index" Page
@@ -538,7 +530,7 @@ Now that we’re on an entry's unique URL, we no longer need the `collection:pro
    </footer>
    ```
 
-   ![Screenshot of end result](/assets/tutorials/statamic/statamic-17-projects-overview.jpg)
+   ![Screenshot of end result](/assets/tutorials/statamic/statamic_img-17.jpg)
 
 2. **Note on Content Fields:**
    - The **Content** field is automatically converted from Markdown to HTML because we’re using a Markdown field.
