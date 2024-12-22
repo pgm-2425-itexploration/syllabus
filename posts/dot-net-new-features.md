@@ -8,7 +8,7 @@ author:
   socials:
     linkedin: ""
     github: ""
-thumbnailUrl: "/assets/posts/"
+thumbnailUrl: "/assets/posts/dotnet9.jpeg"
 head:
   - - meta
     - name: description
