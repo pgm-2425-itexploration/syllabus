@@ -18,7 +18,8 @@ head:
     - name: keywords
       content: 'nestjs, server-side development, Node.js, TypeScript, backend development'  # Updated keywords
 ---
-
+due to a problem with github, a private github has been made so you can see the demo, do note that due to a update to Node.js and Nestjs, models might not work, till today i have not found a direct fix for my specific problem 
+github repo: https://github.com/pgm-eliabell/trends-en-innovaties-1-pgm-eliabell-private-gitrepo
 # Step-by-Step Guide to Create a NestJS Project
 
 NestJS is a powerful, progressive Node.js framework for building scalable and maintainable server-side applications. Here's a quick guide to get you started:
