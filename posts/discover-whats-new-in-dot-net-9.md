@@ -350,7 +350,7 @@ cd project-name
 dotnet run
 ```
 
-The server is started on the URL provided. In the terminal, information is shown and here you can see on which URL the server is listening on. In this example it is ‘http://localhost:5063’.
+The server is started on the URL provided. In the terminal, information is shown and here you can see on which URL the server is listening on. In this example it is ‘localhost’.
 
 ```bash
 info: Microsoft.Hosting.Lifetime[14]
