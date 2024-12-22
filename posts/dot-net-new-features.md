@@ -3,7 +3,7 @@ title: ".NET 9 nieuwe features"
 synopsis: "Ontdek de nieuwe features in .NET 9 en hoe ze de ontwikkeling van applicaties eenvoudiger en efficiënter maken."
 date: 2024-12-22
 author:
-  name: "Daria Habibi"
+  name: "Daria"
   avatarUrl: ""
   socials:
     linkedin: ""
