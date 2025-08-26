@@ -1,15 +1,15 @@
 ---
 title: "Angular + .NET: A Complete Guide"
 synopsis: "Learn how to build a modern full-stack application with Angular as frontend and .NET as backend. This tutorial covers installation, configuration, basic and advanced functionality, best practices, and more."
-date: 2024-10-10
+date: 2025-08-25
 author:
   name: "Gust Pêre"
-  avatarUrl: "/assets/avatars/john-doe.png"
+  avatarUrl: "/assets/avatars/gust-petre.png"
   socials:
     website: ""
     linkedin: "https://www.linkedin.com/in/gust-petre/"
-    github: ""
-thumbnailUrl: "/assets/tutorials/angular/angular_logo.png"
+    github: "https://github.com/pgm-Gust"
+thumbnailUrl: "/assets/tutorials/angular-dotnet/aspnetcore-angular.jpg"
 head:
   - - meta
     - name: description
@@ -22,12 +22,8 @@ sources:
     url: "https://angular.io/docs"
   - title: ".NET - Official documentation"
     url: "https://learn.microsoft.com/en-us/dotnet/"
-  - title: "GitHub Classroom Repository"
-    url: "https://classroom.github.com/a/AZUUOYo3"
   - title: "VitePress - Docs"
     url: "https://vitepress.dev/"
-  - title: "Markdown Guide"
-    url: "https://www.markdownguide.org/"
 ---
 
 ## What's the Difference? .NET, ASP.NET, and ASP.NET Core
