@@ -25,6 +25,7 @@ sources:
   - title: "VitePress - Docs"
     url: "https://vitepress.dev/"
 ---
+# Angular + ASP.NET Core: A Complete Guide
 
 ## What's the Difference? .NET, ASP.NET, and ASP.NET Core
 
@@ -36,7 +37,6 @@ Before we dive in, it's important to clarify the terminology, as it can be confu
 
 **In this tutorial, we focus on building a full-stack application with Angular (frontend) and ASP.NET Core (backend).**
 
-# Angular + ASP.NET Core: A Complete Guide
 
 ## Introduction
 
