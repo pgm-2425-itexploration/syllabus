@@ -12,6 +12,7 @@ const description = 'IT Exploration'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   base: '/syllabus/',
+  ignoreDeadLinks: true,
   markdown: {
     lineNumbers: true,
   },

@@ -3,7 +3,7 @@ title: "Angular + .NET: A Complete Guide"
 synopsis: "Learn how to build a modern full-stack application with Angular as frontend and .NET as backend. This tutorial covers installation, configuration, basic and advanced functionality, best practices, and more."
 date: 2024-10-10
 author:
-  name: "Gust Pêre
+  name: "Gust Pêre"
   avatarUrl: "/assets/avatars/john-doe.png"
   socials:
     website: ""
@@ -129,7 +129,7 @@ Good preparation is half the battle. In this section, we explain which tools you
    For Angular, choose routing (Yes) and SCSS or CSS as stylesheet.
 
 5. **Project structure**
-   ![Project structure](../../public/assets/tutorials/angular/project-structure1.jpg)
+   <!-- Project structure image removed - file not found -->
    You now have two folders: one for the frontend and one for the backend. This makes it easy to develop and test both parts separately.
 
 #### Extra tips

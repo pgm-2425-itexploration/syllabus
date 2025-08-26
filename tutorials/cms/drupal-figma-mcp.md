@@ -101,16 +101,6 @@ We gebruiken VS Code als editor omdat het één van de eerste editors is die MCP
 Editors zoals Sublime Text of Atom hebben (nog) geen ondersteuning voor MCP. Daarom gebruiken we hier expliciet VS Code.
 :::
 
-### Optioneel: GitHub-integratie
-
-Omdat dit project later sowieso via GitHub Classrooms moet ingediend worden, raad ik aan meteen een Git-repository te initialiseren:
-
-```bash
-git init
-git add .
-git commit -m "Start project with Drupal 11 and DDEV"
-```
-
 ## Stap 3: Modules installeren
 
 Drupal werkt modulair: de core is redelijk kaal, en bijna alles wordt via modules toegevoegd. Voor ons project hebben we de volgende modules nodig:
