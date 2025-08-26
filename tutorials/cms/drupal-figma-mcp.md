@@ -1,6 +1,6 @@
 ---
-title: "Automatische styling in Drupal met Figma en Copilot"
-synopsis: "Leer hoe je automatisch Figma-componenten kunt omzetten naar werkende Drupal UI Patterns met behulp van GitHub Copilot en het MCP-protocol. Deze tutorial toont een moderne workflow die designers en developers verbindt."
+title: "Generating Drupal Components with Figma and AI"
+synopsis: "Learn how to automatically convert Figma components into working Drupal UI Patterns using GitHub Copilot and the MCP protocol. This tutorial shows a modern workflow that connects designers and developers."
 date: 2025-08-25
 author:
   name: "Witze Van der Straeten"
@@ -13,7 +13,7 @@ thumbnailUrl: "/assets/tutorials/drupal-figma-mcp/drupal-figma-mcp-thumbnail.png
 head:
   - - meta
     - name: description
-      content: "Automatiseer je Drupal development workflow door Figma designs direct om te zetten naar UI Patterns met AI-assistentie."
+      content: "Automate your Drupal development workflow by directly converting Figma designs to UI Patterns with AI assistance."
   - - meta
     - name: keywords
       content: "Drupal, Figma, MCP, Copilot, UI Patterns, AI, CMS, Design Systems"
@@ -26,84 +26,84 @@ sources:
     url: "https://modelcontextprotocol.io/"
 ---
 
-# Automatische styling in Drupal met Figma en Copilot
+# Generating Drupal Components with Figma and AI
 
-## Inleiding
+## Introduction
 
-Iedereen die met webontwikkeling bezig is, weet hoe frustrerend het kan zijn om een design dat in Figma gemaakt is één-op-één in een CMS zoals Drupal te krijgen. Vaak is het een proces van handmatig YAML-bestanden aanmaken, Twig-templates uitschrijven, CSS toevoegen, fouten testen en alles opnieuw proberen. Dat kost veel tijd en leidt snel tot inconsistenties: een knop ziet er hier net iets anders uit dan daar, of een heading is niet helemaal wat de designer had bedoeld.
+Anyone working with web development knows how frustrating it can be to get a design made in Figma pixel-perfect into a CMS like Drupal. Often it's a process of manually creating YAML files, writing Twig templates, adding CSS, testing for errors, and trying everything again. This takes a lot of time and quickly leads to inconsistencies: a button looks slightly different here than there, or a heading isn't quite what the designer intended.
 
-Met de opkomst van AI-tools zoals GitHub Copilot en het nieuwe MCP-protocol (Model Context Protocol) is dat proces aan het veranderen. In deze tutorial toon ik hoe je automatisch Figma-componenten kan laten omzetten naar werkende Drupal UI Patterns, met hulp van Copilot. Het resultaat:
+With the rise of AI tools like GitHub Copilot and the new MCP protocol (Model Context Protocol), this process is changing. In this tutorial, I show you how to automatically convert Figma components into working Drupal UI Patterns, with the help of Copilot. The result:
 
-- **Designers** werken gewoon in Figma
-- **Developers** maken één keer een basisstructuur
-- **Copilot** genereert de Twig, CSS en YAML
-- **Content-editors** kunnen alles invullen zonder code
+- **Designers** work normally in Figma
+- **Developers** create a basic structure once
+- **Copilot** generates the Twig, CSS, and YAML
+- **Content editors** can fill everything in without code
 
-Deze tutorial is geschreven voor developers, maar ook interessant voor designers die willen begrijpen hoe hun werk in Drupal terechtkomt. We combineren verschillende trends in de ICT-sector: no-code/low-code development, AI-assisted coding, design systems en headless CMS-architecturen.
+This tutorial is written for developers, but also interesting for designers who want to understand how their work ends up in Drupal. We combine various trends in the ICT sector: no-code/low-code development, AI-assisted coding, design systems, and headless CMS architectures.
 
-## Stap 1: Drupal 11 opzetten met DDEV
+## Step 1: Setting up Drupal 11 with DDEV
 
-Voor dit project gebruik ik DDEV, een tool die bovenop Docker draait. DDEV is een soort alles-in-één ontwikkelomgeving: het zorgt ervoor dat je zonder gedoe een werkende stack hebt met PHP, MySQL en Apache/Nginx. Je hoeft dus geen XAMPP, MAMP of losse servers te installeren.
+For this project, I use DDEV, a tool that runs on top of Docker. DDEV is a kind of all-in-one development environment: it ensures that you have a working stack with PHP, MySQL, and Apache/Nginx without any hassle. So you don't need to install XAMPP, MAMP, or separate servers.
 
-### Waarom DDEV?
+### Why DDEV?
 
-- **Consistente ontwikkelomgeving**: jouw project draait bij jou hetzelfde als bij je teamleden
-- **Snelle setup**: in minder dan 5 minuten heb je een werkende Drupal-installatie
-- **Flexibiliteit**: je kan meerdere projecten naast elkaar draaien
+- **Consistent development environment**: your project runs the same for you as it does for your team members
+- **Quick setup**: in less than 5 minutes you have a working Drupal installation
+- **Flexibility**: you can run multiple projects side by side
 
-::: tip DDEV Installatie
-Als je DDEV nog niet hebt, volg je best de [officiële handleiding](https://ddev.readthedocs.io/en/stable/users/install/).
+::: tip DDEV Installation
+If you don't have DDEV yet, you should follow the [official guide](https://ddev.readthedocs.io/en/stable/users/install/).
 :::
 
-### Project aanmaken
+### Creating the project
 
-Open je terminal en voer deze stappen uit:
+Open your terminal and run these steps:
 
 ```bash
-# Maak een nieuwe map en ga erin
+# Create a new folder and go into it
 mkdir drupal-mcp-demo
 cd drupal-mcp-demo
 
-# Maak een standaard Drupal-project
+# Create a standard Drupal project
 composer create-project drupal/recommended-project .
 
-# Initialiseer DDEV
+# Initialize DDEV
 ddev config --project-type=drupal --docroot=web --create-docroot
 
-# Start de containers
+# Start the containers
 ddev start
 ```
 
-Wanneer je `ddev start` uitvoert, start DDEV automatisch de containers. Je krijgt een URL zoals:
+When you run `ddev start`, DDEV automatically starts the containers. You get a URL like:
 
 **https://drupal-mcp-demo.ddev.site**
 
-Open die URL in je browser en je krijgt de Drupal-installatiewizard. Volg de stappen (taal kiezen, databasegegevens — die zijn door DDEV al ingevuld) en in een paar minuten heb je een verse Drupal 11-site draaien. 🎉
+Open that URL in your browser and you'll get the Drupal installation wizard. Follow the steps (choose language, database details — which are already filled in by DDEV) and in a few minutes you'll have a fresh Drupal 11 site running. 🎉
 
 ::: warning Troubleshooting
-- **Krijg je een error "port already in use"?** Dan draait er al een andere service op je computer (bv. MySQL). Sluit die of wijzig de poort in `.ddev/config.yaml`.
-- **Zie je "command not found"?** Controleer of DDEV correct is geïnstalleerd en aan je PATH is toegevoegd.
+- **Getting an error "port already in use"?** Then there's already another service running on your computer (e.g., MySQL). Close it or change the port in `.ddev/config.yaml`.
+- **See "command not found"?** Check if DDEV is correctly installed and added to your PATH.
 :::
 
-## Stap 2: Extra tools installeren
+## Step 2: Installing additional tools
 
-Naast Drupal hebben we twee cruciale tools nodig:
+Besides Drupal, we need two crucial tools:
 
 ### 1. Figma
 
-Figma is ons startpunt. Hier maken we de designs. Straks schakelen we in Figma de Dev Mode MCP Server in zodat VS Code en Copilot die designs kunnen uitlezen. Zorg dat je een account hebt en installeer de desktop-app (werkt sneller dan alleen de browser).
+Figma is our starting point. Here we create the designs. Later we'll enable the Dev Mode MCP Server in Figma so that VS Code and Copilot can read those designs. Make sure you have an account and install the desktop app (works faster than just the browser).
 
-### 2. Visual Studio Code met Copilot
+### 2. Visual Studio Code with Copilot
 
-We gebruiken VS Code als editor omdat het één van de eerste editors is die MCP volledig ondersteunt. Copilot draait er naadloos in en kan via MCP direct praten met Figma.
+We use VS Code as an editor because it's one of the first editors that fully supports MCP. Copilot runs seamlessly in it and can talk directly to Figma via MCP.
 
-::: warning Editor Ondersteuning
-Editors zoals Sublime Text of Atom hebben (nog) geen ondersteuning voor MCP. Daarom gebruiken we hier expliciet VS Code.
+::: warning Editor Support
+Editors like Sublime Text or Atom don't (yet) have support for MCP. That's why we explicitly use VS Code here.
 :::
 
-## Stap 3: Modules installeren
+## Step 3: Installing modules
 
-Drupal werkt modulair: de core is redelijk kaal, en bijna alles wordt via modules toegevoegd. Voor ons project hebben we de volgende modules nodig:
+Drupal works modularly: the core is quite bare, and almost everything is added via modules. For our project, we need the following modules:
 
 ```bash
 ddev composer require drush/drush
@@ -112,192 +112,188 @@ ddev composer require 'drupal/ui_patterns:^2.0'
 ddev composer require 'drupal/admin_toolbar:^3.6'
 ```
 
-### Wat doen deze modules?
+### What do these modules do?
 
-| Module | Beschrijving |
+| Module | Description |
 |--------|-------------|
-| **Drush** | Een command line tool voor Drupal. Hiermee kan je cache legen, modules inschakelen, updates draaien, … sneller dan via de interface. |
-| **Classy** | Een minimalistisch theme dat we als basis gebruiken. Het heeft nauwelijks styling, waardoor we maximale controle hebben. |
-| **UI Patterns** | Hiermee definieer je componenten (via YAML). Het is de brug tussen design en implementatie. |
-| **UI Patterns Blocks** | Maakt het mogelijk om UI Patterns te gebruiken als blokken die je kan slepen in de Layout Builder. |
-| **UI Patterns Library** | Een centrale plek waar je een overzicht krijgt van al je componenten. Handig om te testen. |
-| **Layout Builder** | Geeft je een visuele manier om pagina's samen te stellen met secties en componenten. |
-| **Admin Toolbar** | Vervangt de standaard toolbar door een snellere versie met dropdown-menu's. Bespaart enorm veel klikken. |
+| **Drush** | A command line tool for Drupal. With this you can clear cache, enable modules, run updates, etc. faster than via the interface. |
+| **Classy** | A minimalist theme that we use as a base. It has hardly any styling, giving us maximum control. |
+| **UI Patterns** | With this you define components (via YAML). It's the bridge between design and implementation. |
+| **UI Patterns Blocks** | Makes it possible to use UI Patterns as blocks that you can drag into the Layout Builder. |
+| **UI Patterns Library** | A central place where you get an overview of all your components. Handy for testing. |
+| **Layout Builder** | Gives you a visual way to compose pages with sections and components. |
+| **Admin Toolbar** | Replaces the standard toolbar with a faster version with dropdown menus. Saves a lot of clicking. |
 
-### Modules inschakelen
+### Enabling modules
 
-1. Ga in je Drupal admin naar de bovenste toolbar en klik op **Extend**
-2. Zoek de modules en vink aan:
+1. Go to your Drupal admin and click on **Extend** in the top toolbar
+2. Search for the modules and check:
    - UI Patterns
    - UI Patterns Blocks
    - UI Patterns Library
    - Layout Builder
    - Admin Toolbar
-3. Klik onderaan op **Install**
+3. Click **Install** at the bottom
 
-::: tip Drush Commando
-Gebruik Drush om modules sneller in te schakelen:
+::: tip Drush Command
+Use Drush to enable modules faster:
 
 ```bash
 ddev drush en ui_patterns ui_patterns_blocks ui_patterns_library layout_builder admin_toolbar -y
 ```
 :::
 
-## Stap 4: Classy theme activeren
+## Step 4: Activating the Classy theme
 
-Nu activeren we het Classy-theme.
+Now we activate the Classy theme.
 
-1. Ga in de Drupal admin naar **Appearance**
-2. Zoek naar **Classy**
-3. Klik op **Install and set as default**
+1. Go to **Appearance** in the Drupal admin
+2. Search for **Classy**
+3. Click **Install and set as default**
 
-::: tip Waarom Classy?
-Je site ziet er nu kaal uit, zonder styling. Dat lijkt misschien vreemd, maar dit is precies wat we willen: een neutrale basis waar onze Figma-styling straks bovenop komt.
+::: tip Why Classy?
+Your site now looks bare, without styling. This might seem strange, but this is exactly what we want: a neutral foundation where our Figma styling will come on top later.
 
-**Waarom niet Bartik, Claro of Olivero?** Die themes hebben al veel ingebouwde CSS. Dat maakt het moeilijker om exact de Figma-styling door te voeren. Classy is dus ideaal: lichtgewicht en flexibel.
+**Why not Bartik, Claro, or Olivero?** Those themes already have a lot of built-in CSS. That makes it harder to implement the exact Figma styling. So Classy is ideal: lightweight and flexible.
 :::
 
-## Stap 5: Component folder maken
+## Step 5: Creating component folder
 
-Nu gaan we de basisstructuur voor onze componenten aanmaken.
+Now we're going to create the basic structure for our components.
 
-1. Open je project in VS Code
-2. Navigeer naar: `web/themes/classy`
-3. Maak hier een nieuwe map `components` ⚠️ De naam is belangrijk, anders werkt UI Patterns niet
-4. In `components/` maak je een map `structuur`
-5. Voeg daarin twee bestanden toe:
+1. Open your project in VS Code
+2. Navigate to: `web/themes/classy`
+3. Create a new folder `components` here ⚠️ The name is important, otherwise UI Patterns won't work
+4. In `components/` create a folder `structuur`
+5. Add two files in it:
    - `structuur.component.yml`
-   - `structuur.twig` (mag leeg zijn, anders klaagt Drupal)
+   - `structuur.twig` (can be empty, otherwise Drupal complains)
 
-### Inhoud van structuur.component.yml
+### Content of structuur.component.yml
 
 ```yaml
 $schema: https://git.drupalcode.org/project/drupal/-/raw/HEAD/core/assets/schemas/v1/metadata.schema.json
 
 name: Test Figma
 status: experimental
-description: Component gebaseerd op Figma design (node 288:32)
+description: Component based on Figma design (node 288:32)
 group: Figma
 
 variants:
   default:
     title: Default
-    description: Standaard variant
+    description: Standard variant
 
 props:
   type: object
   properties:
     title:
       type: string
-      title: Titel
-      description: Titel van het blok
+      title: Title
+      description: Title of the block
     description:
       type: string
-      title: Beschrijving
-      description: Korte beschrijving (HTML toegestaan)
+      title: Description
+      description: Short description (HTML allowed)
     image_url:
       type: string
-      title: Afbeelding
-      description: URL naar afbeelding (optioneel)
+      title: Image
+      description: URL to image (optional)
     button_text:
       type: string
-      title: Button tekst
-      description: Tekst voor de knop
+      title: Button text
+      description: Text for the button
     button_url:
       type: string
       title: Button URL
-      description: Link voor de knop
+      description: Link for the button
 ```
 
-::: tip Component Structuur
-Dit bestand beschrijft de structuur van het component:
+::: tip Component Structure
+This file describes the structure of the component:
 
-- **name**: interne naam
-- **props**: de eigenschappen die je in Drupal kan instellen
-- **title, description, image_url, button_text, button_url**: velden die we later vullen met data
+- **name**: internal name
+- **props**: the properties you can set in Drupal
+- **title, description, image_url, button_text, button_url**: fields we'll fill with data later
 
-**Waarom dit belangrijk is:** Dit bestand leert Copilot hoe een component eruit moet zien. Als je dit eenmaal goed definieert, kan Copilot nieuwe componenten genereren die dezelfde structuur volgen.
+**Why this is important:** This file teaches Copilot how a component should look. Once you define this well, Copilot can generate new components that follow the same structure.
 :::
 
-## Deel 2 – Van Figma naar VS Code via MCP
+## Part 2 – From Figma to VS Code via MCP
 
-## Stap 6: Een Figma component maken
+## Step 6: Creating a Figma component
 
-Nu onze Drupal-setup klaarstaat en we een eerste YAML-structuur hebben, is het tijd om de brug te slaan naar Figma. Figma is in dit proces ons "design system" waarin we de visuele elementen bouwen die later automatisch vertaald worden naar componenten in Drupal.
+Now that our Drupal setup is ready and we have a first YAML structure, it's time to bridge to Figma. Figma is our "design system" in this process where we build the visual elements that will later be automatically translated into components in Drupal.
 
-### Waarom Figma?
+### Why Figma?
 
-- **Design-first workflow**: designers maken eerst een pixel-perfect ontwerp in Figma. Developers hoeven dit niet meer blind over te typen.
-- **Design tokens**: kleuren, typografie en spacing die je in Figma definieert, kunnen straks doorgegeven worden aan Copilot en omgezet naar CSS.
-- **Dev Mode**: Figma heeft sinds kort een Developer Mode, waarmee je makkelijk code-snippets en properties uit designs kan halen. In combinatie met MCP wordt dit nóg krachtiger.
+- **Design-first workflow**: designers first create a pixel-perfect design in Figma. Developers no longer have to blindly type this over.
+- **Design tokens**: colors, typography, and spacing that you define in Figma can later be passed to Copilot and converted to CSS.
+- **Dev Mode**: Figma recently has a Developer Mode, with which you can easily extract code snippets and properties from designs. In combination with MCP, this becomes even more powerful.
 
-### Voorbeeld: Hero-component
+### Example: Hero component
 
-Om het simpel te houden maken we één van de meest klassieke onderdelen van een website: een Hero. Dit is meestal het bovenste blok op een pagina, met een titel, subtitel, een afbeelding of achtergrond, en één of meerdere knoppen.
+To keep it simple, we'll create one of the most classic parts of a website: a Hero. This is usually the top block on a page, with a title, subtitle, an image or background, and one or more buttons.
 
-1. Open Figma en maak een nieuw bestand
-2. Voeg een Frame toe (bijv. 1440x600 px)
-3. Plaats een titel (`<h1>`), een subtitel (`<p>`) en twee knoppen ("Get Started" en "Learn More")
-4. Voeg eventueel een achtergrondafbeelding of kleur toe
+1. Open Figma and create a new file
+2. Add a Frame (e.g., 1440x600 px)
+3. Place a title (`<h1>`), a subtitle (`<p>`), and two buttons ("Get Started" and "Learn More")
+4. Optionally add a background image or color
 
 ::: tip Element Naming
-Geef je elementen duidelijke namen, zoals **Hero Title**, **Hero Button Primary**, **Hero Button Secondary**. Dit helpt later enorm, want Copilot herkent deze labels via MCP en kan ze direct omzetten naar YAML-properties.
+Give your elements clear names, such as **Hero Title**, **Hero Button Primary**, **Hero Button Secondary**. This helps enormously later, because Copilot recognizes these labels via MCP and can convert them directly to YAML properties.
 :::
 
-**Resultaat**: je hebt nu een visueel Hero-component dat je straks automatisch laat genereren in Drupal.
+**Result**: you now have a visual Hero component that you'll soon automatically generate in Drupal.
 
-::: info Screenshot
-Hier zou je in de tutorial een screenshot plaatsen van jouw Figma Hero met titels en knoppen
+## Step 7: Activating Figma MCP
+
+Now comes a crucial step: turning on the Dev Mode MCP Server in Figma. Without this, VS Code cannot connect to Figma.
+
+1. Click on the Figma logo in the top left
+2. Go to **Preferences**
+3. Scroll down and look for **Enable Dev Mode MCP Server**
+4. Check this box
+
+**From now on, there's a local MCP server running that makes your Figma design accessible to other tools (like VS Code).**
+
+### What is MCP actually?
+
+MCP stands for **Model Context Protocol**. It's a protocol that allows AI tools like Copilot to retrieve additional context. In this case: reading properties from your Figma design.
+
+- **Without MCP**: Copilot only sees your code
+- **With MCP**: it can also read Figma
+- **Result**: Copilot understands the whole picture (design + code)
+
+::: warning Dev Mode Required
+MCP currently only works in Developer Mode of Figma. So you need a Figma account with access to Dev Mode (free for students and small teams, paid in large organizations).
 :::
 
-## Stap 7: Figma MCP activeren
+## Step 8: Configuring VS Code for MCP
 
-Nu komt een cruciale stap: de Dev Mode MCP Server aanzetten in Figma. Zonder dit kan VS Code geen verbinding maken met Figma.
+Now that Figma is ready, we switch to Visual Studio Code.
 
-1. Klik linksboven in Figma op het Figma-logo
-2. Ga naar **Preferences**
-3. Scroll naar beneden en zoek naar **Enable Dev Mode MCP Server**
-4. Vink dit aan
+### Why VS Code?
 
-**Vanaf nu draait er lokaal een MCP-server die je Figma-design toegankelijk maakt voor andere tools (zoals VS Code).**
+As mentioned earlier, not all editors support MCP. VS Code does, and it's also the standard environment for Copilot.
 
-### Wat is MCP eigenlijk?
-
-MCP staat voor **Model Context Protocol**. Het is een protocol waarmee AI-tools zoals Copilot extra context kunnen ophalen. In dit geval: het uitlezen van properties van jouw Figma-design.
-
-- **Zonder MCP**: ziet Copilot alleen je code
-- **Met MCP**: kan hij ook Figma lezen
-- **Resultaat**: Copilot begrijpt het hele plaatje (design + code)
-
-::: warning Dev Mode Vereist
-MCP werkt voorlopig alleen in Developer Mode van Figma. Je hebt dus een Figma-account nodig met toegang tot Dev Mode (gratis voor studenten en kleine teams, betaald in grote organisaties).
-:::
-
-## Stap 8: VS Code configureren voor MCP
-
-Nu Figma klaarstaat, schakelen we over naar Visual Studio Code.
-
-### Waarom VS Code?
-
-Zoals eerder gezegd, ondersteunen niet alle editors MCP. VS Code wel, en het is bovendien de standaardomgeving voor Copilot.
-
-### Settings openen
+### Opening settings
 
 1. Open VS Code
-2. Klik linksonder op het tandwiel-icoon → **Settings**
-3. Zoek in de zoekbalk naar **MCP**
-4. Klik op **Edit in settings.json**
+2. Click on the gear icon in the bottom left → **Settings**
+3. Search for **MCP** in the search bar
+4. Click **Edit in settings.json**
 
-### Configuratie toevoegen
+### Adding configuration
 
-Voeg de volgende regels toe:
+Add the following rules:
 
 ```json
 {
   "chat.mcp.discovery.enabled": true,
   "chat.mcp.servers": [
     {
-      "name": "local-sint-coleta",
+      "name": "figma-devmode",
       "transport": { 
         "type": "sse", 
         "url": "http://127.0.0.1:3845/mcp" 
@@ -308,200 +304,200 @@ Voeg de volgende regels toe:
 }
 ```
 
-### Wat betekent dit?
+### What does this mean?
 
-| Instelling | Beschrijving |
-|------------|-------------|
-| `"chat.mcp.discovery.enabled": true` | Hiermee staat VS Code toe om actief naar MCP-servers te zoeken |
-| `"chat.mcp.servers": [...]` | Hier definiëren we de MCP-server. In dit geval draait die lokaal (127.0.0.1) op poort 3845, zoals Figma heeft ingesteld |
-| `"chat.agent.enabled": true` | Zonder dit kan Copilot niet echt communiceren met de server. Dit is dus de schakelaar die de integratie activeert |
+| Setting | Description |
+|---------|-------------|
+| `"chat.mcp.discovery.enabled": true` | This allows VS Code to actively search for MCP servers |
+| `"chat.mcp.servers": [...]` | Here we define the MCP server. In this case, it runs locally (127.0.0.1) on port 3845, as Figma has set up |
+| `"chat.agent.enabled": true` | Without this, Copilot cannot really communicate with the server. This is the switch that activates the integration |
 
 ::: tip Server Naming
-Geef je server een herkenbare naam. In dit voorbeeld "local-sint-coleta", maar je kan ook gewoon "figma-devmode" gebruiken.
+Give your server a recognizable name. In this example we use "figma-devmode".
 :::
 
 ### Debugging
 
-Als je merkt dat VS Code geen verbinding maakt:
+If you notice that VS Code doesn't connect:
 
-- Controleer of de MCP-server in Figma écht aanstaat
-- Kijk in je terminal of poort 3845 niet al in gebruik is
-- Probeer VS Code opnieuw op te starten na het wijzigen van settings.json
+- Check if the MCP server in Figma is really running
+- Look in your terminal if port 3845 isn't already in use
+- Try restarting VS Code after changing settings.json
 
-## Stap 9: Figma component koppelen aan VS Code
+## Step 9: Connecting Figma component to VS Code
 
-Nu alles klaarstaat, maken we de eerste echte connectie tussen Figma en VS Code.
+Now that everything is ready, we make the first real connection between Figma and VS Code.
 
-### Dev Mode Link kopiëren
+### Copying Dev Mode Link
 
-1. Selecteer in Figma je Hero-component
-2. Klik rechtsboven op **Share**
-3. Kies **Copy Dev Mode Link**
+1. Select your Hero component in Figma
+2. Click **Share** in the top right
+3. Choose **Copy Dev Mode Link**
 
-Dit genereert een URL die verwijst naar jouw specifieke component in Dev Mode.
+This generates a URL that refers to your specific component in Dev Mode.
 
-### Link naar Copilot sturen
+### Sending link to Copilot
 
-1. Ga terug naar VS Code
-2. Open Copilot Chat via `CMD + SHIFT + I` (Mac) of `CTRL + SHIFT + I` (Windows)
-3. Plak je link en typ bijvoorbeeld:
-
-```
-Kan je dit Figma-component bekijken via deze link: [plak hier je Dev Mode link]?
-```
-
-**Als alles goed is ingesteld, zie je dat Copilot nu verbinding maakt met de MCP-server.** Je kan hem zelfs vragen:
+1. Go back to VS Code
+2. Open Copilot Chat via `CMD + SHIFT + I` (Mac) or `CTRL + SHIFT + I` (Windows)
+3. Paste your link and type for example:
 
 ```
-Welke properties zie je in dit component?
+Can you look at this Figma component via this link: [paste your Dev Mode link here]?
 ```
 
-En Copilot zal antwoorden met iets als:
+**If everything is set up correctly, you'll see that Copilot now connects to the MCP server.** You can even ask it:
+
+```
+What properties do you see in this component?
+```
+
+And Copilot will answer with something like:
 
 - Title: Hero Title
 - Subtitle: Hero Subtitle
 - Button1: Get Started
 - Button2: Learn More
 
-### Wat gebeurt er hier precies?
+### What exactly happens here?
 
-1. **Copilot haalt via MCP de metadata uit Figma**
-2. **Deze metadata wordt in context gezet met jouw bestaande YAML-structuur**
-3. **Copilot kan nu direct suggesties doen om YAML, Twig en CSS te genereren die overeenkomen met het Figma-design**
+1. **Copilot retrieves metadata from Figma via MCP**
+2. **This metadata is put in context with your existing YAML structure**
+3. **Copilot can now make direct suggestions to generate YAML, Twig, and CSS that match the Figma design**
 
-::: tip Voordelen
-- Geen handmatig "spieken" in Figma en overschrijven
-- Minder kans op typos of inconsistenties
-- Directe koppeling tussen design en implementatie
+::: tip Benefits
+- No manual "peeking" in Figma and copying over
+- Less chance of typos or inconsistencies
+- Direct connection between design and implementation
 :::
 
-### Extra verdieping: Waarom dit baanbrekend is
+### Extra depth: Why this is groundbreaking
 
-Tot nu toe bestond er altijd een kloof tussen designers en developers. Designers leverden Figma-bestanden, developers moesten die interpreteren en omzetten. Vaak ging daar veel informatie verloren.
+Until now, there was always a gap between designers and developers. Designers delivered Figma files, developers had to interpret and convert them. Often a lot of information was lost in the process.
 
-Met MCP en Copilot verandert dit fundamenteel:
+With MCP and Copilot, this changes fundamentally:
 
-- **Design is data**: Figma levert niet alleen pixels, maar ook properties (namen, structuren, componentvarianten)
-- **AI begrijpt beide kanten**: Copilot kan zowel code schrijven als design-informatie lezen
-- **Sneller itereren**: Als de designer een knop toevoegt in Figma, kan je die dezelfde dag nog in Drupal laten verschijnen, zonder dat iemand er manueel code voor schrijft
+- **Design is data**: Figma delivers not just pixels, but also properties (names, structures, component variants)
+- **AI understands both sides**: Copilot can both write code and read design information
+- **Faster iteration**: If the designer adds a button in Figma, you can have it appear in Drupal the same day, without anyone manually writing code for it
 
-**Dit sluit aan bij grotere trends in de sector:**
+**This connects to larger trends in the sector:**
 
-- Design-to-code tools zoals Anima, Locofy en Framer
-- Low-code CMS waarbij non-developers pagina's kunnen samenstellen
-- AI-assisted development, waarbij developers meer curatoren worden dan codekloppers
+- Design-to-code tools like Anima, Locofy, and Framer
+- Low-code CMS where non-developers can compose pages
+- AI-assisted development, where developers become more curators than code writers
 
-### Vooruitblik naar Stap 10
+### Preview to Step 10
 
-Nu Copilot jouw Figma-component kan zien, is het tijd om hem écht werk te laten doen. In de volgende stap gaan we de YAML die we eerder maakten combineren met de Figma-data, en Copilot de rest laten genereren:
+Now that Copilot can see your Figma component, it's time to let it do real work. In the next step, we'll combine the YAML we made earlier with the Figma data, and let Copilot generate the rest:
 
-- Een complete `.component.yml`
-- Een `.twig` bestand voor de markup
-- Een `.css` bestand met styling
+- A complete `.component.yml`
+- A `.twig` file for the markup
+- A `.css` file with styling
 
-**Kortom: de échte automatisatie.** 🚀
+**In short: the real automation.** 🚀
 
-## Deel 3 – YAML naar Copilot en testen in Drupal
+## Part 3 – YAML to Copilot and testing in Drupal
 
-## Stap 10: YAML aan Copilot geven
+## Step 10: Giving YAML to Copilot
 
-Tot nu toe hebben we drie dingen klaarstaan:
+So far we have three things ready:
 
-1. **Een Drupal 11 project** met DDEV, modules en het Classy theme
-2. **Een Figma-component** (de Hero) dat klaar is in Dev Mode
-3. **Een basis YAML-structuur** (`structuur.component.yml`) die Copilot kan gebruiken als voorbeeld
+1. **A Drupal 11 project** with DDEV, modules, and the Classy theme
+2. **A Figma component** (the Hero) that's ready in Dev Mode
+3. **A basic YAML structure** (`structuur.component.yml`) that Copilot can use as an example
 
-Nu is het tijd om de echte AI-magie te laten gebeuren.
+Now it's time to let the real AI magic happen.
 
-### Waarom YAML eerst?
+### Why YAML first?
 
-Je kan Copilot natuurlijk meteen vragen: *"Maak een Drupal-component voor dit Figma-design"*. Maar dat levert vaak rommel op: de AI moet dan gokken welke structuur Drupal verwacht.
+You can naturally ask Copilot right away: *"Make a Drupal component for this Figma design"*. But that often results in a mess: the AI has to guess what structure Drupal expects.
 
-Door eerst een voorbeeld-YAML te geven, zeg je eigenlijk tegen Copilot:
-**"Dit is hoe ik wil dat jij werkt. Hou je exact aan dit patroon."**
+By giving an example YAML first, you're essentially telling Copilot:
+**"This is how I want you to work. Stick exactly to this pattern."**
 
-Dat maakt de kans op fouten veel kleiner, en Copilot zal de volgende componenten volgens diezelfde logica opbouwen.
+This makes the chance of errors much smaller, and Copilot will build the next components following the same logic.
 
-### Het YAML-bestand aan Copilot geven
+### Giving the YAML file to Copilot
 
-1. Ga in VS Code naar je map `web/themes/classy/components/structuur/`
-2. Sleep het bestand `structuur.component.yml` naar het Copilot chatvenster
-3. Copilot herkent automatisch dat dit YAML is. Je ziet vaak een melding zoals:
+1. Go to your folder `web/themes/classy/components/structuur/` in VS Code
+2. Drag the file `structuur.component.yml` to the Copilot chat window
+3. Copilot automatically recognizes that this is YAML. You often see a message like:
    *"I see this is a Drupal UI Patterns component definition in YAML."*
 
-### De prompt voor Copilot
+### The prompt for Copilot
 
-Hier komt het belangrijke stuk. Je wil Copilot niet gewoon "laten raden", maar hem een duidelijke taak geven. Hieronder staat een prompt die je letterlijk kan copy-pasten in je tutorial.
+Here comes the important part. You don't want to just "let Copilot guess", but give it a clear task. Below is a prompt that you can literally copy-paste in your tutorial.
 
 ```
-Hey Copilot, ik heb een component in YAML dat ik gebruik met Drupal UI Patterns.  
-Bestudeer dit bestand en gebruik het als basis.  
+Hey Copilot, I have a component in YAML that I use with Drupal UI Patterns.  
+Study this file and use it as a basis.  
 
-Wanneer ik je een component geef (via YAML of via een Figma Dev Mode link), wil ik dat jij automatisch een complete setup maakt met:  
-1. Het `.component.yml` bestand met alle properties die in Figma aanwezig zijn (bv. titel, beschrijving, knoppen, afbeeldingen, …).  
-2. Een `.twig` bestand waarin die properties correct worden weergegeven.  
-3. Een `.css` bestand waarin de styling gebeurt, zoveel mogelijk gelijkend op het Figma-design.  
-4. Alles samen in een eigen map per component (bv. `/components/[component-naam]/`).  
+When I give you a component (via YAML or via a Figma Dev Mode link), I want you to automatically create a complete setup with:  
+1. The `.component.yml` file with all properties that are present in Figma (e.g., title, description, buttons, images, …).  
+2. A `.twig` file in which those properties are correctly displayed.  
+3. A `.css` file in which the styling happens, as much as possible resembling the Figma design.  
+4. Everything together in its own folder per component (e.g., `/components/[component-name]/`).  
 
-⚠️ Belangrijk:  
-- Als er in Figma meerdere varianten of meerdere knoppen zijn, voeg dan ook meerdere properties toe (bv. `button1_text`, `button2_text`, …).  
-- Zorg dat de Twig alleen iets toont als de property ingevuld is.  
-- Gebruik semantische HTML en nette CSS-classes (bv. `.hero-buttons`).  
-- Zet knoppen en varianten netjes naast elkaar met flexbox of grid, zodat het design overeenkomt met Figma.  
+⚠️ Important:  
+- If there are multiple variants or multiple buttons in Figma, also add multiple properties (e.g., `button1_text`, `button2_text`, …).  
+- Make sure the Twig only shows something if the property is filled in.  
+- Use semantic HTML and clean CSS classes (e.g., `.hero-buttons`).  
+- Put buttons and variants nicely next to each other with flexbox or grid, so the design matches Figma.  
 
-Hou je altijd aan de Drupal UI Patterns structuur:  
+Always stick to the Drupal UI Patterns structure:  
 - `[component].component.yml`  
 - `[component].twig`  
 - `[component].css`
 ```
 
-### Wat doet Copilot nu?
+### What does Copilot do now?
 
-Stel dat je Hero in Figma de volgende properties heeft:
+Suppose your Hero in Figma has the following properties:
 
-- **Title**: "Welkom bij onze site"
-- **Subtitle**: "Bouwen met AI en design systems"
+- **Title**: "Welcome to our site"
+- **Subtitle**: "Building with AI and design systems"
 - **Button1**: "Get Started" (link: `/start`)
 - **Button2**: "Learn More" (link: `/docs`)
-- **Image**: een achtergrondfoto
+- **Image**: a background photo
 
-Copilot zal dan het volgende doen:
+Copilot will then do the following:
 
-#### Hero.component.yml uitbreiden:
-- Properties toevoegen voor `title`, `subtitle`, `image`, `button1_text`, `button1_url`, `button2_text`, `button2_url`
-- Een "default variant" behouden
+#### Hero.component.yml expansion:
+- Add properties for `title`, `subtitle`, `image`, `button1_text`, `button1_url`, `button2_text`, `button2_url`
+- Keep a "default variant"
 
-#### Hero.twig genereren:
-- HTML markup maken die de properties netjes weergeeft
-- Bijvoorbeeld: titel in `<h1>`, subtitel in `<p>`, knoppen in `<a>`-tags
-- Enkel tonen wat ingevuld is (geen lege knoppen)
+#### Hero.twig generation:
+- Create HTML markup that nicely displays the properties
+- For example: title in `<h1>`, subtitle in `<p>`, buttons in `<a>` tags
+- Only show what is filled in (no empty buttons)
 
-#### Hero.css genereren:
-- Styling toevoegen met flexbox voor de knoppen
-- Knoppen stijlen volgens Figma (primair = blauw, secundair = wit met rand)
-- Responsieve layout voorzien
+#### Hero.css generation:
+- Add styling with flexbox for the buttons
+- Style buttons according to Figma (primary = blue, secondary = white with border)
+- Provide responsive layout
 
-**Resultaat**: een complete Hero-component die 1-op-1 aansluit bij je Figma-design.
+**Result**: a complete Hero component that matches your Figma design 1-to-1.
 
-### Best practices bij Copilot-prompts
+### Best practices for Copilot prompts
 
-Uit ervaring werken deze tips goed:
+From experience, these tips work well:
 
-- **Geef Copilot kleine taken**: Vraag hem eerst alleen om YAML + Twig, daarna pas CSS. Zo hou je meer controle
-- **Wees expliciet over Drupal**: Soms denkt Copilot dat je in React of Vue werkt. Zet er altijd bij: "Dit is voor Drupal UI Patterns"
-- **Vraag om uitleg**: Laat Copilot zijn keuzes toelichten. Zo snap je beter waarom hij bepaalde properties of classes toevoegt
-- **Gebruik voorbeelden**: Je kan zeggen: "Volg dezelfde stijl als in mijn structuur.component.yml"
+- **Give Copilot small tasks**: Ask it first only for YAML + Twig, then CSS. This way you keep more control
+- **Be explicit about Drupal**: Sometimes Copilot thinks you're working in React or Vue. Always add: "This is for Drupal UI Patterns"
+- **Ask for explanation**: Let Copilot explain its choices. This way you better understand why it adds certain properties or classes
+- **Use examples**: You can say: "Follow the same style as in my structuur.component.yml"
 
-### Voorbeeld output
+### Example output
 
-Dit zou Copilot kunnen teruggeven (ingekort voorbeeld):
+This is what Copilot could return (shortened example):
 
 #### hero.component.yml
 
 ```yaml
 name: Hero
 status: experimental
-description: Hero component gebaseerd op Figma design
+description: Hero component based on Figma design
 group: Figma
 
 variants:
@@ -513,25 +509,25 @@ props:
   properties:
     title:
       type: string
-      title: Titel
+      title: Title
     subtitle:
       type: string
-      title: Subtitel
+      title: Subtitle
     image_url:
       type: string
-      title: Achtergrondafbeelding
+      title: Background image
     button1_text:
       type: string
-      title: Primaire knop tekst
+      title: Primary button text
     button1_url:
       type: string
-      title: Primaire knop link
+      title: Primary button link
     button2_text:
       type: string
-      title: Secundaire knop tekst
+      title: Secondary button text
     button2_url:
       type: string
-      title: Secundaire knop link
+      title: Secondary button link
 ```
 
 #### hero.twig
@@ -596,96 +592,96 @@ props:
 }
 ```
 
-**Met één prompt heb je dus een volledig werkend component.** 🚀
+**With one prompt, you have a fully working component.** 🚀
 
-## Stap 11: Testen in Drupal
+## Step 11: Testing in Drupal
 
-Oké, we hebben nu een componentmap met drie bestanden (`.yml`, `.twig`, `.css`). Tijd om dit zichtbaar te maken in Drupal.
+Okay, we now have a component folder with three files (`.yml`, `.twig`, `.css`). Time to make this visible in Drupal.
 
-### Cache legen met Drush
+### Clearing cache with Drush
 
-In je terminal:
+In your terminal:
 
 ```bash
 ddev drush cr
 ```
 
-#### Wat dit doet:
+#### What this does:
 
 - **"cr"** = cache rebuild
-- Drupal bewaart enorm veel in cache om sneller te laden. Nieuwe componenten verschijnen pas nadat je de cache wist
+- Drupal stores a lot in cache to load faster. New components only appear after you clear the cache
 
 ::: tip Cache Management
-Dit ga je vaak doen tijdens development. Onthoud dus: **"Als ik iets niet zie, eerst drush cr draaien."**
+You'll do this often during development. So remember: **"If I don't see something, first run drush cr."**
 :::
 
-### Je component terugvinden
+### Finding your component
 
-1. Ga naar je Drupal site in de browser
-2. Hover in de bovenbalk over **Appearance**
-3. Klik op **UI Patterns → Components**
+1. Go to your Drupal site in the browser
+2. Hover over **Appearance** in the top bar
+3. Click **UI Patterns → Components**
 
-Hier zie je nu een lijst met alle beschikbare componenten. Als alles goed ging, staat daar jouw Hero-component.
+Here you now see a list of all available components. If everything went well, your Hero component is listed there.
 
 ::: warning Styling
-Het zal nog kaal ogen — waarschijnlijk zonder de Figma-styling. Dat is normaal. De CSS is er wel, maar je moet hem nog goed koppelen en gebruiken in een pagina-layout.
+It will still look bare — probably without the Figma styling. That's normal. The CSS is there, but you still need to properly link and use it in a page layout.
 :::
 
 ### Debugging
 
-| Probleem | Oplossing |
-|----------|-----------|
-| **Zie je de Hero niet?** | Check of je mapnaam correct is. Moet `components/hero/` zijn |
-| **Foutmelding over Twig?** | Misschien een typo in je `.twig`-bestand (controleer syntax) |
-| **Lege velden?** | Mogelijk heten je properties anders in YAML en Twig. Zorg dat die 1-op-1 overeenkomen |
+| Problem | Solution |
+|---------|----------|
+| **Don't see the Hero?** | Check if your folder name is correct. Must be `components/hero/` |
+| **Error about Twig?** | Maybe a typo in your `.twig` file (check syntax) |
+| **Empty fields?** | Possibly your properties are named differently in YAML and Twig. Make sure they match 1-to-1 |
 
-### Waarom dit belangrijk is
+### Why this is important
 
-Op dit punt is de cirkel bijna rond:
+At this point, the circle is almost complete:
 
-- ✅ Je hebt een design in Figma
-- ✅ Je hebt YAML + Twig + CSS automatisch laten genereren
-- ✅ Je ziet het component verschijnen in Drupal
+- ✅ You have a design in Figma
+- ✅ You have YAML + Twig + CSS automatically generated
+- ✅ You see the component appear in Drupal
 
-**Dit is iets waar bedrijven normaal dagen werk aan kwijt zijn. Jij hebt het in minder dan een uur staan.** 🤯
+**This is something companies normally spend days working on. You have it running in less than an hour.** 🤯
 
-### Vooruitblik naar volgende stappen
+### Preview to next steps
 
-Nu wordt het pas echt interessant: we gaan niet alleen componenten zien, maar ook koppelen aan Drupal Content Types en de Layout Builder. Daarmee kan je content editors (mensen zonder technische kennis) laten kiezen welke tekst, knoppen en afbeeldingen in jouw component komen — zonder dat ze ooit code zien.
+Now it gets really interesting: we're going to not only see components, but also link them to Drupal Content Types and the Layout Builder. This allows content editors (people without technical knowledge) to choose which text, buttons, and images go in your component — without ever seeing code.
 
-## Deel 4 – Content Types koppelen en Layout Builder gebruiken
+## Part 4 – Linking Content Types and using Layout Builder
 
-Tot nu toe hebben we een werkende Hero-component in Drupal: YAML + Twig + CSS, netjes gegenereerd via Copilot, en zichtbaar in de UI Patterns Library. Dat is al een mijlpaal, maar in de praktijk wil je natuurlijk meer: je wil dat editors zonder technische kennis zelf de tekst, knoppen en afbeeldingen van dat component kunnen aanpassen via het CMS.
+So far we have a working Hero component in Drupal: YAML + Twig + CSS, nicely generated via Copilot, and visible in the UI Patterns Library. That's already a milestone, but in practice you naturally want more: you want editors without technical knowledge to be able to adjust the text, buttons, and images of that component themselves via the CMS.
 
-Dat is waar Content Types en de Layout Builder in Drupal om de hoek komen kijken. Deze twee systemen zorgen ervoor dat je componenten niet enkel "mooi" zijn, maar ook functioneel en bewerkbaar.
+That's where Content Types and the Layout Builder in Drupal come into play. These two systems ensure that your components are not only "beautiful" but also functional and editable.
 
-### Content Types in Drupal – wat en waarom?
+### Content Types in Drupal – what and why?
 
-Een Content Type is de bouwsteen van Drupal. Zie het als een sjabloon voor een bepaald soort inhoud.
+A Content Type is the building block of Drupal. Think of it as a template for a certain type of content.
 
-**Voorbeelden:**
-- Een "Blogpost" heeft meestal velden als titel, body, auteur, datum
-- Een "Product" heeft misschien naam, prijs, afbeelding, beschrijving
-- Een "Hero" (in ons geval) heeft titel, subtitel, knoptekst, knoplink, achtergrondafbeelding
+**Examples:**
+- A "Blogpost" usually has fields like title, body, author, date
+- A "Product" might have name, price, image, description
+- A "Hero" (in our case) has title, subtitle, button text, button link, background image
 
-**Door een Content Type aan te maken, kan je editors de juiste velden geven, zodat ze content invoeren zonder HTML of CSS aan te raken. Drupal vult dan automatisch jouw component met die velden.**
+**By creating a Content Type, you can give editors the right fields so they can enter content without touching HTML or CSS. Drupal then automatically fills your component with those fields.**
 
-## Stap 12.1: Een Content Type aanmaken
+## Step 12.1: Creating a Content Type
 
-1. Log in op je Drupal-site
-2. Hover in de admin-balk bovenaan naar **Structure**
-3. Klik op **Content types**
-4. Klik op **Add content type**
+1. Log into your Drupal site
+2. Hover over **Structure** in the admin bar at the top
+3. Click **Content types**
+4. Click **Add content type**
 
-Je komt nu op een pagina waar je een nieuwe content type kan definiëren.
+You now come to a page where you can define a new content type.
 
-- **Name**: geef de naam van je component, bv. "Hero"
-- **Description**: iets als "Een hero-component met titel, subtitel, afbeelding en knoppen, gekoppeld aan UI Patterns"
-- Klik op **Save and manage fields**
+- **Name**: give the name of your component, e.g., "Hero"
+- **Description**: something like "A hero component with title, subtitle, image, and buttons, linked to UI Patterns"
+- Click **Save and manage fields**
 
-## Stap 12.2: Velden toevoegen
+## Step 12.2: Adding fields
 
-Nu zie je een scherm "Manage fields". Dit is de plek waar je de velden definieert die nodig zijn voor jouw component. Denk terug aan je YAML-structuur (die Copilot genereerde). Daar hadden we:
+Now you see a "Manage fields" screen. This is where you define the fields needed for your component. Think back to your YAML structure (which Copilot generated). There we had:
 
 - `title`
 - `subtitle`
@@ -695,80 +691,80 @@ Nu zie je een scherm "Manage fields". Dit is de plek waar je de velden definieer
 - `button2_text`
 - `button2_url`
 
-**Voor elk van deze maak je een veld aan.**
+**For each of these, you create a field.**
 
-**Voorbeeld:**
-1. Klik **Add field** → kies **Text (plain)** → noem dit "Title"
-2. Voeg een ander veld toe: **Text (plain)** → noem dit "Subtitle"
-3. Voeg een veld toe: **Image** → noem dit "Background image"
-4. Voeg twee velden toe: **Text (plain)** voor `button1_text` en `button2_text`
-5. Voeg twee velden toe: **Link** voor `button1_url` en `button2_url`
+**Example:**
+1. Click **Add field** → choose **Text (plain)** → name this "Title"
+2. Add another field: **Text (plain)** → name this "Subtitle"
+3. Add a field: **Image** → name this "Background image"
+4. Add two fields: **Text (plain)** for `button1_text` and `button2_text`
+5. Add two fields: **Link** for `button1_url` and `button2_url`
 
-Na elk veld klik je op **Save and continue** en stel je indien nodig de maximumlengte in.
+After each field, click **Save and continue** and set the maximum length if necessary.
 
-::: tip Waarom dit belangrijk is
-Door velden toe te voegen, maak je een brug tussen redactie en component.
+::: tip Why this is important
+By adding fields, you create a bridge between editing and component.
 
-- **De editor** ziet gewoon velden om tekst en afbeeldingen in te vullen
-- **De developer** (jij) weet dat die velden automatisch naar het juiste Twig-property gaan
+- **The editor** sees just fields to fill in text and images
+- **The developer** (you) knows that those fields automatically go to the right Twig property
 
-Dit betekent: geen copy-paste meer van content naar code. Alles loopt via de CMS-interface.
+This means: no more copy-paste from content to code. Everything runs through the CMS interface.
 :::
 
-## Stap 12.3: Content toevoegen en testen
+## Step 12.3: Adding content and testing
 
-1. Ga naar de bovenbalk en klik op **Content → Add content → Hero**
-2. Je krijgt nu een formulier met alle velden die je net gemaakt hebt. Vul bijvoorbeeld dit in:
-   - **Title**: "Welkom bij mijn site"
-   - **Subtitle**: "AI en design werken hier samen"
-   - **Background image**: upload een afbeelding van Unsplash
+1. Go to the top bar and click **Content → Add content → Hero**
+2. You now get a form with all the fields you just created. Fill in for example:
+   - **Title**: "Welcome to my site"
+   - **Subtitle**: "AI and design work together here"
+   - **Background image**: upload an image from Unsplash
    - **Button1_text**: "Get Started"
    - **Button1_url**: `/start`
    - **Button2_text**: "Learn More"
    - **Button2_url**: `/docs`
-3. Klik op **Save**
+3. Click **Save**
 
-Je hebt nu een stuk content dat alle data bevat voor jouw Hero-component. Maar hoe koppel je dat nu aan je YAML/Twig/CSS-bestanden? Dat doen we met de Layout Builder.
+You now have a piece of content that contains all the data for your Hero component. But how do you link that to your YAML/Twig/CSS files? We do that with the Layout Builder.
 
-### Layout Builder – de visuele lijm
+### Layout Builder – the visual glue
 
-De Layout Builder is een van de krachtigste features van Drupal. Het laat je toe om pagina's visueel op te bouwen met secties, kolommen en blokken — vergelijkbaar met tools zoals Elementor (WordPress) of Webflow.
+The Layout Builder is one of the most powerful features of Drupal. It allows you to visually build pages with sections, columns, and blocks — similar to tools like Elementor (WordPress) or Webflow.
 
-Maar het verschil is: **Layout Builder werkt diep geïntegreerd met Drupal's entity- en field-systeem. Daardoor kan je UI Patterns-componenten koppelen aan Content Types.**
+But the difference is: **Layout Builder works deeply integrated with Drupal's entity and field system. This allows you to link UI Patterns components to Content Types.**
 
-## Stap 12.4: Layout Builder activeren voor Hero
+## Step 12.4: Activating Layout Builder for Hero
 
-1. Ga naar **Structure → Content types → Hero**
-2. Klik op **Manage display**
-3. Onderaan zie je een sectie **Layout options**. Zet een vinkje bij **Use Layout Builder**
-4. Klik **Save**
+1. Go to **Structure → Content types → Hero**
+2. Click **Manage display**
+3. At the bottom you see a **Layout options** section. Check **Use Layout Builder**
+4. Click **Save**
 
-Nu is Layout Builder ingeschakeld voor het Hero Content Type.
+Now Layout Builder is enabled for the Hero Content Type.
 
-## Stap 12.5: Layout aanpassen
+## Step 12.5: Adjusting layout
 
-1. Klik in dezelfde pagina op **Manage layout**
-2. Je komt nu in de Layout Builder-interface:
-   - Je ziet één of meerdere standaardsecties
-   - Binnen die secties zie je de velden die je zonet gemaakt hebt (title, subtitle, buttons, image)
+1. Click **Manage layout** on the same page
+2. You now come to the Layout Builder interface:
+   - You see one or more default sections
+   - Within those sections you see the fields you just created (title, subtitle, buttons, image)
 
-**Maar dat is nog niet hoe wij het willen: wij willen die velden koppelen aan ons Hero-component dat Copilot gemaakt heeft.**
+**But that's not how we want it: we want to link those fields to our Hero component that Copilot created.**
 
-## Stap 12.6: Velden koppelen aan UI Patterns
+## Step 12.6: Linking fields to UI Patterns
 
-1. Klik rechtsboven op **Add section**. Kies bijvoorbeeld een **1 column layout**
-2. Geef de sectie een naam: "Hero"
-3. Klik op **Add block** in die sectie
-4. Scroll helemaal naar beneden in de lijst van blokken. Daar zie je een sectie **UI Patterns**
-5. Kies je **Hero-component**
+1. Click **Add section** in the top right. Choose for example a **1 column layout**
+2. Give the section a name: "Hero"
+3. Click **Add block** in that section
+4. Scroll all the way down in the list of blocks. There you see a **UI Patterns** section
+5. Choose your **Hero component**
 
-Nu opent een configuratievenster voor je component. Je ziet daar alle props die Copilot in je YAML heeft gezet (`title`, `subtitle`, `image_url`, `button1_text`, `button1_url`, `button2_text`, `button2_url`).
+Now a configuration window opens for your component. You see all the props that Copilot put in your YAML (`title`, `subtitle`, `image_url`, `button1_text`, `button1_url`, `button2_text`, `button2_url`).
 
-### De magische stap: Source koppelen
+### The magical step: Linking Source
 
-Voor elke prop kies je een **source**. Dat betekent: welk Drupal-veld moet hieraan gekoppeld worden?
+For each prop, you choose a **source**. This means: which Drupal field should be linked to this?
 
-**Voorbeeld:**
+**Example:**
 - `title` → Source: `[entity]` → Field: **Title** → `[field item]` → **Text value**
 - `subtitle` → Source: `[entity]` → Field: **Subtitle** → `[field item]` → **Text value**
 - `image_url` → Source: `[entity]` → Field: **Background image** → `[field item]` → **File URL**
@@ -777,49 +773,49 @@ Voor elke prop kies je een **source**. Dat betekent: welk Drupal-veld moet hiera
 - `button2_text` → Source: `[entity]` → Field: **Button 2 text** → `[field item]` → **Text value**
 - `button2_url` → Source: `[entity]` → Field: **Button 2 link** → `[field item]` → **URL**
 
-6. Klik op **Save layout**
+6. Click **Save layout**
 
-### Wat gebeurt er nu?
+### What happens now?
 
-Drupal weet:
-- **De data** komt uit een Content Type (ingevoerd door een editor)
-- **Die data** wordt doorgestuurd naar de properties van je Hero-component
-- **De component renderen** gebeurt via jouw Twig + CSS
+Drupal knows:
+- **The data** comes from a Content Type (entered by an editor)
+- **That data** is forwarded to the properties of your Hero component
+- **Rendering the component** happens via your Twig + CSS
 
-**Resultaat: de Hero die je in Figma ontworpen hebt, verschijnt nu in Drupal — maar volledig gevuld met content die uit de CMS-velden komt.**
+**Result: the Hero you designed in Figma now appears in Drupal — but completely filled with content that comes from the CMS fields.**
 
-### Waarom dit een gamechanger is
+### Why this is a game changer
 
-Normaal zou je als developer hardcoded HTML moeten schrijven telkens als de content verandert. Dat kost tijd, en editors kunnen zelf niets aanpassen.
+Normally, as a developer, you would have to write hardcoded HTML every time the content changes. That takes time, and editors can't adjust anything themselves.
 
-**Nu werkt het zo:**
-1. **Designer** maakt een Figma-component
-2. **Developer** koppelt het één keer via YAML + Copilot
-3. **Editor** vult de velden in Drupal
-4. **Iedereen** doet waar hij goed in is. En Drupal + Copilot doen het saaie werk.
+**Now it works like this:**
+1. **Designer** creates a Figma component
+2. **Developer** links it once via YAML + Copilot
+3. **Editor** fills in the fields in Drupal
+4. **Everyone** does what they're good at. And Drupal + Copilot do the boring work.
 
 ## Best practices
 
 ### Naming conventions
-- Hou je YAML-namen (bv. `button1_text`) simpel en duidelijk
-- Gebruik underscores, geen spaties
-- Zorg voor consistentie tussen YAML en Drupal veldnamen
+- Keep your YAML names (e.g., `button1_text`) simple and clear
+- Use underscores, no spaces
+- Ensure consistency between YAML and Drupal field names
 
-### Documentatie
-- Documenteer je mapping: noteer ergens welke Drupal-velden bij welke props horen
-- Dit helpt nieuwe teamleden en jezelf later
+### Documentation
+- Document your mapping: note somewhere which Drupal fields belong to which props
+- This helps new team members and yourself later
 
-### Versiebeheer
-- Commit elk component apart in Git
-- Gebruik duidelijke commit messages zoals `feat(hero): add YAML, twig, css`
+### Version control
+- Commit each component separately in Git
+- Use clear commit messages like `feat(hero): add YAML, twig, css`
 
-### Herbruikbaarheid
-- Denk vooruit. Misschien heb je later nog een "Card" of "Feature List"
-- Gebruik dezelfde structuur zodat Copilot sneller leert
+### Reusability
+- Think ahead. Maybe you'll have a "Card" or "Feature List" later
+- Use the same structure so Copilot learns faster
 
-## Dankwoord
+## Acknowledgments
 
-Tijdens mijn stage bij Calibrate heb ik de kans gekregen om te experimenteren met nieuwe technologieën en workflows binnen Drupal. Het idee om Figma te koppelen met Drupal via MCP en Copilot heb ik daar voor het eerst ontdekt. Dankzij de vrijheid en begeleiding op mijn stage kon ik dit concept verder uitwerken en toepassen in een realistisch project.
+During my internship at Calibrate, I had the opportunity to experiment with new technologies and workflows within Drupal. The idea of linking Figma with Drupal via MCP and Copilot was first discovered there. Thanks to the freedom and guidance during my internship, I was able to further develop and apply this concept in a realistic project.
 
-Een speciale dank aan mijn stagebegeleiders en het hele team van Calibrate voor hun steun en de ruimte om te leren. Zonder die ervaring had ik dit experiment en deze tutorial nooit zo concreet kunnen maken.
+A special thanks to my internship supervisors and the entire Calibrate team for their support and the space to learn. Without that experience, I would never have been able to make this experiment and this tutorial so concrete.
 
